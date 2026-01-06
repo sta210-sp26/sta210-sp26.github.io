@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 04: Logistic regression – STA 210 - Spring 2026</title>
+<title>HW 04 – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -137,19 +102,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-sp25" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/sta210-sp26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <a href="https://edstem.org/us/courses/70992/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
+    <a href="https://edstem.org/us/courses/91299" title="Ed Discussion" class="quarto-navigation-tool px-1" aria-label="Ed Discussion"><i class="bi bi-chat-dots-fill"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/47067">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/68771">
             Canvas
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/938130">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/1212990">
             Gradescope
             </a>
           </li>
@@ -309,6 +274,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lab 06</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 08</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -342,8 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=347eba5e-3c22-4926-8731-b25e0125ae4f" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture recordings</span></a>
+  <a href="https://forms.office.com/r/TwGidRkmb0" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture recording request</span></a>
   </div>
 </li>
     </ul>
@@ -351,42 +328,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  </ul></li>
-  <li><a href="#data-why-many-americans-dont-vote" id="toc-data-why-many-americans-dont-vote" class="nav-link" data-scroll-target="#data-why-many-americans-dont-vote">Data: “Why Many Americans Don’t Vote”</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-04.html">HW 04</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">HW 04: Logistic regression</h1>
+<h1 class="title">HW 04</h1>
 </div>
 
 
@@ -403,269 +353,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Due date
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Tuesday, April 8 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
-<ul>
-<li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
-<li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
-</ul>
-</div>
-</div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>In this assignment, you will analyze data from an online Ipsos survey that was conducted for the 2020 “Why Many Americans Don’t Vote” from the now defunct data journalism website FiveThirtyEight. You will use logistic regression for interpretation and prediction. You can find a <a href="https://canvas.duke.edu/courses/47067/files/folder/articles?preview=2880646">PDF of the article on Canvas</a> and read more about the polling design and respondents in the README of the <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">GitHub repo</a> for the data.</p>
-<section id="learning-goals" class="level2">
-<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
-<p>By the end of the assignment you will be able to…</p>
-<ul>
-<li><p>Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables</p></li>
-<li><p>Conduct exploratory data analysis for logistic regression</p></li>
-<li><p>Interpret coefficients of logistic regression model</p></li>
-<li><p>Use statistics to help choose the best fit model</p></li>
-<li><p>Use the logistic regression model for prediction and classification</p></li>
-</ul>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp25">sta210-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-04</strong>. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://sta210-sp25.netlify.app/labs/lab-00#getting-started">Lab 00</a> for details on cloning a repo and starting a new project in R.</p></li>
-</ul>
-</section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>The following packages will be used for this assignment.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-</section>
-<section id="data-why-many-americans-dont-vote" class="level1">
-<h1>Data: “Why Many Americans Don’t Vote”</h1>
-<p>The data from the 2020 article “Why Many Americans Don’t Vote” includes information from polling done by Ipsos for FiveThirtyEight. Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. We will focus on using the demographic variables and someone’s party identification to understand whether an eligible voter is a “frequent” voter.</p>
-<p>The codebook for the variable definitions can be found in the <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">GitHub repo</a> for the data. The variables we’ll focus on are:</p>
-<ul>
-<li><p><code>ppage</code>: Age of respondent</p></li>
-<li><p><code>educ</code>: Highest educational attainment category.</p></li>
-<li><p><code>race</code>: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.</p></li>
-<li><p><code>gender</code>: Gender of respondent</p></li>
-<li><p><code>income_cat</code>: Household income category of respondent</p></li>
-<li><p><code>Q30</code>: Response to the question “Generally speaking, do you think of yourself as a…”</p>
-<ul>
-<li>1:Republican</li>
-<li>2: Democrat</li>
-<li>3: Independent</li>
-<li>4: Another party, please specify</li>
-<li>5: No preference</li>
-<li>-1: No response</li>
-</ul></li>
-<li><p><code>voter_category</code>: past voting behavior:</p>
-<ul>
-<li>always: respondent voted in all or all-but-one of the elections they were eligible in</li>
-<li>sporadic: respondent voted in at least two, but fewer than all-but-one of the elections they were eligible in</li>
-<li>rarely/never: respondent voted in 0 or 1 of the elections they were eligible in</li>
-</ul></li>
-</ul>
-<p>The data is in the file <code>fivethirtyeight-nonvoters-data.csv</code> in the <code>data</code> folder of your GitHub repo.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note that the authors use weighting to make the final sample more representative on the US population for their article. We will not use the weighting in this assignment, so we should treat the sample as a convenience sample rather than a random sample of the population.</p>
-</div>
-</div>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p>The goal of this analysis is use the polling data to examine the relationship between U.S. adults’ political party identification and voting behavior.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Why do you think the authors chose to only include data from people who were eligible to vote for at least four election cycles?</p>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Let’s prepare the data for analysis and modeling.</p>
-<ul>
-<li>Create a new variable called <code>frequent_voter</code> that takes the value 1 if the <code>voter_category</code> is “always” and 0 otherwise.</li>
-<li>Make a table of the distribution of <code>frequent_voter</code>.</li>
-<li>What percentage of the respondents in the data say they voted “in all or all-but-one of the elections they were eligible in”?</li>
-</ul>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>The variable <code>Q30</code> contains the respondent’s political party identification. Make a new variable, <code>party_id</code>, that simplifies <code>Q30</code> into three categories: “Democrat”, “Republican”, “Independent/Neither”, The category “Independent/Neither” will also include respondents who did not answer the question. Make <code>party_id</code> a factor and relevel it so that it is consistent with the ordering of the responses in Question 30 of the survey.</p>
-<ul>
-<li>Make a plot of the distribution of <code>party_id</code>.</li>
-<li>Which category of <code>party_id</code> occurs most frequently in this data set?</li>
-</ul>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>In the FiveThirtyEight article, the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.</p>
-<ul>
-<li><p>Make a segmented barplot (also known as a stacked barplot) displaying the distribution of <code>frequent_voter</code> for each category of <code>party_id</code>. Make the plot such that the percentages (instead of counts) are displayed.</p></li>
-<li><p>Use the plot to describe the relationship between these two variables.</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>See the plots of demographic information by voting history in the <a href="https://canvas.duke.edu/courses/47067/files/folder/articles?preview=2880646">FiveThirtyEight article</a> for examples of segmented bar plots.</p>
-</div>
-</div>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Let’s start by fitting a model using the demographic factors - <code>ppage</code>, <code>educ</code>, <code>race</code>, <code>gender</code>, <code>income_cat</code> - to predict the odds a person is a frequent voter.</p>
-<ul>
-<li><p>Split the data into training (75%) and testing sets (25%). Use a seed of <code>29</code>.</p></li>
-<li><p>Fit the model on the training data. Display the model using 3 digits.</p></li>
-<li><p>Consider the relationship between <code>ppage</code> and one’s voting behavior. Interpret the coefficient of <code>ppage</code> in the context of the data in terms of the <strong>odds</strong> a person is a frequent voter.</p></li>
-</ul>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p><em>Should party identification be added to the model?</em> Use a drop-in-deviance test to determine if party identification should be added to the model fit in the previous exercise. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.</p>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Display the model chosen from the previous exercise using 3 digits.</p>
-<p>Then use the model selected to write a short paragraph (2 - 5 sentences) describing the effect (or lack of effect) of political party on the odds a person is a frequent voter. The paragraph should include an indication of which levels (if any) are statistically significant along with specifics about the differences in the odds between the political parties, as appropriate.</p>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>In the article, the authors write</p>
-<blockquote class="blockquote">
-<p><em>“Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don’t belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system.”</em></p>
-</blockquote>
-<p>Consider the model you selected in Exercise 6. Is it consistent with this statement? Briefly explain why or why not.</p>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Use the testing data to produce the ROC curve and calculate the area under curve (AUC) for the model selected in Exercise 6. Write 1 - 2 sentences describing how well the model fits the data.</p>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>You have been tasked by a local political organization to identify adults in the community who are frequent voters. These adults will receive targeted political mailings that will be different from the mailings sent to adults who are not frequent voters. You will use the model selected in Exercise 6 to identify the frequent voters.</p>
-<p>Make a confusion matrix based on the cut-off probability of 0.25. Use the confusion matrix to calculate the following:</p>
-<ul>
-<li><p>Sensitivity</p></li>
-<li><p>Specificity</p></li>
-<li><p>False negative rate</p></li>
-<li><p>False positive rate</p></li>
-</ul>
-</section>
-</section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-</div>
-</div>
-<p>To submit your assignment:</p>
-<ul>
-<li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/47067">STA 210 Canvas site</a>.</p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.<br>
-</p></li>
-</ul>
-</section>
-<section id="grading" class="level1">
-<h1>Grading</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ex 1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Ex 2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 10</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Workflow &amp; formatting</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+<p>To be posted.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1088,7 +778,7 @@ Warning
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

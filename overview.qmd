@@ -1,6 +1,6 @@
 ---
 title: "STA 210 - Regression Analysis"
-subtitle: "Spring 2025 - Dr. Maria Tackett"
+subtitle: "Spring 2026  - Dr. Maria Tackett"
 navbar: false
 ---
 
@@ -16,34 +16,23 @@ Topics include applications of linear and logistic regression, interpretation, d
 
 # Class meetings
 
-|             |                         |                   |
-|-------------|-------------------------|-------------------|
-| **Lecture** | Tue & Thu 3:05 - 4:20pm | Old Chemistry 116 |
-| **Lab 01**  | Mon 3:05 - 4:20pm       | Old Chemistry 001 |
-| **Lab 02**  | Mon 4:40 - 5:55pm       | Perkins Link #5   |
+See Canvas for class meeting times and locations.
 
 # Teaching team
 
 ### Instructor
 
-[Maria Tackett](https://www2.stat.duke.edu/~mt324) is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students' sense of community, self-efficacy, and learning outcomes.
+[Maria Tackett](https://www2.stat.duke.edu/~mt324) is an Associate Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students' sense of community, self-efficacy, and learning outcomes.
 
 **See Canvas for office hours times and locations.**
 
 ## Teaching assistants
 
-+----------------+----------------+
-| **Name**       | **Role**       |
-+----------------+----------------+
-| Sylvia Vincent | Head TA\       |
-|                | Lab 01L leader |
-|                |                |
-|                | Lab 02L leader |
-+----------------+----------------+
-| Ishrit Gupta   | Lab 02L leader |
-+----------------+----------------+
-| Kareena Legare | Lab 01L helper |
-+----------------+----------------+
+|                |            |
+|----------------|------------|
+| **Name**       | **Role**   |
+| Adeli Hutton   | Lab leader |
+| Shane Rybacki  | Lab leader |
 
 **See Canvas for office hours times and locations.**
 

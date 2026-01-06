@@ -1,12 +1,12 @@
 ---
-title: "Lab 02"
-subtitle: "Coffee ratings"
+title: "Lab 07"
 execute:
   freeze: auto
-  echo: true
-  eval: false
+  echo: false
   warning: false
   message: false
+format: html
+bibliography: references.bib
 ---
 
 To be posted.

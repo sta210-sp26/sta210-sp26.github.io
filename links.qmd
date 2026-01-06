@@ -3,9 +3,10 @@ title: "Useful links"
 ---
 
 |  |  |
-|--------------------|---------------------------------------------------|
+|---------------------|---------------------------------------------------|
 | RStudio containers | 🔗 for [Duke Container Manager](https://cmgr.oit.duke.edu/containers) |
-| Course GitHub organization | 🔗 for [GitHub](https://github.com/sta221-sp25) |
-| Course Canvas site | 🔗 for [Canvas](https://canvas.duke.edu/courses/47067) |
-| Discussion forum | 🔗 to [Ed Discussion](https://edstem.org/us/courses/70992/discussion) |
-| Assignment submission | 🔗 to [Gradescope](https://www.gradescope.com/courses/938130) |
+| Course GitHub organization | 🔗 for [GitHub](https://github.com/sta221-sp26) |
+| Course Canvas site | 🔗 for [Canvas](https://canvas.duke.edu/courses/68771) |
+| Discussion forum | 🔗 to [Ed Discussion](https://edstem.org/us/courses/91299) |
+| Assignment submission | 🔗 to [Gradescope](https://www.gradescope.com/courses/1212990) |
+| Lecture recording request | 🔗 to [Lecture recording request form](https://forms.office.com/r/TwGidRkmb0) |

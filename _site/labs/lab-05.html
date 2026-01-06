@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 05: Logistic Regression – STA 210 - Spring 2026</title>
+<title>Lab 05 – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,62 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -126,35 +71,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -186,19 +102,19 @@ window.Quarto = {
       <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-sp25" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/sta210-sp26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <a href="https://edstem.org/us/courses/70992/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
+    <a href="https://edstem.org/us/courses/91299" title="Ed Discussion" class="quarto-navigation-tool px-1" aria-label="Ed Discussion"><i class="bi bi-chat-dots-fill"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/47067">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/68771">
             Canvas
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/938130">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/1212990">
             Gradescope
             </a>
           </li>
@@ -358,6 +274,18 @@ window.Quarto = {
  <span class="menu-text">Lab 06</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 08</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -391,8 +319,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=347eba5e-3c22-4926-8731-b25e0125ae4f" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture recordings</span></a>
+  <a href="https://forms.office.com/r/TwGidRkmb0" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture recording request</span></a>
   </div>
 </li>
     </ul>
@@ -400,46 +328,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link active" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a>
-  <ul class="collapse">
-  <li><a href="#merge-conflicts-uh-oh" id="toc-merge-conflicts-uh-oh" class="nav-link" data-scroll-target="#merge-conflicts-uh-oh">Merge Conflicts (uh oh)</a>
-  <ul class="collapse">
-  <li><a href="#resolving-a-merge-conflict" id="toc-resolving-a-merge-conflict" class="nav-link" data-scroll-target="#resolving-a-merge-conflict">Resolving a merge conflict</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab-00.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab-05.html">Lab 05</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 05: Logistic Regression</h1>
+<h1 class="title">Lab 05</h1>
 </div>
 
 
@@ -456,274 +353,11 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Due date
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This lab is due on <strong>Thursday, March at 27 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
-<ul>
-<li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your team’s GitHub repo</li>
-<li>Final <code>.pdf</code> file submitted on Gradescope</li>
-</ul>
-</div>
-</div>
-<section id="logistic-regression" class="level1">
-<h1>Logistic Regression</h1>
-<p>In this lab, you will use logistic regression analysis to classify rice varieties based on features derived from image data. You will fit and interpret the logistic regression models using training data, then use testing data to assess how well the model classifies observations into the two varieties.</p>
-</section>
-<section id="learning-goals" class="level1">
-<h1>Learning goals</h1>
-<p>By the end of the lab you will be able to…</p>
-<ul>
-<li><p>conduct exploratory data analysis for data with a binary response variable.</p></li>
-<li><p>fit and interpret logistic regression model.</p></li>
-<li><p>use relevant metrics and subject-matter context to identify a threshold for classification.</p></li>
-<li><p>use training and testing data to fit and assess model performance.</p></li>
-<li><p>Develop strategies for dealing with merge conflicts</p></li>
-</ul>
-<section id="merge-conflicts-uh-oh" class="level2">
-<h2 class="anchored" data-anchor-id="merge-conflicts-uh-oh">Merge Conflicts (uh oh)</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/merge-no-conflict.png" class="img-fluid figure-img"></p>
-<figcaption>Collaboration with no merge conflict</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/merge-conflict.png" class="img-fluid figure-img"></p>
-<figcaption>Collaboration with a merge conflict</figcaption>
-</figure>
-</div>
-<p>You may have seen something like the image above through the course of your collaboration. When two collaborators make changes to a file and push the file to their repository, git merges these two files.</p>
-<p>If these two files have conflicting content on the same line, git will produce a <strong>merge conflict</strong>. Merge conflicts need to be resolved manually, as they require a human intervention:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/merge-conflict-identifiers.png" class="img-fluid figure-img"></p>
-<figcaption>Merge conflict identifiers</figcaption>
-</figure>
-</div>
-<p>To resolve the merge conflict, decide if you want to keep only your text, the text on GitHub, or incorporate changes from both texts. Delete the conflict markers <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> and make the changes you want in the final merge.</p>
-<p><strong>Assign numbers 1, 2, 3, and 4 to each of your team members</strong> (if only 3 team members, just number 1 through 3). Go through the following steps in detail, which simulate a merge conflict. Completing this exercise will be part of the lab grade.</p>
-<section id="resolving-a-merge-conflict" class="level3">
-<h3 class="anchored" data-anchor-id="resolving-a-merge-conflict">Resolving a merge conflict</h3>
-<p><strong>Step 1: Everyone</strong> clone the <strong>merge-conflict</strong> assignment repo in RStudio and open file <strong>merge-conflict.qmd</strong>.</p>
-<p><strong>Member 4</strong> should look at the group’s repo on GitHub.com to ensure that the other members’ files are pushed to GitHub after every step.</p>
-<p><strong>Step 2: Member 1</strong> Change the team name to your team name. <em>Render, commit, and push</em>.</p>
-<p><strong>Step 3: Member 2</strong> Change the team name to something different (i.e., not your team name). <em>Render, commit, and push</em>.</p>
-<p>You should get an error.</p>
-<p><strong>Pull</strong> and review the document with the merge conflict. Read the error to your teammates. You can also show them the error by sharing your screen. A merge conflict occurred because you edited the same part of the document as Member 1. Resolve the conflict with whichever name you want to keep, then render, commit and push again.</p>
-<p><strong>Step 4: Member 3</strong> Write some narrative in the space provided. You should get an error.</p>
-<p>This time, no merge conflicts should occur, since you edited a different part of the document from Members 1 and 2. Read the error to your teammates. You can also show them the error by sharing your screen.</p>
-<p>Click to pull. Then <em>render, commit, and push.</em></p>
-<p><strong>You have successfully completed the merge conflict activity! There is nothing to submit on Gradescope for this activity.</strong> <strong>Please ask your TA if you have any questions about merge conflicts and collaborating in GitHub.</strong></p>
-</section>
-</section>
-</section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<ul>
-<li><p>A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.</p></li>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp25">sta210-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>lab-05</strong>. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://sta210-sp25.netlify.app/labs/lab-00#getting-started">Lab 00 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
-<li><p>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</p></li>
-</ul>
-</section>
-<section id="workflow-using-git-and-github-as-a-team" class="level1">
-<h1>Workflow: Using Git and GitHub as a team</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>There are no Team Member markers in this lab; however, you should use a similar workflow as in <a href="../lab-03.html">Lab 03</a>. Only one person should type in the group’s .qmd file at a time to avoid merge conflicts. Once that person has finished typing the group’s responses, they should <em>render, commit, and push</em> the changes to GitHub. All other teammates can <em>pull</em> to see the updates in RStudio.</p>
-<p>Every teammate must have at least one commit in the lab. Everyone is expected to contribute to discussion even when they are not typing.Packages</p>
-</div>
-</div>
-<p>You will use the following packages in today’s lab. Add other packages as needed.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>The data in this lab contains measures describing the shape and structure of two rice varieties - <em>Cammeo</em> and <em>Osmancik</em>. To curate the data set, researchers used images from over 3,000 grains a rice in these two varieties. They then used automated methods to process the image data and extract 7 morphological features (features related to the structure) from each image. The data were originally presented and analyzed in <span class="citation" data-cites="cinar2019classification">Cinar and Koklu (<a href="#ref-cinar2019classification" role="doc-biblioref">2019</a>)</span> and was obtained from the <a href="https://archive.ics.uci.edu/dataset/545/rice+cammeo+and+osmancik">UCI Machine Learning Repository</a>.</p>
-<p>This analysis will focus on the following variables:</p>
-<ul>
-<li><p><code>Class</code>: Cammeo or Osmancik</p></li>
-<li><p><code>Area</code>: Size of the rice grain measured in pixels</p></li>
-<li><p><code>Eccentricity</code>: A measure of how round the ellipse is, i.e., how close the shape of the grain is to a circle.</p></li>
-</ul>
-<p><a href="https://archive.ics.uci.edu/dataset/545/rice+cammeo+and+osmancik">Click here</a> for the full data dictionary.</p>
-<div class="cell" data-lable="read-data">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rice <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rice.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p><strong>Goal</strong>: The goal of the analysis is to use Area and Eccentricity to identify grains from the Cammeo variety versus those from the Osmancik variety.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Create a scatterplot of <code>Area</code> versus <code>Eccentricity</code>, such that the color and shape of the points are based on <code>Class</code>.</p>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Based on the plot from the previous exercise, do you think the two rice types can be distinguished based on <code>Area</code> and <code>Eccentricity</code>. Briefly explain.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Split the data into training (75%) and testing sets (25%). Use a seed of <code>210</code> for reproducibility.</p>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>In a logistic regression model, the <em>log-odds</em> of the response being “1” (a “success”) is given by <span class="math display">\[\log\Big(\frac{p_i}{1-p_i}\Big) = \beta_0 + \beta_1X_1 + \dots + \beta_pX_p\]</span></p>
-<p>In this analysis, a “success” means the Class is “Osmancik”.</p>
-<ol type="a">
-<li><p>What does each <span class="math inline">\(p_i\)</span> represent in the context of this analysis?</p></li>
-<li><p>How is the probability of the response variable being “1” calculated from the log-odds? Show or explain the mathematical steps to go from the log-odds to the probability.</p></li>
-</ol>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<ol type="a">
-<li><p>Use the training data to fit the logistic regression model for the response variable <code>Class</code> using the predictors <code>Area</code> and <code>Eccentricity</code>. Neatly display the output using 3 decimal places.</p></li>
-<li><p>Does the intercept have any meaningful interpretation? If so, interpret the intercept. If not, explain why.</p></li>
-</ol>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Interpret the coefficients on <code>Area</code> and <code>Eccentricity</code> in the context of the data in terms of the odds.</p>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<ol type="a">
-<li><p>How would you expect the log-odds of the rice grain being of the Osmancik variety to change if the eccentricity changes from 0.85 to 0.9?</p></li>
-<li><p>How would you expect the odds of the rice grain being of the Osmancik variety to change if the eccentricity changes from 0.85 to 0.9?</p></li>
-</ol>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Now let’s evaluate our model on the test set. Use the <code>predict()</code> function to obtain the predicted probabilities of the rice being Osmancik for the observations in the testing data.</p>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>With these estimated probabilities, we can now try to classify the rice in the test set. Choose a threshold for assigning a class to each observation based on the estimated probability. Briefly explain your reasoning for selecting the threshold, including any analysis used to make your decision (if applicable).</p>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>Compare the estimated class assignments based on the threshold from the previous exericse with the actual classes. Comment on the result and the model’s performance.</p>
-</section>
-</section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<p>Submit your completed assignment as a <strong>PDF</strong> to Gradescope. Follow the instructions carefully to ensure your submission is complete.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-</div>
-</div>
-<p>To submit your assignment:</p>
-<ul>
-<li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/47067">STA 210 Canvas site</a>.</p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Select all team members’ names, so they receive credit on the assignment. <a href="https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members">Click here</a> for video on adding team members to assignment on Gradescope.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
-</ul>
-</section>
-<section id="grading" class="level1">
-<h1>Grading</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 10</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Merge conflict activity</td>
-<td style="text-align: left;">5</td>
-</tr>
-</tbody>
-</table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member, a neatly organized document with readable code, and updating the team name and date in the YAML.</p>
+<p>To be posted.</p>
 
 
 
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-cinar2019classification" class="csl-entry" role="listitem">
-Cinar, Ilkay, and Murat Koklu. 2019. <span>“Classification of Rice Varieties Using Artificial Intelligence Methods.”</span> <em>International Journal of Intelligent Systems and Applications in Engineering</em> 7 (3): 188–94.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1144,7 +778,7 @@ Cinar, Ilkay, and Murat Koklu. 2019. <span>“Classification of Rice Varieties U
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

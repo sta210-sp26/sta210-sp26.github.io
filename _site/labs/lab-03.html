@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 03: Model comparison – STA 210 - Spring 2026</title>
+<title>Lab 03 – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -106,35 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -166,19 +102,19 @@ window.Quarto = {
       <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-sp25" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/sta210-sp26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <a href="https://edstem.org/us/courses/70992/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
+    <a href="https://edstem.org/us/courses/91299" title="Ed Discussion" class="quarto-navigation-tool px-1" aria-label="Ed Discussion"><i class="bi bi-chat-dots-fill"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/47067">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/68771">
             Canvas
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/938130">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/1212990">
             Gradescope
             </a>
           </li>
@@ -338,6 +274,18 @@ window.Quarto = {
  <span class="menu-text">Lab 06</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 08</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -371,8 +319,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=347eba5e-3c22-4926-8731-b25e0125ae4f" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture recordings</span></a>
+  <a href="https://forms.office.com/r/TwGidRkmb0" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture recording request</span></a>
   </div>
 </li>
     </ul>
@@ -380,45 +328,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
-  <ul class="collapse">
-  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
-  </ul></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data-candy-competition" id="toc-data-candy-competition" class="nav-link" data-scroll-target="#data-candy-competition">Data: Candy competition</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab-00.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab-03.html">Lab 03</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 03: Model comparison</h1>
-<p class="subtitle lead">Candy competition</p>
+<h1 class="title">Lab 03</h1>
 </div>
 
 
@@ -435,334 +353,11 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This lab is due on <strong>Thursday, February 13 at 11:59pm.</strong></p>
-</div>
-</div>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In today’s lab you will analyze data about candy that was collected from an online experiment conducted at <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.</p>
-<section id="learning-goals" class="level3">
-<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
-<p>By the end of the lab you will be able to</p>
-<ul>
-<li><p>transform and create new variables</p></li>
-<li><p>compare models</p></li>
-<li><p>continue developing a collaborative workflow with your teammates</p></li>
-</ul>
-</section>
-</section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp25">sta210-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>lab-03</strong>. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://sta210-sp25.netlify.app/labs/lab-00#getting-started">Lab 00 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
-<li><p>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</p></li>
-<li><p><strong>Do not make any changes to the <code>.qmd</code> file until the instructions tell you do to so.</strong></p></li>
-</ul>
-<section id="workflow-using-git-and-github-as-a-team" class="level2">
-<h2 class="anchored" data-anchor-id="workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>There are no Team Member markers in this lab; however, you should use a similar workflow as in Lab 02. Only one person should type in the group’s .qmd file at a time. Once that person has finished typing the group’s responses, they should <em>render, commit, and push</em> the changes to GitHub. All other teammates can <em>pull</em> to see the updates in RStudio.</p>
-<p>Every teammate must have at least one commit in the lab. Everyone is expected to contribute to discussion even when they are not typing.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages are used in the lab.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="data-candy-competition" class="level1">
-<h1>Data: Candy competition</h1>
-<p>The data from this lab comes from the the article FiveThirtyEight <a href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking"><em>The Ultimate Halloween Candy Power Ranking</em></a> by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g.&nbsp;Reeses vs.&nbsp;Skittles). Click <a href="http://walthickey.com/2017/10/18/whats-the-best-halloween-candy/">here</a> to check out some of the match ups.</p>
-<p>The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>chocolate</code></td>
-<td>Does it contain chocolate?</td>
-</tr>
-<tr class="even">
-<td><code>fruity</code></td>
-<td>Is it fruit flavored?</td>
-</tr>
-<tr class="odd">
-<td><code>caramel</code></td>
-<td>Is there caramel in the candy?</td>
-</tr>
-<tr class="even">
-<td><code>peanutalmondy</code></td>
-<td>Does it contain peanuts, peanut butter or almonds?</td>
-</tr>
-<tr class="odd">
-<td><code>nougat</code></td>
-<td>Does it contain nougat?</td>
-</tr>
-<tr class="even">
-<td><code>crispedricewafer</code></td>
-<td>Does it contain crisped rice, wafers, or a cookie component?</td>
-</tr>
-<tr class="odd">
-<td><code>hard</code></td>
-<td>Is it a hard candy?</td>
-</tr>
-<tr class="even">
-<td><code>bar</code></td>
-<td>Is it a candy bar?</td>
-</tr>
-<tr class="odd">
-<td><code>pluribus</code></td>
-<td>Is it one of many candies in a bag or box?</td>
-</tr>
-<tr class="even">
-<td><code>sugarpercent</code></td>
-<td>The percentile of sugar it falls under within the data set. Values 0 - 1.</td>
-</tr>
-<tr class="odd">
-<td><code>pricepercent</code></td>
-<td>The unit price percentile compared to the rest of the set. Values 0 - 1.</td>
-</tr>
-<tr class="even">
-<td><code>winpercent</code></td>
-<td>The overall win percentage according to 269,000 matchups. Values 0 - 100.</td>
-</tr>
-</tbody>
-</table>
-<p>Use the code below to get a glimpse of the <code>candy_rankings</code> data frame in the <strong>fivethirtyeight</strong> R package.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candy_rankings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 85
-Columns: 13
-$ competitorname   &lt;chr&gt; "100 Grand", "3 Musketeers", "One dime", "One quarter…
-$ chocolate        &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
-$ fruity           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…
-$ caramel          &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
-$ peanutyalmondy   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, …
-$ nougat           &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
-$ crispedricewafer &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
-$ hard             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
-$ bar              &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
-$ pluribus         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE…
-$ sugarpercent     &lt;dbl&gt; 0.732, 0.604, 0.011, 0.011, 0.906, 0.465, 0.604, 0.31…
-$ pricepercent     &lt;dbl&gt; 0.860, 0.511, 0.116, 0.511, 0.511, 0.767, 0.767, 0.51…
-$ winpercent       &lt;dbl&gt; 66.97173, 67.60294, 32.26109, 46.11650, 52.34146, 50.…</code></pre>
-</div>
-</div>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p>The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy, as measured by <code>winpercent</code>.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<ol type="a">
-<li><p>Visualize the relationship between the response variable <code>winpercent</code> and one potential quantitative predictor. Write an observation from the graph.</p></li>
-<li><p>Visualize the relationship between the response variable and one potential categorical predictor. Write an observation from the graph.</p></li>
-</ol>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Split the data into training (80%) and testing sets (20%). Use a seed of <code>210</code>.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>We will do some feature engineering<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to transform and create new variables to consider for the model. Conduct the following steps to the <strong>training</strong> data set.</p>
-<ul>
-<li><p>Create a categorical variable that breaks <code>sugarpercent</code> into quartiles:</p>
-<ul>
-<li><p>“Q1” If <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> the <span class="math inline">\(25^{th}\)</span> percentile.</p></li>
-<li><p>“Q2” if <span class="math inline">\(25^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(50^{th}\)</span> percentile.</p></li>
-<li><p>“Q3” if <span class="math inline">\(50^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
-<li><p>“Q4” if <code>sugarpercent</code> <span class="math inline">\(\geq\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
-</ul></li>
-<li><p>Multiply <code>pricepercent</code> * 100, so the variable ranges from 0 - 100% instead of 0 - 1.</p></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You will use these variables whenever <code>sugarpercent</code> and <code>pricepercent</code> are referenced in the remainder of the lab.</p>
-</div>
-</div>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<ol type="a">
-<li><p>Fit a model using <code>sugarpercent</code>, <code>pricepercent</code>, <code>chocolate</code>, <code>peanutalmondy</code>, the interaction between <code>pricepercent</code> and <code>chocolate</code>, and the interaction between <code>chocolate</code> and <code>peanutalmondy</code> to predict <code>winpercent</code>. Neatly display the model using 3 digits.</p></li>
-<li><p>Interpret the intercept in the context of the data.</p></li>
-</ol>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Use the model from the previous exercise to interpret the following in the context of the data:</p>
-<ol type="a">
-<li><p>Coefficient of <code>sugarpercent = Q3</code>.</p></li>
-<li><p>Coefficient of <code>pricepercent:chocolateTRUE</code></p></li>
-<li><p>Effect of <code>peanutalmondy</code> for chocolate candy</p></li>
-</ol>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Let’s consider another model. Use the training data to fit a model that meets the following criteria:</p>
-<ul>
-<li>Includes variables <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutyalmondy</code>, <code>sugarpercent</code></li>
-<li>Update <code>pricepercent</code> so it ranges from 0 to 100 (instead of 0 to 1)</li>
-<li>Makes <code>sugarpercent</code> a factor where the levels equal the four quartiles: 0 - 0.25, 0.25 - 0.50, 0.50 - 0.75, 0.75 - 1</li>
-<li>Includes the interaction between <code>pricepercent</code> and <code>peanutyalmondy</code></li>
-</ul>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<ol type="a">
-<li><p>Consider the model from Exercise 4 as “Model 1” and the model fit in Exercise 6 as “Model 2”. Use the <code>glance()</code> function to calculate <span class="math inline">\(Adj. R^2\)</span> for both models.</p></li>
-<li><p>Compute RMSE for the both models.</p></li>
-<li><p>Which model would you choose based on the results from parts (a) and (b)? Briefly explain.</p></li>
-</ol>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Now let’s use the testing data to evaluate the performance of the model selected in the previous exercise.</p>
-<ol type="a">
-<li>Compute RMSE on the testing data for the model selected in Exercise 7.</li>
-<li>Interpret RMSE in the context of the data.</li>
-<li>How does this RMSE compare to the value from Exercise 7? Is this what you expected? Briefly explain.</li>
-</ol>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Use the model you selected to describe what generally makes a good candy, as measured by the win percentage.</p>
-</section>
-</section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-</div>
-</div>
-<p>To submit your assignment:</p>
-<ul>
-<li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/47067">STA 210 Canvas site</a>.</p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Select all team members’ names, so they receive credit on the assignment. <a href="https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members">Click here</a> for video on adding team members to assignment on Gradescope.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
-</ul>
-</section>
-<section id="grading-50-points" class="level1">
-<h1>Grading (50 points)</h1>
-<p><br></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">5</td>
-</tr>
-</tbody>
-</table>
+<p>To be posted.</p>
 
 
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1183,7 +778,7 @@ Warning
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

@@ -2,9 +2,7 @@
 
 # Spring Spring 2026
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/014c6ae0-2d6d-4d9b-b5d5-9639ba60dc85/deploy-status)](https://app.netlify.com/projects/sta210-sp26/deploys)
-
-🔗 [sta210-sp26.netlify.app](https://sta210-sp26.netlify.app)
+🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)
 
 ## Colors
 

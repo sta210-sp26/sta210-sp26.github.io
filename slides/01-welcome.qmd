@@ -1,0 +1,357 @@
+---
+title: "Welcome to STA 210!"
+author: "Prof. Maria Tackett"
+date: "01-08-2026"
+date-format: "MMMMM DD, YYYY"
+footer: "[🔗 sta210-sp26.github.io(https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+  html: 
+    output-file: 01-welcome-notes.html
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+# Welcome!
+
+## Meet Prof. Tackett! {.midi}
+
+::: incremental
+-   Education and career journey
+    -   BS in Math and MS in Statistics from University of Tennessee
+    -   Statistician at Capital One
+    -   PhD in Statistics from University of Virginia
+    -   Associate Professor of the Practice, Department of Statistical Science at Duke
+-   Work focuses on statistics education and inclusive teaching practices
+-   Co-leader of the Bass Connections team Mental Health and the Justice System in Durham County
+-   Mom of 3-year-old twins 🙂 (and one grumpy cat)
+:::
+
+## Meet the Teaching Assistants (TAs)!
+
+-   Adeli Hutton (PhD): Lab 02 leader
+
+-   Shane Rybacki (PhD): Lab 01 leader
+
+## Meet your classmates - UPDATE
+
+## Topics
+
+-   Introduction to the course
+
+-   Syllabus activity
+
+-   Data exploration (time permitting)
+
+## Data science workflow
+
+![Source: [Introduction to Regression Analysis](https://intro-regression.github.io)](images/01/data-science-workflow.png){fig-align="center" width="80%"}
+
+## What is regression analysis?
+
+<div>
+
+> *In [statistical modeling](https://en.wikipedia.org/wiki/Statistical_model "Statistical model"), **regression analysis** is a statistical method for [estimating](https://en.wikipedia.org/wiki/Estimation_theory "Estimation theory") the relationship between a [dependent variable](https://en.wikipedia.org/wiki/Dependent_variable "Dependent variable") (often called the outcome or response variable, or a label in machine learning parlance) and one or more [independent variables](https://en.wikipedia.org/wiki/Independent_variable "Independent variable") (often called regressors, predictors, covariates, explanatory variables or features).^[\[1\]](https://en.wikipedia.org/wiki/Regression_analysis#cite_note-1)[\[2\]](https://en.wikipedia.org/wiki/Regression_analysis#cite_note-2)^*
+
+Source: Wikipedia (January 2026)
+
+</div>
+
+## Linear regression in practice
+
+![](images/01/harry-potter-regression.png){fig-align="center" width="60%"}
+
+::: aside
+[Rodgers, J. L. (2024). Reading Harry Potter in French: Using Regression to Evaluate Foreign Language Vocabulary Learning by an Old Guy. CHANCE, 37(3), 13–21.](https://canvas.duke.edu/courses/47067/files/folder/articles?preview=2433433)
+:::
+
+## Example: Reading Harry Potter
+
+![](images/01/harry-potter-graph.png){fig-align="center" width="65%"}
+
+$$
+\text{Lookups} = 23.0 - 0.04 \times \text{Page Number}
+$$
+
+::: aside
+[Rodgers, J. L. (2024). Reading Harry Potter in French: Using Regression to Evaluate Foreign Language Vocabulary Learning by an Old Guy. CHANCE, 37(3), 13–21.](https://canvas.duke.edu/courses/47067/files/folder/articles?preview=2433433)
+:::
+
+## Logistic regression in practice
+
+Pew Research Center conducted the 2025 [What Web Browsing Data Tells Us About How AI Appears Online](https://www.pewresearch.org/data-labs/2025/05/23/what-web-browsing-data-tells-us-about-how-ai-appears-online/).
+
+![Source: [Pew Research](https://www.pewresearch.org/data-labs/2025/05/23/what-web-browsing-data-tells-us-about-how-ai-appears-online/)](images/clipboard-93809062.png){fig-align="center" width="40%"}
+
+:::: aside
+::: small
+[Chapekis, A., Lieb, A., Shah, S., Smith, A. (2025) What Web Browsing Data Tells Us about How AI Appears Online. Pew Research Center.https://www.pewresearch.org/data-labs/2025/05/23/what-web-browsing-data-tells-us-about-how-ai-appears-online/](https://www.pewresearch.org/data-labs/2025/05/23/what-web-browsing-data-tells-us-about-how-ai-appears-online/)
+:::
+::::
+
+## Example: AI mentions
+
+Researchers used logistic regression to classify online articles in which AI was a central focus versus an incidental mention.
+
+::::: columns
+::: {.column width="70%"}
+![Source: Pew Research Center](images/clipboard-598876154.png){fig-align="center" width="50%"}
+:::
+
+::: {.column width="30%"}
+$$
+\log\Big(\frac{\pi}{1-\pi}\Big) = \beta_0 + \beta_1X_1 + \dots + \beta_pX_p
+$$
+:::
+:::::
+
+# STA 210
+
+## What is STA 210?
+
+Learn how to use linear and and logistic regression models to analyze multivariable relationships and answer questions about real-world phenomena using a data-driven approach.
+
+This course emphasizes application over mathematical theory.
+
+**Pre-requisites**
+
+100-level Statistical Science course or Statistical Science 230, 231, or 240L
+
+. . .
+
+::: callout-note
+If you are interested in the theoretical aspects of regression and/or becoming a statistics major, STA 221 - Regression Analysis: Theory and Applications may be a better fit. Come talk with me after class!
+:::
+
+## Course learning objectives {.midi}
+
+By the end of the semester, you will be able to...
+
+-   analyze real-world data to answer questions about multivariable relationships.
+
+-   use R to fit and evaluate linear and logistic regression models.
+
+-   assess whether a proposed model is appropriate and describe its limitations.
+
+-   implement a reproducible analysis workflow using R for analysis, Quarto to write reports and GitHub for version control and collaboration.
+
+-   effectively communicate statistical results to a general audience.
+
+-   assess the ethical considerations and implications of analysis decisions.
+
+## Course topics {.midi}
+
+::::::::: columns
+:::: {.column width="48%"}
+::: {.fragment fragment-index="1"}
+### Linear regression {style="color: #993399"}
+
+-   Coefficient estimation and interpretation
+-   Prediction
+-   Inference
+-   Model evaluation
+-   Model assumptions and diagnostics
+-   Types of predictors
+-   Model comparison + cross validation
+:::
+::::
+
+:::::: {.column width="48%"}
+::: {.fragment fragment-index="2"}
+### Logistic regression {style="color: #993399"}
+
+-   Coefficient estimation and interpretation
+-   Prediction
+-   Model evaluation
+-   Inference
+:::
+
+::: {.fragment fragment-index="3"}
+### Special topics {style="color: #993399"}
+
+-   TBD
+:::
+
+::: {.fragment fragment-index="4"}
+### General topics {style="color: #993399"}
+
+-   Computing using R and GitHub
+-   Presenting statistical results
+-   Collaboration and teamwork
+-   Ethics
+:::
+::::::
+:::::::::
+
+# Course overview
+
+## Course toolkit {.midi}
+
+-   **Website**: <https://sta210-sp26.github.io>
+    -   Central hub for the course!
+    -   **Tour of the website**
+-   **Canvas**: <https://canvas.duke.edu/courses/68771>
+    -   Office hours
+    -   Gradebook
+    -   Announcements
+    -   Gradescope
+    -   Ed Discussion
+-   **GitHub:** <https://github.com/sta210-sp26>
+    -   Distribute assignments
+    -   Platform for version control and collaboration
+
+## Computing toolkit {.midi}
+
+::::::::: columns
+::::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+![](images/01/rstudio.png){fig-alt="RStudio logo" fig-align="center" width="5.61in" height="1.6in"}
+:::
+
+::: {.fragment fragment-index="2"}
+-   All analyses using R, a statistical programming language
+
+-   Write reproducible reports in Quarto
+
+-   Access RStudio through [STA 210 Docker Containers](https://cmgr.oit.duke.edu/containers)
+:::
+:::::
+
+::::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+![](images/01/github.png){fig-alt="GitHub logo" fig-align="center" width="5.61in" height="1.6in"}
+:::
+
+::: {.fragment fragment-index="3"}
+-   Access assignments
+
+-   Facilitates version control and collaboration
+
+-   All work in [STA 210 course organization](https://github.com/sta210-sp25)
+:::
+:::::
+:::::::::
+
+## Classroom community
+
+::: small
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
+
+-   If you have a name that differs from those that appear in your official Duke records, please let me know.
+
+-   Please let me know your preferred pronouns, if you are comfortable sharing.
+
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
+
+-   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it.
+:::
+
+## Accessibility
+
+-   The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
+
+-   If you have documented accommodations from SDAO, please send the documentation as soon as possible.
+
+-   I am committed to making all course activities and materials accessible. If any course component is not accessible to you in any way, please don't hesitate to let me know.
+
+## Syllabus activity
+
+::: question
+1.  Introduce yourself to your group members.
+2.  Choose a reporter. This person will share the group's summary with the class.
+3.  Read the portion of the syllabus assigned to your group.
+4.  Discuss the key points and questions you my have.
+5.  The reporter will share a summary with the class.
+:::
+
+## Syllabus activity assignments - UPDATE
+
+-   Group 1: [What to expect in the course](https://sta210-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
+
+-   Group 2: [Homework and lab assignments](https://sta210-sp25.netlify.app/syllabus#labs)
+
+-   Group 3: [Exams Project, Participation](https://sta210-sp25.netlify.app/syllabus#exams)
+
+-   Group 4: [Academic honesty (except AI policy)](https://sta210-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 5: [Artificial intelligence policy](https://sta210-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 6:[Late work policy and waiver for extenuating circumstances](https://sta210-sp25.netlify.app/syllabus#late-work-policy)
+
+-   Group 7: [Attendance and lecture recording request](https://sta210-sp25.netlify.app/syllabus#attendance-policy)
+
+-   Group 8: [Getting help in the course](https://sta210-sp25.netlify.app/syllabus#getting-help-in-the-course)
+
+## Syllabus activity report out - UPDATE
+
+::: incremental
+-   Group 1: [What to expect in the course](https://sta210-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
+
+-   Group 2: [Homework and lab assignments](https://sta210-sp25.netlify.app/syllabus#labs)
+
+-   Group 3: [Exams Project, Participation](https://sta210-sp25.netlify.app/syllabus#exams)
+
+-   Group 4: [Academic honesty (except AI policy)](https://sta210-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 5: [Artificial intelligence policy](https://sta210-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 6:[Late work policy and waiver for extenuating circumstances](https://sta210-sp25.netlify.app/syllabus#late-work-policy)
+
+-   Group 7: [Attendance and lecture recording request](https://sta210-sp25.netlify.app/syllabus#attendance-policy)
+
+-   Group 8: [Getting help in the course](https://sta210-sp25.netlify.app/syllabus#getting-help-in-the-course)
+:::
+
+## Grading
+
+| Category      | Percentage |
+|---------------|------------|
+| Labs          | 10%        |
+| Homework      | 15%        |
+| Exam 01       | 25%        |
+| Exam 02       | 25%        |
+| Final project | 20%        |
+| Participation | 5%         |
+
+## Five tips for success in STA 210
+
+1.  Complete all “prepare” readings and tasks before class.
+
+2.  Actively participate and engage in lectures and labs.
+
+3.  Ask questions frequently during lecture, in office hours, on Ed Discussion, and among your classmates.
+
+4.  Complete all homework and labs, asking yourself “why” questions as you go through the steps to complete each exercise.
+
+5.  Stay current with the course material, as each new concept builds on previous ones.
+
+# Questions?
+
+# Let's look at data!  - UPDATE!
+
+::: appex
+📋 [sta210-sp25.netlify.app/ae/ae-01-movies.html](https://sta210-sp25.netlify.app/ae/ae-01-movies.html)
+:::
+
+## Before next class
+
+-   Complete [Lecture 02 Prepare](../prepare/prepare-lec02.html)
+
+-   Review the [syllabus](https://sta210-sp26.github.io/syllabus)
+
+-   Labs start on Monday, January 12
+
+-   Office hours start on Monday, January 12

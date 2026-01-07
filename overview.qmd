@@ -28,11 +28,11 @@ See Canvas for class meeting times and locations.
 
 ## Teaching assistants
 
-|                |            |
-|----------------|------------|
-| **Name**       | **Role**   |
-| Adeli Hutton   | Lab leader |
-| Shane Rybacki  | Lab leader |
+|               |            |
+|---------------|------------|
+| **Name**      | **Role**   |
+| Adeli Hutton  | Lab leader |
+| Shane Rybacki | Lab leader |
 
 **See Canvas for office hours times and locations.**
 

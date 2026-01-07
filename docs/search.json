@@ -1216,5 +1216,166 @@
       "Project",
       "Instructions"
     ]
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-prof.-tackett",
+    "href": "slides/01-welcome.html#meet-prof.-tackett",
+    "title": "Welcome to STA 210!",
+    "section": "Meet Prof. Tackett!",
+    "text": "Meet Prof. Tackett!\n\nEducation and career journey\n\nBS in Math and MS in Statistics from University of Tennessee\nStatistician at Capital One\nPhD in Statistics from University of Virginia\nAssociate Professor of the Practice, Department of Statistical Science at Duke\n\nWork focuses on statistics education and inclusive teaching practices\nCo-leader of the Bass Connections team Mental Health and the Justice System in Durham County\nMom of 3-year-old twins 🙂 (and one grumpy cat)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-the-teaching-assistants-tas",
+    "href": "slides/01-welcome.html#meet-the-teaching-assistants-tas",
+    "title": "Welcome to STA 210!",
+    "section": "Meet the Teaching Assistants (TAs)!",
+    "text": "Meet the Teaching Assistants (TAs)!\n\nAdeli Hutton (PhD): Lab 02 leader\nShane Rybacki (PhD): Lab 01 leader"
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-your-classmates---update",
+    "href": "slides/01-welcome.html#meet-your-classmates---update",
+    "title": "Welcome to STA 210!",
+    "section": "Meet your classmates - UPDATE",
+    "text": "Meet your classmates - UPDATE"
+  },
+  {
+    "objectID": "slides/01-welcome.html#topics",
+    "href": "slides/01-welcome.html#topics",
+    "title": "Welcome to STA 210!",
+    "section": "Topics",
+    "text": "Topics\n\nIntroduction to the course\nSyllabus activity\nData exploration (time permitting)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#data-science-workflow",
+    "href": "slides/01-welcome.html#data-science-workflow",
+    "title": "Welcome to STA 210!",
+    "section": "Data science workflow",
+    "text": "Data science workflow\n\nSource: Introduction to Regression Analysis"
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-regression-analysis",
+    "href": "slides/01-welcome.html#what-is-regression-analysis",
+    "title": "Welcome to STA 210!",
+    "section": "What is regression analysis?",
+    "text": "What is regression analysis?\n\n\nIn statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).[1][2]\n\nSource: Wikipedia (January 2026)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#linear-regression-in-practice",
+    "href": "slides/01-welcome.html#linear-regression-in-practice",
+    "title": "Welcome to STA 210!",
+    "section": "Linear regression in practice",
+    "text": "Linear regression in practice\n\n\n\n\n\n\n\nRodgers, J. L. (2024). Reading Harry Potter in French: Using Regression to Evaluate Foreign Language Vocabulary Learning by an Old Guy. CHANCE, 37(3), 13–21."
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-reading-harry-potter",
+    "href": "slides/01-welcome.html#example-reading-harry-potter",
+    "title": "Welcome to STA 210!",
+    "section": "Example: Reading Harry Potter",
+    "text": "Example: Reading Harry Potter\n\n\n\n\n\n\\[\n\\text{Lookups} = 23.0 - 0.04 \\times \\text{Page Number}\n\\]\n\n\nRodgers, J. L. (2024). Reading Harry Potter in French: Using Regression to Evaluate Foreign Language Vocabulary Learning by an Old Guy. CHANCE, 37(3), 13–21."
+  },
+  {
+    "objectID": "slides/01-welcome.html#logistic-regression-in-practice",
+    "href": "slides/01-welcome.html#logistic-regression-in-practice",
+    "title": "Welcome to STA 210!",
+    "section": "Logistic regression in practice",
+    "text": "Logistic regression in practice\nPew Research Center conducted the 2025 What Web Browsing Data Tells Us About How AI Appears Online.\n\n\n\nSource: Pew Research\n\n\n\n\n\nChapekis, A., Lieb, A., Shah, S., Smith, A. (2025) What Web Browsing Data Tells Us about How AI Appears Online. Pew Research Center.https://www.pewresearch.org/data-labs/2025/05/23/what-web-browsing-data-tells-us-about-how-ai-appears-online/"
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-ai-mentions",
+    "href": "slides/01-welcome.html#example-ai-mentions",
+    "title": "Welcome to STA 210!",
+    "section": "Example: AI mentions",
+    "text": "Example: AI mentions\nResearchers used logistic regression to classify online articles in which AI was a central focus versus an incidental mention.\n\n\n\n\n\nSource: Pew Research Center\n\n\n\n\\[\n\\log\\Big(\\frac{\\pi}{1-\\pi}\\Big) = \\beta_0 + \\beta_1X_1 + \\dots + \\beta_pX_p\n\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-sta-210",
+    "href": "slides/01-welcome.html#what-is-sta-210",
+    "title": "Welcome to STA 210!",
+    "section": "What is STA 210?",
+    "text": "What is STA 210?\nLearn how to use linear and and logistic regression models to analyze multivariable relationships and answer questions about real-world phenomena using a data-driven approach.\nThis course emphasizes application over mathematical theory.\nPre-requisites\n100-level Statistical Science course or Statistical Science 230, 231, or 240L\n\n\n\n\n\n\n\nNote\n\n\nIf you are interested in the theoretical aspects of regression and/or becoming a statistics major, STA 221 - Regression Analysis: Theory and Applications may be a better fit. Come talk with me after class!"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-learning-objectives",
+    "href": "slides/01-welcome.html#course-learning-objectives",
+    "title": "Welcome to STA 210!",
+    "section": "Course learning objectives",
+    "text": "Course learning objectives\nBy the end of the semester, you will be able to…\n\nanalyze real-world data to answer questions about multivariable relationships.\nuse R to fit and evaluate linear and logistic regression models.\nassess whether a proposed model is appropriate and describe its limitations.\nimplement a reproducible analysis workflow using R for analysis, Quarto to write reports and GitHub for version control and collaboration.\neffectively communicate statistical results to a general audience.\nassess the ethical considerations and implications of analysis decisions."
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-topics",
+    "href": "slides/01-welcome.html#course-topics",
+    "title": "Welcome to STA 210!",
+    "section": "Course topics",
+    "text": "Course topics\n\n\n\nLinear regression\n\nCoefficient estimation and interpretation\nPrediction\nInference\nModel evaluation\nModel assumptions and diagnostics\nTypes of predictors\nModel comparison + cross validation\n\n\n\n\nLogistic regression\n\nCoefficient estimation and interpretation\nPrediction\nModel evaluation\nInference\n\n\n\nSpecial topics\n\nTBD\n\n\n\nGeneral topics\n\nComputing using R and GitHub\nPresenting statistical results\nCollaboration and teamwork\nEthics"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-toolkit",
+    "href": "slides/01-welcome.html#course-toolkit",
+    "title": "Welcome to STA 210!",
+    "section": "Course toolkit",
+    "text": "Course toolkit\n\nWebsite: https://sta210-sp26.github.io\n\nCentral hub for the course!\nTour of the website\n\nCanvas: https://canvas.duke.edu/courses/68771\n\nOffice hours\nGradebook\nAnnouncements\nGradescope\nEd Discussion\n\nGitHub: https://github.com/sta210-sp26\n\nDistribute assignments\nPlatform for version control and collaboration"
+  },
+  {
+    "objectID": "slides/01-welcome.html#computing-toolkit",
+    "href": "slides/01-welcome.html#computing-toolkit",
+    "title": "Welcome to STA 210!",
+    "section": "Computing toolkit",
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nWrite reproducible reports in Quarto\nAccess RStudio through STA 210 Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in STA 210 course organization"
+  },
+  {
+    "objectID": "slides/01-welcome.html#classroom-community",
+    "href": "slides/01-welcome.html#classroom-community",
+    "title": "Welcome to STA 210!",
+    "section": "Classroom community",
+    "text": "Classroom community\n\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official Duke records, please let me know.\nPlease let me know your preferred pronouns, if you are comfortable sharing.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it."
+  },
+  {
+    "objectID": "slides/01-welcome.html#accessibility",
+    "href": "slides/01-welcome.html#accessibility",
+    "title": "Welcome to STA 210!",
+    "section": "Accessibility",
+    "text": "Accessibility\n\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments.\nIf you have documented accommodations from SDAO, please send the documentation as soon as possible.\nI am committed to making all course activities and materials accessible. If any course component is not accessible to you in any way, please don’t hesitate to let me know."
+  },
+  {
+    "objectID": "slides/01-welcome.html#syllabus-activity",
+    "href": "slides/01-welcome.html#syllabus-activity",
+    "title": "Welcome to STA 210!",
+    "section": "Syllabus activity",
+    "text": "Syllabus activity\n\n\nIntroduce yourself to your group members.\nChoose a reporter. This person will share the group’s summary with the class.\nRead the portion of the syllabus assigned to your group.\nDiscuss the key points and questions you my have.\nThe reporter will share a summary with the class."
+  },
+  {
+    "objectID": "slides/01-welcome.html#syllabus-activity-assignments---update",
+    "href": "slides/01-welcome.html#syllabus-activity-assignments---update",
+    "title": "Welcome to STA 210!",
+    "section": "Syllabus activity assignments - UPDATE",
+    "text": "Syllabus activity assignments - UPDATE\n\nGroup 1: What to expect in the course\nGroup 2: Homework and lab assignments\nGroup 3: Exams Project, Participation\nGroup 4: Academic honesty (except AI policy)\nGroup 5: Artificial intelligence policy\nGroup 6:Late work policy and waiver for extenuating circumstances\nGroup 7: Attendance and lecture recording request\nGroup 8: Getting help in the course"
+  },
+  {
+    "objectID": "slides/01-welcome.html#syllabus-activity-report-out---update",
+    "href": "slides/01-welcome.html#syllabus-activity-report-out---update",
+    "title": "Welcome to STA 210!",
+    "section": "Syllabus activity report out - UPDATE",
+    "text": "Syllabus activity report out - UPDATE\n\nGroup 1: What to expect in the course\nGroup 2: Homework and lab assignments\nGroup 3: Exams Project, Participation\nGroup 4: Academic honesty (except AI policy)\nGroup 5: Artificial intelligence policy\nGroup 6:Late work policy and waiver for extenuating circumstances\nGroup 7: Attendance and lecture recording request\nGroup 8: Getting help in the course"
+  },
+  {
+    "objectID": "slides/01-welcome.html#grading",
+    "href": "slides/01-welcome.html#grading",
+    "title": "Welcome to STA 210!",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCategory\nPercentage\n\n\n\n\nLabs\n10%\n\n\nHomework\n15%\n\n\nExam 01\n25%\n\n\nExam 02\n25%\n\n\nFinal project\n20%\n\n\nParticipation\n5%"
+  },
+  {
+    "objectID": "slides/01-welcome.html#five-tips-for-success-in-sta-210",
+    "href": "slides/01-welcome.html#five-tips-for-success-in-sta-210",
+    "title": "Welcome to STA 210!",
+    "section": "Five tips for success in STA 210",
+    "text": "Five tips for success in STA 210\n\nComplete all “prepare” readings and tasks before class.\nActively participate and engage in lectures and labs.\nAsk questions frequently during lecture, in office hours, on Ed Discussion, and among your classmates.\nComplete all homework and labs, asking yourself “why” questions as you go through the steps to complete each exercise.\nStay current with the course material, as each new concept builds on previous ones."
+  },
+  {
+    "objectID": "slides/01-welcome.html#before-next-class",
+    "href": "slides/01-welcome.html#before-next-class",
+    "title": "Welcome to STA 210!",
+    "section": "Before next class",
+    "text": "Before next class\n\nComplete Lecture 02 Prepare\nReview the syllabus\nLabs start on Monday, January 12\nOffice hours start on Monday, January 12"
   }
 ]

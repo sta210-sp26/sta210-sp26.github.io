@@ -1,6 +1,6 @@
 ---
 title: STA 210 Syllabus
-subtitle: Spring 2025
+subtitle: Spring 2026
 format:
   html: default
   pdf: default
@@ -146,7 +146,7 @@ The purpose of the final project is to apply what you've learned to analyze an i
 
 ### Participation
 
-Attending and actively engaging in lecture is important to help you be successful in the course. Attendance and participation will be tracked by turning in some deliverable during lecture (e.g., responding to an online poll question, minute paper, etc.). There are 26 lectures this semester (this does not include exam days). You must participate in at least 18 lectures to get full credit on the participation component of the final course grade. Otherwise, the component is calculated as the percentage of lectures you attended and participated.
+Attending and actively engaging in lecture is important to help you be successful in the course. Attendance and participation will be tracked by turning in some deliverable during lecture (e.g., responding to an online poll question, minute paper, etc.). There are 26 lectures this semester (this does not include exam days). You must participate in at least 18 lectures to get full credit on the participation component of the final course grade. Otherwise, the participation component of the final course grade is calculated as the percentage of lectures you attended and submitted the deliverable.
 
 *There are no make ups for the participation activities.*
 
@@ -236,7 +236,7 @@ The due dates for assignments are there to help you keep up with the course mate
 
 -   There is no late work permitted on lab assignments. These are graded for completion, so a lab assignment will be graded as “Not complete” if it is submitted after the deadline.
 
--   Homework and labs may be submitted up to 2 days late. There will be a 5% deduction for each 24-hour period the assignment is late.
+-   Homework may be submitted up to 2 days late. There will be a 5% deduction for each 24-hour period the assignment is late.
 
 -   The late work policy for exams will be provided with the exam instructions.
 

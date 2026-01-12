@@ -1,5 +1,6 @@
 ---
-title: "AE 02: Life expectancy and healthcare expenditure"
+title: "Lecture 02 AE"
+subtitle: "Life expectancy and healthcare expenditure"
 date: "January 13, 2026"
 editor: visual
 html-math-method:
@@ -10,6 +11,7 @@ bibliography: references.bib
 
 ```{r load-packages}
 #| message: false
+#| warning: false
 library(tidyverse)
 library(readxl)
 library(tidymodels)

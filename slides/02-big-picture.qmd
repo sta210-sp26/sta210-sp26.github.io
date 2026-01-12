@@ -32,6 +32,8 @@ bibliography: references.bib
 
 ```{r}
 #| include: false
+#| warning: false
+#| message: false
 
 library(tidyverse)
 library(patchwork)

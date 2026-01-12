@@ -991,21 +991,21 @@
   {
     "objectID": "ae/ae-02-life-expectancy.html",
     "href": "ae/ae-02-life-expectancy.html",
-    "title": "AE 02: Life expectancy and healthcare expenditure",
+    "title": "Lecture 02 AE",
     "section": "",
-    "text": "library(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\n\nWarning: package 'tidyr' was built under R version 4.5.2\n\nlibrary(readxl)\nlibrary(tidymodels)\nlibrary(patchwork)"
+    "text": "library(tidyverse)\nlibrary(readxl)\nlibrary(tidymodels)\nlibrary(patchwork)"
   },
   {
     "objectID": "ae/ae-02-life-expectancy.html#introduction",
     "href": "ae/ae-02-life-expectancy.html#introduction",
-    "title": "AE 02: Life expectancy and healthcare expenditure",
+    "title": "Lecture 02 AE",
     "section": "Introduction",
     "text": "Introduction\nThe data set comes from Zarulli et al. (2021), who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the Human Development Database and World Health Organization.\nThis AE will focus on the following variables:\n\nlife_exp: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic area. ( from the World Health Organization)\nhealth_pct_gdp: Spending on healthcare goods and services, expressed as a percentage of GDP. It excludes capital health expenditures such as buildings, machinery, information technology and stocks of vaccines for emergency or outbreaks.\n\nClick here for the original research paper and a full list of variables in the original data set.\n\nlife_exp &lt;- read_excel(\"data/life-expectancy-data.xlsx\") |&gt; \n  rename(life_exp = `Life_expectancy_at_birth`, \n         health_pct_gdp = `Domestic_general_government_health_expenditure_pct_of_GDP`)\n\n\nlife_exp |&gt;\n  select(life_exp, health_pct_gdp) |&gt;\n  glimpse()\n\nRows: 140\nColumns: 2\n$ life_exp       &lt;dbl&gt; 63.8, 78.2, 59.9, 76.2, 74.6, 83.0, 81.3, 72.5, 71.8, 7…\n$ health_pct_gdp &lt;dbl&gt; 5, 41, 44, 74, 16, 68, 73, 20, 18, 61, 84, 66, 21, 74, …"
   },
   {
     "objectID": "ae/ae-02-life-expectancy.html#exercises",
     "href": "ae/ae-02-life-expectancy.html#exercises",
-    "title": "AE 02: Life expectancy and healthcare expenditure",
+    "title": "Lecture 02 AE",
     "section": "Exercises",
     "text": "Exercises\nWe begin by visualizing the distributions of life expectancy, health expenditure percentage, and the relationship between these two variables.\n\np1 &lt;- ggplot(life_exp, aes(x = life_exp)) +\n  geom_histogram() + \n  labs(x = \"Life expectancy\")\n\np2 &lt;- ggplot(life_exp, aes(x = health_pct_gdp)) +\n  geom_histogram() + \n  labs(x = \"% Health expenditure\")\n\np3 &lt;- ggplot(life_exp, aes(x = health_pct_gdp, y = life_exp)) +\n  geom_point() + \n  labs(x = \"% Health expenditure\", \n       y = \"Life expectancy\")\n\n(p1 | p2) / p3\n\n\n\n\n\n\n\n\n\nExercise 1\nDescribe the relationship between life expectancy and healthcare expenditure as a percentage of the GDP. Comment on how we expect the life expectancy to change as the percentage on healthcare expenditure changes.\n\n\nExercise 2\nSuppose you want to fit a model so you can use the healthcare expenditure as a percentage of GDP to predict life expectancy. Would a model of the form\n\\[\\text{life_exp} = \\beta_0 + \\beta_1 ~ \\text{health_pct_gdp} + \\epsilon\\]\nbe a useful model for the data? Briefly explain your choice.\nSubmit your response below (counts towards participation points):\n\n \n🔗 https://forms.office.com/r/u6zwyypDaZ"
   },

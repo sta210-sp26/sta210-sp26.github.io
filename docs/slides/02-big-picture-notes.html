@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Prof.&nbsp;Maria Tackett">
 <meta name="dcterms.date" content="2026-01-13">
 
-<title>AE 02: Life expectancy and healthcare expenditure – STA 210 - Spring 2026</title>
+<title>The big picture – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -157,7 +123,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -166,7 +132,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 02: Life expectancy and healthcare expenditure</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">The big picture</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -416,27 +382,74 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#questions-from-last-class" id="toc-questions-from-last-class" class="nav-link" data-scroll-target="#questions-from-last-class">Questions from last class?</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#data-science-workflow" id="toc-data-science-workflow" class="nav-link" data-scroll-target="#data-science-workflow">Data science workflow</a></li>
+  </ul></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a>
+  <ul class="collapse">
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist">Reproducibility checklist</a></li>
+  <li><a href="#why-is-reproducibility-important" id="toc-why-is-reproducibility-important" class="nav-link" data-scroll-target="#why-is-reproducibility-important">Why is reproducibility important?</a></li>
+  <li><a href="#toolkit" id="toc-toolkit" class="nav-link" data-scroll-target="#toolkit">Toolkit</a></li>
+  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link" data-scroll-target="#r-and-rstudio">R and RStudio</a></li>
+  <li><a href="#rstudio-ide" id="toc-rstudio-ide" class="nav-link" data-scroll-target="#rstudio-ide">RStudio IDE</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#quarto-1" id="toc-quarto-1" class="nav-link" data-scroll-target="#quarto-1">Quarto</a></li>
+  <li><a href="#how-will-we-use-quarto" id="toc-how-will-we-use-quarto" class="nav-link" data-scroll-target="#how-will-we-use-quarto">How will we use Quarto?</a></li>
+  </ul></li>
+  <li><a href="#version-control-with-git-and-github" id="toc-version-control-with-git-and-github" class="nav-link" data-scroll-target="#version-control-with-git-and-github">Version control with git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#what-is-versioning" id="toc-what-is-versioning" class="nav-link" data-scroll-target="#what-is-versioning">What is versioning?</a></li>
+  <li><a href="#what-is-versioning-1" id="toc-what-is-versioning-1" class="nav-link" data-scroll-target="#what-is-versioning-1">What is versioning?</a></li>
+  <li><a href="#why-do-we-need-version-control" id="toc-why-do-we-need-version-control" class="nav-link" data-scroll-target="#why-do-we-need-version-control">Why do we need version control?</a></li>
+  <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github">git and GitHub</a></li>
+  </ul></li>
+  <li><a href="#multivariable-relationships" id="toc-multivariable-relationships" class="nav-link" data-scroll-target="#multivariable-relationships">Multivariable relationships</a>
+  <ul class="collapse">
+  <li><a href="#factors-associated-with-life-expectancy" id="toc-factors-associated-with-life-expectancy" class="nav-link" data-scroll-target="#factors-associated-with-life-expectancy">Factors associated with life expectancy</a></li>
+  <li><a href="#variable-definitions" id="toc-variable-definitions" class="nav-link" data-scroll-target="#variable-definitions">Variable definitions</a></li>
+  <li><a href="#variable-definitions-1" id="toc-variable-definitions-1" class="nav-link" data-scroll-target="#variable-definitions-1">Variable definitions</a></li>
+  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology">Terminology</a></li>
+  <li><a href="#univariate-exploratory-data-analysis" id="toc-univariate-exploratory-data-analysis" class="nav-link" data-scroll-target="#univariate-exploratory-data-analysis">Univariate exploratory data analysis</a></li>
+  <li><a href="#bivariate-exploratory-data-analysis" id="toc-bivariate-exploratory-data-analysis" class="nav-link" data-scroll-target="#bivariate-exploratory-data-analysis">Bivariate exploratory data analysis</a></li>
+  <li><a href="#function-between-response-and-predictors" id="toc-function-between-response-and-predictors" class="nav-link" data-scroll-target="#function-between-response-and-predictors">Function between response and predictors</a></li>
+  <li><a href="#determine-f" id="toc-determine-f" class="nav-link" data-scroll-target="#determine-f">Determine <span class="math inline">\(f\)</span></a></li>
+  <li><a href="#life_exp-vs.-income_inequality" id="toc-life_exp-vs.-income_inequality" class="nav-link" data-scroll-target="#life_exp-vs.-income_inequality"><code>life_exp</code> vs.&nbsp;<code>income_inequality</code></a></li>
+  <li><a href="#life_exp-vs.-income_inequality-education" id="toc-life_exp-vs.-income_inequality-education" class="nav-link" data-scroll-target="#life_exp-vs.-income_inequality-education"><code>life_exp</code> vs.&nbsp;<code>income_inequality</code> + <code>education</code></a></li>
+  <li><a href="#statistical-model-vs.-regression-equation" id="toc-statistical-model-vs.-regression-equation" class="nav-link" data-scroll-target="#statistical-model-vs.-regression-equation">Statistical model vs.&nbsp;regression equation</a></li>
+  <li><a href="#life_exp-vs.-income_inequality-education-with-interaction" id="toc-life_exp-vs.-income_inequality-education-with-interaction" class="nav-link" data-scroll-target="#life_exp-vs.-income_inequality-education-with-interaction"><code>life_exp</code> vs.&nbsp;<code>income_inequality</code> + <code>education</code> (with interaction)</a></li>
+  <li><a href="#why-fit-a-model" id="toc-why-fit-a-model" class="nav-link" data-scroll-target="#why-fit-a-model">Why fit a model?</a></li>
+  </ul></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
+  <ul class="collapse">
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#for-next-time" id="toc-for-next-time" class="nav-link" data-scroll-target="#for-next-time">For next time</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="02-big-picture.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 02: Life expectancy and healthcare expenditure</h1>
+<h1 class="title">The big picture</h1>
+<p class="subtitle lead">Analyzing multivariable relationships + Reproducibility</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Maria Tackett </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -453,83 +466,370 @@ window.Quarto = {
 </header>
 
 
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>The data set comes from <span class="citation" data-cites="zarulli2021">Zarulli et al. (<a href="#ref-zarulli2021" role="doc-biblioref">2021</a>)</span>, who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the <a href="http://hdr.undp.org/en/data">Human Development Database</a> and <a href="https://apps.who.int/nha/database/">World Health Organization</a>.</p>
-<p>This AE will focus on the following variables:</p>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li><code>life_exp</code>: <em>The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic area.</em> ( from the <a href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/65#:~:text=Definition%3A,%2C%20territory%2C%20or%20geographic%20area.">World Health Organization</a>)</li>
-<li><code>health_pct_gdp</code>: <em>Spending on healthcare goods and services, expressed as a percentage of GDP. It excludes capital health expenditures such as buildings, machinery, information technology and stocks of vaccines for emergency or outbreaks.</em></li>
+<li>Office hours start this week
+<ul>
+<li>See office hours schedule on Canvas</li>
+</ul></li>
+<li>Complete <a href="../labs/lab-00.html">Lab 00 tasks</a></li>
+<li>Introduction to R workshops at Duke library
+<ul>
+<li>See Monday’s Canvas announcement</li>
+</ul></li>
 </ul>
-<p><a href="https://doi.org/10.1371/journal.pone.0253450">Click here</a> for the original research paper and a full list of variables in the original data set.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/life-expectancy-data.xlsx"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">life_exp =</span> <span class="st">`</span><span class="at">Life_expectancy_at_birth</span><span class="st">`</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">health_pct_gdp =</span> <span class="st">`</span><span class="at">Domestic_general_government_health_expenditure_pct_of_GDP</span><span class="st">`</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="questions-from-last-class" class="level1">
+<h1>Questions from last class?</h1>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<ul>
+<li>Data science workflow</li>
+<li>Reproducible data analysis</li>
+<li>Analyzing multivariable relationships</li>
+</ul>
+</section>
+<section id="data-science-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="data-science-workflow">Data science workflow</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/data-science-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Introduction to Regression Analysis: A Data Science Approach</figcaption>
+</figure>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>life_exp <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(life_exp, health_pct_gdp) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 140
-Columns: 2
-$ life_exp       &lt;dbl&gt; 63.8, 78.2, 59.9, 76.2, 74.6, 83.0, 81.3, 72.5, 71.8, 7…
-$ health_pct_gdp &lt;dbl&gt; 5, 41, 44, 74, 16, 68, 73, 20, 18, 61, 84, 66, 21, 74, …</code></pre>
+</section>
+</section>
+<section id="reproducibility" class="level1">
+<h1>Reproducibility</h1>
+<section id="reproducibility-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-checklist">Reproducibility checklist</h2>
+<div class="question">
+<p>What does it mean for an analysis to be reproducible?</p>
+</div>
+<p>. . .</p>
+<p><strong>Near term goals</strong>:</p>
+<p>✔️ Can the tables and figures be exactly reproduced from the code and data?</p>
+<p>✔️ Does the code actually do what you think it does?</p>
+<p>✔️ In addition to what was done, is it clear <em>why</em> it was done?</p>
+<p>. . .</p>
+<p><strong>Long term goals</strong>:</p>
+<p>✔️ Can the code be used for other data?</p>
+<p>✔️ Can you extend the code to do other things?</p>
+</section>
+<section id="why-is-reproducibility-important" class="level2">
+<h2 class="anchored" data-anchor-id="why-is-reproducibility-important">Why is reproducibility important?</h2>
+<ul>
+<li><p>Results produced are more reliable and trustworthy <span class="citation" data-cites="ostblom2022">(<a href="#ref-ostblom2022" role="doc-biblioref">Ostblom and Timbers 2022</a>)</span></p></li>
+<li><p>Facilitates more effective collaboration <span class="citation" data-cites="ostblom2022">(<a href="#ref-ostblom2022" role="doc-biblioref">Ostblom and Timbers 2022</a>)</span></p></li>
+<li><p>Contributing to science, which builds and organizes knowledge in terms of testable hypotheses <span class="citation" data-cites="alexander2023">(<a href="#ref-alexander2023" role="doc-biblioref">Alexander 2023</a>)</span></p></li>
+<li><p>Possible to identify and correct errors or biases in the analysis process <span class="citation" data-cites="alexander2023">(<a href="#ref-alexander2023" role="doc-biblioref">Alexander 2023</a>)</span></p></li>
+</ul>
+</section>
+<section id="toolkit" class="level2">
+<h2 class="anchored" data-anchor-id="toolkit">Toolkit</h2>
+<ul>
+<li><p><strong>Scriptability</strong> <span class="math inline">\(\rightarrow\)</span> R</p></li>
+<li><p><strong>Literate programming</strong> (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> Quarto</p></li>
+<li><p><strong>Version control</strong> <span class="math inline">\(\rightarrow\)</span> Git / GitHub</p></li>
+</ul>
+</section>
+<section id="r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="r-and-rstudio">R and RStudio</h2>
+<ul>
+<li><p>R is a statistical programming language</p></li>
+<li><p>RStudio is a convenient interface for R (an integrated development environment, IDE)</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/r_vs_rstudio_1.png" class="img-fluid figure-img"></p>
+<figcaption>Source: <a href="https://moderndive.com/1-getting-started.html">Statistical Inference via Data Science</a></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="rstudio-ide" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-ide">RStudio IDE</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/rstudio-panes.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<ul>
+<li><p>Fully reproducible reports – the analysis is run from the beginning each time you render</p></li>
+<li><p>Code goes in chunks and narrative goes outside of chunks</p></li>
+<li><p>Visual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)</p></li>
+</ul>
+</section>
+<section id="quarto-1" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-1">Quarto</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/quarto.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-quarto">How will we use Quarto?</h2>
+<ul>
+<li><p>Every application exercise and assignment is written in a Quarto document</p></li>
+<li><p>You’ll have a template Quarto document to start with</p></li>
+<li><p>The amount of scaffolding in the template will decrease over the semester</p></li>
+</ul>
+</section>
+</section>
+<section id="version-control-with-git-and-github" class="level1">
+<h1>Version control with git and GitHub</h1>
+<section id="what-is-versioning" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-versioning">What is versioning?</h2>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/lego-steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="what-is-versioning-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-versioning-1">What is versioning?</h2>
+<p>with human readable messages</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/lego-steps-commit-messages.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="why-do-we-need-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-need-version-control">Why do we need version control?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/phd_comics_vc.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Provides a clear record of how the analysis methods evolved. This makes analysis auditable and thus more trustworthy and reliable. <span class="citation" data-cites="ostblom2022">(<a href="#ref-ostblom2022" role="doc-biblioref">Ostblom and Timbers 2022</a>)</span></p>
 </div>
 </div>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p>We begin by visualizing the distributions of life expectancy, health expenditure percentage, and the relationship between these two variables.</p>
+<section id="git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="git-and-github">git and GitHub</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/02/git-github.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li><strong>git</strong> is a version control system – like “Track Changes” features from Microsoft Word.</li>
+<li><strong>GitHub</strong> is the home for your git-based projects on the internet (like DropBox but much better).</li>
+<li>There are a lot of git commands and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.</li>
+</ul>
+</section>
+</section>
+<section id="multivariable-relationships" class="level1 page-columns page-full">
+<h1>Multivariable relationships</h1>
+<section id="factors-associated-with-life-expectancy" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="factors-associated-with-life-expectancy">Factors associated with life expectancy</h2>
+<p>The data set comes from <span class="citation" data-cites="zarulli2021">Zarulli et al. (<a href="#ref-zarulli2021" role="doc-biblioref">2021</a>)</span> who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the <a href="http://hdr.undp.org/en/data">Human Development Database</a> and <a href="https://apps.who.int/nha/database/">World Health Organization</a>.</p>
+<p>The data are available in <a href="https://intro-regression.github.io/data/life-expectancy-data.csv"><code>life-expectancy-data.csv</code></a>. There are 140 countries (observations) in the data set.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253450">Click here</a> for the original research paper.</p>
+</div></div><hr>
+</section>
+<section id="variable-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="variable-definitions">Variable definitions</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p><code>life_exp</code>: <em>The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic area.</em> ( from the <a href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/65#:~:text=Definition%3A,%2C%20territory%2C%20or%20geographic%20area.">World Health Organization</a>)</p></li>
+<li><p><code>income_inequality</code>: <em>Measure of the deviation of the distribution of income among individuals or households within a country from a perfectly equal distribution. A value of 0 represents absolute equality, a value of 100 absolute inequality (Gini coefficient).</em></p></li>
+</ul>
+</div>
+</section>
+<section id="variable-definitions-1" class="level2">
+<h2 class="anchored" data-anchor-id="variable-definitions-1">Variable definitions</h2>
+<ul>
+<li><code>education</code>: Indicator of whether a country’s education index is above (<code>High</code>) or below (<code>Low</code>) the median index for the 140 countries in the data set.
+<ul>
+<li>Education index: <em>Average of mean years of schooling (of adults) and expected years of school (of children), both expressed as an index obtained by scaling wit the corresponding maxima.</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="terminology" class="level2">
+<h2 class="anchored" data-anchor-id="terminology">Terminology</h2>
+<ul>
+<li><code>life_exp</code> is the <strong>response variable</strong>
+<ul>
+<li>variable whose variation we want to understand / variable we wish to predict</li>
+<li>also known as <em>outcome</em> or <em>dependent</em> variable</li>
+</ul></li>
+</ul>
+<p>. . .</p>
+<ul>
+<li><code>income_inequality</code>, <code>education</code> are the <strong>predictor variables</strong>
+<ul>
+<li>variables used to account for variation in the response</li>
+<li>also known as <em>explanatory</em>, <em>independent</em>, or <em>input</em> variables</li>
+</ul></li>
+</ul>
+</section>
+<section id="univariate-exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="univariate-exploratory-data-analysis">Univariate exploratory data analysis</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(life_exp, <span class="fu">aes</span>(<span class="at">x =</span> life_exp)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Life expectancy"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(life_exp, <span class="fu">aes</span>(<span class="at">x =</span> health_pct_gdp)) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% Health expenditure"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(life_exp, <span class="fu">aes</span>(<span class="at">x =</span> health_pct_gdp, <span class="at">y =</span> life_exp)) <span class="sc">+</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"% Health expenditure"</span>, </span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Life expectancy"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ae-02-life-expectancy_files/figure-html/eda-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="02-big-picture_files/figure-revealjs/univariate-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Describe the relationship between life expectancy and healthcare expenditure as a percentage of the GDP. Comment on how we expect the life expectancy to change as the percentage on healthcare expenditure changes.</p>
 </section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Suppose you want to fit a model so you can use the healthcare expenditure as a percentage of GDP to predict life expectancy. Would a model of the form</p>
-<p><span class="math display">\[\text{life_exp} = \beta_0 + \beta_1 ~ \text{health_pct_gdp} + \epsilon\]</span></p>
-<p>be a useful model for the data? Briefly explain your choice.</p>
-<p>Submit your response below (counts towards participation points):</p>
-<center>
-<iframe width="640px" height="480px" src="https://forms.office.com/r/u6zwyypDaZ?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe></center>
-<p>🔗 <a href="https://forms.office.com/r/u6zwyypDaZ" class="uri">https://forms.office.com/r/u6zwyypDaZ</a></p>
+<section id="bivariate-exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="bivariate-exploratory-data-analysis">Bivariate exploratory data analysis</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-big-picture_files/figure-revealjs/bivariate-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="function-between-response-and-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="function-between-response-and-predictors">Function between response and predictors</h2>
+<div class="goal">
+<p><span class="math display">\[\text{life_exp} = f(\text{income_inequality}, \text{education}) + \epsilon\]</span></p>
+</div>
+<ul>
+<li><strong>Goal</strong>: Determine <span class="math inline">\(f\)</span></li>
+<li>How do we determine <span class="math inline">\(f\)</span>?
+<ul>
+<li>Make an assumption about the functional form <span class="math inline">\(f\)</span> (parametric model)</li>
+<li>Use the data to fit a model based on that form</li>
+</ul></li>
+</ul>
+</section>
+<section id="determine-f" class="level2">
+<h2 class="anchored" data-anchor-id="determine-f">Determine <span class="math inline">\(f\)</span></h2>
+<ol type="1">
+<li>Choose the functional form of <span class="math inline">\(f\)</span>, i.e., <strong>choose the appropriate model given the response variable</strong></li>
+</ol>
+<ul>
+<li>Suppose <span class="math inline">\(f\)</span> takes the form of a linear model<br>
+<span class="math display">\[Y = f(\mathbf{X}) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon\]</span></li>
+</ul>
+<p>. . .</p>
+<ol start="2" type="1">
+<li>Use the data to fit (or train) the model, i.e, <strong>compute estimates of the model parameters</strong>, denoted <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_p\)</span></li>
+</ol>
+</section>
+<section id="life_exp-vs.-income_inequality" class="level2">
+<h2 class="anchored" data-anchor-id="life_exp-vs.-income_inequality"><code>life_exp</code> vs.&nbsp;<code>income_inequality</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-big-picture_files/figure-revealjs/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[\widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{income_inequality}\]</span></p>
+</section>
+<section id="life_exp-vs.-income_inequality-education" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="life_exp-vs.-income_inequality-education"><code>life_exp</code> vs.&nbsp;<code>income_inequality</code> + <code>education</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-big-picture_files/figure-revealjs/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[\widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{income_inequality} + \hat{\beta}_2 ~\text{education}\]</span></p>
+</section>
+<section id="statistical-model-vs.-regression-equation" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="statistical-model-vs.-regression-equation">Statistical model vs.&nbsp;regression equation</h2>
+<p><strong>Statistical model (also known as the data-generating model)</strong></p>
+<div class="equation">
+<p><span class="math display">\[{\small \text{life_exp} = \beta_0 + \beta_1 ~\text{income_inequality} + \beta_2 ~\text{education} + \epsilon}\]</span></p>
+</div>
+<p>Models the process for generating values of the response in the population (function + error), i.e., the <u>population-level</u> model.</p>
+<p><br></p>
+<p>. . .</p>
+<p><strong>Regression equation (also known as the fitted model)</strong></p>
+<p>Estimate of the function using the sample data</p>
+<div class="equation">
+<p><span class="math display">\[{\small \widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{income_inequality} + \hat{\beta}_2 ~\text{education}}\]</span></p>
+</div>
+</section>
+<section id="life_exp-vs.-income_inequality-education-with-interaction" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="life_exp-vs.-income_inequality-education-with-interaction"><code>life_exp</code> vs.&nbsp;<code>income_inequality</code> + <code>education</code> (with interaction)</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="02-big-picture_files/figure-revealjs/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[{\small \widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{income_inequality} + \hat{\beta}_2 ~\text{education} + \hat{\beta}_3 ~ \text{income_inequality} \times \text{education}}\]</span></p>
+</section>
+<section id="why-fit-a-model" class="level2">
+<h2 class="anchored" data-anchor-id="why-fit-a-model">Why fit a model?</h2>
+<ul>
+<li><p><strong>Prediction:</strong> Expected value of the response variable for given values of the predictor variables</p></li>
+<li><p><strong>Inference:</strong> Conclusion about the relationship between the response and predictor variables</p></li>
+</ul>
+<p>. . .</p>
+<div class="question">
+<ul>
+<li><p>What is an example of a <strong>prediction</strong> question that can be answered using the model of <code>life_exp</code> vs.&nbsp;<code>income_inequality</code> and <code>education</code>?</p></li>
+<li><p>What is an example of an <strong>inference</strong> question that can be answered using the model of <code>life_exp</code> vs.<code>income_inequality</code> and <code>education</code>?</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="application-exercise" class="level1">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-02-life-expectancy.html">sta210-sp26.github.io/ae/ae-02-life-expectancy</a></p>
+</div>
+<section id="recap" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li><p><strong>Reproducibility</strong></p>
+<ul>
+<li><p>It is best practice conduct all data analysis in a reproducible way</p></li>
+<li><p>We will implement a reproducible workflow using R, Quarto, and git/GitHub</p></li>
+</ul></li>
+<li><p><strong>Multivariable relationships</strong></p>
+<ul>
+<li><p>We can use exploratory data analysis to describe the relationship between two variables</p></li>
+<li><p>We make an assumption about the relationship between variables when doing linear regression</p></li>
+<li><p>The two main objectives for fitting a linear regression model are (1) prediction and (2) inference</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="for-next-time" class="level2">
+<h2 class="anchored" data-anchor-id="for-next-time">For next time</h2>
+<ul>
+<li><p>Complete <a href="../prepare/prepare-lec03.html">Lecture 03 prepare</a></p></li>
+<li><p>Bring fully-charged laptop or device to access RStudio for in-class exercise</p></li>
+</ul>
+</section>
+<section id="references" class="level2">
+
 
 
 
@@ -537,10 +837,54 @@ $ health_pct_gdp &lt;dbl&gt; 5, 41, 44, 74, 16, 68, 73, 20, 18, 61, 84, 66, 21, 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-alexander2023" class="csl-entry" role="listitem">
+Alexander, Rohan. 2023. <span>“Telling Stories with Data,”</span> June. <a href="https://doi.org/10.1201/9781003229407">https://doi.org/10.1201/9781003229407</a>.
+</div>
+<div id="ref-ostblom2022" class="csl-entry" role="listitem">
+Ostblom, Joel, and Tiffany Timbers. 2022. <span>“Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.”</span> <em>Journal of Statistics and Data Science Education</em> 30 (3): 241–50. <a href="https://doi.org/10.1080/26939169.2022.2074922">https://doi.org/10.1080/26939169.2022.2074922</a>.
+</div>
 <div id="ref-zarulli2021" class="csl-entry" role="listitem">
 Zarulli, Virginia, Elizaveta Sopina, Veronica Toffolutti, and Adam Lenart. 2021. <span>“Health Care System Efficiency and Life Expectancy: A 140-Country Study.”</span> Edited by Srinivas Goli. <em>PLOS ONE</em> 16 (7): e0253450. <a href="https://doi.org/10.1371/journal.pone.0253450">https://doi.org/10.1371/journal.pone.0253450</a>.
 </div>
 </div></section></div></main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

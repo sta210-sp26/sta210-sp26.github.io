@@ -1,16 +1,12 @@
 ---
 title: "AE 02: Life expectancy and healthcare expenditure"
-date: "Jan 14, 2025"
+date: "January 13, 2026"
 editor: visual
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 bibliography: references.bib
 ---
-
-::: callout-important
-For this AE, you will discuss the questions in groups. This AE does not count towards the Application Exercise grade.
-:::
 
 ```{r load-packages}
 #| message: false
@@ -79,4 +75,13 @@ Suppose you want to fit a model so you can use the healthcare expenditure as a p
 
 $$\text{life_exp} = \beta_0 + \beta_1 ~ \text{health_pct_gdp} + \epsilon$$
 
-be a useful model for the data? Why or why not?
+be a useful model for the data? Briefly explain your choice.
+
+Submit your response below (counts towards participation points):
+
+```{=html}
+<center>
+<iframe width="640px" height="480px" src="https://forms.office.com/r/u6zwyypDaZ?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+
+🔗 <https://forms.office.com/r/u6zwyypDaZ>

@@ -2,9 +2,9 @@
 title: "The big picture"
 subtitle: "Analyzing multivariable relationships + Reproducibility"
 author: "Prof. Maria Tackett"
-date: "2025-01-14"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
+date: "01-13-2026"
+date-format: "MMMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
 logo: "../images/logo.png"
 format: 
   revealjs: 
@@ -52,30 +52,25 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 ```
 
-## Announcements
+## Announcements 
 
 -   Office hours start this week
     -   See office hours schedule on Canvas
 -   Complete [Lab 00 tasks](../labs/lab-00.html)
 -   Introduction to R workshops at Duke library
-    -   [Data wrangling with dplyr](https://duke.libcal.com/event/13664829) - Thu, Jan 16 at 12pm
-    -   [Data visualization with ggplot2](https://duke.libcal.com/event/13660125) - Thu, Jan 23 at 12pm
+    -   See Monday's Canvas announcement
 
 # Questions from last class?
 
 ## Topics
 
--   Data analysis life cycle
+-   Data science workflow
 -   Reproducible data analysis
 -   Analyzing multivariable relationships
 
-------------------------------------------------------------------------
+## Data science workflow
 
-![Source: [*R for Data Science*](https://r4ds.hadley.nz/) with additions from *The Art of Statistics: How to Learn from Data*.](images/02/data-analysis-life-cycle.png)
-
-------------------------------------------------------------------------
-
-![Source:[*R for Data Science*](https://r4ds.hadley.nz/)](images/02/whole-game.png)
+![Source: Introduction to Regression Analysis: A Data Science Approach](images/02/data-science-workflow.png)
 
 # Reproducibility
 
@@ -112,26 +107,6 @@ What does it mean for an analysis to be reproducible?
 -   Contributing to science, which builds and organizes knowledge in terms of testable hypotheses [@alexander2023]
 
 -   Possible to identify and correct errors or biases in the analysis process [@alexander2023]
-
-## Why is reproducibility important? {.midi}
-
-![](images/02/jama-retraction.png){fig-align="center" width="55%"}
-
-<div>
-
--   Originally reported "the intervention, compared with usual care, resulted in a fewer number of mean COPD-related hospitalizations and emergency department visits at 6 months per participant."
-
--   There were actually **more** COPD-related hospitalizations and emergency department visits in the intervention group compared to the control group
-
--   Mixed up the intervention vs. control group using "0/1" coding
-
-</div>
-
-:::: aside
-::: small
-<https://jamanetwork.com/journals/jama/fullarticle/2752474>
-:::
-::::
 
 ## Toolkit
 
@@ -183,7 +158,7 @@ What does it mean for an analysis to be reproducible?
 
 <br>
 
-![](images/02/lego-steps.png){fig-align="center"}
+![](images/02/lego-steps.png){fig-align="center" width="80%"}
 
 ------------------------------------------------------------------------
 
@@ -191,7 +166,7 @@ What does it mean for an analysis to be reproducible?
 
 with human readable messages
 
-![](images/02/lego-steps-commit-messages.png){fig-align="center"}
+![](images/02/lego-steps-commit-messages.png){fig-align="center" width="80%"}
 
 ------------------------------------------------------------------------
 
@@ -217,7 +192,7 @@ Provides a clear record of how the analysis methods evolved. This makes analysis
 
 # Multivariable relationships
 
-## Education and life expectancy
+## Factors associated with life expectancy
 
 ```{r}
 #| echo: false
@@ -232,7 +207,7 @@ life_exp <- read_excel("data/life-expectancy-data.xlsx") |>
 
 The data set comes from @zarulli2021 who analyze the effects of a country's healthcare expenditures and other factors on the country's life expectancy. The data are originally from the [Human Development Database](http://hdr.undp.org/en/data) and [World Health Organization](https://apps.who.int/nha/database/).
 
-There are `r nrow(life_exp)` countries (observations) in the data set.
+The data are available in [`life-expectancy-data.csv`](https://intro-regression.github.io/data/life-expectancy-data.csv). There are `r nrow(life_exp)` countries (observations) in the data set.
 
 ::: aside
 [Click here](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253450) for the original research paper.
@@ -321,7 +296,7 @@ $$\text{life_exp} = f(\text{income_inequality}, \text{education}) + \epsilon$$
 1)  Choose the functional form of $f$, i.e., **choose the appropriate model given the response variable**
 
 -   Suppose $f$ takes the form of a linear model\
-    $$y = f(\mathbf{X}) = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p + \epsilon$$
+    $$Y = f(\mathbf{X}) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p + \epsilon$$
 
 . . .
 
@@ -340,8 +315,6 @@ ggplot(data = life_exp, aes(x = income_inequality, y = life_exp)) +
 
 $$\widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{income_inequality}$$
 
-------------------------------------------------------------------------
-
 ## `life_exp` vs. `income_inequality` + `education` {.midi}
 
 ```{r echo = F}
@@ -349,7 +322,9 @@ model1 <- lm(life_exp ~ income_inequality + education, data = life_exp)
 model1 <- tidy(model1)
 ```
 
-```{r echo = F}
+```{r}
+#| echo: false
+#| out-width: 80%
 ggplot(data = life_exp, aes(x = income_inequality, y = life_exp, color = education, shape = education)) + 
   geom_point(alpha = 0.8, size = 2) +
   geom_abline(slope = model1$estimate[2], intercept = model1$estimate[1], color = "#440154FF", size = 1.5) +
@@ -391,6 +366,7 @@ $${\small \widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{incom
 
 ```{r}
 #| echo: false
+#| out-width: 80%
 
 ggplot(data = life_exp, aes(x = income_inequality, y = life_exp, color = education, shape = education)) + 
   geom_point(alpha = 0.8, size = 2) +
@@ -424,7 +400,7 @@ $${\small \widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{incom
 # Application exercise
 
 ::: appex
-📋 [sta210-sp25.netlify.app/ae/ae-02-life-expectancy](../ae/ae-02-life-expectancy.html)
+📋 [sta210-sp26.github.io/ae/ae-02-life-expectancy](../ae/ae-02-life-expectancy.html)
 :::
 
 ## Recap {.midi}
@@ -434,8 +410,6 @@ $${\small \widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{incom
     -   It is best practice conduct all data analysis in a reproducible way
 
     -   We will implement a reproducible workflow using R, Quarto, and git/GitHub
-
-<!-- -->
 
 -   **Multivariable relationships**
 
@@ -447,8 +421,8 @@ $${\small \widehat{\text{life_exp}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{incom
 
 ## For next time
 
--   Complete [Lec 03 - Simple linear regression prepare](../prepare/prepare-lec03.html)
+-   Complete [Lecture 03 prepare](../prepare/prepare-lec03.html)
 
--   Bring fully-charged laptop or device with keyboard for in-class application exercise (AE)
+-   Bring fully-charged laptop or device to access RStudio for in-class exercise
 
 ## References

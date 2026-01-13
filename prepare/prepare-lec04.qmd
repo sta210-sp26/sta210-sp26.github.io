@@ -6,4 +6,4 @@ title: "Prepare for Lecture 04: Inference - bootstrap confidence intervals"
 
 📖 Read [Sections 5.1 - 5.4](https://intro-regression.github.io/05-slr-inference.html#sec-slr-inf-data)
 
-💻 Reference [Section 5.9.1](#0) for R code
+💻 Reference [Section 5.9.1](https://intro-regression.github.io/05-slr-inference.html#sec-slr-bootstrap-r) for R code

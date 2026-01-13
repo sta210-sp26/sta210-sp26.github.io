@@ -61,8 +61,7 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 -   Complete [Lab 00 tasks](../labs/lab-00.html)
 -   Introduction to R workshops at Duke library
     -   See Monday's Canvas announcement
--   Triangle Sports Analytics Competition: <https://triangle-sports.github.io/>
-    -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7506518) for full announcement
+-   Triangle
 
 # Questions from last class?
 

@@ -6,7 +6,7 @@ website:
   page-navigation: true
   title: "STA 210 - Spring 2026"
   description: "Homepage for STA 210 - Regression Analysis at Duke University"
-  site-url: https://sta210-sp26.netlify.app
+  site-url: https://sta210-sp26.github.io
 
   repo-url: https://github.com/sta210-sp26/website
   repo-actions: [issue]

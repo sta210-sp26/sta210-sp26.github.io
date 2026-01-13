@@ -1,0 +1,9 @@
+---
+title: "Prepare for Lecture 07: Multiple linear regression"
+---
+
+<br>
+
+📖 Read [Sections 7.1 - 7.4.1](https://intro-regression.github.io/07-mlr.html)
+
+📖 Read [Section 7.5](https://intro-regression.github.io/07-mlr.html#prediction)

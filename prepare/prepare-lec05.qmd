@@ -1,0 +1,9 @@
+---
+title: "Prepare for Lecture 05: Inference - permutation tests"
+---
+
+<br>
+
+📖 Read [Sections 5.5 - 5.7](https://intro-regression.github.io/05-slr-inference.html#sec-hypothesis-test-overview)
+
+💻 Reference [Section 5.9.2](https://intro-regression.github.io/05-slr-inference.html#sec-slr-permutation-r) for R code

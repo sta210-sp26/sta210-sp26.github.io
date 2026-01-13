@@ -1,0 +1,9 @@
+---
+title: "Prepare for Lecture 06: Inference - Mathematical models"
+---
+
+<br>
+
+📖 Read [Section 5.8](https://intro-regression.github.io/05-slr-inference.html#sec-slr-inf-clt)
+
+💻 Reference [Section 5.9.3](https://intro-regression.github.io/05-slr-inference.html#sec-theory-inf-r)

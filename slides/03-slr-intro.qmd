@@ -1,10 +1,9 @@
 ---
 title: "Simple Linear Regression"
 author: "Prof. Maria Tackett"
-date: "2025-01-16"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
-logo: "../images/logo.png"
+date: "01-15-2026"
+date-format: "MMMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
 format: 
   revealjs: 
     theme: slides.scss
@@ -31,10 +30,7 @@ bibliography: references.bib
 
 ## Announcements
 
--   No labs or office hours Monday, January 20 - Martin Luther King Jr. Holiday
--   Introduction to R workshops at Duke library
-    -   [Data wrangling with dplyr](https://duke.libcal.com/event/13664829) - Thu, Jan 16 at 12pm
-    -   [Data visualization with ggplot2](https://duke.libcal.com/event/13660125) - Thu, Jan 23 at 12pm
+-   No lab Monday, January 20 - Martin Luther King Jr. Holiday
 
 ## Topics
 
@@ -61,7 +57,6 @@ bibliography: references.bib
 # load packages
 library(tidyverse)       # for data wrangling
 library(tidymodels)      # for modeling
-library(fivethirtyeight) # for the fandango dataset
 library(knitr)          # for formatting tables
 
 # set default theme and larger font size for ggplot2
@@ -84,7 +79,6 @@ knitr::opts_chunk$set(
 # load packages
 library(tidyverse)       # for data wrangling
 library(tidymodels)      # for modeling functions
-library(fivethirtyeight) # for the fandango dataset
 library(knitr)
 
 # set default theme and larger font size for ggplot2
@@ -108,7 +102,7 @@ knitr::opts_chunk$set(
 ::::: columns
 ::: {.column width="70%"}
 -   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings*](https://fivethirtyeight.com/features/fandango-movies-ratings/)[*, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
--   In the **fivethirtyeight** package: [`fandango`](https://fivethirtyeight-r.netlify.app/reference/fandango.html)
+-   Data originally from the `fandango` data frame in **fivethirtyeight** package. Available in [`movie-scores.csv`](https://intro-regression.github.io/data/movie-scores.csv)
 -   Contains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores
 :::
 
@@ -123,33 +117,24 @@ knitr::opts_chunk$set(
 :::
 :::::
 
-## Data prep
-
--   Rename Rotten Tomatoes columns as `critics` and `audience`
--   Rename the data set as `movie_scores`
-
-```{r data-prep}
-#| echo: true
-movie_scores <- fandango |>
-  rename(critics = rottentomatoes, 
-         audience = rottentomatoes_user)
-```
-
 ## Data overview
 
 ```{r data-overview}
 #| echo: true
+
+movie_scores <- read_csv("https://intro-regression.github.io/data/movie-scores.csv")
+
 glimpse(movie_scores)
 ```
 
 ## Movie scores data
 
-The data set contains the "Tomatometer" score (**`critics`**) and audience score (**`audience`**) for 146 movies rated on rottentomatoes.com.
+The data set contains the "Tomatometer" score (**`critics_score`**) and audience score (**`audience_score`**) for 146 movies rated on rottentomatoes.com.
 
 ```{r}
 #| echo: false
 #| fig-align: center
-ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
+ggplot(data = movie_scores, mapping = aes(x = critics_score, y = audience_score)) +
   geom_point(alpha = 0.5) + 
   labs(x = "Critics Score" , 
        y = "Audience Score")
@@ -162,7 +147,7 @@ ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
 ```{r}
 #| echo: false
 #| fig-align: center
-p <- ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
+p <- ggplot(data = movie_scores, mapping = aes(x = critics_score, y = audience_score)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(method = "lm", color = "red", se = FALSE) +
   labs(x = "Critics Score" , 
@@ -215,24 +200,22 @@ A **regression model** is a function that describes the relationship between the
 
 \begin{aligned} Y &= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
 &= \color{black}{\mathbf{f(X)}} + \epsilon \\[8pt]
-&= \color{black}{\mathbf{E(Y|X)}} + \epsilon \\[8pt]
-&= \color{black}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
+&= \color{black}{\mathbf{E(Y|X)}} + \epsilon\end{aligned}
 
 ## Regression model
 
 ::::: columns
 ::: {.column width="30%"}
-\begin{aligned} Y &= {\color{purple} \textbf{Model}} + \text{Error} \\[8pt]
+\begin{aligned} Y &= {\color{purple} \textbf{Model}} + \textbf{Error} \\[8pt]
 &= {\color{purple} \mathbf{f(X)}} + \epsilon \\[8pt]
-&= {\color{purple} \mathbf{E(Y|X)}} + \epsilon \\[8pt]
-&= {\color{purple} \boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
+&= {\color{purple} \mathbf{E(Y|X)}} + \epsilon \\ \end{aligned}
 :::
 
 ::: {.column width="70%"}
 ```{r}
 #| echo: false
 #| fig-align: center
-ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
+ggplot(data = movie_scores, mapping = aes(x = critics_score, y = audience_score)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(method = "lm", color = "purple", se = FALSE) +
   labs(x = "X" , 
@@ -245,7 +228,7 @@ ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
 :::
 :::::
 
-$\mu_{Y|X}$ is the mean value of $Y$ given a particular value of $X$.
+$E(Y|X) = \mu_{Y|X}$ is the mean value of $Y$ given a particular value of $X$.
 
 ## Regression model
 
@@ -254,8 +237,7 @@ $\mu_{Y|X}$ is the mean value of $Y$ given a particular value of $X$.
 $$
 \begin{aligned} Y &= \color{purple}{\textbf{Model}} + \color{blue}{\textbf{Error}} \\[8pt]
 &= \color{purple}{\mathbf{f(X)}} + \color{blue}{\boldsymbol{\epsilon}} \\[8pt]
-&= \color{purple}{\mathbf{E(Y|X)}} + \color{blue}{\boldsymbol{\epsilon}} \\[8pt]
-&= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
+&= \color{purple}{\mathbf{E(Y|X)}} + \color{blue}{\boldsymbol{\epsilon}} \\
  \end{aligned}
 $$
 :::
@@ -264,11 +246,11 @@ $$
 ```{r}
 #| echo: false
 #| fig-align: center
-m <- lm(audience ~ critics, data = movie_scores)
-ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
+m <- lm(audience_score ~ critics_score, data = movie_scores)
+ggplot(data = movie_scores, mapping = aes(x = critics_score, y = audience_score)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(method = "lm", color = "purple", se = FALSE) +
-  geom_segment(aes(x=critics, xend=critics, y=audience, yend=predict(m, movie_scores)), color = "blue", linetype = "dotted") +
+  geom_segment(aes(x=critics_score, xend=critics_score, y=audience_score, yend=predict(m, movie_scores)), color = "blue", linetype = "dotted") +
   labs(x = "X" , 
        y = "Y",
        title = "Population-level data") +
@@ -319,7 +301,7 @@ Why is there no error term in the estimated regression equation?
 ```{r}
 #| echo: false
 #| fig-align: center
-ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
+ggplot(data = movie_scores, mapping = aes(x = critics_score, y = audience_score)) +
   geom_point(alpha = 0.4) + 
   geom_abline(intercept = 32.296, slope = 0.5187, color = "red", size = 1) +
   geom_abline(intercept = 25, slope = 0.7, color = "gray") +
@@ -334,10 +316,10 @@ ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
 ```{r}
 #| echo: false
 #| fig-align: center
-ggplot(data = movie_scores, mapping = aes(x = critics,y = audience)) + 
+ggplot(data = movie_scores, mapping = aes(x = critics_score,y = audience_score)) + 
   geom_point(alpha = 0.5) + 
   geom_smooth(method ="lm", color = "red", se = FALSE) + 
-  geom_segment(aes(x = critics, xend = critics, y = audience, yend= predict(m, movie_scores)), color = "steel blue", linetype = "dotted") +
+  geom_segment(aes(x = critics_score, xend = critics_score, y = audience_score, yend= predict(m, movie_scores)), color = "steel blue", linetype = "dotted") +
   labs(x = "Critics Score" , 
        y = "Audience Score")+
   theme(legend.position = "none")
@@ -360,17 +342,18 @@ $$e^2_1 + e^2_2 + \dots + e^2_n$$
 
 ```{r}
 #| echo: false
-sx <- round(sqrt(var(movie_scores$critics)),4)
-sy <- round(sqrt(var(movie_scores$audience)),4)
-r <- round(cor(movie_scores$critics, movie_scores$audience),4)
-xbar <- round(mean(movie_scores$critics),4)
-ybar <- round(mean(movie_scores$audience),4)
+sx <- round(sqrt(var(movie_scores$critics_score)),4)
+sy <- round(sqrt(var(movie_scores$audience_score)),4)
+r <- round(cor(movie_scores$critics_score, movie_scores$audience_score),4)
+xbar <- round(mean(movie_scores$critics_score),4)
+ybar <- round(mean(movie_scores$audience_score),4)
 ```
 
-## Steps to compute estimate $\hat{\beta}_0$
+## Least-squares estimator of $\hat{\beta}_0$
 
 ::: aside
-[Click here](https://introregression.netlify.app/98-appendix#sec-least-sq-math) for full details on estimating $\hat{\beta}_0$ and $\hat{\beta}_1$ for simple linear regression.
+[\
+Click here](https://intro-regression.github.io/appendix-linear.html#sec-least-sq-math) for full details on estimating and .for full details on estimating $\hat{\beta}_0$ and $\hat{\beta}_1$ for simple linear regression.
 :::
 
 # Slope and intercept
@@ -409,7 +392,7 @@ r &= 0.7814
 
 ## Estimating the intercept
 
-$$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
+$$\large{\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}}$$
 
 ::::: columns
 ::: {.column width="50%"}
@@ -427,7 +410,7 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 :::
 :::::
 
-## Interpretation
+## Interpretation - UPDATE to MS FORM
 
 $$
 \widehat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}
@@ -447,7 +430,7 @@ Answer the following questions on Ed Discussion:
 
 . . .
 
-`r emo::ji("white_check_mark")` **The intercept is meaningful in the context of the data if**
+✅ **The intercept is meaningful in the context of the data if**
 
 -   the predictor can feasibly take values equal to or near zero, or
 
@@ -455,7 +438,7 @@ Answer the following questions on Ed Discussion:
 
 . . .
 
-`r emo::ji("stop_sign")` Otherwise, the intercept may not be meaningful!
+🛑 Otherwise, the intercept may not be meaningful!
 
 # Prediction
 
@@ -464,7 +447,7 @@ Answer the following questions on Ed Discussion:
 Suppose that a movie has a critics score of 70. According to this model, what is the movie's predicted audience score?
 
 \begin{aligned}
-\widehat{\text{audience}} &= 32.3142 + 0.5187 \times \text{critics} \\
+\widehat{\text{audience_score}} &= 32.3142 + 0.5187 \times \text{critics_score} \\
 &= 32.3142 + 0.5187 \times 70 \\
 &= 68.6232
 \end{aligned}
@@ -486,7 +469,7 @@ Use the `lm()` function to fit a linear regression model
 <br>
 
 ```{r}
-movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit <- lm(audience_score ~ critics_score, data = movie_scores)
 movie_fit
 ```
 
@@ -498,7 +481,7 @@ Use the `tidy()` function from the **broom** R package to "tidy" the model outpu
 
 ```{r}
 #| code-line-numbers: "|2"
-movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit <- lm(audience_score ~ critics_score, data = movie_scores)
 tidy(movie_fit)
 ```
 
@@ -512,7 +495,7 @@ Use the `kable()` function from the **knitr** package to neatly format the resul
 
 ```{r}
 #| code-line-numbers: "|2,3"
-movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit <- lm(audience_score ~ critics_score, data = movie_scores)
 tidy(movie_fit) |>
   kable(digits = 3)
 ```
@@ -528,7 +511,7 @@ Use the `predict()` function to calculate predictions for new observations
 **Single observation**
 
 ```{r}
-new_movie <- tibble(critics = 70)
+new_movie <- tibble(critics_score = 70)
 predict(movie_fit, new_movie)
 ```
 
@@ -541,11 +524,11 @@ Use the `predict()` function to calculate predictions for new observations
 **Multiple observations**
 
 ```{r}
-more_new_movies <- tibble(critics = c(24,70, 85))
+more_new_movies <- tibble(critics_score = c(24,70, 85))
 predict(movie_fit, more_new_movies)
 ```
 
-# Application exercise
+# Application exercise - UPDATE
 
 ::: appex
 📋 <https://sta210-sp25.netlify.app/ae/ae-03-slr.html>
@@ -571,6 +554,10 @@ predict(movie_fit, more_new_movies)
 
 </div>
 
-## For next class
+## Next Class 
 
--   Prepare for [Lecture 04: Inference for simple linear regression](../prepare/prepare-lec04.html)
+-   Inference: Bootstrap confidence intervals
+
+<!-- -->
+
+-   Complete [Lecture 04 Prepare](../prepare/prepare-lec04.html)

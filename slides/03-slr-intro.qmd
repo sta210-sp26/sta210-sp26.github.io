@@ -31,6 +31,8 @@ bibliography: references.bib
 ## Announcements
 
 -   No lab Monday, January 20 - Martin Luther King Jr. Holiday
+-   No final exam in this class
+    -   No in-person activities after LDOC
 
 ## Topics
 
@@ -353,7 +355,7 @@ ybar <- round(mean(movie_scores$audience_score),4)
 
 ::: aside
 [\
-Click here](https://intro-regression.github.io/appendix-linear.html#sec-least-sq-math) for full details on estimating and .for full details on estimating $\hat{\beta}_0$ and $\hat{\beta}_1$ for simple linear regression.
+Click here](https://intro-regression.github.io/appendix-linear.html#sec-least-sq-math) for full details on on finding $\hat{\beta}_0$ and $\hat{\beta}_1$ in simple linear regression.
 :::
 
 # Slope and intercept
@@ -410,7 +412,7 @@ $$\large{\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}}$$
 :::
 :::::
 
-## Interpretation 
+## Interpretation
 
 $$
 \widehat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}
@@ -432,7 +434,7 @@ Submit your responses to the following:
 ## Submit
 
 ```{=html}
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=TsVyyzFKnk2xSh6jbfrJTBw0r2_bKCVMs9lST1_-2sxUNUZEOUxISDJERFIyNzUyQTg5MjVUN1VOWi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+<center><iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=TsVyyzFKnk2xSh6jbfrJTBw0r2_bKCVMs9lST1_-2sxUNUZEOUxISDJERFIyNzUyQTg5MjVUN1VOWi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
 ```
 :::::
 

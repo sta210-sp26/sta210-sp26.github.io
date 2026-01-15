@@ -680,7 +680,7 @@
     "href": "ae/ae-03-slr.html",
     "title": "AE 03: Simple linear regression",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-03 repo to get started. If you do not see an ae-03 repo, use the link below to create one:\nhttps://classroom.github.com/a/aW6NsEK2\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)"
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-03 repo to get started. If you do not see an ae-03 repo, use the link below to create one:\nhttps://classroom.github.com/a/JpQEbKBU\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)"
   },
   {
     "objectID": "ae/ae-03-slr.html#exercise-1",

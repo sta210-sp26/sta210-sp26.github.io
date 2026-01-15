@@ -550,7 +550,7 @@ predict(movie_fit, more_new_movies)
 
 -   Find your `ae-03` repo in the course GitHub organization.
 
--   If you do not see an `ae-03` repo, use the link to create one: <https://classroom.github.com/a/aW6NsEK2>
+-   If you do not see an `ae-03` repo, use the link to create one: <https://classroom.github.com/a/JpQEbKBU>
 
 ## Recap
 

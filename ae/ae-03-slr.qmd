@@ -11,7 +11,7 @@ execute:
 ::: callout-important
 Go to the [course GitHub organization](https://github.com/sta210-sp26) and locate your `ae-03` repo to get started. If you do not see an `ae-03` repo, use the link below to create one:
 
-<https://classroom.github.com/a/aW6NsEK2>
+<https://classroom.github.com/a/JpQEbKBU>
 :::
 
 ```{r}

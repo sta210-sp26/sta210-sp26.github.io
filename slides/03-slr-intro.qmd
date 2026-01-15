@@ -410,21 +410,33 @@ $$\large{\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}}$$
 :::
 :::::
 
-## Interpretation - UPDATE to MS FORM
+## Interpretation 
 
 $$
 \widehat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}
 $$
 
-::: appex
-Answer the following questions on Ed Discussion:
+::::: panel-tabset
+## Question
+
+:::: appex
+::: midi
+Submit your responses to the following:
 
 -   The slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?
 
 -   32.3142 is the predicted mean audience score for what type of movies?
-
-🔗 <https://edstem.org/us/courses/70992/discussion/5978732>
 :::
+::::
+
+## Submit
+
+```{=html}
+<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=TsVyyzFKnk2xSh6jbfrJTBw0r2_bKCVMs9lST1_-2sxUNUZEOUxISDJERFIyNzUyQTg5MjVUN1VOWi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+```
+:::::
+
+🔗 <https://forms.office.com/r/NYMZZguyqP>
 
 ## Does it make sense to interpret the intercept?
 
@@ -528,7 +540,7 @@ more_new_movies <- tibble(critics_score = c(24,70, 85))
 predict(movie_fit, more_new_movies)
 ```
 
-# Application exercise 
+# Application exercise
 
 ::: appex
 📋 [sta210-sp26.github.io/ae/ae-03-slr.html](https://sta210-sp26.github.io/ae/ae-03-slr.html)
@@ -554,7 +566,7 @@ predict(movie_fit, more_new_movies)
 
 </div>
 
-## Next Class 
+## Next Class
 
 -   Inference: Bootstrap confidence intervals
 

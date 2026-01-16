@@ -1013,69 +1013,55 @@
     "text": "To be posted."
   },
   {
-    "objectID": "labs/lab-08.html",
-    "href": "labs/lab-08.html",
-    "title": "Lab 08",
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "STA 210 - Regression Analysis",
     "section": "",
-    "text": "To be posted.",
+    "text": "In STA 210, students will learn how linear and logistic regression models are used to explore multivariable relationships and apply these methods to answer relevant and engaging questions using a data-driven approach. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.\nTopics include applications of linear and logistic regression, interpretation, diagnostics, model selection, and model assessment. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields. This class emphasizes data analysis over mathematical theory.\n\n\n100-level Statistical Science course or Statistical Science 230, 231, or 240L",
     "crumbs": [
-      "Labs",
-      "Lab 08"
+      "Overview"
     ]
   },
   {
-    "objectID": "labs/lab-07.html",
-    "href": "labs/lab-07.html",
-    "title": "Lab 07",
+    "objectID": "overview.html#pre-requisites",
+    "href": "overview.html#pre-requisites",
+    "title": "STA 210 - Regression Analysis",
     "section": "",
-    "text": "To be posted.",
+    "text": "100-level Statistical Science course or Statistical Science 230, 231, or 240L",
     "crumbs": [
-      "Labs",
-      "Lab 07"
+      "Overview"
     ]
   },
   {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 04",
-    "section": "",
-    "text": "To be posted.",
+    "objectID": "overview.html#teaching-assistants",
+    "href": "overview.html#teaching-assistants",
+    "title": "STA 210 - Regression Analysis",
+    "section": "Teaching assistants",
+    "text": "Teaching assistants\n\n\n\nName\nRole\n\n\nAdeli Hutton\nLab leader\n\n\nShane Rybacki\nLab leader\n\n\n\nSee Canvas for office hours times and locations.",
     "crumbs": [
-      "Labs",
-      "Lab 04"
+      "Overview"
     ]
   },
   {
-    "objectID": "labs/lab-01.html",
-    "href": "labs/lab-01.html",
-    "title": "Lab 01",
+    "objectID": "labs/lab-06.html",
+    "href": "labs/lab-06.html",
+    "title": "Lab 06",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 01"
+      "Lab 06"
     ]
   },
   {
-    "objectID": "labs/lab-02.html",
-    "href": "labs/lab-02.html",
-    "title": "Lab 02",
+    "objectID": "labs/lab-05.html",
+    "href": "labs/lab-05.html",
+    "title": "Lab 05",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 03",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
+      "Lab 05"
     ]
   },
   {
@@ -1156,56 +1142,112 @@
     ]
   },
   {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 05",
+    "objectID": "labs/lab-03.html",
+    "href": "labs/lab-03.html",
+    "title": "Lab 03",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 05"
+      "Lab 03"
     ]
   },
   {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 06",
+    "objectID": "labs/lab-02.html",
+    "href": "labs/lab-02.html",
+    "title": "Lab 02",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 06"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "overview.html",
-    "href": "overview.html",
-    "title": "STA 210 - Regression Analysis",
+    "objectID": "labs/lab-01.html",
+    "href": "labs/lab-01.html",
+    "title": "Lab 01",
     "section": "",
-    "text": "In STA 210, students will learn how linear and logistic regression models are used to explore multivariable relationships and apply these methods to answer relevant and engaging questions using a data-driven approach. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.\nTopics include applications of linear and logistic regression, interpretation, diagnostics, model selection, and model assessment. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields. This class emphasizes data analysis over mathematical theory.\n\n\n100-level Statistical Science course or Statistical Science 230, 231, or 240L",
+    "text": "To be posted.",
     "crumbs": [
-      "Overview"
+      "Labs",
+      "Lab 01"
     ]
   },
   {
-    "objectID": "overview.html#pre-requisites",
-    "href": "overview.html#pre-requisites",
-    "title": "STA 210 - Regression Analysis",
+    "objectID": "labs/lab-04.html",
+    "href": "labs/lab-04.html",
+    "title": "Lab 04",
     "section": "",
-    "text": "100-level Statistical Science course or Statistical Science 230, 231, or 240L",
+    "text": "To be posted.",
     "crumbs": [
-      "Overview"
+      "Labs",
+      "Lab 04"
     ]
   },
   {
-    "objectID": "overview.html#teaching-assistants",
-    "href": "overview.html#teaching-assistants",
-    "title": "STA 210 - Regression Analysis",
-    "section": "Teaching assistants",
-    "text": "Teaching assistants\n\n\n\nName\nRole\n\n\nAdeli Hutton\nLab leader\n\n\nShane Rybacki\nLab leader\n\n\n\nSee Canvas for office hours times and locations.",
+    "objectID": "labs/lab-07.html",
+    "href": "labs/lab-07.html",
+    "title": "Lab 07",
+    "section": "",
+    "text": "To be posted.",
     "crumbs": [
-      "Overview"
+      "Labs",
+      "Lab 07"
     ]
+  },
+  {
+    "objectID": "labs/lab-08.html",
+    "href": "labs/lab-08.html",
+    "title": "Lab 08",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 08"
+    ]
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html",
+    "href": "hw/hw-01-DRAFT.html",
+    "title": "HW 01: Simple linear regression",
+    "section": "",
+    "text": "Important\n\n\n\nThis assignment is due on Tuesday, January 27 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#instructions",
+    "href": "hw/hw-01-DRAFT.html#instructions",
+    "title": "HW 01: Simple linear regression",
+    "section": "Instructions",
+    "text": "Instructions\nType your responses to each question in your Quarto document. Write all narrative using complete sentences and include informative axis labels and titles on visualizations. Use a reproducible workflow by periodically rendering the Quarto document, writing an informative commit message, and pushing the updated .qmd and .pdf files to GitHub."
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#part-1-exploratory-data-analysis",
+    "href": "hw/hw-01-DRAFT.html#part-1-exploratory-data-analysis",
+    "title": "HW 01: Simple linear regression",
+    "section": "Part 1: Exploratory data analysis",
+    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the response variable mc_preschool and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\nExercise 2\nLet’s view the data in another way. Below is a map showing the 600 counties in our sample filled in based on mc_preschool.\n\nWhat are 2 observations you have from the map?\n\n\n\nWhat is a feature that is apparent in the map that wasn’t as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?\n\n\n\nCode\n# create data frame containing mapping data for all counties\ncounties_sf &lt;- counties(cb = TRUE, year = 2018) |&gt;\n  st_as_sf() |&gt;\n  mutate(fips = paste0(STATEFP, COUNTYFP))\n\n# join mapping data to analysis data\ncounty_map_data &lt;- counties_sf |&gt;\n  left_join(childcare, by = \"fips\") \n\n# produce map\ncounty_map &lt;- ggplot(county_map_data) +\n  geom_sf(aes(fill = mc_toddler), color = NA) +\n  scale_fill_viridis_c(na.value = \"grey90\") +\n  coord_sf(\n    xlim = c(-125, -66),\n    ylim = c(24, 50),\n    expand = FALSE)  +\n  labs(title = \"Median weekly preschool costs\",\n       subtitle = \"in United States 600 counties\",\n       fill = \"Median cost\") +\n  theme_void() \n\n\n\n\n\n\n\n\n\n\n\n\n\nExercise 3\nCreate a visualization of the relationship between me_2018 and mc_toddler and calculate the correlation. Use the visualization and correlation to describe the relationship between the two variables.\n\nThis is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 1 - 3”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty."
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#part-2-modeling",
+    "href": "hw/hw-01-DRAFT.html#part-2-modeling",
+    "title": "HW 01: Simple linear regression",
+    "section": "Part 2: Modeling",
+    "text": "Part 2: Modeling\n\nExercise 4\nWe will use a linear regression model to explain variability in mc_preschool based on me_2018.\nWrite the form of the statistical (theoretical) model we will use for this task using mathematical notation. Use variable names (bachelors and median_household_income) in the equation for your model1.\n\n\n\n\n\n\nTip\n\n\n\nWrite median household income in LaTex as\n\\text{median\\_household\\_income}\nto make it properly render in the .pdf document.\n\n\n\n\nExercise 5\n\nFit the regression line corresponding to the statistical model in the previous exercise. Neatly display the model output using 3 digits.\nWrite the equation of the fitted model using mathematical notation. Use variable names (bachelors and median_household_income) in the equation.\n\n\n\nExercise 6\n\nInterpret the slope in the context of the data.\nDoes the intercept have a meaningful interpretation? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\nThis is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 4 -6”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty."
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#part-3-inference-for-the-u.s.",
+    "href": "hw/hw-01-DRAFT.html#part-3-inference-for-the-u.s.",
+    "title": "HW 01: Simple linear regression",
+    "section": "Part 3: Inference for the U.S.",
+    "text": "Part 3: Inference for the U.S.\nWe will use the data from these 600 randomly selected counties to draw conclusions about the relationship median household income and median costs for preschool for the over 3,000 counties in the United States.\n\nExercise 7\n\nWhat is the population in this analysis? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.\n\n\n\nExercise 8\nNext, compute a 90% bootstrap confidence interval for the slope. Use set.seed(2026) and 1000 iterations. Show all relevant code and output used to compute the interval.\nWrite the 90% confidence interval using 3 digits.\n\n\nExercise 9\n\nInterpret the interval from the previous exercise in the context of the data.\nSuppose you wanted to evaluate the claim that there is no linear relationship between median household income and the median cost for preschool. In other words, you want to evaluate the claim that \\(\\beta_1 = 0\\) in the model written in Exercise 4.\nDoes the confidence interval from the previous exercise support this claim? Briefly explain why or why not.\n\n\nNow is a good time to render your document again if you haven’t done so recently, commit (with an informative commit message), and push all updates."
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#footnotes",
+    "href": "hw/hw-01-DRAFT.html#footnotes",
+    "title": "HW 01: Simple linear regression",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nClick here for a guide on writing mathematical symbols using LaTex.↩︎"
   },
   {
     "objectID": "hw/hw-04.html",

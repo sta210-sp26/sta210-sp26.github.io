@@ -95,8 +95,6 @@ The description should include shape, center, spread, and presence of outliers. 
 
 Let's view the data in another way. Below is a map showing the 600 counties in our sample filled in based on values of `mc_preschool`. The code for the map was adapted from code produced by ChatGPT (model GPT-5.2).
 
-<!--# how do i cite AI?-->
-
 a.  What are 2 observations you have from the map?
 b.  What is a feature that is apparent in the map that wasn't as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?
 
@@ -138,7 +136,7 @@ county_map
 
 ### Exercise 3
 
-Create a visualization of the relationship between `me_2018` and `mc_toddler` and calculate the correlation. Use the visualization and correlation to describe the relationship between the two variables.
+Create a visualization of the relationship between `me_2018` and `mc_toddler` and compute the correlation. Use the visualization and correlation to describe the relationship between the two variables.
 
 ::: render-commit-push
 This is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 1 - 3”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.
@@ -171,27 +169,34 @@ b.  Write the equation of the fitted model using mathematical notation. In your 
 a.  Interpret the slope in the context of the data.
 b.  Does the intercept have a meaningful interpretation? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.
 
+### Exercise 7
+
+1.  In 2018, the median earnings in Durham County was \$35436. What is the predicted median weekly cost for preschool based on the model in [Exercise 5]?
+2.  The actual median cost for preschool was \$173 per week. What is the residual?
+
+:::: render-commit-push
 ::: render-commit-push
-This is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 4 -6”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.
+This is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 4 -7”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.
 :::
+::::
 
 ## Part 3: Inference 
 
 We will use the data from these 600 randomly selected counties to draw conclusions about the relationship between earnings and weekly cost of preschool for the over 3,000 counties in the United States.
 
-### Exercise 7
+### Exercise 8
 
 a.  What is the population in this analysis? What is the sample?
 
 b.  Is it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.
 
-### Exercise 8
+### Exercise 9
 
 Construct a 90% bootstrap confidence interval for the slope. Use `set.seed(2026)` and 1000 iterations. Show all relevant code and output used to produce the interval.
 
 Write the 90% confidence interval using 3 digits.
 
-### Exercise 9
+### Exercise 10
 
 a.  Interpret the interval from the previous exercise in the context of the data.
 
@@ -240,15 +245,16 @@ To submit your assignment:
 | Component                | Points |
 |--------------------------|--------|
 | Ex 1                     | 5      |
-| Ex 2                     | 5      |
+| Ex 2                     | 4      |
 | Ex 3                     | 5      |
-| Ex 4                     | 5      |
+| Ex 4                     | 4      |
 | Ex 5                     | 5      |
 | Ex 6                     | 5      |
-| Ex 7                     | 5      |
-| Ex 8                     | 5      |
-| Ex 9                     | 5      |
-| Completing AI Disclosure |        |
-| Workflow & formatting    | 5      |
+| Ex 7                     | 4      |
+| Ex 8                     | 4      |
+| Ex 9                     | 6      |
+| Ex 10                    | 4      |
+| Completing AI Disclosure | 1      |
+| Workflow & formatting    | 3      |
 
 The “Workflow & formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.

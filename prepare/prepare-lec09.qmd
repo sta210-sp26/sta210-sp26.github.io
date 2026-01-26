@@ -1,0 +1,9 @@
+---
+title: "Prepare for Lecture 09: Inference for multiple linear regression"
+---
+
+<br>
+
+📖 Read [Sections 8.1 - 8.4](https://intro-regression.github.io/08-mlr-inference.html)
+
+💻 Reference [Section 8.6](https://intro-regression.github.io/08-mlr-inference.html#inference-for-multiple-linear-regression-in-r)

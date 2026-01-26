@@ -1,7 +1,9 @@
 ---
-title: "Prepare for Lecture 10: Inference + Model conditions"
+title: "Prepare for Lecture 10: Model conditions + diagnostics"
 ---
 
 <br>
 
-📖 Read [Model conditions](https://introregression.netlify.app/05-5-conditions)
+📖 Read [Chapter 6](https://intro-regression.github.io/06-slr-conditions.html)
+
+📖 Read [Section 8.5](https://intro-regression.github.io/08-mlr-inference.html#sec-mlr-conditions-diagnositics)

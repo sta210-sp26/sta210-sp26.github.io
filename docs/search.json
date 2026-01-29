@@ -247,14 +247,7 @@
     "href": "slides/07-mlr.html#interpreting-hatbeta_j",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)"
-  },
-  {
-    "objectID": "slides/07-mlr.html#interpreting-test-statistic-p-value",
-    "href": "slides/07-mlr.html#interpreting-test-statistic-p-value",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting test statistic & p-value",
-    "text": "Interpreting test statistic & p-value\n\nQuestionSubmit\n\n\n\n\nThe coefficient of bill_length_mm is 61.736. Select the best interpretation.\n\n🔗 https://forms.office.com/r/eVJuUUkfrP"
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nQuestionSubmit\n\n\n\n\nThe coefficient of bill_length_mm is 61.736. Select the best interpretation.\n\n🔗 https://forms.office.com/r/eVJuUUkfrP"
   },
   {
     "objectID": "slides/07-mlr.html#interpreting-hatbeta_j-1",
@@ -415,14 +408,7 @@
     "href": "slides/07-mlr-notes.html#interpreting-hatbeta_j",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)"
-  },
-  {
-    "objectID": "slides/07-mlr-notes.html#interpreting-test-statistic-p-value",
-    "href": "slides/07-mlr-notes.html#interpreting-test-statistic-p-value",
-    "title": "Multiple linear regression (MLR)",
-    "section": "Interpreting test statistic & p-value",
-    "text": "Interpreting test statistic & p-value\n\nQuestionSubmit\n\n\n\n\nThe coefficient of bill_length_mm is 61.736. Select the best interpretation.\n\n🔗 https://forms.office.com/r/eVJuUUkfrP"
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nQuestionSubmit\n\n\n\n\nThe coefficient of bill_length_mm is 61.736. Select the best interpretation.\n\n🔗 https://forms.office.com/r/eVJuUUkfrP"
   },
   {
     "objectID": "slides/07-mlr-notes.html#interpreting-hatbeta_j-1",

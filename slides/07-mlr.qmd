@@ -252,8 +252,6 @@ We will talk about why there are two terms in the model for `species` soon!
 
 ## Interpreting $\hat{\beta}_j$
 
-## Interpreting test statistic & p-value {.midi}
-
 ::::: panel-tabset
 ## Question
 

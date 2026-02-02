@@ -1843,7 +1843,7 @@
     "href": "index.html",
     "title": "STA 210 - Regression Analysis",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 210!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 12\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 13\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nJan 19\nNo lab: Martin Luther King Jr. Day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 20\nInference: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nInference: Permutation tests\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nJan 26\nLab 01: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 27\nInference: Mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due\n\n\n\nTh\nJan 29\nInference cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\n\n\n\nMultiple linear regression (MLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nM\nFeb 2\nLab 02: Inference using mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 3\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n6\nM\nFeb 9\nLab 03\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 10\nModel conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n7\nM\nFeb 16\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due at end of lab\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nM\nFeb 23\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 24\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nCross validation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nM\nMar 2\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 3\nWrapping up MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n10\nM\nMar 9\nNo Lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 10\nNo Lecture: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo Lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nM\nMar 16\nLab\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 17\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due\n\n\n\nTh\nMar 19\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nM\nMar 23\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 24\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 26\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n13\nM\nMar 30\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 31\nSpecial topic/ Catch up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nTh\nApr 2\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n14\nM\nApr 6\nLab 08: Exam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 08 due at end of lab\n\n\n\nTu\nApr 7\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 9\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nApr 13\nProject work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 14\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nApr 20\nLab: Draft peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 21\nProject meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\nExam period",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 210!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 12\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 13\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nJan 19\nNo lab: Martin Luther King Jr. Day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 20\nInference: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nInference: Permutation tests\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nJan 26\nLab 01: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 27\nInference: Mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due\n\n\n\nTh\nJan 29\nInference cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\n\n\n\nMultiple linear regression (MLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nM\nFeb 2\nLab 02: Inference using mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 3\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n6\nM\nFeb 9\nLab 03\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 10\nModel conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n7\nM\nFeb 16\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due at end of lab\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nM\nFeb 23\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 24\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nCross validation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nM\nMar 2\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 3\nWrapping up MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n10\nM\nMar 9\nNo Lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 10\nNo Lecture: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo Lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nM\nMar 16\nLab\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 17\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due\n\n\n\nTh\nMar 19\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nM\nMar 23\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 24\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 26\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n13\nM\nMar 30\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 31\nSpecial topic/ Catch up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nTh\nApr 2\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n14\nM\nApr 6\nLab 08: Exam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 08 due at end of lab\n\n\n\nTu\nApr 7\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 9\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nApr 13\nProject work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 14\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nApr 20\nLab: Draft peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 21\nProject meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\nExam period",
     "crumbs": [
       "Schedule"
     ]
@@ -2316,109 +2316,201 @@
     "text": "To be posted."
   },
   {
-    "objectID": "labs/lab-02-DRAFT.html",
-    "href": "labs/lab-02-DRAFT.html",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "",
-    "text": "Important\n\n\n\nThis lab is due on Thursday, February 5 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#learning-goals",
-    "href": "labs/lab-02-DRAFT.html#learning-goals",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab you will…\n\nuse mathematical models to conduct inference for the slope.\nassess conditions for linear regression.\ndevelop a collaborative workflow in GitHub."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-1",
-    "href": "labs/lab-02-DRAFT.html#exercise-1",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the relationship between the aftertaste grade and total cup points. Write two observations from the plot."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-2",
-    "href": "labs/lab-02-DRAFT.html#exercise-2",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nFit the linear model using the aftertaste grade to understand variability in the total cup points. Neatly display the model using three digits and include the 98% confidence interval for the model coefficients in the output.\n\nTeam Member 1: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.\nTeam Member 2: It’s your turn! Type the team’s response to exercises 3 - 5."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-3",
-    "href": "labs/lab-02-DRAFT.html#exercise-3",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nInterpret the slope in the context of the data.\nAssume you are a coffee drinker. Would you drink a coffee represented by the intercept? Why or why not?"
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-4",
-    "href": "labs/lab-02-DRAFT.html#exercise-4",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nYou can obtain the predicted values and other observation-level statistics from the model using the augment() function. Create a data frame called coffee_aug by putting the name of your model in the code below.\n\n#|eval: false\ncoffee_aug &lt;- augment(_____)\n\n\nWrite code to “manually” compute the residuals. The predicted values are in the column .fitted of coffee_aug. Save the residuals but do not print them out.\nWrite code to compute the regression standard error, \\(\\hat{\\sigma}_\\epsilon\\) using the residuals from part (a).\nState the definition of the regression standard error in the context of the data.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can check your answer to part (b) by using the code below to obtain \\(\\hat{\\sigma}_\\epsilon\\)\n\nglance(model_name)$sigma\n\n\n\n\nExercise 5\nDo the data provide evidence of a statistically significant linear relationship between aftertaste grade and total cup points? Conduct a hypothesis test using mathematical models to answer this question.\n\nState the null and alternative hypotheses in words and in mathematical notation.\nWhat is the test statistic? State what the test statistic means in the context of this problem.\nWhat distribution was used to calculate the p-value? Be specific.\nState the conclusion in the context of the data using a threshold of \\(\\alpha = 0.02\\) to make your decision.\n\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 5.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 6 - 8."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-6",
-    "href": "labs/lab-02-DRAFT.html#exercise-6",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 6",
-    "text": "Exercise 6\n\nWhat is the critical value used to calculate the confidence interval displayed in Exercise 2? Show the code and output used to get your response.\nIs the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-7",
-    "href": "labs/lab-02-DRAFT.html#exercise-7",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 7",
-    "text": "Exercise 7\n\nCalculate the 98% confidence interval for the mean total cup points grade for coffees with aftertaste grade of 8.25. Interpret this value in the context of the data.\nOne coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the the 98% prediction interval for the total cup points grade for this coffee. Interpret this value in the context of the data.\nHow do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or intervals, briefly explain why."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-8",
-    "href": "labs/lab-02-DRAFT.html#exercise-8",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nWe have conducted the inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions and hold and the reliability of the inferential results. To do so, we will use the data frame coffee_aug from Exercise 4 that includes the residuals, predicted values, and other observation-level statistics from the model.\n\nMake a scatterplot of the residuals (.resid) vs. fitted values (.fitted). Use geom_hline() to add a horizontal dotted line at \\(residuals = 0\\).\n\n\n\n\n\n\n\nNote\n\n\n\nThe linearity condition is satisfied if there is random scatter of the residuals (no distinguishable pattern or structure) in the plot of residuals vs. fitted values.\n\nThe constant variance condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.\n\n\n\nIs the linearity condition satisfied? Briefly explain why or why not.\nIs the constant variance condition satisfied? Briefly explain why or why not.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 6 - 8.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 9 - 10."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-9",
-    "href": "labs/lab-02-DRAFT.html#exercise-9",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 9",
-    "text": "Exercise 9\n\n\n\n\n\n\nNote\n\n\n\nThe normality condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large \\((n &gt; 30)\\).\n\n\n\nMake a histogram or density plot of the residuals (.resid).\nIs the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-10",
-    "href": "labs/lab-02-DRAFT.html#exercise-10",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 10",
-    "text": "Exercise 10\n\n\n\n\n\n\nNote\n\n\n\nThe independence condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.\nThis condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.\n\n\nIs the independence condition satisfied for these data? Briefly explain why or why not.\n\nTeam Member 4: Render, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and the rest of the team can see the completed lab.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!"
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#footnotes",
-    "href": "labs/lab-02-DRAFT.html#footnotes",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nDon’t trust yourself to keep your hands off the keyboard? Put them in your pocket or cross your arms. No matter how silly it might feel, resist the urge to touch your keyboard until otherwise instructed!↩︎"
-  },
-  {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 06",
+    "objectID": "labs/lab-08.html",
+    "href": "labs/lab-08.html",
+    "title": "Lab 08",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 06"
+      "Lab 08"
     ]
   },
   {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 05",
+    "objectID": "labs/lab-07.html",
+    "href": "labs/lab-07.html",
+    "title": "Lab 07",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 05"
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-04.html",
+    "href": "labs/lab-04.html",
+    "title": "Lab 04",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 04"
+    ]
+  },
+  {
+    "objectID": "labs/lab-01.html",
+    "href": "labs/lab-01.html",
+    "title": "Lab 01: Linear regression",
+    "section": "",
+    "text": "Important\n\n\n\nThis lab is due on Thursday, January 29 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Labs",
+      "Lab 01"
+    ]
+  },
+  {
+    "objectID": "labs/lab-01.html#learning-goals",
+    "href": "labs/lab-01.html#learning-goals",
+    "title": "Lab 01: Linear regression",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab you will…\n\nFit and interpret a linear regression models in R.\nUse simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis.",
+    "crumbs": [
+      "Labs",
+      "Lab 01"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html",
+    "href": "labs/lab-02.html",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "",
+    "text": "Important\n\n\n\nThis lab is due on Thursday, February 5 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#learning-goals",
+    "href": "labs/lab-02.html#learning-goals",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab you will…\n\nuse mathematical models to conduct inference for the slope.\nassess conditions for linear regression.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-1",
+    "href": "labs/lab-02.html#exercise-1",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nVisualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-2",
+    "href": "labs/lab-02.html#exercise-2",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the 98% confidence interval for the model coefficients in the output.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-3",
+    "href": "labs/lab-02.html#exercise-3",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nInterpret the slope in the context of the data.\nAssume you are a coffee drinker using the model from Exercise 2. Would you drink a coffee represented by the intercept? Why or why not?",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-4",
+    "href": "labs/lab-02.html#exercise-4",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nYou can obtain the predicted values and other observation-level statistics from the model using the augment() function. Create a data frame called coffee_aug by replacing the blank with the name of the fitted model.\n\ncoffee_aug &lt;- augment(_____)\n\n\nWrite code to “manually” compute the regression standard error, \\(\\hat{\\sigma}_\\epsilon\\) using the residuals (stored in the column .resid).\nState the definition of the regression standard error in the context of the data.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can check your answer to part (b) by using the code below to get \\(\\hat{\\sigma}_\\epsilon\\)\n\nglance(model_name)$sigma",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-5",
+    "href": "labs/lab-02.html#exercise-5",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nDo the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.\n\nState the null and alternative hypotheses in words and in mathematical notation.\nWhat is the test statistic? State what the test statistic means in the context of this problem. Note: You do not need to show how the test statistic is computed.\nWhat distribution was used to calculate the p-value? Be specific.\nState the conclusion in the context of the data using a threshold of \\(\\alpha = 0.02\\) to make your decision.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-6",
+    "href": "labs/lab-02.html#exercise-6",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nWhat is the critical value used to calculate the confidence interval displayed in Exercise 2? Show the code and output used to get your response.\nIs the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-7",
+    "href": "labs/lab-02.html#exercise-7",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nCompute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.\nOne coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.\nHow do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-8",
+    "href": "labs/lab-02.html#exercise-8",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWe have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame coffee_aug from Exercise 4 that includes the residuals, predicted values, and other observation-level statistics from the model.\n\nMake a scatterplot of the residuals (.resid) vs. fitted values (.fitted). Use geom_hline() to add a horizontal dotted line at \\(residuals = 0\\).\n\n\n\n\n\n\n\nNote\n\n\n\nThe linearity condition is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs. fitted values.\n\nThe equal variance condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.\nSee Section 6.2.2 and Section 6.2.5 of the textbook for more on linearity and equal variance, respectively.\n\n\n\nIs the linearity condition satisfied? Briefly explain why or why not.\nIs the equal variance condition satisfied? Briefly explain why or why not.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-9",
+    "href": "labs/lab-02.html#exercise-9",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\n\n\n\n\n\nNote\n\n\n\nThe normality condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large \\((n &gt; 30)\\).\nSee Section 6.2.4 of the textbook for more on normality.\n\n\n\nMake a histogram or density plot of the residuals (.resid).\nIs the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-10",
+    "href": "labs/lab-02.html#exercise-10",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\n\n\n\n\n\nNote\n\n\n\nThe independence condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.\nThis condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.\nSee Section 6.2.3 of the textbook for more on independence.\n\n\nIs the independence condition satisfied for these data? Briefly explain why or why not.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html",
+    "href": "labs/lab-03.html",
+    "title": "Lab 03",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
     ]
   },
   {
@@ -2499,80 +2591,25 @@
     ]
   },
   {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 03",
+    "objectID": "labs/lab-05.html",
+    "href": "labs/lab-05.html",
+    "title": "Lab 05",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 05"
     ]
   },
   {
-    "objectID": "labs/lab-02.html",
-    "href": "labs/lab-02.html",
-    "title": "Lab 02",
+    "objectID": "labs/lab-06.html",
+    "href": "labs/lab-06.html",
+    "title": "Lab 06",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-01.html",
-    "href": "labs/lab-01.html",
-    "title": "Lab 01: Linear regression",
-    "section": "",
-    "text": "Important\n\n\n\nThis lab is due on Thursday, January 29 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
-    "crumbs": [
-      "Labs",
-      "Lab 01"
-    ]
-  },
-  {
-    "objectID": "labs/lab-01.html#learning-goals",
-    "href": "labs/lab-01.html#learning-goals",
-    "title": "Lab 01: Linear regression",
-    "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab you will…\n\nFit and interpret a linear regression models in R.\nUse simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis.",
-    "crumbs": [
-      "Labs",
-      "Lab 01"
-    ]
-  },
-  {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 04",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 04"
-    ]
-  },
-  {
-    "objectID": "labs/lab-07.html",
-    "href": "labs/lab-07.html",
-    "title": "Lab 07",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 07"
-    ]
-  },
-  {
-    "objectID": "labs/lab-08.html",
-    "href": "labs/lab-08.html",
-    "title": "Lab 08",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 08"
+      "Lab 06"
     ]
   },
   {

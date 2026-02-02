@@ -1,0 +1,721 @@
+---
+title: "Multiple linear regression"
+subtitle: "Types of predictors"
+author: "Prof. Maria Tackett"
+date: "02-03-2026"
+date-format: "MMMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 08-predictor-types-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+filters: 
+  - webr
+webr: 
+  packages: ['tidyverse', 'broom', 'palmerpenguins']
+---
+
+## Announcements {.midi}
+
+-   Lab 02 due **Thursday, February 5** at 11:59pm
+-   HW 02 due Tuesday, February 10 at 11:59pm
+    -   Released after class today
+-   [Statistics experience](../hw/stats-experience.html) due April 21
+-   SSMU Mini DataFest - February 8
+    -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7577398) for announcement
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(openintro)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(colorblindr)
+library(palmerpenguins)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+```{webr-r}
+#| context: setup
+
+library()
+
+penguins <- palmerpenguins::penguins |>
+  select(body_mass_g, flipper_length_mm, bill_length_mm, species) |>
+  drop_na() |>
+  mutate(
+    adelie = if_else(species == "Adelie", 1, 0),
+    chinstrap = if_else(species == "Chinstrap", 1, 0),
+    gentoo = if_else(species == "Gentoo", 1, 0)
+  )
+```
+
+## Topics 
+
+-   Include indicator variables for categorical predictors in the regression model
+
+-   Mean-center and standardize quantitative predictors
+
+-   Use interaction terms in the model to capture differences in a predictor's effect
+
+## Data: Palmer penguins {.midi}
+
+The `penguins` data set contains data for penguins found on three islands in the Palmer Archipelago, Antarctica. Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). These data can be found in the **palmerpenguins** R package.
+
+. . .
+
+```{r}
+#| echo: false
+
+penguins <- penguins |>
+  select(body_mass_g, flipper_length_mm, bill_length_mm, species) |>
+  drop_na()
+
+penguins
+```
+
+## Variables
+
+**Predictors**:
+
+-   `bill_length_mm`: Bill length in millimeters
+-   `flipper_length_mm`: Flipper length in millimeters
+-   `species`: Adelie, Gentoo, or Chinstrap species
+
+**Response**: `body_mass_g`: Body mass in grams
+
+<br>
+
+**The goal of this analysis is to use the bill length, flipper length, and species to predict body mass.**
+
+## Response: `body_mass_g`
+
+```{r}
+#| echo: false
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_density(fill = "steelblue") +
+  labs(x = "Body mass in grams",
+    title = "Distribution of body mass of Palmer Penguins")
+```
+
+```{r}
+#| echo: false
+penguins |>
+  summarise(
+    min = min(body_mass_g),
+    median = median(body_mass_g),
+    max = max(body_mass_g),
+    iqr = IQR(body_mass_g)
+  ) |>
+  kable()
+```
+
+## Predictors {.small}
+
+```{r}
+#| echo: false
+#| out.width: "100%"
+p1 <- ggplot(penguins, aes(y = species)) +
+  geom_bar(fill = "steelblue", color = "black") +
+  labs(title = "Species", 
+       y = "")
+
+p2 <- ggplot(penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(fill = "steelblue", color = "black") +
+  labs(title = "",
+       x = "Flipper length in mm")
+
+p3 <- ggplot(penguins, aes(x = bill_length_mm)) +
+  geom_histogram(fill = "steelblue", color = "black") +
+  labs(title = "",
+       x = "Bill length in mm")
+
+p1 + p2 / p3
+```
+
+## Response vs. predictors {.small}
+
+```{r}
+#| echo: false
+p4 <- ggplot(penguins, aes(x = species, y = body_mass_g)) +
+  geom_boxplot(fill = "steelblue") +
+  labs(
+    y = "Body mass in grams",
+    x = "Species"
+  )
+
+p5 <- ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(color = "steelblue") +
+  labs(
+    y = NULL,
+    x = "Flipper length in mm"
+  )
+
+
+p6 <- ggplot(penguins, aes(x = bill_length_mm, y = body_mass_g)) +
+  geom_point(color = "steelblue") +
+  labs(
+    y = NULL,
+    x = "Bill length in mm"
+  )
+
+p4 + p5 / p6
+```
+
+## Multiple linear regression model
+
+```{r}
+#| echo: true
+
+penguin_fit <- lm(body_mass_g ~ flipper_length_mm + species + 
+                bill_length_mm, data = penguins)
+
+tidy(penguin_fit) |>
+  kable(digits = 3)
+```
+
+## Model equation
+
+$$
+\begin{align}\widehat{\text{body_mass_g}} =  -3904.387 &+27.429 \times \text{flipper_length_mm}\\
+& -748.562 \times \text{Chinstrap}\\  
+&+ 90.435 \times \text{Gentoo}\\
+&+ 61.736 \times \text{bill_length_mm}
+\end{align}
+$$
+
+::: callout-note
+We will talk about why there are two terms in the model for `species` shortly!
+:::
+
+## Interpreting $\hat{\beta}_j$
+
+-   The estimated coefficient $\hat{\beta}_j$ is the expected change in the mean of $Y$ when $X_j$ increases by one unit, <i>holding the values of all other predictor variables constant</i>.
+
+<br>
+
+-   **Example:** The estimated coefficient for `flipper_length_mm` is 27.429. This means for each additional millimeter in a penguin's flipper length, its body mass is expected to be greater by 27.429 grams, on average, holding species and bill length constant.
+
+## Prediction
+
+::: question
+What is the predicted body mass for a Gentoo penguin with a flipper length of 200 millimeters and bill length of 45 millimeters?
+:::
+
+<br>
+
+```{r}
+#| echo: true
+
+new_penguin <- tibble(
+  flipper_length_mm  = 200, 
+  species = "Gentoo", 
+  bill_length_mm = 45
+)
+
+predict(penguin_fit, new_penguin)
+```
+
+## Intervals for prediction  {.midi}
+
+90% confidence interval for **estimated mean body mass** of Gentoo penguins with flipper length of 200 mm and bill length of 45 mm.
+
+```{r}
+#| echo: true
+
+predict(penguin_fit, new_penguin, interval = "confidence", 
+        level = 0.90) |> kable(digits = 3)
+```
+
+<br>
+
+90% prediction interval for **estimated body mass of an individual** Gentoo penguin with flipper length of 200 mm and bill length of 45 mm.
+
+```{r}
+#| echo: true
+
+predict(penguin_fit, new_penguin, interval = "prediction", 
+        level = 0.90) |> kable(digits = 3)
+```
+
+# Categorical predictors
+
+## Indicator variables
+
+-   Suppose there is a categorical variable with $k$ categories (levels)
+
+-   We can make $k$ indicator variables - one indicator for each category
+
+-   An **indicator variable** (also called dummy variables) takes values 1 or 0
+
+    -   1 if the observation belongs to that category
+    -   0 if the observation does not belong to that category
+
+## Indicator variables for `species`
+
+```{r}
+#| echo: true
+
+penguins <- penguins |>
+  mutate(
+    adelie = if_else(species == "Adelie", 1, 0),
+    chinstrap = if_else(species == "Chinstrap", 1, 0),
+    gentoo = if_else(species == "Gentoo", 1, 0)
+  )
+```
+
+. . .
+
+```{r}
+#| echo: false
+penguins |>
+  select(species, adelie, chinstrap, gentoo) |>
+  slice(1, 152, 283)
+```
+
+## Indicators in the model {.midi}
+
+-   We will use $k-1$ of the indicator variables in the model.
+-   The **baseline** is the category that doesn't have a term in the model. This is also called the *reference level.*
+-   The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.
+
+. . .
+
+```{r}
+penguins |>
+  select(species, chinstrap, gentoo) |>
+  slice(1, 152, 283)
+```
+
+## Using all $k$ indicators in R model
+
+::: question
+Run the code below to fit a model using `flipper_length_mm`, `bill_length_mm`, and all the indicator variables for `species` to predict `body_mass_g`. What do you notice about the model output? Why did this happen?
+:::
+
+```{webr-r}
+body_mass_fit <- lm(body_mass_g ~ flipper_length_mm + bill_length_mm + 
+                      adelie + chinstrap + gentoo,
+                    data = penguins)
+
+tidy(body_mass_fit)
+```
+
+## Interpreting `species` {.midi}
+
+```{r}
+#| echo: false
+tidy(penguin_fit, conf.int  = T) |>
+  kable(digits = 3) |>
+  row_spec(c(3,4), background = "#dce5b2")
+```
+
+. . .
+
+::: incremental
+-   The baseline category is `Adelie`.
+-   Penguins from the Chinstrap species are expected to have a body mass that is 748.562 grams less, on average, compared to penguins from the Adelie species, holding flipper length and bill length constant.
+:::
+
+. . .
+
+::: question
+Interpret the coefficient of `Gentoo` in the context of the data.
+:::
+
+# Transforming quantitative predictors
+
+## Centering {.midi}
+
+-   Centering a quantitative predictor means shifting every value by some constant $C$
+
+$$
+X_{cent} = X  - C
+$$
+
+-   One common type of centering is **mean-centering**, in which every value of a predictor is shifted by its mean
+
+-   Only quantitative predictors are centered
+
+-   Center all quantitative predictors in the model for ease of interpretation, when using mean-centering
+
+::: question
+What is one reason we might want to center the quantitative predictors? What are the units of centered variables?
+:::
+
+## Centering {.midi}
+
+Use the `scale()` function with `center = TRUE` and `scale = FALSE` to mean-center variables
+
+```{r}
+#| output-location: fragment 
+
+penguins <- penguins |>
+  mutate(flipper_length_cent = scale(flipper_length_mm, center = TRUE, scale = FALSE), 
+         bill_length_cent = scale(bill_length_mm, center = TRUE, scale = FALSE))
+```
+
+## Original vs. mean-centered variable
+
+::::: columns
+::: {.column width="50%"}
+**Original variable**
+
+```{r}
+#| echo: false 
+ggplot(penguins, aes(x = flipper_length_mm)) +
+  geom_density(fill = "steelblue") +
+  labs(x = NULL, title = "Flipper length in mm")
+```
+
+<br>
+
+```{r}
+#| echo: false
+penguins |>
+  summarise(Mean = mean(flipper_length_mm),
+            SD = sd(flipper_length_mm)) |>
+  kable(digits = 3)
+```
+:::
+
+::: {.column width="50%"}
+**Mean-centered variable**
+
+```{r}
+#| echo: false 
+ggplot(penguins, aes(x = flipper_length_cent)) +
+  geom_density(fill = "darkcyan") +
+  labs(x = NULL, title = "Mean-centered Flipper length in mm")
+```
+
+<br>
+
+```{r}
+#| echo: false 
+
+penguins |>
+  summarise(Mean = mean(flipper_length_cent),
+            SD = sd(flipper_length_cent)) |>
+  kable(digits = 3)
+```
+:::
+:::::
+
+<br>
+
+. . .
+
+## Using mean-centered variables in the model
+
+::: question
+How do you expect the model to change if we use `flipper_length_cent` and `bill_length_cent` in the model?
+:::
+
+. . .
+
+```{r}
+#| echo: false
+penguin_cent_fit <- lm(body_mass_g ~ flipper_length_cent + species +
+                    bill_length_cent, data = penguins)
+
+tidy(penguin_cent_fit, conf.int = T) |>
+  kable(digits = 3)
+```
+
+## Original vs. mean-centered model
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+tidy(penguin_fit) |>
+  select(term, estimate) |>
+  kable(digits = 3)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+tidy(penguin_cent_fit) |>
+  select(term, estimate) |>
+  kable(digits = 3)
+```
+:::
+:::::
+
+::: question
+What changed? What is the same?
+:::
+
+## Interpret coefficient of mean-centered predictors
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: appex
+Interpret the coefficient of `bill_length_cent` in the context of the data.
+:::
+
+🔗 <https://forms.office.com/r/Cn8pp2r32U>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/Cn8pp2r32U?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+## Standardizing {.midi}
+
+-   Standardizing a quantitative predictor mean shifting every value by the mean and dividing by the standard deviation of that variable
+
+$$
+X_{std} = \frac{X - \bar{X}}{s_X}
+$$
+
+-   Only quantitative predictors are standardized
+
+-   Standardize all quantitative predictors in the model for ease of interpretation
+
+::: question
+What is one reason we might want to standardize the quantitative predictors? What are the units of standardized variables?
+:::
+
+## Standardizing
+
+Use the `scale()` function with `center = TRUE` and `scale = TRUE` to standardized variables
+
+<br>
+
+```{r}
+#| output-location: fragment 
+#| 
+penguins <- penguins |>
+  mutate(flipper_length_std = scale(flipper_length_mm, center = TRUE, scale = TRUE), 
+         bill_length_std = scale(bill_length_mm, center = TRUE, scale = TRUE))
+```
+
+## Original vs. standardized variable
+
+::::: columns
+::: {.column width="50%"}
+**Original variable**
+
+```{r}
+#| echo: false 
+ggplot(penguins, aes(x = flipper_length_mm)) +
+  geom_density(fill = "steelblue") +
+  labs(x = NULL, title = "Flipper length in mm")
+```
+
+<br>
+
+```{r}
+#| echo: false
+
+penguins |>
+  summarise(Mean = mean(flipper_length_mm),
+            SD = sd(flipper_length_mm)) |>
+  kable(digits = 3)
+```
+:::
+
+::: {.column width="50%"}
+**Standardized variable**
+
+```{r}
+#| echo: false 
+ggplot(penguins, aes(x = flipper_length_std)) +
+  geom_density(fill = "darkcyan") +
+  labs(x = NULL, title = "Standardized Flipper length in mm")
+```
+
+<br>
+
+```{r}
+#| echo: false
+
+penguins |>
+  summarise(Mean = mean(flipper_length_std),
+            SD = sd(flipper_length_std)) |>
+  kable(digits = 3)
+```
+:::
+:::::
+
+<br>
+
+. . .
+
+## Using standardized variables in the model
+
+::: question
+How do you expect the model to change if we use `flipper_length_std` and `bill_length_std` in the model?
+:::
+
+. . .
+
+```{r}
+#| echo: false
+penguin_std_fit <- lm(body_mass_g ~ flipper_length_std + species +
+                    bill_length_std, data = penguins)
+
+tidy(penguin_std_fit, conf.int = T) |>
+  kable(digits = 3)
+```
+
+## Original vs. standardized model
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+tidy(penguin_fit) |>
+  select(term, estimate) |>
+  kable(digits = 3)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+tidy(penguin_std_fit) |>
+  select(term, estimate) |>
+  kable(digits = 3)
+```
+:::
+:::::
+
+::: question
+What changed? What is the same?
+:::
+
+# Interaction terms
+
+## Interaction terms
+
+-   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
+-   This is an **interaction effect**.
+-   To account for this, we can include **interaction terms** in the model.
+
+## Bill length versus species
+
+If the lines are not parallel, there is indication of a potential **interaction effect**, i.e., the slope of bill length may differ based on the species.
+
+```{r}
+#| echo: false
+
+p1 <- ggplot(penguins, 
+             aes(x = bill_length_mm, y = body_mass_g)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Bill length in millimeters",
+    y = "Body mass in grams"
+  )
+
+p2 <- ggplot(penguins, 
+             aes(x = bill_length_mm, y = body_mass_g,
+                 color = species)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Bill length in millimeters", y = NULL, color = NULL) +
+  theme(legend.position = c(0.3, 0.9)) +
+  scale_color_OkabeIto()
+
+p1 + p2 +
+  plot_annotation(title = "Body mass versus bill length")
+```
+
+## Interaction terms in R {.midi}
+
+::: question
+Fit the model with the predictors `flipper_length_mm`, `bill_length_mm`, `speices`, and the interaction between
+
+-   Write the estimated regression equation for `Adelie` penguins.
+
+-   Write the estimated regression equation for `Chinstrap` penguins.
+:::
+
+```{webr-r}
+
+# code to fit and display model with interaction
+```
+
+## Interaction term in model {.smaller}
+
+```{r}
+#| echo: true
+penguin_int_fit <- lm(body_mass_g ~ flipper_length_mm + species + bill_length_mm + species * bill_length_mm,
+      data = penguins)
+```
+
+```{r}
+#| echo: false
+tidy(penguin_int_fit) |>
+  kable(digits = 3) |>
+  row_spec(c(6,7), background = "#dce5b2")
+```
+
+## Interpreting interaction terms
+
+-   What the interaction means: The effect of bill length on the body mass is 41.035 less when the penguin is from the Chinstrap species compared to the effect for the Adelie species, holding all else constant.
+-   Interpreting `bill_length_mm` for Chinstrap: For each additional millimeter in bill length, we expect the body mass of Chinstrap penguins to increase by 31.657 grams (72.692 - 41.035), holding flipper length constant.
+
+## Summary
+
+<br>
+
+::: question
+In general, how do
+
+indicators for categorical predictors impact the model equation?
+
+interaction terms impact the model equation?
+:::
+
+## Recap
+
+-   Included indicator variables for categorical predictors in the regression model
+
+-   Mean-centered and standardized quantitative predictors
+
+-   Used interaction terms in the model to capture differences in a predictor's effect
+
+## Next class 
+
+-   Inference for multiple linear regression
+
+-   Complete [Lecture 09 prepare](../prepare/prepare-lec09.html)

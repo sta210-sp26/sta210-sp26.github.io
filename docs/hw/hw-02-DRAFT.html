@@ -430,7 +430,6 @@ window.Quarto = {
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
   <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
@@ -482,7 +481,7 @@ Important
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In this analysis you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.</p>
+<p>In this analysis you will use multiple linear regression to describe the relationship between the price and various features of a LEGO sets based on data from brickset.com.</p>
 </section>
 <section id="learning-goals" class="level1">
 <h1>Learning goals</h1>
@@ -513,17 +512,15 @@ Important
 <section id="data-lego-sets" class="level1">
 <h1>Data: LEGO sets</h1>
 <p>The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
-<p>You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
+<p>You will work with data on about 396 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
 <ul>
-<li><code>Price</code>: Recommended price of the set from brickset.com</li>
+<li><code>Price</code>: Recommended price of the set from brickset.com (in US dollars)</li>
 <li><code>Theme</code>: Theme of the set (e.g., City, Duplo, Friends) scraped from brickset.com</li>
 <li><code>Pieces</code>: Number of the pieces in the set from brickset.com</li>
 <li><code>Minifigures</code>: Number of minifigures (LEGO people) in the set scraped from brickset.com</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>legos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lego-sample.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Size, Theme, Amazon_Price, Pages) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>legos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lego-sample.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="exercises" class="level1">
@@ -543,17 +540,22 @@ Important
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Visualize the distribution of the response variable <code>Price</code> and compute summary statistics. Use the visualization and summary statistics to describe the distribution of <code>Price</code>.</p>
+<p>Visualize the distribution of the response variable <code>Price</code> and compute summary statistics. Use the visualization and summary statistics to describe the distribution of the variable.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Create a new categorical variable called <code>minifigures_fct</code> that is a factor taking the following levels:</p>
+<ol type="a">
+<li><p>Create a new categorical variable called <code>minifigures_fct</code> that is a factor taking the following levels:</p>
+<blockquote class="blockquote">
 <ul>
 <li><p><code>0</code>: If there are no LEGO people in the set</p></li>
 <li><p><code>1-2</code> : If there are 1 or 2 LEGO people in the set</p></li>
 <li><p><code>3+</code> If there are 3 or more LEGO people in the set</p></li>
 </ul>
-<p>Show the number of observations in each level of <code>minifigures_fct</code>.</p>
+</blockquote>
+<p>Show the number of observations at each level of <code>minifigures_fct</code>.</p></li>
+<li><p>Visualize the relationship between <code>Price</code> and <code>minifigures_fct</code>. Write two observations from the plot.</p></li>
+</ol>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -633,31 +635,21 @@ Note
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
 <ol type="a">
-<li>Describe the effect of <code>Pieces</code> for the baseline level in the context of the data.</li>
-<li>Interpret the coefficient of the term <code>Pieces::theme_colStarWars</code> in the context of the data.</li>
-<li>Describe the effect of <code>Pieces</code> for LEGOS in the Star Wars theme in the context of the data.</li>
+<li>Interpret the coefficient for the main effect of <code>Pieces</code> in the context of the data.</li>
+<li>Interpret the coefficient of <code>Pieces::theme_colFriends</code> in the context of the data.</li>
+<li>Describe the effect of <code>Pieces</code> for LEGOS in the Friends theme in the context of the data.</li>
 </ol>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <ol type="a">
-<li>Compute the residuals for the model in Exercise 5 and use them to compute the regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span>.</li>
-<li>Interpret the regression standard error in the context of the data.</li>
-</ol>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<ol type="1">
 <li>Briefly explain why the intercept for the model in Exercise 5 does not have a meaningful interpretation.</li>
-</ol>
-<!-- -->
-<ol type="1">
 <li>Refit the model from Exercise 5 so that the intercept has a meaningful interpretation. Display the model using three decimal places.</li>
 <li>Interpret the intercept in the context of the data. Use specific values in the interpretation.</li>
 </ol>
 </section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
 <p><em>The following is a general question about linear regression. It is</em> <u><em>not</em></u> <em>specific to the LEGO analysis.</em></p>
 <p>In <a href="../slides/06-slr-math-models.html#/mathematical-representation-visualized">lecture</a> we discussed how the distribution of the error terms (and thus the distribution of the response variable <span class="math inline">\(Y\)</span>) for a given value of the predictor <span class="math inline">\(X\)</span> has a variance of <span class="math inline">\(\sigma^2_{\epsilon}\)</span>. Therefore, we are assuming this variance is the same for all values of the predictor when we conduct inference.</p>
 <p>Briefly explain why this assumption is important when we conduct inference based on mathematical models but is not necessary for conducting simulation-based inference.</p>
@@ -754,7 +746,7 @@ Warning
 </tr>
 <tr class="odd">
 <td>Completing AI Disclosure</td>
-<td></td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>Workflow &amp; formatting</td>

@@ -2367,14 +2367,14 @@
     "href": "hw/hw-02-DRAFT.html#exercise-1",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the distribution of the response variable Price and compute summary statistics. Use the visualization and summary statistics to describe the distribution of Price."
+    "text": "Exercise 1\nVisualize the distribution of the response variable Price and compute summary statistics. Use the visualization and summary statistics to describe the distribution of the variable."
   },
   {
     "objectID": "hw/hw-02-DRAFT.html#exercise-2",
     "href": "hw/hw-02-DRAFT.html#exercise-2",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCreate a new categorical variable called minifigures_fct that is a factor taking the following levels:\n\n0: If there are no LEGO people in the set\n1-2 : If there are 1 or 2 LEGO people in the set\n3+ If there are 3 or more LEGO people in the set\n\nShow the number of observations in each level of minifigures_fct.\n\n\n\n\n\n\nImportant\n\n\n\nYou will use minifigures_fct (instead of Minifigures) in the remainder of the assignment."
+    "text": "Exercise 2\n\nCreate a new categorical variable called minifigures_fct that is a factor taking the following levels:\n\n\n0: If there are no LEGO people in the set\n1-2 : If there are 1 or 2 LEGO people in the set\n3+ If there are 3 or more LEGO people in the set\n\n\nShow the number of observations at each level of minifigures_fct.\nVisualize the relationship between Price and minifigures_fct. Write two observations from the plot.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use minifigures_fct (instead of Minifigures) in the remainder of the assignment."
   },
   {
     "objectID": "hw/hw-02-DRAFT.html#exercise-3",
@@ -2409,28 +2409,21 @@
     "href": "hw/hw-02-DRAFT.html#exercise-7",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\n\nDescribe the effect of Pieces for the baseline level in the context of the data.\nInterpret the coefficient of the term Pieces::theme_colStarWars in the context of the data.\nDescribe the effect of Pieces for LEGOS in the Star Wars theme in the context of the data."
+    "text": "Exercise 7\n\nInterpret the coefficient for the main effect of Pieces in the context of the data.\nInterpret the coefficient of Pieces::theme_colFriends in the context of the data.\nDescribe the effect of Pieces for LEGOS in the Friends theme in the context of the data."
   },
   {
     "objectID": "hw/hw-02-DRAFT.html#exercise-8",
     "href": "hw/hw-02-DRAFT.html#exercise-8",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 8",
-    "text": "Exercise 8\n\nCompute the residuals for the model in Exercise 5 and use them to compute the regression standard error, \\(\\hat{\\sigma}_\\epsilon\\).\nInterpret the regression standard error in the context of the data."
+    "text": "Exercise 8\n\nBriefly explain why the intercept for the model in Exercise 5 does not have a meaningful interpretation.\nRefit the model from Exercise 5 so that the intercept has a meaningful interpretation. Display the model using three decimal places.\nInterpret the intercept in the context of the data. Use specific values in the interpretation."
   },
   {
     "objectID": "hw/hw-02-DRAFT.html#exercise-9",
     "href": "hw/hw-02-DRAFT.html#exercise-9",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 9",
-    "text": "Exercise 9\n\nBriefly explain why the intercept for the model in Exercise 5 does not have a meaningful interpretation.\n\n\n\nRefit the model from Exercise 5 so that the intercept has a meaningful interpretation. Display the model using three decimal places.\nInterpret the intercept in the context of the data. Use specific values in the interpretation."
-  },
-  {
-    "objectID": "hw/hw-02-DRAFT.html#exercise-10",
-    "href": "hw/hw-02-DRAFT.html#exercise-10",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nThe following is a general question about linear regression. It is not specific to the LEGO analysis.\nIn lecture we discussed how the distribution of the error terms (and thus the distribution of the response variable \\(Y\\)) for a given value of the predictor \\(X\\) has a variance of \\(\\sigma^2_{\\epsilon}\\). Therefore, we are assuming this variance is the same for all values of the predictor when we conduct inference.\nBriefly explain why this assumption is important when we conduct inference based on mathematical models but is not necessary for conducting simulation-based inference."
+    "text": "Exercise 9\nThe following is a general question about linear regression. It is not specific to the LEGO analysis.\nIn lecture we discussed how the distribution of the error terms (and thus the distribution of the response variable \\(Y\\)) for a given value of the predictor \\(X\\) has a variance of \\(\\sigma^2_{\\epsilon}\\). Therefore, we are assuming this variance is the same for all values of the predictor when we conduct inference.\nBriefly explain why this assumption is important when we conduct inference based on mathematical models but is not necessary for conducting simulation-based inference."
   },
   {
     "objectID": "hw/hw-02.html",

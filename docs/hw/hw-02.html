@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 02 – STA 210 - Spring 2026</title>
+<title>HW 02: Multiple linear regression – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -328,15 +412,42 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#data-lego-sets" id="toc-data-lego-sets" class="nav-link" data-scroll-target="#data-lego-sets">Data: LEGO sets</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  </ul></li>
+  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-50-points---update" id="toc-grading-50-points---update" class="nav-link" data-scroll-target="#grading-50-points---update">Grading (50 points) - UPDATE</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-02.html">HW 02</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">HW 02</h1>
+<h1 class="title">HW 02: Multiple linear regression</h1>
 </div>
 
 
@@ -353,11 +464,310 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To be posted.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This assignment is due on <strong>Tuesday, February 10 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<ul>
+<li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
+<li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
+</ul>
+</div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In this analysis you will use multiple linear regression to describe the relationship between the price and various features of a LEGO sets based on data from brickset.com.</p>
+</section>
+<section id="learning-goals" class="level1">
+<h1>Learning goals</h1>
+<p>In this assignment, you will…</p>
+<ul>
+<li>conduct exploratory data analysis.</li>
+<li>create new variables.</li>
+<li>interpret coefficients in multiple linear regression models.</li>
+<li>continue developing a reproducible analysis workflow.</li>
+</ul>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-02</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00</a> for details on cloning a repo and starting a new project in R.</p></li>
+</ul>
+<p>The following packages will be used in this assignment:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># for data wrangling </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) <span class="co"># for modeling and inference </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)      <span class="co"># to neatly format tables </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)  <span class="co"># to arrange plots in a grid</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-lego-sets" class="level1">
+<h1>Data: LEGO sets</h1>
+<p>The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>You will work with data on about 396 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
+<ul>
+<li><code>Price</code>: Recommended price of the set from brickset.com (in US dollars)</li>
+<li><code>Theme</code>: Theme of the set (e.g., City, Duplo, Friends) scraped from brickset.com</li>
+<li><code>Pieces</code>: Number of the pieces in the set from brickset.com</li>
+<li><code>Minifigures</code>: Number of minifigures (LEGO people) in the set scraped from brickset.com</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>legos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lego-sample.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p>The goal of this analysis is to use features of LEGO sets to understand variability in the price.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Instructions</strong></p>
+<p>Type your responses to each question in your Quarto document. Write all narrative using complete sentences and include informative axis labels and titles on visualizations. Use a reproducible workflow by periodically rendering the Quarto document, writing an informative commit message, and pushing the updated <code>.qmd</code> and .<code>pdf</code> files to GitHub.</p>
+</div>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Visualize the distribution of the response variable <code>Price</code> and compute summary statistics. Use the visualization and summary statistics to describe the distribution of the variable.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<ol type="a">
+<li><p>Create a new categorical variable called <code>minifigures_fct</code> that is a factor taking the following levels:</p>
+<blockquote class="blockquote">
+<ul>
+<li><p><code>0</code>: If there are no LEGO people in the set</p></li>
+<li><p><code>1-2</code> : If there are 1 or 2 LEGO people in the set</p></li>
+<li><p><code>3+</code> If there are 3 or more LEGO people in the set</p></li>
+</ul>
+</blockquote>
+<p>Show the number of observations at each level of <code>minifigures_fct</code>.</p></li>
+<li><p>Visualize the relationship between <code>Price</code> and <code>minifigures_fct</code>. Write two observations from the plot.</p></li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will use <code>minifigures_fct</code> (instead of <code>Minifigures</code>) in the remainder of the assignment.</p>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>The distribution of <code>Theme</code> is shown below. The bars are ordered by the frequency they occur in the data set.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>legos <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Theme) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Theme, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Lego Set Theme"</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Theme"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of LEGO sets"</span>) <span class="sc">+</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw-02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="a">
+<li>What is one reason we may want to avoid putting the variable <code>Theme</code> in a model as is?</li>
+<li>We will create a new variable that collapses some of the levels of <code>Theme</code>. Make a new variable called <code>theme_col</code> that has levels for the top four most frequent themes, then the category <code>Other</code> for all other themes.</li>
+<li>How many observations are in each level for the new variable created in part (b)?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <code>theme_col</code> (instead of <code>Theme</code>) for th remainder of the assignment.</p>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<ol type="a">
+<li>Fit a model using <code>Pieces</code>, <code>minifigures_fct</code> and <code>theme_col</code> to predict <code>Price</code>. Neatly display the model using three decimal places.</li>
+<li>Use the model to describe the expected change in price for each additional 20 pieces in a LEGO set.</li>
+</ol>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Now let’s consider a model that includes an interaction such that effect of pieces can change based on the theme.</p>
+<ol type="a">
+<li>Make a plot to visualize the potential interaction effect.</li>
+<li>Based on the plot in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.</li>
+<li>Modify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.</li>
+</ol>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Describe the relationship between the number of minifigures in a LEGO set and the price based on the model in Exercise 5.</p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<ol type="a">
+<li>Interpret the coefficient for the main effect of <code>Pieces</code> in the context of the data.</li>
+<li>Interpret the coefficient of <code>Pieces::theme_colFriends</code> in the context of the data.</li>
+<li>Describe the effect of <code>Pieces</code> for LEGOS in the Friends theme in the context of the data.</li>
+</ol>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<ol type="a">
+<li>Briefly explain why the intercept for the model in Exercise 5 does not have a meaningful interpretation.</li>
+<li>Refit the model from Exercise 5 so that the intercept has a meaningful interpretation. Display the model using three decimal places.</li>
+<li>Interpret the intercept in the context of the data. Use specific values in the interpretation.</li>
+</ol>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p><em>The following is a general question about linear regression. It is</em> <u><em>not</em></u> <em>specific to the LEGO analysis.</em></p>
+<p>In <a href="../slides/06-slr-math-models.html#/mathematical-representation-visualized">lecture</a> we discussed how the distribution of the error terms (and thus the distribution of the response variable <span class="math inline">\(Y\)</span>) for a given value of the predictor <span class="math inline">\(X\)</span> has a variance of <span class="math inline">\(\sigma^2_{\epsilon}\)</span>. Therefore, we are assuming this variance is the same for all values of the predictor when we conduct inference.</p>
+<p>Briefly explain why this assumption is important when we conduct inference based on mathematical models but is not necessary for conducting simulation-based inference.</p>
+</section>
+</section>
+<section id="ai-disclosure" class="level1">
+<h1>AI Disclosure</h1>
+<p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.</p>
+<ul>
+<li>I didn’t an LLM / Generative AI tool.</li>
+<li>I asked it to clarify one or more exercises.</li>
+<li>I asked it clarifying questions to better understand a concept.</li>
+<li>I asked it to help write code to complete an exercise.</li>
+<li>I gave it my code and asked it to help me fix it.</li>
+<li>I asked it about an error or why code would do something I didn’t want.</li>
+<li>I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.</li>
+<li>I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.</li>
+<li>Other:______</li>
+</ul>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
+<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+</ul>
+</section>
+<section id="grading-50-points---update" class="level1">
+<h1>Grading (50 points) - UPDATE</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ex 1</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Ex 2</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Ex 3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Ex 4</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Ex 5</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Ex 6</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Ex 7</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Ex 8</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>Ex 9</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Completing AI Disclosure</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Workflow &amp; formatting</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+<section id="references" class="level2">
 
 
 
-</main> <!-- /main -->
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-peterson2021" class="csl-entry" role="listitem">
+Peterson, Anna D., and Laura Ziegler. 2021. <span>“Building a Multiple Linear Regression Model With LEGO Brick Data.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 297–303. <a href="https://doi.org/10.1080/26939169.2021.1946450">https://doi.org/10.1080/26939169.2021.1946450</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -778,7 +1188,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

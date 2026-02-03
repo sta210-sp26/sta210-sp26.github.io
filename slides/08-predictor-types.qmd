@@ -66,8 +66,6 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 ```{webr-r}
 #| context: setup
 
-library()
-
 penguins <- palmerpenguins::penguins |>
   select(body_mass_g, flipper_length_mm, bill_length_mm, species) |>
   drop_na() |>
@@ -78,7 +76,7 @@ penguins <- palmerpenguins::penguins |>
   )
 ```
 
-## Topics 
+## Topics
 
 -   Include indicator variables for categorical predictors in the regression model
 
@@ -244,7 +242,7 @@ new_penguin <- tibble(
 predict(penguin_fit, new_penguin)
 ```
 
-## Intervals for prediction  {.midi}
+## Intervals for prediction {.midi}
 
 90% confidence interval for **estimated mean body mass** of Gentoo penguins with flipper length of 200 mm and bill length of 45 mm.
 
@@ -451,7 +449,7 @@ tidy(penguin_cent_fit, conf.int = T) |>
   kable(digits = 3)
 ```
 
-## Original vs. mean-centered model
+## Original vs. mean-centered model {.midi}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -714,7 +712,7 @@ interaction terms impact the model equation?
 
 -   Used interaction terms in the model to capture differences in a predictor's effect
 
-## Next class 
+## Next class
 
 -   Inference for multiple linear regression
 

@@ -435,7 +435,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading-50-points---update" id="toc-grading-50-points---update" class="nav-link" data-scroll-target="#grading-50-points---update">Grading (50 points) - UPDATE</a>
+  <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a>
   <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -483,7 +483,7 @@ Important
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In this analysis you will use multiple linear regression to describe the relationship between the price and various features of a LEGO sets based on data from brickset.com.</p>
+<p>In this analysis you will use multiple linear regression to describe the relationship between the price and various features of LEGO sets based on data from brickset.com.</p>
 </section>
 <section id="learning-goals" class="level1">
 <h1>Learning goals</h1>
@@ -498,23 +498,22 @@ Important
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-02</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-02</strong>. It contains the starter documents you need to complete the assignment.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00</a> for details on cloning a repo and starting a new project in R.</p></li>
 </ul>
 <p>The following packages will be used in this assignment:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># for data wrangling </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) <span class="co"># for modeling and inference </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)      <span class="co"># to neatly format tables </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)  <span class="co"># to arrange plots in a grid</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data-lego-sets" class="level1">
 <h1>Data: LEGO sets</h1>
 <p>The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
-<p>You will work with data on about 396 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
+<p>You will work with data on about 396 randomly selected LEGO sets produced during this time period. Below are the primary variables used in this analysis:</p>
 <ul>
 <li><code>Price</code>: Recommended price of the set from brickset.com (in US dollars)</li>
 <li><code>Theme</code>: Theme of the set (e.g., City, Duplo, Friends) scraped from brickset.com</li>
@@ -539,7 +538,7 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Instructions</strong></p>
-<p>Type your responses to each question in your Quarto document. Write all narrative using complete sentences and include informative axis labels and titles on visualizations. Use a reproducible workflow by periodically rendering the Quarto document, writing an informative commit message, and pushing the updated <code>.qmd</code> and .<code>pdf</code> files to GitHub.</p>
+<p>Type your responses to each question in your Quarto document. Write all narrative responses using complete sentences and include informative axis labels and titles on visualizations. Use a reproducible workflow by periodically rendering the Quarto document, writing an informative commit message, and pushing the updated <code>.qmd</code> and .<code>pdf</code> files to GitHub.</p>
 </div>
 </div>
 <section id="exercise-1" class="level2">
@@ -553,12 +552,12 @@ Important
 <blockquote class="blockquote">
 <ul>
 <li><p><code>0</code>: If there are no LEGO people in the set</p></li>
-<li><p><code>1-2</code> : If there are 1 or 2 LEGO people in the set</p></li>
-<li><p><code>3+</code> If there are 3 or more LEGO people in the set</p></li>
+<li><p><code>1-2</code>: If there are 1 or 2 LEGO people in the set</p></li>
+<li><p><code>3+</code>: If there are 3 or more LEGO people in the set</p></li>
 </ul>
 </blockquote>
 <p>Show the number of observations at each level of <code>minifigures_fct</code>.</p></li>
-<li><p>Visualize the relationship between <code>Price</code> and <code>minifigures_fct</code>. Write two observations from the plot.</p></li>
+<li><p>Visualize the relationship between <code>Price</code> and <code>minifigures_fct</code>. Write two observations based on the plot.</p></li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -576,7 +575,7 @@ Important
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>The distribution of <code>Theme</code> is shown below. The bars are ordered by the frequency they occur in the data set.</p>
+<p>The distribution of <code>Theme</code> is shown below. The bars are ordered by how frequently they occur in the data set.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -612,23 +611,23 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use <code>theme_col</code> (instead of <code>Theme</code>) for th remainder of the assignment.</p>
+<p>Use <code>theme_col</code> (instead of <code>Theme</code>) for the remainder of the assignment.</p>
 </div>
 </div>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <ol type="a">
-<li>Fit a model using <code>Pieces</code>, <code>minifigures_fct</code> and <code>theme_col</code> to predict <code>Price</code>. Neatly display the model using three decimal places.</li>
+<li>Fit a model using <code>Pieces</code>, <code>minifigures_fct</code>, and <code>theme_col</code> to predict <code>Price</code>. Neatly display the model using three decimal places.</li>
 <li>Use the model to describe the expected change in price for each additional 20 pieces in a LEGO set.</li>
 </ol>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Now let’s consider a model that includes an interaction such that effect of pieces can change based on the theme.</p>
+<p>Now let’s consider a model that includes an interaction such that the effect of pieces can change based on the theme.</p>
 <ol type="a">
 <li>Make a plot to visualize the potential interaction effect.</li>
-<li>Based on the plot in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.</li>
+<li>Based on the plot created in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.</li>
 <li>Modify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.</li>
 </ol>
 </section>
@@ -640,8 +639,8 @@ Note
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
 <ol type="a">
 <li>Interpret the coefficient for the main effect of <code>Pieces</code> in the context of the data.</li>
-<li>Interpret the coefficient of <code>Pieces::theme_colFriends</code> in the context of the data.</li>
-<li>Describe the effect of <code>Pieces</code> for LEGOS in the Friends theme in the context of the data.</li>
+<li>Interpret the coefficient of <code>Pieces:theme_colFriends</code> in the context of the data.</li>
+<li>Describe the effect of <code>Pieces</code> for LEGO sets in the Friends theme in the context of the data.</li>
 </ol>
 </section>
 <section id="exercise-8" class="level2">
@@ -663,7 +662,7 @@ Note
 <h1>AI Disclosure</h1>
 <p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.</p>
 <ul>
-<li>I didn’t an LLM / Generative AI tool.</li>
+<li>I didn’t use an LLM / Generative AI tool.</li>
 <li>I asked it to clarify one or more exercises.</li>
 <li>I asked it clarifying questions to better understand a concept.</li>
 <li>I asked it to help write code to complete an exercise.</li>
@@ -694,12 +693,12 @@ Warning
 <ul>
 <li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+<li><p>Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).</p></li>
+<li><p>Select the first page of your .pdf submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
 </ul>
 </section>
-<section id="grading-50-points---update" class="level1">
-<h1>Grading (50 points) - UPDATE</h1>
+<section id="grading-50-points" class="level1">
+<h1>Grading (50 points)</h1>
 <table class="caption-top table">
 <thead>
 <tr class="header">

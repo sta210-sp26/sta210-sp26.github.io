@@ -310,10 +310,10 @@ penguins |>
 ```{r}
 penguins |>
   select(species, chinstrap, gentoo) |>
-  slice(1, 152, 283)
+  slice(1, 152, 283) # select example observations
 ```
 
-## Using all $k$ indicators in R model
+## Using all $k$ indicators in R model {.midi}
 
 ::: question
 Run the code below to fit a model using `flipper_length_mm`, `bill_length_mm`, and all the indicator variables for `species` to predict `body_mass_g`. What do you notice about the model output? Why did this happen?
@@ -660,7 +660,7 @@ p1 + p2 +
 ## Interaction terms in R {.midi}
 
 ::: question
-Fit the model with the predictors `flipper_length_mm`, `bill_length_mm`, `speices`, and the interaction between
+Fit the model predicting `body_mass_g` using `flipper_length_mm`, `bill_length_mm`, `speices`, and the interaction between `species` and `bill_length_mm`.
 
 -   Write the estimated regression equation for `Adelie` penguins.
 

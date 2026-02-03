@@ -261,7 +261,7 @@
     "href": "slides/08-predictor-types.html#indicators-in-the-model",
     "title": "Multiple linear regression",
     "section": "Indicators in the model",
-    "text": "Indicators in the model\n\nWe will use \\(k-1\\) of the indicator variables in the model.\nThe baseline is the category that doesn’t have a term in the model. This is also called the reference level.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\n\n\n\npenguins |&gt;\n  select(species, chinstrap, gentoo) |&gt;\n  slice(1, 152, 283)\n\n# A tibble: 3 × 3\n  species   chinstrap gentoo\n  &lt;fct&gt;         &lt;dbl&gt;  &lt;dbl&gt;\n1 Adelie            0      0\n2 Gentoo            0      1\n3 Chinstrap         1      0"
+    "text": "Indicators in the model\n\nWe will use \\(k-1\\) of the indicator variables in the model.\nThe baseline is the category that doesn’t have a term in the model. This is also called the reference level.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\n\n\n\npenguins |&gt;\n  select(species, chinstrap, gentoo) |&gt;\n  slice(1, 152, 283) # select example observations\n\n# A tibble: 3 × 3\n  species   chinstrap gentoo\n  &lt;fct&gt;         &lt;dbl&gt;  &lt;dbl&gt;\n1 Adelie            0      0\n2 Gentoo            0      1\n3 Chinstrap         1      0"
   },
   {
     "objectID": "slides/08-predictor-types.html#using-all-k-indicators-in-r-model",
@@ -373,7 +373,7 @@
     "href": "slides/08-predictor-types.html#interaction-terms-in-r",
     "title": "Multiple linear regression",
     "section": "Interaction terms in R",
-    "text": "Interaction terms in R\n\nFit the model with the predictors flipper_length_mm, bill_length_mm, speices, and the interaction between\n\nWrite the estimated regression equation for Adelie penguins.\nWrite the estimated regression equation for Chinstrap penguins.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Interaction terms in R\n\nFit the model predicting body_mass_g using flipper_length_mm, bill_length_mm, speices, and the interaction between species and bill_length_mm.\n\nWrite the estimated regression equation for Adelie penguins.\nWrite the estimated regression equation for Chinstrap penguins.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/08-predictor-types.html#interaction-term-in-model",
@@ -527,7 +527,7 @@
     "href": "slides/08-predictor-types-notes.html#indicators-in-the-model",
     "title": "Multiple linear regression",
     "section": "Indicators in the model",
-    "text": "Indicators in the model\n\nWe will use \\(k-1\\) of the indicator variables in the model.\nThe baseline is the category that doesn’t have a term in the model. This is also called the reference level.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\n\n. . .\n\npenguins |&gt;\n  select(species, chinstrap, gentoo) |&gt;\n  slice(1, 152, 283)\n\n# A tibble: 3 × 3\n  species   chinstrap gentoo\n  &lt;fct&gt;         &lt;dbl&gt;  &lt;dbl&gt;\n1 Adelie            0      0\n2 Gentoo            0      1\n3 Chinstrap         1      0"
+    "text": "Indicators in the model\n\nWe will use \\(k-1\\) of the indicator variables in the model.\nThe baseline is the category that doesn’t have a term in the model. This is also called the reference level.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\n\n. . .\n\npenguins |&gt;\n  select(species, chinstrap, gentoo) |&gt;\n  slice(1, 152, 283) # select example observations\n\n# A tibble: 3 × 3\n  species   chinstrap gentoo\n  &lt;fct&gt;         &lt;dbl&gt;  &lt;dbl&gt;\n1 Adelie            0      0\n2 Gentoo            0      1\n3 Chinstrap         1      0"
   },
   {
     "objectID": "slides/08-predictor-types-notes.html#using-all-k-indicators-in-r-model",
@@ -639,7 +639,7 @@
     "href": "slides/08-predictor-types-notes.html#interaction-terms-in-r",
     "title": "Multiple linear regression",
     "section": "Interaction terms in R",
-    "text": "Interaction terms in R\n\nFit the model with the predictors flipper_length_mm, bill_length_mm, speices, and the interaction between\n\nWrite the estimated regression equation for Adelie penguins.\nWrite the estimated regression equation for Chinstrap penguins.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Interaction terms in R\n\nFit the model predicting body_mass_g using flipper_length_mm, bill_length_mm, speices, and the interaction between species and bill_length_mm.\n\nWrite the estimated regression equation for Adelie penguins.\nWrite the estimated regression equation for Chinstrap penguins.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "slides/08-predictor-types-notes.html#interaction-term-in-model",
@@ -2826,7 +2826,7 @@
     "href": "hw/hw-02.html#exercise-2",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\nCreate a new categorical variable called minifigures_fct that is a factor taking the following levels:\n\n\n0: If there are no LEGO people in the set\n1-2 : If there are 1 or 2 LEGO people in the set\n3+ If there are 3 or more LEGO people in the set\n\n\nShow the number of observations at each level of minifigures_fct.\nVisualize the relationship between Price and minifigures_fct. Write two observations from the plot.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use minifigures_fct (instead of Minifigures) in the remainder of the assignment.",
+    "text": "Exercise 2\n\nCreate a new categorical variable called minifigures_fct that is a factor taking the following levels:\n\n\n0: If there are no LEGO people in the set\n1-2: If there are 1 or 2 LEGO people in the set\n3+: If there are 3 or more LEGO people in the set\n\n\nShow the number of observations at each level of minifigures_fct.\nVisualize the relationship between Price and minifigures_fct. Write two observations based on the plot.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use minifigures_fct (instead of Minifigures) in the remainder of the assignment.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -2837,7 +2837,7 @@
     "href": "hw/hw-02.html#exercise-3",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\n\nCode\nlegos |&gt;\n  count(Theme) |&gt;\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\n\n\n\n\n\nWhat is one reason we may want to avoid putting the variable Theme in a model as is?\nWe will create a new variable that collapses some of the levels of Theme. Make a new variable called theme_col that has levels for the top four most frequent themes, then the category Other for all other themes.\nHow many observations are in each level for the new variable created in part (b)?\n\n\n\n\n\n\n\nNote\n\n\n\nUse theme_col (instead of Theme) for th remainder of the assignment.",
+    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by how frequently they occur in the data set.\n\n\nCode\nlegos |&gt;\n  count(Theme) |&gt;\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\n\n\n\n\n\nWhat is one reason we may want to avoid putting the variable Theme in a model as is?\nWe will create a new variable that collapses some of the levels of Theme. Make a new variable called theme_col that has levels for the top four most frequent themes, then the category Other for all other themes.\nHow many observations are in each level for the new variable created in part (b)?\n\n\n\n\n\n\n\nNote\n\n\n\nUse theme_col (instead of Theme) for the remainder of the assignment.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -2848,7 +2848,7 @@
     "href": "hw/hw-02.html#exercise-4",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\n\nFit a model using Pieces, minifigures_fct and theme_col to predict Price. Neatly display the model using three decimal places.\nUse the model to describe the expected change in price for each additional 20 pieces in a LEGO set.",
+    "text": "Exercise 4\n\nFit a model using Pieces, minifigures_fct, and theme_col to predict Price. Neatly display the model using three decimal places.\nUse the model to describe the expected change in price for each additional 20 pieces in a LEGO set.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -2859,7 +2859,7 @@
     "href": "hw/hw-02.html#exercise-5",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nNow let’s consider a model that includes an interaction such that effect of pieces can change based on the theme.\n\nMake a plot to visualize the potential interaction effect.\nBased on the plot in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.\nModify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.",
+    "text": "Exercise 5\nNow let’s consider a model that includes an interaction such that the effect of pieces can change based on the theme.\n\nMake a plot to visualize the potential interaction effect.\nBased on the plot created in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.\nModify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -2881,7 +2881,7 @@
     "href": "hw/hw-02.html#exercise-7",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\n\nInterpret the coefficient for the main effect of Pieces in the context of the data.\nInterpret the coefficient of Pieces::theme_colFriends in the context of the data.\nDescribe the effect of Pieces for LEGOS in the Friends theme in the context of the data.",
+    "text": "Exercise 7\n\nInterpret the coefficient for the main effect of Pieces in the context of the data.\nInterpret the coefficient of Pieces:theme_colFriends in the context of the data.\nDescribe the effect of Pieces for LEGO sets in the Friends theme in the context of the data.",
     "crumbs": [
       "Homework",
       "HW 02"

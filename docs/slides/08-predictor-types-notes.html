@@ -2665,7 +2665,7 @@ Note
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, chinstrap, gentoo) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">152</span>, <span class="dv">283</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">152</span>, <span class="dv">283</span>) <span class="co"># select example observations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   species   chinstrap gentoo
@@ -2676,8 +2676,8 @@ Note
 </div>
 </div>
 </section>
-<section id="using-all-k-indicators-in-r-model" class="level2">
-<h2 class="anchored" data-anchor-id="using-all-k-indicators-in-r-model">Using all <span class="math inline">\(k\)</span> indicators in R model</h2>
+<section id="using-all-k-indicators-in-r-model" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="using-all-k-indicators-in-r-model">Using all <span class="math inline">\(k\)</span> indicators in R model</h2>
 <div class="question">
 <p>Run the code below to fit a model using <code>flipper_length_mm</code>, <code>bill_length_mm</code>, and all the indicator variables for <code>species</code> to predict <code>body_mass_g</code>. What do you notice about the model output? Why did this happen?</p>
 </div>
@@ -3317,7 +3317,7 @@ X_{std} = \frac{X - \bar{X}}{s_X}
 <section id="interaction-terms-in-r" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="interaction-terms-in-r">Interaction terms in R</h2>
 <div class="question">
-<p>Fit the model with the predictors <code>flipper_length_mm</code>, <code>bill_length_mm</code>, <code>speices</code>, and the interaction between</p>
+<p>Fit the model predicting <code>body_mass_g</code> using <code>flipper_length_mm</code>, <code>bill_length_mm</code>, <code>speices</code>, and the interaction between <code>species</code> and <code>bill_length_mm</code>.</p>
 <ul>
 <li><p>Write the estimated regression equation for <code>Adelie</code> penguins.</p></li>
 <li><p>Write the estimated regression equation for <code>Chinstrap</code> penguins.</p></li>

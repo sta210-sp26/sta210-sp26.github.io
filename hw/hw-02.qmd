@@ -20,7 +20,7 @@ This assignment is due on **Tuesday, February 10 at 11:59pm.** To be considered 
 
 # Introduction
 
-In this analysis you will use multiple linear regression to describe the relationship between the price and various features of a LEGO sets based on data from brickset.com.
+In this analysis you will use multiple linear regression to describe the relationship between the price and various features of LEGO sets based on data from brickset.com.
 
 # Learning goals
 
@@ -33,7 +33,7 @@ In this assignment, you will...
 
 # Getting started
 
--   Go to the [sta210-sp26](https://www.github.com/sta210-sp26) organization on GitHub. Click on the repo with the prefix **hw-02**. It contains the starter documents you need to complete the lab.
+-   Go to the [sta210-sp26](https://www.github.com/sta210-sp26) organization on GitHub. Click on the repo with the prefix **hw-02**. It contains the starter documents you need to complete the assignment.
 
 -   Clone the repo and start a new project in RStudio. See the [Lab 00](../labs/lab-00.html) for details on cloning a repo and starting a new project in R.
 
@@ -43,10 +43,9 @@ The following packages will be used in this assignment:
 #| eval: true
 #| message: false 
 
-library(tidyverse)  # for data wrangling 
-library(tidymodels) # for modeling and inference 
-library(knitr)      # to neatly format tables 
-library(patchwork)  # to arrange plots in a grid
+library(tidyverse)
+library(tidymodels)
+library(knitr)  
 
 # load other packages as needed 
 
@@ -56,7 +55,7 @@ library(patchwork)  # to arrange plots in a grid
 
 The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from @peterson2021.
 
-You will work with data on about 396 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are
+You will work with data on about 396 randomly selected LEGO sets produced during this time period. Below are the primary variables used in this analysis:
 
 -   `Price`: Recommended price of the set from brickset.com (in US dollars)
 -   `Theme`: Theme of the set (e.g., City, Duplo, Friends) scraped from brickset.com
@@ -75,7 +74,7 @@ The goal of this analysis is to use features of LEGO sets to understand variabil
 ::: callout-important
 **Instructions**
 
-Type your responses to each question in your Quarto document. Write all narrative using complete sentences and include informative axis labels and titles on visualizations. Use a reproducible workflow by periodically rendering the Quarto document, writing an informative commit message, and pushing the updated `.qmd` and .`pdf` files to GitHub.
+Type your responses to each question in your Quarto document. Write all narrative responses using complete sentences and include informative axis labels and titles on visualizations. Use a reproducible workflow by periodically rendering the Quarto document, writing an informative commit message, and pushing the updated `.qmd` and .`pdf` files to GitHub.
 :::
 
 ## Exercise 1
@@ -88,13 +87,13 @@ a.  Create a new categorical variable called `minifigures_fct` that is a factor 
 
     > -   `0`: If there are no LEGO people in the set
     >
-    > -   `1-2` : If there are 1 or 2 LEGO people in the set
+    > -   `1-2`: If there are 1 or 2 LEGO people in the set
     >
-    > -   `3+` If there are 3 or more LEGO people in the set
+    > -   `3+`: If there are 3 or more LEGO people in the set
 
     Show the number of observations at each level of `minifigures_fct`.
 
-b.  Visualize the relationship between `Price` and `minifigures_fct`. Write two observations from the plot.
+b.  Visualize the relationship between `Price` and `minifigures_fct`. Write two observations based on the plot.
 
 ::: callout-important
 You will use `minifigures_fct` (instead of `Minifigures`) in the remainder of the assignment.
@@ -102,7 +101,7 @@ You will use `minifigures_fct` (instead of `Minifigures`) in the remainder of th
 
 ## Exercise 3
 
-The distribution of `Theme` is shown below. The bars are ordered by the frequency they occur in the data set.
+The distribution of `Theme` is shown below. The bars are ordered by how frequently they occur in the data set.
 
 ```{r}
 #| eval: true
@@ -122,20 +121,20 @@ b.  We will create a new variable that collapses some of the levels of `Theme`. 
 c.  How many observations are in each level for the new variable created in part (b)?
 
 ::: callout-note
-Use `theme_col` (instead of `Theme`) for th remainder of the assignment.
+Use `theme_col` (instead of `Theme`) for the remainder of the assignment.
 :::
 
 ## Exercise 4
 
-a.  Fit a model using `Pieces`, `minifigures_fct` and `theme_col` to predict `Price`. Neatly display the model using three decimal places.
+a.  Fit a model using `Pieces`, `minifigures_fct`, and `theme_col` to predict `Price`. Neatly display the model using three decimal places.
 b.  Use the model to describe the expected change in price for each additional 20 pieces in a LEGO set.
 
 ## Exercise 5
 
-Now let's consider a model that includes an interaction such that effect of pieces can change based on the theme.
+Now let's consider a model that includes an interaction such that the effect of pieces can change based on the theme.
 
 a.  Make a plot to visualize the potential interaction effect.
-b.  Based on the plot in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.
+b.  Based on the plot created in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.
 c.  Modify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.
 
 ## Exercise 6
@@ -145,8 +144,8 @@ Describe the relationship between the number of minifigures in a LEGO set and th
 ## Exercise 7
 
 a.  Interpret the coefficient for the main effect of `Pieces` in the context of the data.
-b.  Interpret the coefficient of `Pieces::theme_colFriends` in the context of the data.
-c.  Describe the effect of `Pieces` for LEGOS in the Friends theme in the context of the data.
+b.  Interpret the coefficient of `Pieces:theme_colFriends` in the context of the data.
+c.  Describe the effect of `Pieces` for LEGO sets in the Friends theme in the context of the data.
 
 ## Exercise 8
 
@@ -166,7 +165,7 @@ Briefly explain why this assumption is important when we conduct inference based
 
 Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.
 
--   I didn't an LLM / Generative AI tool.
+-   I didn't use an LLM / Generative AI tool.
 -   I asked it to clarify one or more exercises.
 -   I asked it clarifying questions to better understand a concept.
 -   I asked it to help write code to complete an exercise.
@@ -190,11 +189,11 @@ To submit your assignment:
 
 -   Click on the assignment, and you’ll be prompted to submit it.
 
--   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).
+-   Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).
 
--   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
+-   Select the first page of your .pdf submission to be associated with the *“Workflow & formatting”* section.
 
-# Grading (50 points) - UPDATE
+# Grading (50 points)
 
 | Component                | Points |
 |--------------------------|--------|

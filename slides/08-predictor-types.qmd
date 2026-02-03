@@ -39,9 +39,11 @@ webr:
 -   Lab 02 due **Thursday, February 5** at 11:59pm
 -   HW 02 due Tuesday, February 10 at 11:59pm
     -   Released after class today
+-   [Regrade requests](https://sta210-sp26.github.io/syllabus.html#regrade-requests)
 -   [Statistics experience](../hw/stats-experience.html) due April 21
 -   SSMU Mini DataFest - February 8
     -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7577398) for announcement
+-   
 
 ## Computational setup
 

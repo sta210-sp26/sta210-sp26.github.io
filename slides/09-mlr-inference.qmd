@@ -43,6 +43,7 @@ knitr::opts_chunk$set(
 
 -   Lab 02 due **TODAY** at 11:59pm
 -   HW 02 due **Tuesday, February 10** at 11:59pm
+-   Lecture recordings + exam 01 practice problems on menu of course website
 
 ## Topics
 

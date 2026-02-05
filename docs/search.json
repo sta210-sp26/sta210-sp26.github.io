@@ -2345,154 +2345,498 @@
     "text": "📖 juliasilge.com/blog/multinomial-volcano-eruptions\n📖 juliasilge.com/blog/nber-papers"
   },
   {
-    "objectID": "hw/stats-experience.html",
-    "href": "hw/stats-experience.html",
-    "title": "Statistics Experience",
+    "objectID": "exam-01-practice.html",
+    "href": "exam-01-practice.html",
+    "title": "Exam 01 practice",
     "section": "",
-    "text": "Important\n\n\n\nThis assignment is due on Tuesday, April 21 at 11:59pm in the “Statistics experience” discussion thread on Canvas.\nThe world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.\nYou may submit the statistics experience assignment anytime between now and the deadline.\nEach experience has two parts:\n1️⃣ Have a statistics experience.\n2️⃣ Make a slide reflecting on your experience.\nYou must complete both parts to receive credit. The statistics experience will count as a homework grade.",
+    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 01. This set of practice problems is not comprehensive.\n\nThere is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#data",
+    "href": "exam-01-practice.html#data",
+    "title": "Exam 01 practice",
+    "section": "Data",
+    "text": "Data\nWe will review data about the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, Kentucky. The variables are the following:\n\nyears_since_1896: Number of years since 1896 (the first year of data in our data set)\nwinner: The winning horse\ncondition : Condition of the track (fast, good, slow)\nspeed: average speed of the winner (in feet per second)\nstarters: Number of horses who raced\n\nThere are 122 observations in the data. These data are analyzed in Chapter 1 of Beyond Multiple Linear Regression.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exploratory-data-analysis",
+    "href": "exam-01-practice.html#exploratory-data-analysis",
+    "title": "Exam 01 practice",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\nUnivariate EDA\n\n\nCode\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(color = \"black\", fill = \"steelblue\")\n\np2 &lt;- ggplot(data = derby, aes(x = condition)) + \n  geom_bar(color = \"black\", fill = \"steelblue\")\n\np3 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(color = \"black\", fill = \"steelblue\")\n\np1 / (p2 + p3)\n\n\n\n\n\n\n\n\n\n\n\nBivariate EDA\n\n\nCode\np4 &lt;- ggplot(data = derby, aes(x = years_since_1896, y = speed)) + \n  geom_point() +\n  labs(x = \"years since 1896\")\n\np5 &lt;- ggplot(data = derby, aes(x = condition, y = speed)) + \n  geom_boxplot(color = \"black\", fill = \"steelblue\")\n\np6 &lt;- ggplot(data = derby, aes(x = starters, y = speed)) + \n  geom_point()\n\np4 + p5 + p6",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-1",
+    "href": "exam-01-practice.html#exercise-1",
+    "title": "Exam 01 practice",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWe want to fit the main effects model using years_since_1896, condition, and starters to predict speed, the average speed of the winner.\nWrite the form of the statistical model.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-2",
+    "href": "exam-01-practice.html#exercise-2",
+    "title": "Exam 01 practice",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nThe output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:\n\nderby_fit &lt;- lm(speed ~ years_since_1896 + condition + starters, \n                   data = derby)\n\ntidy(derby_fit, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n52.175\n0.194\n269.079\n0.000\n51.791\n52.560\n\n\nyears_since_1896\n0.023\n0.002\n9.766\n0.000\n0.018\n0.028\n\n\nconditiongood\n-0.443\n0.231\n-1.921\n0.057\n-0.900\n0.014\n\n\nconditionslow\n-1.543\n0.161\n-9.616\n0.000\n-1.861\n-1.225\n\n\nstarters\n-0.005\n0.017\n-0.299\n0.766\n-0.038\n0.028\n\n\n\n\n\n\nInterpret the coefficient of years_since_1896 in the context of the data.\nWhat is the baseline category for condition?\nInterpret the coefficient of conditiongood in the context of the data.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-3",
+    "href": "exam-01-practice.html#exercise-3",
+    "title": "Exam 01 practice",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nDoes the intercept have a meaningful interpretation?\nIf not, what are some strategies we can use to fit a model in which the intercept is meaningful?",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-4",
+    "href": "exam-01-practice.html#exercise-4",
+    "title": "Exam 01 practice",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThere are three conditions in the data set (fast, good, slow), but only two terms for condition in the model. Conceptually explain why we cannot put indicators for all three conditions along with the intercept in the model.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-5",
+    "href": "exam-01-practice.html#exercise-5",
+    "title": "Exam 01 practice",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWe want to test whether there is evidence that the winners are getting faster over time. To do so, we conduct the following hypothesis test for the coefficient of years_since_1896.\n\nNull: There is no linear relationship between years_since_1896 and speed, after accounting condition and starters\nAlternative: There is no linear relationship between years_since_1896 and speed, after accounting condition and starters\n\n\nWrite these hypotheses in mathematical notation.\nThe standard error is 0.002. Explain what this value means in the context of the data.\nThe test statistic is 9.766. Explain how this value is computed and what this value means in the context of the data.\nWhat distribution is used to compute the p-value? Be specific.\nWhat is the conclusion from the test in the context of the data?\nDoes this hypothesis test answer the stated analysis question?",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-6",
+    "href": "exam-01-practice.html#exercise-6",
+    "title": "Exam 01 practice",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nInterpret the 95% confidence interval for years_since_1896 in the context of the data.\nIs the interval consistent with the test from the previous exercise? Briefly explain.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-7",
+    "href": "exam-01-practice.html#exercise-7",
+    "title": "Exam 01 practice",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nDescribe the effect of the track condition on the average speed of the winner. In the description, include discussion of the estimated coefficients along with the results from statistical inference.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-8",
+    "href": "exam-01-practice.html#exercise-8",
+    "title": "Exam 01 practice",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWe want to consider a potential interaction effect between starters and condition. Sketch a scatterplot that shows the relationship between starters and speed differing by condition.\n\nExercise 9\nThe output of the model that includes the interaction between starters and conditions is shown below:\n\nderby_fit_int &lt;- lm(speed ~ years_since_1896 + condition + starters +\n                      starters * condition, \n                   data = derby)\n\ntidy(derby_fit_int, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n52.416\n0.225\n232.511\n0.000\n51.970\n52.863\n\n\nyears_since_1896\n0.023\n0.002\n9.954\n0.000\n0.019\n0.028\n\n\nconditiongood\n-1.290\n0.768\n-1.679\n0.096\n-2.811\n0.231\n\n\nconditionslow\n-2.283\n0.431\n-5.299\n0.000\n-3.136\n-1.430\n\n\nstarters\n-0.023\n0.019\n-1.238\n0.218\n-0.060\n0.014\n\n\nconditiongood:starters\n0.062\n0.054\n1.147\n0.254\n-0.045\n0.170\n\n\nconditionslow:starters\n0.054\n0.029\n1.841\n0.068\n-0.004\n0.112\n\n\n\n\n\n\nInterpret the coefficient of conditiongood:starters in the context fo the data.\nWrite the estimated model for fast track conditions.\nWhat is the effect of starters went the track condition is slow?",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-10",
+    "href": "exam-01-practice.html#exercise-10",
+    "title": "Exam 01 practice",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nWe conduct inference on the coefficients \\(\\beta_j\\) assuming that the variability of \\(Y|X_1, \\ldots, X_p\\) is equal for all values (or combination of values) of the predictor(s). Briefly explain why this assumption is important.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-11",
+    "href": "exam-01-practice.html#exercise-11",
+    "title": "Exam 01 practice",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nExplain why we say “holding all else constant” when interpreting the coefficients in a multiple linear regression model.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
+    "href": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
+    "title": "Exam 01 practice",
+    "section": "Relevant lectures, assignments and AEs",
+    "text": "Relevant lectures, assignments and AEs\nAsk yourself “why” questions as you review the slides, along with your answers and problem-solving process on the lectures and assignments. It can also be helpful to explain your process to others.\n\nLectures: January 8 - February 12 (February 12 lecture is an exam review)\nHW 01 - 02\nLab 01 - 04 (Lab 04 is an exam review)\nAEs (Jan 13, Jan 15, Jan 22, Feb 5)",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "HW 02: Multiple linear regression",
+    "section": "",
+    "text": "Important\n\n\n\nThis assignment is due on Tuesday, February 10 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Homework",
-      "Statistics experience"
+      "HW 02"
     ]
   },
   {
-    "objectID": "hw/stats-experience.html#part-1-experience-statistics-outside-of-the-classroom",
-    "href": "hw/stats-experience.html#part-1-experience-statistics-outside-of-the-classroom",
-    "title": "Statistics Experience",
-    "section": "Part 1: Experience statistics outside of the classroom",
-    "text": "Part 1: Experience statistics outside of the classroom\nComplete an activity in one of the categories below. Under each category are suggested activities. You do not have to do one these suggested activities. You are welcome to find other activities as long as they are related to statistics/data science and they fit in one of the six categories. If there is an activity you’d like to do but you’re not sure if it qualifies for the statistics experience, just ask!\n\nCategory 1: Attend a talk or conference\nAttend an talk, panel, or conference related to statistics or data science. If you are attending a single talk or panel, it must be at least 30 minutes to count towards the statistics experience. The event can be in-person or online.\n\n\nCategory 2: Talk with a statistician/ data scientist\nTalk with someone who uses statistics in their daily work. This could include a professor, professional in industry, graduate student, etc.\n\n\nCategory 3: Listen to a podcast / watch video\nListen to a podcast or watch a video about statistics and data science. The podcasts / videos must be (1) one podcast or video that is at least 30 minutes or (2) multiple podcasts and/or videos that are at least 30 minutes combined.\nA few data science podcasts are below:\n\nStats + Stories Podcast\nCausal Inference Podcast\nThe Test Set by Posit\nData Skeptic\nposit::conf talks (formally called rstudio::conf)\n\n2025 conference\n2024 conference\n2023 conference\n\n\nThis list is not exhaustive. You may listen to other podcasts or watch other statistics/data science videos not included on this list. Ask Professor Tackett if you are unsure whether a particular podcast or video will count towards the statistics experience.\n\n\nCategory 4: Participate in a data science competition or challenge\nParticipate in a statistics or data science competition. You can participate individually or with a team.\nNote: DataFest will be March 20 - 22 in Penn Pavilion. Click here to learn more.\n\n\nCategory 5: Read a book on statistics/data science\nThere are a lot of books about statistics, data science, and related topics. A few suggestions are below. If you decide to read a book that isn’t on this list, ask Professor Tackett to make sure it counts toward the experience. Many of these books are available through Duke library.\n\nWeapons of Math Destruction by Cathy O’Neil\nHow Charts Lie: Getting Smarter about Visual Information by Alberto Cairo\nThe Theory that Would Not Die by Sharon Bertsch McGrayne\nThe Art of Statistics: How to learn from data by David Spiegelhalter\nThe Lady Tasting Tea by David Salsburg\nList of books about data science ethics\n\nThis list is not exhaustive.\n\n\nCategory 6: TidyTuesday\nYou may also participate in a TidyTuesday challenge. New data sets are announced on Monday afternoons.You can find more information about TidyTuesday and see the data in the TidyTuesday GitHub repo.\nA few guidelines:\n✅ Create a GitHub repo for your TidyTuesday submission. Your repo should include\n\nThe R Markdown file with all the code needed to reproduce your visualization.\nA README that includes an image of your final visualization and a short summary (~ 1 paragraph) about your visualization.\n\n✅ The visualization should include features or customization that are beyond what we’ve done in class .\n✅ Include the link to your GitHub repo in the slide summarizing your experience.\n\n\nCategory 7: CURV - connecting, uplifting, and recognizing voices\nCURV is a project by Dr. Jo Hardin at Pomona College to highlight statisticians and data scientists from groups who have been historically marginalized in the discipline.\n\n\n\n\n\n\nFor this statistics experience, you can contribute to the CURV data base. If there is a scholar you would like to suggest for the data base, submit your suggestion as an issue or pull request on the CURV GitHub repo and create a sample CURV page.\nA few guidelines:\n✅ Create a draft of the CURV page for your suggested scholar. For reference, click here for the CURV page for W.E.B. Du Bois. The page must be created in a Quarto document.\n\n\n\n\n\n\nTip\n\n\n\nYou can find the Quarto documents for current scholars in the data base in the CURV GitHub repo. You can use one of these as a template to format your page.\n\n\n✅ Make a pull request to the CURV GitHub repo to add the .qmd file for your suggested scholar, OR open an issue with a link to the .qmd file for your suggested scholar. You can ask a member of the teaching team if you have questions about how to do this.\n✅ Include the URL to your pull request or issue in your one-slide reflection.",
+    "objectID": "hw/hw-02.html#exercise-1",
+    "href": "hw/hw-02.html#exercise-1",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nVisualize the distribution of the response variable Price and compute summary statistics. Use the visualization and summary statistics to describe the distribution of the variable.",
     "crumbs": [
       "Homework",
-      "Statistics experience"
+      "HW 02"
     ]
   },
   {
-    "objectID": "hw/stats-experience.html#part-2-reflect-on-your-experience",
-    "href": "hw/stats-experience.html#part-2-reflect-on-your-experience",
-    "title": "Statistics Experience",
-    "section": "Part 2: Reflect on your experience",
-    "text": "Part 2: Reflect on your experience\nMake one slide summarizing and reflecting on your experience. Post a PDF of the slide in the Statistics experience discussion thread on Canvas.\nInclude the following on your slide:\n\nDescription of the experience\n\nName and brief description of the event/podcast/competition/etc.\n\nSomething you learned\n\nWrite 2 - 4 sentences about something you learned or found particularly interesting or unexpected.\n\nConnection to STA 210\n\nWrite 2 - 4 sentences about how the experience connects to what we’ve done in the course.\n\nCitation or link to web page for event/competition/etc.\n\nNo citation needed if you do an interview.\n\n\nMake sure the slide includes the information mentioned above and is easily readable (i.e. use a reasonable font size!). Creativity on the experience and slide design is encouraged!",
+    "objectID": "hw/hw-02.html#exercise-2",
+    "href": "hw/hw-02.html#exercise-2",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nCreate a new categorical variable called minifigures_fct that is a factor taking the following levels:\n\n\n0: If there are no LEGO people in the set\n1-2: If there are 1 or 2 LEGO people in the set\n3+: If there are 3 or more LEGO people in the set\n\n\nShow the number of observations at each level of minifigures_fct.\nVisualize the relationship between Price and minifigures_fct. Write two observations based on the plot.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use minifigures_fct (instead of Minifigures) in the remainder of the assignment.",
     "crumbs": [
       "Homework",
-      "Statistics experience"
+      "HW 02"
     ]
   },
   {
-    "objectID": "hw/stats-experience.html#submission",
-    "href": "hw/stats-experience.html#submission",
-    "title": "Statistics Experience",
-    "section": "Submission",
-    "text": "Submission\nThis assignment is due on Tuesday, April 21 at 11:59pm. To be considered on time, the PDF of the slide must be posted to the “Statistics experience” discussion thread on Canvas by the deadline. The standard homework late policy applies.",
+    "objectID": "hw/hw-02.html#exercise-3",
+    "href": "hw/hw-02.html#exercise-3",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by how frequently they occur in the data set.\n\n\nCode\nlegos |&gt;\n  count(Theme) |&gt;\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\n\n\n\n\n\nWhat is one reason we may want to avoid putting the variable Theme in a model as is?\nWe will create a new variable that collapses some of the levels of Theme. Make a new variable called theme_col that has levels for the top four most frequent themes, then the category Other for all other themes.\nHow many observations are in each level for the new variable created in part (b)?\n\n\n\n\n\n\n\nNote\n\n\n\nUse theme_col (instead of Theme) for the remainder of the assignment.",
     "crumbs": [
       "Homework",
-      "Statistics experience"
+      "HW 02"
     ]
   },
   {
-    "objectID": "hw/hw-03.html",
-    "href": "hw/hw-03.html",
-    "title": "HW 03",
-    "section": "",
-    "text": "To be posted.",
+    "objectID": "hw/hw-02.html#exercise-4",
+    "href": "hw/hw-02.html#exercise-4",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\n\nFit a model using Pieces, minifigures_fct, and theme_col to predict Price. Neatly display the model using three decimal places.\nUse the model to describe the expected change in price for each additional 20 pieces in a LEGO set.",
     "crumbs": [
       "Homework",
-      "HW 03"
+      "HW 02"
     ]
   },
   {
-    "objectID": "hw/hw-04.html",
-    "href": "hw/hw-04.html",
-    "title": "HW 04",
-    "section": "",
-    "text": "To be posted.",
+    "objectID": "hw/hw-02.html#exercise-5",
+    "href": "hw/hw-02.html#exercise-5",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nNow let’s consider a model that includes an interaction such that the effect of pieces can change based on the theme.\n\nMake a plot to visualize the potential interaction effect.\nBased on the plot created in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.\nModify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.",
     "crumbs": [
       "Homework",
-      "HW 04"
+      "HW 02"
     ]
   },
   {
-    "objectID": "overview.html",
-    "href": "overview.html",
-    "title": "STA 210 - Regression Analysis",
+    "objectID": "hw/hw-02.html#exercise-6",
+    "href": "hw/hw-02.html#exercise-6",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nDescribe the relationship between the number of minifigures in a LEGO set and the price based on the model in Exercise 5.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-7",
+    "href": "hw/hw-02.html#exercise-7",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nInterpret the coefficient for the main effect of Pieces in the context of the data.\nInterpret the coefficient of Pieces:theme_colFriends in the context of the data.\nDescribe the effect of Pieces for LEGO sets in the Friends theme in the context of the data.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-8",
+    "href": "hw/hw-02.html#exercise-8",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\n\nBriefly explain why the intercept for the model in Exercise 5 does not have a meaningful interpretation.\nRefit the model from Exercise 5 so that the intercept has a meaningful interpretation. Display the model using three decimal places.\nInterpret the intercept in the context of the data. Use specific values in the interpretation.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-9",
+    "href": "hw/hw-02.html#exercise-9",
+    "title": "HW 02: Multiple linear regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nThe following is a general question about linear regression. It is not specific to the LEGO analysis.\nIn lecture we discussed how the distribution of the error terms (and thus the distribution of the response variable \\(Y\\)) for a given value of the predictor \\(X\\) has a variance of \\(\\sigma^2_{\\epsilon}\\). Therefore, we are assuming this variance is the same for all values of the predictor when we conduct inference.\nBriefly explain why this assumption is important when we conduct inference based on mathematical models but is not necessary for conducting simulation-based inference.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "HW 01: Simple linear regression",
     "section": "",
-    "text": "In STA 210, students will learn how linear and logistic regression models are used to explore multivariable relationships and apply these methods to answer relevant and engaging questions using a data-driven approach. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.\nTopics include applications of linear and logistic regression, interpretation, diagnostics, model selection, and model assessment. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields. This class emphasizes data analysis over mathematical theory.\n\n\n100-level Statistical Science course or Statistical Science 230, 231, or 240L",
+    "text": "Important\n\n\n\nThis assignment is due on Tuesday, January 27 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
-      "Overview"
+      "Homework",
+      "HW 01"
     ]
   },
   {
-    "objectID": "overview.html#pre-requisites",
-    "href": "overview.html#pre-requisites",
-    "title": "STA 210 - Regression Analysis",
+    "objectID": "hw/hw-01.html#part-1-exploratory-data-analysis",
+    "href": "hw/hw-01.html#part-1-exploratory-data-analysis",
+    "title": "HW 01: Simple linear regression",
+    "section": "Part 1: Exploratory data analysis",
+    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the response variable mc_preschool and compute the summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\n\n\n\n\nTip\n\n\n\nThe description should include shape, center, spread, and presence of outliers. Use specific values in your description. See Section 3.4.2 of Introduction to Regression Analysis for more information about describing univariate distributions. See the ggplot2 reference for example code and plots.\n\n\n\n\nExercise 2\nLet’s view the data in another way. Below is a map showing the 600 counties in our sample filled in based on values of mc_preschool. The code for the map was adapted from code produced by ChatGPT (model GPT-5.2).\n\nWhat are 2 observations you have from the map?\nWhat is a feature that is apparent in the map that wasn’t as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?\n\n\n\nCode\nmap_data_sample &lt;-  read_csv(\"data/county-map-2018.csv\") \n\n# create data frame containing mapping data for all counties\ncounties_sf &lt;- counties(cb = TRUE, year = 2018) |&gt;\n  st_as_sf() |&gt;\n  mutate(fips = paste0(STATEFP, COUNTYFP))\n\n# join mapping data to analysis data\ncounty_map_data &lt;- counties_sf |&gt;\n  left_join(childcare, by = \"fips\") \n\n# produce map\ncounty_map &lt;- ggplot(county_map_data) +\n  geom_sf(aes(fill = mc_preschool), color = NA) +\n  scale_fill_viridis_c(na.value = \"grey90\") +\n  coord_sf(\n    xlim = c(-125, -66),\n    ylim = c(24, 50),\n    expand = FALSE)  +\n  labs(title = \"Median weekly preschool costs\",\n       subtitle = \"for 600 counties in the United States\",\n       fill = \"Median cost\") +\n  theme_void() \n\n\n\n\n\n\n\n\n\n\n\n\n\nExercise 3\nCreate a visualization of the relationship between me_2018 and mc_preschool (originally said mc_toddler) and compute the correlation. Use the visualization and correlation to describe the relationship between the two variables.\n\nThis is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 1 - 3”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
+    "crumbs": [
+      "Homework",
+      "HW 01"
+    ]
+  },
+  {
+    "objectID": "hw/hw-01.html#part-2-modeling",
+    "href": "hw/hw-01.html#part-2-modeling",
+    "title": "HW 01: Simple linear regression",
+    "section": "Part 2: Modeling",
+    "text": "Part 2: Modeling\n\nExercise 4\nWe will use a linear regression model to explain variability in mc_preschool based on me_2018.\nWrite the form of the statistical (theoretical) model using mathematical notation. In your response, make it clear which variable (me_2018 or mc_preschool) is the predictor and which variable is the response.\n\n\n\n\n\n\nTip\n\n\n\nUse the following code format to make the variable names properly render in the PDF document.\n\\(\\text{me\\_2018}\\) = \\text{me\\_2018}\n\\(\\text{mc\\_preschool}\\) = \\text{mc\\_preschool}\n\n\n\n\nExercise 5\n\nFit the regression line corresponding to the statistical model in the previous exercise. Neatly display the model output using 3 digits.\nWrite the equation of the fitted model using mathematical notation. In your response, make it clear which variable (me_2018 or mc_preschool) is the predictor and which variable is the response.\n\n\n\nExercise 6\n\nInterpret the slope in the context of the data.\nDoes the intercept have a meaningful interpretation? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\n\nExercise 7\n\nIn 2018, the median income in Durham County was $35,436. What is the predicted median weekly cost for preschool based on the model in Exercise 5?\nThe actual median cost for preschool was $173 per week. What is the residual?\n\n\nThis is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 4 -7”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
+    "crumbs": [
+      "Homework",
+      "HW 01"
+    ]
+  },
+  {
+    "objectID": "hw/hw-01.html#part-3-inference",
+    "href": "hw/hw-01.html#part-3-inference",
+    "title": "HW 01: Simple linear regression",
+    "section": "Part 3: Inference",
+    "text": "Part 3: Inference\nWe will use the data from these 600 randomly selected counties to draw conclusions about the relationship between income and weekly cost of preschool for the over 3,000 counties in the United States.\n\nExercise 8\n\nWhat is the population in this analysis? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.\n\n\n\nExercise 9\nConstruct a 90% bootstrap confidence interval for the slope. Use set.seed(2026) and 1000 iterations. Show all relevant code and output used to produce the interval.\nWrite the 90% confidence interval using 3 digits.\n\n\nExercise 10\n\nInterpret the interval from the previous exercise in the context of the data.\nYou want to use the confidence interval to evaluate the claim that there is no linear relationship between median income and cost of preschool. In other words, you want to evaluate the claim that \\(\\beta_1 = 0\\) in the model written in Exercise 4.\nDoes the confidence interval from the previous exercise support this claim? Briefly explain why or why not.\n\n\nNow is a good time to render your document again if you haven’t done so recently, commit (with an informative commit message), and push all updates.",
+    "crumbs": [
+      "Homework",
+      "HW 01"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html",
+    "href": "hw/hw-05.html",
+    "title": "HW 05",
     "section": "",
-    "text": "100-level Statistical Science course or Statistical Science 230, 231, or 240L",
-    "crumbs": [
-      "Overview"
-    ]
+    "text": "To be posted."
   },
   {
-    "objectID": "overview.html#teaching-assistants",
-    "href": "overview.html#teaching-assistants",
-    "title": "STA 210 - Regression Analysis",
-    "section": "Teaching assistants",
-    "text": "Teaching assistants\n\n\n\nName\nRole\n\n\nAdeli Hutton\nLab leader\n\n\nShane Rybacki\nLab leader\n\n\n\nSee Canvas for office hours times and locations.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "labs/lab-08.html",
-    "href": "labs/lab-08.html",
-    "title": "Lab 08",
+    "objectID": "labs/lab-02-DRAFT.html",
+    "href": "labs/lab-02-DRAFT.html",
+    "title": "Lab 02: Inference for regression using mathematical models",
     "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 08"
-    ]
+    "text": "Important\n\n\n\nThis lab is due on Thursday, February 5 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
   },
   {
-    "objectID": "labs/lab-07.html",
-    "href": "labs/lab-07.html",
-    "title": "Lab 07",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 07"
-    ]
-  },
-  {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 04",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 04"
-    ]
-  },
-  {
-    "objectID": "labs/lab-01.html",
-    "href": "labs/lab-01.html",
-    "title": "Lab 01: Linear regression",
-    "section": "",
-    "text": "Important\n\n\n\nThis lab is due on Thursday, January 29 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
-    "crumbs": [
-      "Labs",
-      "Lab 01"
-    ]
-  },
-  {
-    "objectID": "labs/lab-01.html#learning-goals",
-    "href": "labs/lab-01.html#learning-goals",
-    "title": "Lab 01: Linear regression",
+    "objectID": "labs/lab-02-DRAFT.html#learning-goals",
+    "href": "labs/lab-02-DRAFT.html#learning-goals",
+    "title": "Lab 02: Inference for regression using mathematical models",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab you will…\n\nFit and interpret a linear regression models in R.\nUse simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis.",
+    "text": "Learning goals\nBy the end of the lab you will…\n\nuse mathematical models to conduct inference for the slope.\nassess conditions for linear regression."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-1",
+    "href": "labs/lab-02-DRAFT.html#exercise-1",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nVisualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-2",
+    "href": "labs/lab-02-DRAFT.html#exercise-2",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the 98% confidence interval for the model coefficients in the output."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-3",
+    "href": "labs/lab-02-DRAFT.html#exercise-3",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nInterpret the slope in the context of the data.\nAssume you are a coffee drinker using the model from Exercise 2. Would you drink a coffee represented by the intercept? Why or why not?"
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-4",
+    "href": "labs/lab-02-DRAFT.html#exercise-4",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nYou can obtain the predicted values and other observation-level statistics from the model using the augment() function. Create a data frame called coffee_aug by replacing the blank with the name of the fitted model.\n\ncoffee_aug &lt;- augment(_____)\n\n\nWrite code to “manually” compute the regression standard error, \\(\\hat{\\sigma}_\\epsilon\\) using the residuals (stored in the column .resid).\nState the definition of the regression standard error in the context of the data.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can check your answer to part (b) by using the code below to get \\(\\hat{\\sigma}_\\epsilon\\)\n\nglance(model_name)$sigma"
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-5",
+    "href": "labs/lab-02-DRAFT.html#exercise-5",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nDo the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.\n\nState the null and alternative hypotheses in words and in mathematical notation.\nWhat is the test statistic? State what the test statistic means in the context of this problem. Note: You do not need to show how the test statistic is computed.\nWhat distribution was used to calculate the p-value? Be specific.\nState the conclusion in the context of the data using a threshold of \\(\\alpha = 0.02\\) to make your decision."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-6",
+    "href": "labs/lab-02-DRAFT.html#exercise-6",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nWhat is the critical value used to calculate the confidence interval displayed in Exercise 2? Show the code and output used to get your response.\nIs the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-7",
+    "href": "labs/lab-02-DRAFT.html#exercise-7",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nCompute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.\nOne coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.\nHow do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-8",
+    "href": "labs/lab-02-DRAFT.html#exercise-8",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWe have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame coffee_aug from Exercise 4 that includes the residuals, predicted values, and other observation-level statistics from the model.\n\nMake a scatterplot of the residuals (.resid) vs. fitted values (.fitted). Use geom_hline() to add a horizontal dotted line at \\(residuals = 0\\).\n\n\n\n\n\n\n\nNote\n\n\n\nThe linearity condition is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs. fitted values.\n\nThe equal variance condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.\nSee Section 6.2.2 and Section 6.2.5 of the textbook for more on linearity and equal variance, respectively.\n\n\n\nIs the linearity condition satisfied? Briefly explain why or why not.\nIs the equal variance condition satisfied? Briefly explain why or why not."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-9",
+    "href": "labs/lab-02-DRAFT.html#exercise-9",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\n\n\n\n\n\nNote\n\n\n\nThe normality condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large \\((n &gt; 30)\\).\nSee Section 6.2.4 of the textbook for more on normality.\n\n\n\nMake a histogram or density plot of the residuals (.resid).\nIs the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-10",
+    "href": "labs/lab-02-DRAFT.html#exercise-10",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\n\n\n\n\n\nNote\n\n\n\nThe independence condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.\nThis condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.\nSee Section 6.2.3 of the textbook for more on independence.\n\n\nIs the independence condition satisfied for these data? Briefly explain why or why not."
+  },
+  {
+    "objectID": "labs/lab-06.html",
+    "href": "labs/lab-06.html",
+    "title": "Lab 06",
+    "section": "",
+    "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 01"
+      "Lab 06"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html",
+    "href": "labs/lab-05.html",
+    "title": "Lab 05",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html",
+    "href": "labs/lab-00.html",
+    "title": "Lab 00: Getting started",
+    "section": "",
+    "text": "Important\n\n\n\nPlease complete all tasks before leaving lab today.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#rstudio",
+    "href": "labs/lab-00.html#rstudio",
+    "title": "Lab 00: Getting started",
+    "section": "RStudio",
+    "text": "RStudio\n\n\n\n\n\n\nTip\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA 221” to reserve an RStudio container (OIT has included containers for STA 210 under the STA221 container header.) Be sure you reserve the container labeled STA 221 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA221 to log into the Docker container. You should now see the RStudio environment.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#git-and-github",
+    "href": "labs/lab-00.html#git-and-github",
+    "title": "Lab 00: Getting started",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nTip\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account. If you already have a GitHub account, you can move on to the next step.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#connect-rstudio-and-github",
+    "href": "labs/lab-00.html#connect-rstudio-and-github",
+    "title": "Lab 00: Getting started",
+    "section": "Connect RStudio and GitHub",
+    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. An outline of the authentication steps is below; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nStep 0: Open your RStudio container.\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta210)\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"Maria Tackett\",\n  user.email = \"maria.tackett@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio!",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#getting-started",
+    "href": "labs/lab-00.html#getting-started",
+    "title": "Lab 00: Getting started",
+    "section": "Getting started",
+    "text": "Getting started\n\nClick here to create your individual lab-00 repo: https://classroom.github.com/a/covo7pM-\nClick to open your lab-00 repo.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-00.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#update-the-quarto-document",
+    "href": "labs/lab-00.html#update-the-quarto-document",
+    "title": "Lab 00: Getting started",
+    "section": "Update the Quarto document",
+    "text": "Update the Quarto document\n\nTask 1: Change the author name at the top of the document to your name. Render the document. You will see your name at the top of the rendered PDF.\nTask 2: The plot shows the relationship between the daily temperature and number of bike rentals in Washington, D.C.’s Capital Bikeshare in 2012.\n\n\n\n\n\n\n\n\n\n\nWrite 1 - 2 observations from the plot. Render the document. You will see your response in the rendered PDF.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#commit-and-push-changes-to-github",
+    "href": "labs/lab-00.html#commit-and-push-changes-to-github",
+    "title": "Lab 00: Getting started",
+    "section": "Commit and push changes to GitHub",
+    "text": "Commit and push changes to GitHub\n\nOnce you have made your final updates, go to the Git pane in your RStudio instance. This is a tab in the top right corner of the RStudio window.\nCheck the appropriate boxes on every file in the Git pane. All checked files will be sent to GitHub.\nNext, write a meaningful commit message (for instance, “updated author name”) in the Commit message box.\nClick Commit. Note that every commit needs to have a commit message associated with it.\nNow that you have made an update and committed this change, click Push to send the changes to GitHub.\nGo to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html",
+    "href": "labs/lab-03.html",
+    "title": "Lab 03",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
     ]
   },
   {
@@ -2628,358 +2972,154 @@
     ]
   },
   {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 03",
+    "objectID": "labs/lab-01.html",
+    "href": "labs/lab-01.html",
+    "title": "Lab 01: Linear regression",
     "section": "",
-    "text": "To be posted.",
+    "text": "Important\n\n\n\nThis lab is due on Thursday, January 29 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 01"
     ]
   },
   {
-    "objectID": "labs/lab-00.html",
-    "href": "labs/lab-00.html",
-    "title": "Lab 00: Getting started",
-    "section": "",
-    "text": "Important\n\n\n\nPlease complete all tasks before leaving lab today.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#rstudio",
-    "href": "labs/lab-00.html#rstudio",
-    "title": "Lab 00: Getting started",
-    "section": "RStudio",
-    "text": "RStudio\n\n\n\n\n\n\nTip\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA 221” to reserve an RStudio container (OIT has included containers for STA 210 under the STA221 container header.) Be sure you reserve the container labeled STA 221 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA221 to log into the Docker container. You should now see the RStudio environment.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#git-and-github",
-    "href": "labs/lab-00.html#git-and-github",
-    "title": "Lab 00: Getting started",
-    "section": "Git and GitHub",
-    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nTip\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account. If you already have a GitHub account, you can move on to the next step.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#connect-rstudio-and-github",
-    "href": "labs/lab-00.html#connect-rstudio-and-github",
-    "title": "Lab 00: Getting started",
-    "section": "Connect RStudio and GitHub",
-    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. An outline of the authentication steps is below; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nStep 0: Open your RStudio container.\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta210)\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"Maria Tackett\",\n  user.email = \"maria.tackett@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio!",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#getting-started",
-    "href": "labs/lab-00.html#getting-started",
-    "title": "Lab 00: Getting started",
-    "section": "Getting started",
-    "text": "Getting started\n\nClick here to create your individual lab-00 repo: https://classroom.github.com/a/covo7pM-\nClick to open your lab-00 repo.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-00.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#update-the-quarto-document",
-    "href": "labs/lab-00.html#update-the-quarto-document",
-    "title": "Lab 00: Getting started",
-    "section": "Update the Quarto document",
-    "text": "Update the Quarto document\n\nTask 1: Change the author name at the top of the document to your name. Render the document. You will see your name at the top of the rendered PDF.\nTask 2: The plot shows the relationship between the daily temperature and number of bike rentals in Washington, D.C.’s Capital Bikeshare in 2012.\n\n\n\n\n\n\n\n\n\n\nWrite 1 - 2 observations from the plot. Render the document. You will see your response in the rendered PDF.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#commit-and-push-changes-to-github",
-    "href": "labs/lab-00.html#commit-and-push-changes-to-github",
-    "title": "Lab 00: Getting started",
-    "section": "Commit and push changes to GitHub",
-    "text": "Commit and push changes to GitHub\n\nOnce you have made your final updates, go to the Git pane in your RStudio instance. This is a tab in the top right corner of the RStudio window.\nCheck the appropriate boxes on every file in the Git pane. All checked files will be sent to GitHub.\nNext, write a meaningful commit message (for instance, “updated author name”) in the Commit message box.\nClick Commit. Note that every commit needs to have a commit message associated with it.\nNow that you have made an update and committed this change, click Push to send the changes to GitHub.\nGo to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 05",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 05"
-    ]
-  },
-  {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 06",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 06"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html",
-    "href": "labs/lab-02-DRAFT.html",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "",
-    "text": "Important\n\n\n\nThis lab is due on Thursday, February 5 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#learning-goals",
-    "href": "labs/lab-02-DRAFT.html#learning-goals",
-    "title": "Lab 02: Inference for regression using mathematical models",
+    "objectID": "labs/lab-01.html#learning-goals",
+    "href": "labs/lab-01.html#learning-goals",
+    "title": "Lab 01: Linear regression",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab you will…\n\nuse mathematical models to conduct inference for the slope.\nassess conditions for linear regression."
+    "text": "Learning goals\nBy the end of the lab you will…\n\nFit and interpret a linear regression models in R.\nUse simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis.",
+    "crumbs": [
+      "Labs",
+      "Lab 01"
+    ]
   },
   {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-1",
-    "href": "labs/lab-02-DRAFT.html#exercise-1",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-2",
-    "href": "labs/lab-02-DRAFT.html#exercise-2",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nFit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the 98% confidence interval for the model coefficients in the output."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-3",
-    "href": "labs/lab-02-DRAFT.html#exercise-3",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nInterpret the slope in the context of the data.\nAssume you are a coffee drinker using the model from Exercise 2. Would you drink a coffee represented by the intercept? Why or why not?"
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-4",
-    "href": "labs/lab-02-DRAFT.html#exercise-4",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nYou can obtain the predicted values and other observation-level statistics from the model using the augment() function. Create a data frame called coffee_aug by replacing the blank with the name of the fitted model.\n\ncoffee_aug &lt;- augment(_____)\n\n\nWrite code to “manually” compute the regression standard error, \\(\\hat{\\sigma}_\\epsilon\\) using the residuals (stored in the column .resid).\nState the definition of the regression standard error in the context of the data.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can check your answer to part (b) by using the code below to get \\(\\hat{\\sigma}_\\epsilon\\)\n\nglance(model_name)$sigma"
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-5",
-    "href": "labs/lab-02-DRAFT.html#exercise-5",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nDo the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.\n\nState the null and alternative hypotheses in words and in mathematical notation.\nWhat is the test statistic? State what the test statistic means in the context of this problem. Note: You do not need to show how the test statistic is computed.\nWhat distribution was used to calculate the p-value? Be specific.\nState the conclusion in the context of the data using a threshold of \\(\\alpha = 0.02\\) to make your decision."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-6",
-    "href": "labs/lab-02-DRAFT.html#exercise-6",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 6",
-    "text": "Exercise 6\n\nWhat is the critical value used to calculate the confidence interval displayed in Exercise 2? Show the code and output used to get your response.\nIs the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-7",
-    "href": "labs/lab-02-DRAFT.html#exercise-7",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 7",
-    "text": "Exercise 7\n\nCompute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.\nOne coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.\nHow do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-8",
-    "href": "labs/lab-02-DRAFT.html#exercise-8",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nWe have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame coffee_aug from Exercise 4 that includes the residuals, predicted values, and other observation-level statistics from the model.\n\nMake a scatterplot of the residuals (.resid) vs. fitted values (.fitted). Use geom_hline() to add a horizontal dotted line at \\(residuals = 0\\).\n\n\n\n\n\n\n\nNote\n\n\n\nThe linearity condition is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs. fitted values.\n\nThe equal variance condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.\nSee Section 6.2.2 and Section 6.2.5 of the textbook for more on linearity and equal variance, respectively.\n\n\n\nIs the linearity condition satisfied? Briefly explain why or why not.\nIs the equal variance condition satisfied? Briefly explain why or why not."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-9",
-    "href": "labs/lab-02-DRAFT.html#exercise-9",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 9",
-    "text": "Exercise 9\n\n\n\n\n\n\nNote\n\n\n\nThe normality condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large \\((n &gt; 30)\\).\nSee Section 6.2.4 of the textbook for more on normality.\n\n\n\nMake a histogram or density plot of the residuals (.resid).\nIs the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain."
-  },
-  {
-    "objectID": "labs/lab-02-DRAFT.html#exercise-10",
-    "href": "labs/lab-02-DRAFT.html#exercise-10",
-    "title": "Lab 02: Inference for regression using mathematical models",
-    "section": "Exercise 10",
-    "text": "Exercise 10\n\n\n\n\n\n\nNote\n\n\n\nThe independence condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.\nThis condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.\nSee Section 6.2.3 of the textbook for more on independence.\n\n\nIs the independence condition satisfied for these data? Briefly explain why or why not."
-  },
-  {
-    "objectID": "hw/hw-05.html",
-    "href": "hw/hw-05.html",
-    "title": "HW 05",
+    "objectID": "labs/lab-04.html",
+    "href": "labs/lab-04.html",
+    "title": "Lab 04",
     "section": "",
-    "text": "To be posted."
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 04"
+    ]
   },
   {
-    "objectID": "hw/hw-01.html",
-    "href": "hw/hw-01.html",
-    "title": "HW 01: Simple linear regression",
+    "objectID": "labs/lab-07.html",
+    "href": "labs/lab-07.html",
+    "title": "Lab 07",
     "section": "",
-    "text": "Important\n\n\n\nThis assignment is due on Tuesday, January 27 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "text": "To be posted.",
     "crumbs": [
-      "Homework",
-      "HW 01"
+      "Labs",
+      "Lab 07"
     ]
   },
   {
-    "objectID": "hw/hw-01.html#part-1-exploratory-data-analysis",
-    "href": "hw/hw-01.html#part-1-exploratory-data-analysis",
-    "title": "HW 01: Simple linear regression",
-    "section": "Part 1: Exploratory data analysis",
-    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the response variable mc_preschool and compute the summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\n\n\n\n\nTip\n\n\n\nThe description should include shape, center, spread, and presence of outliers. Use specific values in your description. See Section 3.4.2 of Introduction to Regression Analysis for more information about describing univariate distributions. See the ggplot2 reference for example code and plots.\n\n\n\n\nExercise 2\nLet’s view the data in another way. Below is a map showing the 600 counties in our sample filled in based on values of mc_preschool. The code for the map was adapted from code produced by ChatGPT (model GPT-5.2).\n\nWhat are 2 observations you have from the map?\nWhat is a feature that is apparent in the map that wasn’t as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?\n\n\n\nCode\nmap_data_sample &lt;-  read_csv(\"data/county-map-2018.csv\") \n\n# create data frame containing mapping data for all counties\ncounties_sf &lt;- counties(cb = TRUE, year = 2018) |&gt;\n  st_as_sf() |&gt;\n  mutate(fips = paste0(STATEFP, COUNTYFP))\n\n# join mapping data to analysis data\ncounty_map_data &lt;- counties_sf |&gt;\n  left_join(childcare, by = \"fips\") \n\n# produce map\ncounty_map &lt;- ggplot(county_map_data) +\n  geom_sf(aes(fill = mc_preschool), color = NA) +\n  scale_fill_viridis_c(na.value = \"grey90\") +\n  coord_sf(\n    xlim = c(-125, -66),\n    ylim = c(24, 50),\n    expand = FALSE)  +\n  labs(title = \"Median weekly preschool costs\",\n       subtitle = \"for 600 counties in the United States\",\n       fill = \"Median cost\") +\n  theme_void() \n\n\n\n\n\n\n\n\n\n\n\n\n\nExercise 3\nCreate a visualization of the relationship between me_2018 and mc_preschool (originally said mc_toddler) and compute the correlation. Use the visualization and correlation to describe the relationship between the two variables.\n\nThis is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 1 - 3”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
-    "crumbs": [
-      "Homework",
-      "HW 01"
-    ]
-  },
-  {
-    "objectID": "hw/hw-01.html#part-2-modeling",
-    "href": "hw/hw-01.html#part-2-modeling",
-    "title": "HW 01: Simple linear regression",
-    "section": "Part 2: Modeling",
-    "text": "Part 2: Modeling\n\nExercise 4\nWe will use a linear regression model to explain variability in mc_preschool based on me_2018.\nWrite the form of the statistical (theoretical) model using mathematical notation. In your response, make it clear which variable (me_2018 or mc_preschool) is the predictor and which variable is the response.\n\n\n\n\n\n\nTip\n\n\n\nUse the following code format to make the variable names properly render in the PDF document.\n\\(\\text{me\\_2018}\\) = \\text{me\\_2018}\n\\(\\text{mc\\_preschool}\\) = \\text{mc\\_preschool}\n\n\n\n\nExercise 5\n\nFit the regression line corresponding to the statistical model in the previous exercise. Neatly display the model output using 3 digits.\nWrite the equation of the fitted model using mathematical notation. In your response, make it clear which variable (me_2018 or mc_preschool) is the predictor and which variable is the response.\n\n\n\nExercise 6\n\nInterpret the slope in the context of the data.\nDoes the intercept have a meaningful interpretation? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\n\nExercise 7\n\nIn 2018, the median income in Durham County was $35,436. What is the predicted median weekly cost for preschool based on the model in Exercise 5?\nThe actual median cost for preschool was $173 per week. What is the residual?\n\n\nThis is a good place to render, commit, and push changes to your hw-01 repo on GitHub. Write an informative commit message (e.g. “Completed exercises 4 -7”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
-    "crumbs": [
-      "Homework",
-      "HW 01"
-    ]
-  },
-  {
-    "objectID": "hw/hw-01.html#part-3-inference",
-    "href": "hw/hw-01.html#part-3-inference",
-    "title": "HW 01: Simple linear regression",
-    "section": "Part 3: Inference",
-    "text": "Part 3: Inference\nWe will use the data from these 600 randomly selected counties to draw conclusions about the relationship between income and weekly cost of preschool for the over 3,000 counties in the United States.\n\nExercise 8\n\nWhat is the population in this analysis? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.\n\n\n\nExercise 9\nConstruct a 90% bootstrap confidence interval for the slope. Use set.seed(2026) and 1000 iterations. Show all relevant code and output used to produce the interval.\nWrite the 90% confidence interval using 3 digits.\n\n\nExercise 10\n\nInterpret the interval from the previous exercise in the context of the data.\nYou want to use the confidence interval to evaluate the claim that there is no linear relationship between median income and cost of preschool. In other words, you want to evaluate the claim that \\(\\beta_1 = 0\\) in the model written in Exercise 4.\nDoes the confidence interval from the previous exercise support this claim? Briefly explain why or why not.\n\n\nNow is a good time to render your document again if you haven’t done so recently, commit (with an informative commit message), and push all updates.",
-    "crumbs": [
-      "Homework",
-      "HW 01"
-    ]
-  },
-  {
-    "objectID": "hw/hw-02.html",
-    "href": "hw/hw-02.html",
-    "title": "HW 02: Multiple linear regression",
+    "objectID": "labs/lab-08.html",
+    "href": "labs/lab-08.html",
+    "title": "Lab 08",
     "section": "",
-    "text": "Important\n\n\n\nThis assignment is due on Tuesday, February 10 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "text": "To be posted.",
     "crumbs": [
-      "Homework",
-      "HW 02"
+      "Labs",
+      "Lab 08"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-1",
-    "href": "hw/hw-02.html#exercise-1",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nVisualize the distribution of the response variable Price and compute summary statistics. Use the visualization and summary statistics to describe the distribution of the variable.",
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "STA 210 - Regression Analysis",
+    "section": "",
+    "text": "In STA 210, students will learn how linear and logistic regression models are used to explore multivariable relationships and apply these methods to answer relevant and engaging questions using a data-driven approach. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.\nTopics include applications of linear and logistic regression, interpretation, diagnostics, model selection, and model assessment. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields. This class emphasizes data analysis over mathematical theory.\n\n\n100-level Statistical Science course or Statistical Science 230, 231, or 240L",
     "crumbs": [
-      "Homework",
-      "HW 02"
+      "Overview"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-2",
-    "href": "hw/hw-02.html#exercise-2",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2\n\nCreate a new categorical variable called minifigures_fct that is a factor taking the following levels:\n\n\n0: If there are no LEGO people in the set\n1-2: If there are 1 or 2 LEGO people in the set\n3+: If there are 3 or more LEGO people in the set\n\n\nShow the number of observations at each level of minifigures_fct.\nVisualize the relationship between Price and minifigures_fct. Write two observations based on the plot.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use minifigures_fct (instead of Minifigures) in the remainder of the assignment.",
+    "objectID": "overview.html#pre-requisites",
+    "href": "overview.html#pre-requisites",
+    "title": "STA 210 - Regression Analysis",
+    "section": "",
+    "text": "100-level Statistical Science course or Statistical Science 230, 231, or 240L",
     "crumbs": [
-      "Homework",
-      "HW 02"
+      "Overview"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-3",
-    "href": "hw/hw-02.html#exercise-3",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by how frequently they occur in the data set.\n\n\nCode\nlegos |&gt;\n  count(Theme) |&gt;\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\n\n\n\n\n\nWhat is one reason we may want to avoid putting the variable Theme in a model as is?\nWe will create a new variable that collapses some of the levels of Theme. Make a new variable called theme_col that has levels for the top four most frequent themes, then the category Other for all other themes.\nHow many observations are in each level for the new variable created in part (b)?\n\n\n\n\n\n\n\nNote\n\n\n\nUse theme_col (instead of Theme) for the remainder of the assignment.",
+    "objectID": "overview.html#teaching-assistants",
+    "href": "overview.html#teaching-assistants",
+    "title": "STA 210 - Regression Analysis",
+    "section": "Teaching assistants",
+    "text": "Teaching assistants\n\n\n\nName\nRole\n\n\nAdeli Hutton\nLab leader\n\n\nShane Rybacki\nLab leader\n\n\n\nSee Canvas for office hours times and locations.",
     "crumbs": [
-      "Homework",
-      "HW 02"
+      "Overview"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-4",
-    "href": "hw/hw-02.html#exercise-4",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4\n\nFit a model using Pieces, minifigures_fct, and theme_col to predict Price. Neatly display the model using three decimal places.\nUse the model to describe the expected change in price for each additional 20 pieces in a LEGO set.",
+    "objectID": "hw/hw-04.html",
+    "href": "hw/hw-04.html",
+    "title": "HW 04",
+    "section": "",
+    "text": "To be posted.",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "HW 04"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-5",
-    "href": "hw/hw-02.html#exercise-5",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nNow let’s consider a model that includes an interaction such that the effect of pieces can change based on the theme.\n\nMake a plot to visualize the potential interaction effect.\nBased on the plot created in part (a), does the relationship between the price and number of pieces appear to differ based on theme? Briefly explain why or why not.\nModify the model from Exercise 4 such that the effect of pieces can differ based on theme. Neatly display the model using three decimal places.",
+    "objectID": "hw/hw-03.html",
+    "href": "hw/hw-03.html",
+    "title": "HW 03",
+    "section": "",
+    "text": "To be posted.",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "HW 03"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-6",
-    "href": "hw/hw-02.html#exercise-6",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nDescribe the relationship between the number of minifigures in a LEGO set and the price based on the model in Exercise 5.",
+    "objectID": "hw/stats-experience.html",
+    "href": "hw/stats-experience.html",
+    "title": "Statistics Experience",
+    "section": "",
+    "text": "Important\n\n\n\nThis assignment is due on Tuesday, April 21 at 11:59pm in the “Statistics experience” discussion thread on Canvas.\nThe world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.\nYou may submit the statistics experience assignment anytime between now and the deadline.\nEach experience has two parts:\n1️⃣ Have a statistics experience.\n2️⃣ Make a slide reflecting on your experience.\nYou must complete both parts to receive credit. The statistics experience will count as a homework grade.",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "Statistics experience"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-7",
-    "href": "hw/hw-02.html#exercise-7",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\n\nInterpret the coefficient for the main effect of Pieces in the context of the data.\nInterpret the coefficient of Pieces:theme_colFriends in the context of the data.\nDescribe the effect of Pieces for LEGO sets in the Friends theme in the context of the data.",
+    "objectID": "hw/stats-experience.html#part-1-experience-statistics-outside-of-the-classroom",
+    "href": "hw/stats-experience.html#part-1-experience-statistics-outside-of-the-classroom",
+    "title": "Statistics Experience",
+    "section": "Part 1: Experience statistics outside of the classroom",
+    "text": "Part 1: Experience statistics outside of the classroom\nComplete an activity in one of the categories below. Under each category are suggested activities. You do not have to do one these suggested activities. You are welcome to find other activities as long as they are related to statistics/data science and they fit in one of the six categories. If there is an activity you’d like to do but you’re not sure if it qualifies for the statistics experience, just ask!\n\nCategory 1: Attend a talk or conference\nAttend an talk, panel, or conference related to statistics or data science. If you are attending a single talk or panel, it must be at least 30 minutes to count towards the statistics experience. The event can be in-person or online.\n\n\nCategory 2: Talk with a statistician/ data scientist\nTalk with someone who uses statistics in their daily work. This could include a professor, professional in industry, graduate student, etc.\n\n\nCategory 3: Listen to a podcast / watch video\nListen to a podcast or watch a video about statistics and data science. The podcasts / videos must be (1) one podcast or video that is at least 30 minutes or (2) multiple podcasts and/or videos that are at least 30 minutes combined.\nA few data science podcasts are below:\n\nStats + Stories Podcast\nCausal Inference Podcast\nThe Test Set by Posit\nData Skeptic\nposit::conf talks (formally called rstudio::conf)\n\n2025 conference\n2024 conference\n2023 conference\n\n\nThis list is not exhaustive. You may listen to other podcasts or watch other statistics/data science videos not included on this list. Ask Professor Tackett if you are unsure whether a particular podcast or video will count towards the statistics experience.\n\n\nCategory 4: Participate in a data science competition or challenge\nParticipate in a statistics or data science competition. You can participate individually or with a team.\nNote: DataFest will be March 20 - 22 in Penn Pavilion. Click here to learn more.\n\n\nCategory 5: Read a book on statistics/data science\nThere are a lot of books about statistics, data science, and related topics. A few suggestions are below. If you decide to read a book that isn’t on this list, ask Professor Tackett to make sure it counts toward the experience. Many of these books are available through Duke library.\n\nWeapons of Math Destruction by Cathy O’Neil\nHow Charts Lie: Getting Smarter about Visual Information by Alberto Cairo\nThe Theory that Would Not Die by Sharon Bertsch McGrayne\nThe Art of Statistics: How to learn from data by David Spiegelhalter\nThe Lady Tasting Tea by David Salsburg\nList of books about data science ethics\n\nThis list is not exhaustive.\n\n\nCategory 6: TidyTuesday\nYou may also participate in a TidyTuesday challenge. New data sets are announced on Monday afternoons.You can find more information about TidyTuesday and see the data in the TidyTuesday GitHub repo.\nA few guidelines:\n✅ Create a GitHub repo for your TidyTuesday submission. Your repo should include\n\nThe R Markdown file with all the code needed to reproduce your visualization.\nA README that includes an image of your final visualization and a short summary (~ 1 paragraph) about your visualization.\n\n✅ The visualization should include features or customization that are beyond what we’ve done in class .\n✅ Include the link to your GitHub repo in the slide summarizing your experience.\n\n\nCategory 7: CURV - connecting, uplifting, and recognizing voices\nCURV is a project by Dr. Jo Hardin at Pomona College to highlight statisticians and data scientists from groups who have been historically marginalized in the discipline.\n\n\n\n\n\n\nFor this statistics experience, you can contribute to the CURV data base. If there is a scholar you would like to suggest for the data base, submit your suggestion as an issue or pull request on the CURV GitHub repo and create a sample CURV page.\nA few guidelines:\n✅ Create a draft of the CURV page for your suggested scholar. For reference, click here for the CURV page for W.E.B. Du Bois. The page must be created in a Quarto document.\n\n\n\n\n\n\nTip\n\n\n\nYou can find the Quarto documents for current scholars in the data base in the CURV GitHub repo. You can use one of these as a template to format your page.\n\n\n✅ Make a pull request to the CURV GitHub repo to add the .qmd file for your suggested scholar, OR open an issue with a link to the .qmd file for your suggested scholar. You can ask a member of the teaching team if you have questions about how to do this.\n✅ Include the URL to your pull request or issue in your one-slide reflection.",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "Statistics experience"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-8",
-    "href": "hw/hw-02.html#exercise-8",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 8",
-    "text": "Exercise 8\n\nBriefly explain why the intercept for the model in Exercise 5 does not have a meaningful interpretation.\nRefit the model from Exercise 5 so that the intercept has a meaningful interpretation. Display the model using three decimal places.\nInterpret the intercept in the context of the data. Use specific values in the interpretation.",
+    "objectID": "hw/stats-experience.html#part-2-reflect-on-your-experience",
+    "href": "hw/stats-experience.html#part-2-reflect-on-your-experience",
+    "title": "Statistics Experience",
+    "section": "Part 2: Reflect on your experience",
+    "text": "Part 2: Reflect on your experience\nMake one slide summarizing and reflecting on your experience. Post a PDF of the slide in the Statistics experience discussion thread on Canvas.\nInclude the following on your slide:\n\nDescription of the experience\n\nName and brief description of the event/podcast/competition/etc.\n\nSomething you learned\n\nWrite 2 - 4 sentences about something you learned or found particularly interesting or unexpected.\n\nConnection to STA 210\n\nWrite 2 - 4 sentences about how the experience connects to what we’ve done in the course.\n\nCitation or link to web page for event/competition/etc.\n\nNo citation needed if you do an interview.\n\n\nMake sure the slide includes the information mentioned above and is easily readable (i.e. use a reasonable font size!). Creativity on the experience and slide design is encouraged!",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "Statistics experience"
     ]
   },
   {
-    "objectID": "hw/hw-02.html#exercise-9",
-    "href": "hw/hw-02.html#exercise-9",
-    "title": "HW 02: Multiple linear regression",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nThe following is a general question about linear regression. It is not specific to the LEGO analysis.\nIn lecture we discussed how the distribution of the error terms (and thus the distribution of the response variable \\(Y\\)) for a given value of the predictor \\(X\\) has a variance of \\(\\sigma^2_{\\epsilon}\\). Therefore, we are assuming this variance is the same for all values of the predictor when we conduct inference.\nBriefly explain why this assumption is important when we conduct inference based on mathematical models but is not necessary for conducting simulation-based inference.",
+    "objectID": "hw/stats-experience.html#submission",
+    "href": "hw/stats-experience.html#submission",
+    "title": "Statistics Experience",
+    "section": "Submission",
+    "text": "Submission\nThis assignment is due on Tuesday, April 21 at 11:59pm. To be considered on time, the PDF of the slide must be posted to the “Statistics experience” discussion thread on Canvas by the deadline. The standard homework late policy applies.",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "Statistics experience"
     ]
   },
   {
@@ -3448,14 +3588,14 @@
     "href": "slides/09-mlr-inference-notes.html",
     "title": "Inference for multiple linear regression",
     "section": "",
-    "text": "Lab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm"
+    "text": "Lab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm\nLecture recordings + exam 01 practice problems on menu of course website"
   },
   {
     "objectID": "slides/09-mlr-inference-notes.html#announcements",
     "href": "slides/09-mlr-inference-notes.html#announcements",
     "title": "Inference for multiple linear regression",
     "section": "",
-    "text": "Lab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm"
+    "text": "Lab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm\nLecture recordings + exam 01 practice problems on menu of course website"
   },
   {
     "objectID": "slides/09-mlr-inference-notes.html#topics",
@@ -3644,7 +3784,7 @@
     "href": "slides/09-mlr-inference.html#announcements",
     "title": "Inference for multiple linear regression",
     "section": "Announcements",
-    "text": "Announcements\n\nLab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm"
+    "text": "Announcements\n\nLab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm\nLecture recordings + exam 01 practice problems on menu of course website"
   },
   {
     "objectID": "slides/09-mlr-inference.html#topics",

@@ -1,0 +1,176 @@
+---
+title: Exam 01 practice
+execute: 
+  warning: false
+  message: false
+---
+
+::: callout-important
+This page contains practice problems to help prepare for Exam 01. This set of practice problems is <u>**not**</u> comprehensive.\
+\
+There is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.
+:::
+
+## Data
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(patchwork)
+
+derby <- read_csv("derby.csv") |>
+  mutate(years_since_1896 = year - 1896)
+```
+
+We will review data about the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, Kentucky. The variables are the following:
+
+-   `years_since_1896`: Number of years since 1896 (the first year of data in our data set)
+
+-   `winner`: The winning horse
+
+-   `condition` : Condition of the track (fast, good, slow)
+
+-    `speed`: average speed of the winner (in feet per second)
+
+-    `starters`: Number of horses who raced
+
+There are `r nrow(derby)` observations in the data. These data are analyzed in [Chapter 1 of Beyond Multiple Linear Regression](https://bookdown.org/roback/bookdown-BeyondMLR/ch-MLRreview.html#cs:derby).
+
+## Exploratory data analysis 
+
+### Univariate EDA
+
+```{r}
+#| code-fold: true
+p1 <- ggplot(data = derby, aes(x = speed)) + 
+  geom_histogram(color = "black", fill = "steelblue")
+
+p2 <- ggplot(data = derby, aes(x = condition)) + 
+  geom_bar(color = "black", fill = "steelblue")
+
+p3 <- ggplot(data = derby, aes(x = starters)) + 
+  geom_histogram(color = "black", fill = "steelblue")
+
+p1 / (p2 + p3)
+```
+
+### Bivariate EDA 
+
+```{r}
+#| code-fold: true
+p4 <- ggplot(data = derby, aes(x = years_since_1896, y = speed)) + 
+  geom_point() +
+  labs(x = "years since 1896")
+
+p5 <- ggplot(data = derby, aes(x = condition, y = speed)) + 
+  geom_boxplot(color = "black", fill = "steelblue")
+
+p6 <- ggplot(data = derby, aes(x = starters, y = speed)) + 
+  geom_point()
+
+p4 + p5 + p6
+```
+
+## Exercise 1
+
+We want to fit the main effects model using `years_since_1896`, `condition`, and `starters` to predict `speed`, the average speed of the winner.
+
+Write the form of the statistical model.
+
+## Exercise 2
+
+The output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:
+
+```{r}
+derby_fit <- lm(speed ~ years_since_1896 + condition + starters, 
+                   data = derby)
+
+tidy(derby_fit, conf.int = TRUE) |>
+  kable(digits = 3)
+```
+
+-   Interpret the coefficient of `years_since_1896` in the context of the data.
+
+-   What is the baseline category for `condition`?
+
+-   Interpret the coefficient of `conditiongood` in the context of the data.
+
+## Exercise 3
+
+-   Does the intercept have a meaningful interpretation?
+
+-   If not, what are some strategies we can use to fit a model in which the intercept is meaningful?
+
+## Exercise 4
+
+There are three conditions in the data set (fast, good, slow), but only two terms for `condition` in the model. Conceptually explain why we cannot put indicators for all three conditions along with the intercept in the model.
+
+## Exercise 5
+
+We want to test whether there is evidence that the winners are getting faster over time. To do so, we conduct the following hypothesis test for the coefficient of `years_since_1896`.
+
+-   **Null:** There is no linear relationship between `years_since_1896` and `speed`, after accounting `condition` and `starters`
+
+-   **Alternative**: There is no linear relationship between `years_since_1896` and `speed`, after accounting `condition` and `starters`
+
+a.  Write these hypotheses in mathematical notation.
+b.  The standard error is 0.002. Explain what this value means in the context of the data.
+c.  The test statistic is 9.766. Explain how this value is computed and what this value means in the context of the data.
+d.  What distribution is used to compute the p-value? Be specific.
+e.  What is the conclusion from the test in the context of the data?
+f.  Does this hypothesis test answer the stated analysis question?
+
+## Exercise 6
+
+1.  Interpret the 95% confidence interval for `years_since_1896` in the context of the data.
+2.  Is the interval consistent with the test from the previous exercise? Briefly explain.
+
+## Exercise 7
+
+Describe the effect of the track condition on the average speed of the winner. In the description, include discussion of the estimated coefficients along with the results from statistical inference.
+
+## Exercise 8
+
+We want to consider a potential interaction effect between `starters` and `condition`. Sketch a scatterplot that shows the relationship between `starters` and `speed` differing by `condition`.
+
+### Exercise 9
+
+The output of the model that includes the interaction between `starters` and `conditions` is shown below:
+
+```{r}
+derby_fit_int <- lm(speed ~ years_since_1896 + condition + starters +
+                      starters * condition, 
+                   data = derby)
+
+tidy(derby_fit_int, conf.int = TRUE) |>
+  kable(digits = 3)
+```
+
+-   Interpret the coefficient of `conditiongood:starters` in the context fo the data.
+
+-   Write the estimated model for `fast` track conditions.
+
+-   What is the effect of `starters` went the track condition is `slow`?
+
+## Exercise 10
+
+We conduct inference on the coefficients $\beta_j$ assuming that the variability of $Y|X_1, \ldots, X_p$ is equal for all values (or combination of values) of the predictor(s). Briefly explain why this assumption is important.
+
+## Exercise 11
+
+Explain why we say "holding all else constant" when interpreting the coefficients in a multiple linear regression model.
+
+## Relevant lectures, assignments and AEs
+
+Ask yourself "why" questions as you review the slides, along with your answers and problem-solving process on the lectures and assignments. It can also be helpful to explain your process to others.
+
+-   Lectures: January 8 - February 12 (February 12 lecture is an exam review)
+
+-   HW 01 - 02
+
+-   Lab 01 - 04 (Lab 04 is an exam review)
+
+-   AEs (Jan 13, Jan 15, Jan 22, Feb 5)

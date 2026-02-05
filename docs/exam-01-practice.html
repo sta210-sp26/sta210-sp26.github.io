@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – STA 210 - Spring 2026</title>
+<title>Exam 01 practice – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./links.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -104,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -116,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">About</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exam-01-practice.html">Exam 01 practice</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -358,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exam-01-practice.html" class="sidebar-item-text sidebar-link">
+  <a href="./exam-01-practice.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exam 01 practice</span></a>
   </div>
 </li>
@@ -367,15 +397,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a>
+  <ul class="collapse">
+  <li><a href="#univariate-eda" id="toc-univariate-eda" class="nav-link" data-scroll-target="#univariate-eda">Univariate EDA</a></li>
+  <li><a href="#bivariate-eda" id="toc-bivariate-eda" class="nav-link" data-scroll-target="#bivariate-eda">Bivariate EDA</a></li>
+  </ul></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a>
+  <ul class="collapse">
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  </ul></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
+  <li><a href="#relevant-lectures-assignments-and-aes" id="toc-relevant-lectures-assignments-and-aes" class="nav-link" data-scroll-target="#relevant-lectures-assignments-and-aes">Relevant lectures, assignments and AEs</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Exam 01 practice</h1>
 </div>
 
 
@@ -392,15 +447,347 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page contains practice problems to help prepare for Exam 01. This set of practice problems is <u><strong>not</strong></u> comprehensive.<br>
+<br>
+There is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.</p>
+</div>
+</div>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>We will review data about the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, Kentucky. The variables are the following:</p>
+<ul>
+<li><p><code>years_since_1896</code>: Number of years since 1896 (the first year of data in our data set)</p></li>
+<li><p><code>winner</code>: The winning horse</p></li>
+<li><p><code>condition</code> : Condition of the track (fast, good, slow)</p></li>
+<li><p><code>speed</code>: average speed of the winner (in feet per second)</p></li>
+<li><p><code>starters</code>: Number of horses who raced</p></li>
+</ul>
+<p>There are 122 observations in the data. These data are analyzed in <a href="https://bookdown.org/roback/bookdown-BeyondMLR/ch-MLRreview.html#cs:derby">Chapter 1 of Beyond Multiple Linear Regression</a>.</p>
+</section>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
+<section id="univariate-eda" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-eda">Univariate EDA</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> derby, <span class="fu">aes</span>(<span class="at">x =</span> speed)) <span class="sc">+</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> derby, <span class="fu">aes</span>(<span class="at">x =</span> condition)) <span class="sc">+</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> derby, <span class="fu">aes</span>(<span class="at">x =</span> starters)) <span class="sc">+</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> (p2 <span class="sc">+</span> p3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+</section>
+<section id="bivariate-eda" class="level3">
+<h3 class="anchored" data-anchor-id="bivariate-eda">Bivariate EDA</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> derby, <span class="fu">aes</span>(<span class="at">x =</span> years_since_1896, <span class="at">y =</span> speed)) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"years since 1896"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> derby, <span class="fu">aes</span>(<span class="at">x =</span> condition, <span class="at">y =</span> speed)) <span class="sc">+</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> derby, <span class="fu">aes</span>(<span class="at">x =</span> starters, <span class="at">y =</span> speed)) <span class="sc">+</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>p4 <span class="sc">+</span> p5 <span class="sc">+</span> p6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>We want to fit the main effects model using <code>years_since_1896</code>, <code>condition</code>, and <code>starters</code> to predict <code>speed</code>, the average speed of the winner.</p>
+<p>Write the form of the statistical model.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>The output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>derby_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(speed <span class="sc">~</span> years_since_1896 <span class="sc">+</span> condition <span class="sc">+</span> starters, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> derby)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(derby_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">52.175</td>
+<td style="text-align: right;">0.194</td>
+<td style="text-align: right;">269.079</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">51.791</td>
+<td style="text-align: right;">52.560</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">years_since_1896</td>
+<td style="text-align: right;">0.023</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">9.766</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: right;">0.028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">conditiongood</td>
+<td style="text-align: right;">-0.443</td>
+<td style="text-align: right;">0.231</td>
+<td style="text-align: right;">-1.921</td>
+<td style="text-align: right;">0.057</td>
+<td style="text-align: right;">-0.900</td>
+<td style="text-align: right;">0.014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">conditionslow</td>
+<td style="text-align: right;">-1.543</td>
+<td style="text-align: right;">0.161</td>
+<td style="text-align: right;">-9.616</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-1.861</td>
+<td style="text-align: right;">-1.225</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">starters</td>
+<td style="text-align: right;">-0.005</td>
+<td style="text-align: right;">0.017</td>
+<td style="text-align: right;">-0.299</td>
+<td style="text-align: right;">0.766</td>
+<td style="text-align: right;">-0.038</td>
+<td style="text-align: right;">0.028</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li><p>Interpret the coefficient of <code>years_since_1896</code> in the context of the data.</p></li>
+<li><p>What is the baseline category for <code>condition</code>?</p></li>
+<li><p>Interpret the coefficient of <code>conditiongood</code> in the context of the data.</p></li>
+</ul>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ul>
+<li><p>Does the intercept have a meaningful interpretation?</p></li>
+<li><p>If not, what are some strategies we can use to fit a model in which the intercept is meaningful?</p></li>
+</ul>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>There are three conditions in the data set (fast, good, slow), but only two terms for <code>condition</code> in the model. Conceptually explain why we cannot put indicators for all three conditions along with the intercept in the model.</p>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>We want to test whether there is evidence that the winners are getting faster over time. To do so, we conduct the following hypothesis test for the coefficient of <code>years_since_1896</code>.</p>
+<ul>
+<li><p><strong>Null:</strong> There is no linear relationship between <code>years_since_1896</code> and <code>speed</code>, after accounting <code>condition</code> and <code>starters</code></p></li>
+<li><p><strong>Alternative</strong>: There is no linear relationship between <code>years_since_1896</code> and <code>speed</code>, after accounting <code>condition</code> and <code>starters</code></p></li>
+</ul>
+<ol type="a">
+<li>Write these hypotheses in mathematical notation.</li>
+<li>The standard error is 0.002. Explain what this value means in the context of the data.</li>
+<li>The test statistic is 9.766. Explain how this value is computed and what this value means in the context of the data.</li>
+<li>What distribution is used to compute the p-value? Be specific.</li>
+<li>What is the conclusion from the test in the context of the data?</li>
+<li>Does this hypothesis test answer the stated analysis question?</li>
+</ol>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<ol type="1">
+<li>Interpret the 95% confidence interval for <code>years_since_1896</code> in the context of the data.</li>
+<li>Is the interval consistent with the test from the previous exercise? Briefly explain.</li>
+</ol>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Describe the effect of the track condition on the average speed of the winner. In the description, include discussion of the estimated coefficients along with the results from statistical inference.</p>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>We want to consider a potential interaction effect between <code>starters</code> and <code>condition</code>. Sketch a scatterplot that shows the relationship between <code>starters</code> and <code>speed</code> differing by <code>condition</code>.</p>
+<section id="exercise-9" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<p>The output of the model that includes the interaction between <code>starters</code> and <code>conditions</code> is shown below:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>derby_fit_int <span class="ot">&lt;-</span> <span class="fu">lm</span>(speed <span class="sc">~</span> years_since_1896 <span class="sc">+</span> condition <span class="sc">+</span> starters <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                      starters <span class="sc">*</span> condition, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> derby)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(derby_fit_int, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">52.416</td>
+<td style="text-align: right;">0.225</td>
+<td style="text-align: right;">232.511</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">51.970</td>
+<td style="text-align: right;">52.863</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">years_since_1896</td>
+<td style="text-align: right;">0.023</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">9.954</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.019</td>
+<td style="text-align: right;">0.028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">conditiongood</td>
+<td style="text-align: right;">-1.290</td>
+<td style="text-align: right;">0.768</td>
+<td style="text-align: right;">-1.679</td>
+<td style="text-align: right;">0.096</td>
+<td style="text-align: right;">-2.811</td>
+<td style="text-align: right;">0.231</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">conditionslow</td>
+<td style="text-align: right;">-2.283</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">-5.299</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-3.136</td>
+<td style="text-align: right;">-1.430</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">starters</td>
+<td style="text-align: right;">-0.023</td>
+<td style="text-align: right;">0.019</td>
+<td style="text-align: right;">-1.238</td>
+<td style="text-align: right;">0.218</td>
+<td style="text-align: right;">-0.060</td>
+<td style="text-align: right;">0.014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">conditiongood:starters</td>
+<td style="text-align: right;">0.062</td>
+<td style="text-align: right;">0.054</td>
+<td style="text-align: right;">1.147</td>
+<td style="text-align: right;">0.254</td>
+<td style="text-align: right;">-0.045</td>
+<td style="text-align: right;">0.170</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">conditionslow:starters</td>
+<td style="text-align: right;">0.054</td>
+<td style="text-align: right;">0.029</td>
+<td style="text-align: right;">1.841</td>
+<td style="text-align: right;">0.068</td>
+<td style="text-align: right;">-0.004</td>
+<td style="text-align: right;">0.112</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li><p>Interpret the coefficient of <code>conditiongood:starters</code> in the context fo the data.</p></li>
+<li><p>Write the estimated model for <code>fast</code> track conditions.</p></li>
+<li><p>What is the effect of <code>starters</code> went the track condition is <code>slow</code>?</p></li>
+</ul>
+</section>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>We conduct inference on the coefficients <span class="math inline">\(\beta_j\)</span> assuming that the variability of <span class="math inline">\(Y|X_1, \ldots, X_p\)</span> is equal for all values (or combination of values) of the predictor(s). Briefly explain why this assumption is important.</p>
+</section>
+<section id="exercise-11" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
+<p>Explain why we say “holding all else constant” when interpreting the coefficients in a multiple linear regression model.</p>
+</section>
+<section id="relevant-lectures-assignments-and-aes" class="level2">
+<h2 class="anchored" data-anchor-id="relevant-lectures-assignments-and-aes">Relevant lectures, assignments and AEs</h2>
+<p>Ask yourself “why” questions as you review the slides, along with your answers and problem-solving process on the lectures and assignments. It can also be helpful to explain your process to others.</p>
+<ul>
+<li><p>Lectures: January 8 - February 12 (February 12 lecture is an exam review)</p></li>
+<li><p>HW 01 - 02</p></li>
+<li><p>Lab 01 - 04 (Lab 04 is an exam review)</p></li>
+<li><p>AEs (Jan 13, Jan 15, Jan 22, Feb 5)</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -803,6 +1190,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./links.html" class="pagination-link" aria-label="Useful links">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Useful links</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -811,7 +1207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

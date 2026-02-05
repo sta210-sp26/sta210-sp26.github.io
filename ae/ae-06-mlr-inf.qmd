@@ -16,92 +16,115 @@ Go to the [course GitHub organization](https://github.com/sta210-sp26) and locat
 
 library(tidyverse)
 library(tidymodels)
-library(openintro)
 library(knitr)
 ```
 
-## Data - UPDATE
+## Data: Palmer penguins
 
-The data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the `duke_forest` data set in the **openintro** R package.
-
-**Goal: Use statistical inference to evaluate whether there is a relationship between the age of the house at time of sale and its price.**
-
-## Exploratory data analysis - UPDATE
-
-Let's begin by creating a new variable that is the age of the house in 2020.
+The `penguins` data set contains data for penguins found on three islands in the Palmer Archipelago, Antarctica. Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). These data can be found in the **palmerpenguins** R package.
 
 ```{r}
-#| label: create-age-var
-duke_forest <- duke_forest |>
-  mutate(age_2020 = 2020 - year_built)
+#| echo: true
+
+penguins <- palmerpenguins::penguins |>
+  select(body_mass_g, flipper_length_mm, bill_length_mm, species) |>
+  drop_na()
 ```
 
-Now let's visualize the relationship between the age of the house in 2020 and the sales price.
+::: callout-caution
+For this analysis, we will drop observations that have missing values for any of the variables of interest. In practice, we want to be careful about how this might bias our conclusions.
+:::
 
-```{r scatterplot}
-ggplot(duke_forest, aes(x = age_2020, y = price)) +
-  geom_point(alpha = 0.7) +
-  labs(
-    x = "Age in 2020 (years)",
-    y = "Sale price (USD)",
-    title = "Price and age of houses in Duke Forest"
-  ) +
-  scale_y_continuous(labels = label_dollar()) 
-```
+## Main effects model 
 
-## Main effects model - UPDATE
+Let's fit the main effects model using `flipper_length_mm`, `species`, and `bill_length_mm` .
 
-```{r fit-model}
-df_fit <- lm(price ~ age_2020, data = duke_forest)
+```{r}
+#| label: main-effects-model
 
-tidy(df_fit) |>
+penguins_fit <- lm(body_mass_g ~ flipper_length_mm +
+                     species + bill_length_mm, 
+                   data = penguins)
+
+tidy(penguins_fit, conf.int = TRUE) |>
   kable(digits = 3)
 ```
 
-## Permutation test 
+## Bootstrap CI
 
-Conduct a hypothesis test for the effect of `bill_length_mm`.
+### Construct the bootstrap CI
 
-### State the null and alternative hypotheses
+Fill in the code to construct a bootstrap distribution for `speciesGentoo`. Remove `#| eval: false` after filling in the code.
 
-Write the null and alternative hypotheses in words and mathematical notation.
-
-### Generate null distribution using permutation
-
--   maybe talk about the differences between both permuting the response variable vs a single variable - aybe compare both approaches?
-
-Fill in the code, then set `eval: true` .
-
-```{r permutation}
+```{r}
+#| label: construct-ci
 #| eval: false
 
 n = 100
-set.seed(012226)
+set.seed(210)
 
+boot_dist <- penguins |>
+  specify(______) |>
+  generate(reps = n, type = "bootstrap") |>
+  fit()
+```
+
+### Confidence interval for `speciesGentoo`
+
+Use the bootstrap distribution to compute the standard error for `speciesGentoo`. How does it compare to the standard error in the model output? Is this what you expected? Why or why not?
+
+```{r}
+#| label: se-beta
+
+# add code
+
+```
+
+Construct the 95% confidence interval for `speciesGentoo`. How does it compare to the 95% CI in the model output. Is this what you expect? Why or why not?
+
+```{r}
+#| label: bootstrap-ci
+
+# add code
+```
+
+## Permutation test
+
+Similar to simple linear regression, we can use permutation sampling for simulation-based hypothesis tests for coefficients in multiple linear regression.
+
+Now that we have 3 or more variables, there are many ways to permute the data. We will discuss two here:
+
+-   Permute the response variable.
+
+-   Permute the predictor of interest.
+
+We will use both methods to conduct a hypothesis test for the coefficient of `speciesGentoo`.
+
+### Permute response variable
+
+Fill in the code to construct permutation samples by permuting the response variable for the variable in [Main effects model]. We will also compute the p-value for the coefficient. Remove `#| eval: false` after you have filled in the code.
+
+```{r}
+#| label: permute-response-var
+#| eval: false
+
+n = 100
+set.seed(210)
+
+# construct null distribution 
 null_dist <- _____ |>
   specify(______) |>
   hypothesize(null = "independence") |>
-  generate(reps = _____, type = "permute", var) |>
-  fit()
-```
-
-### Visualize distribution
-
-```{r null-dist}
-# Code for histogram of null distribution
-```
-
-### Compute the p-value
-
-```{r calc-pvalue}
-#| eval: false 
-
-# get observed fit 
-observed_fit <- duke_forest |>
-  specify(price ~ age_2020) |>
+  generate(reps = _____, type = "permute") |>
   fit()
 
-# calculate p-value
+# observed fit
+observed_fit <- penguins |>
+  specify(body_mass_g ~ flipper_length_mm +
+                     species + bill_length_mm) |>
+  fit()
+
+# compute the p-value
 get_p_value(
   ____,
   obs_stat = ____,
@@ -109,28 +132,46 @@ get_p_value(
 )
 ```
 
-### State conclusion
+What is your conclusion about the coefficient of `speciesGentoo` based on the p-value?
 
-Write your conclusion in the context of the data. You can use 0.05 as the decision-making threshold.
+### Permute single variable
 
-## Bootstrap CI
-
-### Construct the bootstrap CI
-
-Construct a 95% bootstrap confidence interval.
+Now let's construct the permutation sample by permuting the single variable `species`. We do so by adding the `variables` argument to the generate function. Remove `#| eval: false` after you have filled in the code.
 
 ```{r}
-#| label: construct-ci
+#| label: permute-single-var
+#| eval: false
 
-# Code for ci
+n = 100
+set.seed(210)
 
+# construct null distribution 
+null_dist_2 <- _____ |>
+  specify(______) |>
+  hypothesize(null = "independence") |>
+  generate(reps = _____, type = "permute", 
+           variables = c(species)) |>
+  fit()
+
+# observed fit
+observed_fit <- penguins |>
+  specify(body_mass_g ~ flipper_length_mm +
+                     species + bill_length_mm) |>
+  fit()
+
+# compute the p-value
+get_p_value(
+  ____,
+  obs_stat = ____,
+  direction = "two-sided"
+)
 ```
 
-### Draw conclusion
+What is your conclusion about the coefficient of `speciesGentoo` based on the p-value?
 
--   Interpret the interval in the context of the data.
+### Different conclusions
 
--   Is the interval consistent with the conclusion from your hypothesis test? Briefly explain why or why not.
+Why did we get different conclusions?
 
 # Wrapping up
 

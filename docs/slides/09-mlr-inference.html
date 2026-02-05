@@ -412,9 +412,11 @@ Prof.&nbsp;Maria Tackett
 <section id="se_hatbeta_j" class="slide level2 midi">
 <h2><span class="math inline">\(SE_{\hat{\beta}_j}\)</span></h2>
 <ul>
-<li><p><span class="math inline">\(SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}\)</span>. Let’s take a look at the variance-covariance matrix for a the model <span class="math inline">\(\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}\)</span></p></li>
-<li><p><span class="math inline">\(Var_{\hat{\beta}_{flipper}, \ldots, \hat{\beta}_{bill}} =\)</span></p></li>
+<li class="fragment"><span class="math inline">\(SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}\)</span>.</li>
+<li class="fragment">Let’s look at <span class="math inline">\(Var_{\hat{\beta}_{flipper}, \hat{\beta}_{bill}}\)</span> corresponding to the model <span class="math inline">\(\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}\)</span></li>
 </ul>
+<p><br></p>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  (Intercept) flipper_length_mm bill_length_mm
@@ -424,9 +426,10 @@ bill_length_mm        194.921            -6.836         26.831</code></pre>
 </div>
 </div>
 <ul>
-<li><p>The diagonal elements are the variances for each coefficient</p></li>
-<li><p>The off-diagonal elements are the covariances (measure of association) between the predictors</p></li>
+<li class="fragment"><p>The diagonal elements are the variances for each coefficient</p></li>
+<li class="fragment"><p>The off-diagonal elements are the covariances (measure of association) between the predictors</p></li>
 </ul>
+</div>
 </section>
 <section id="se_hatbeta_j-1" class="slide level2">
 <h2><span class="math inline">\(SE_{\hat{\beta}_j}\)</span></h2>
@@ -972,9 +975,13 @@ bill_length_mm        194.921            -6.836         26.831</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="application-exercise" class="slide level2">
-<h2>Application exercise</h2>
+</section></section>
+<section>
+<section id="application-exercise" class="title-slide slide level1 center">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-06-mlr-inf.html">sta210-sp26.github.io/ae/ae-06-mlr-inf.html</a></p>
+</div>
 </section>
 <section id="questions" class="slide level2">
 <h2>Questions</h2>

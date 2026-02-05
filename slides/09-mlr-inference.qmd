@@ -196,9 +196,14 @@ As with SLR, we use $\hat{\sigma}_{\epsilon}$ to compute $SE_{\hat{\beta}_j}$, t
 
 ## $SE_{\hat{\beta}_j}$ {.midi}
 
--   $SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}$. Let's take a look at the variance-covariance matrix for a the model $\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}$
+::: incremental
+-   $SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}$.
+-   Let's look at $Var_{\hat{\beta}_{flipper}, \hat{\beta}_{bill}}$ corresponding to the model $\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}$
+:::
 
--   $Var_{\hat{\beta}_{flipper}, \ldots, \hat{\beta}_{bill}} =$
+<br>
+
+. . .
 
 ```{r}
 #| echo: false
@@ -212,9 +217,11 @@ X <- model.matrix(~ flipper_length_mm + bill_length_mm, data = penguins)
 round(glance(penguin_se_fit)$sigma^2 * solve(t(X)%*%X), 3)
 ```
 
+::: incremental
 -   The diagonal elements are the variances for each coefficient
 
 -   The off-diagonal elements are the covariances (measure of association) between the predictors
+:::
 
 ## $SE_{\hat{\beta}_j}$
 
@@ -366,7 +373,11 @@ If the sample size is small, there may not be enough evidence to reject $H_0: \b
 :::
 ::::
 
-## Application exercise 
+# Application exercise
+
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-06-mlr-inf.html](../ae/ae-06-mlr-inf.html)
+:::
 
 ## Questions
 

@@ -5744,5 +5744,250 @@
       "Project",
       "Instructions"
     ]
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#announcements",
+    "href": "slides/09-mlr-inference.html#announcements",
+    "title": "Inference for multiple linear regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 02 due TODAY at 11:59pm\nHW 02 due Tuesday, February 10 at 11:59pm"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#topics",
+    "href": "slides/09-mlr-inference.html#topics",
+    "title": "Inference for multiple linear regression",
+    "section": "Topics",
+    "text": "Topics\n\nInteraction effects (from last class)\nInference for multiple linear regression"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#computational-setup",
+    "href": "slides/09-mlr-inference.html#computational-setup",
+    "title": "Inference for multiple linear regression",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(countdown)\nlibrary(rms)\nlibrary(colorblindr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#data-rail_trail",
+    "href": "slides/09-mlr-inference.html#data-rail_trail",
+    "title": "Inference for multiple linear regression",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n# A tibble: 8 × 7\n  volume hightemp avgtemp season cloudcover precip day_type\n   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   \n1    501       83    66.5 Summer       7.60 0      Weekday \n2    419       73    61   Summer       6.30 0.290  Weekday \n3    397       74    63   Spring       7.5  0.320  Weekday \n4    385       95    78   Summer       2.60 0      Weekend \n5    200       44    48   Spring      10    0.140  Weekday \n6    375       69    61.5 Spring       6.60 0.0200 Weekday \n7    417       66    52.5 Spring       2.40 0      Weekday \n8    629       66    52   Spring       0    0      Weekend \n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#variables",
+    "href": "slides/09-mlr-inference.html#variables",
+    "title": "Inference for multiple linear regression",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\nbill_length_mm: Bill length in millimeters\nflipper_length_mm: Flipper length in millimeters\nspecies: Adelie, Gentoo, or Chinstrap species\n\nResponse: body_mass_g: Body mass in grams\n\nThe goal of this analysis is to use the bill length, flipper length, and species to predict body mass."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#review-simple-linear-regression-slr",
+    "href": "slides/09-mlr-inference.html#review-simple-linear-regression-slr",
+    "title": "Inference for multiple linear regression",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#slr-model-summary",
+    "href": "slides/09-mlr-inference.html#slr-model-summary",
+    "title": "Inference for multiple linear regression",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\nrt_slr_fit &lt;- lm(volume ~ hightemp, data = rail_trail)\n\ntidy(rt_slr_fit) |&gt; kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.08\n59.40\n-0.29\n0.77\n\n\nhightemp\n5.70\n0.85\n6.72\n0.00"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#slr-hypothesis-test",
+    "href": "slides/09-mlr-inference.html#slr-hypothesis-test",
+    "title": "Inference for multiple linear regression",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5780.831\n305.815\n-18.903\n0\n\n\nflipper_length_mm\n49.686\n1.518\n32.722\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_a: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 32.722\\). The p-value is calculated using a \\(t\\) distribution with 342 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that flipper length is a useful predictor of body mass, i.e. there is a linear relationship between the flipper length and body mass of penguins."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#multiple-linear-regression",
+    "href": "slides/09-mlr-inference.html#multiple-linear-regression",
+    "title": "Inference for multiple linear regression",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes \\[Y|X_1, X_2,  \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_\\epsilon^2)\\]\n\n\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots, x_{ip}, y_i)\\), we can rewrite the previous statement as\n\\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i} \\hspace{10mm} \\epsilon_i \\sim N(0,\\sigma_{\\epsilon}^2)\\]"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#multiple-linear-regression-1",
+    "href": "slides/09-mlr-inference.html#multiple-linear-regression-1",
+    "title": "Inference for multiple linear regression",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-3904.387\n529.257\n-7.377\n0.000\n\n\nflipper_length_mm\n27.429\n3.176\n8.638\n0.000\n\n\nspeciesChinstrap\n-748.562\n81.534\n-9.181\n0.000\n\n\nspeciesGentoo\n90.435\n88.647\n1.020\n0.308\n\n\nbill_length_mm\n61.736\n7.126\n8.664\n0.000"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#estimating-sigma_epsilon",
+    "href": "slides/09-mlr-inference.html#estimating-sigma_epsilon",
+    "title": "Inference for multiple linear regression",
+    "section": "Estimating \\(\\sigma_\\epsilon\\)",
+    "text": "Estimating \\(\\sigma_\\epsilon\\)\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots,x_{ip}, y_i)\\) the residual is \\[e_i = y_{i} - (\\hat{\\beta}_0 + \\hat{\\beta}_1 x_{i1} + \\hat{\\beta}_{2} x_{i2} + \\dots + \\hat{\\beta}_p x_{ip})\\]\n\n\nThe estimated value of the regression standard error , \\(\\sigma_{\\epsilon}\\), is\n\\[\\hat{\\sigma}_\\epsilon  = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n-p-1}}\\]\nAs with SLR, we use \\(\\hat{\\sigma}_{\\epsilon}\\) to compute \\(SE_{\\hat{\\beta}_j}\\), the standard error of the coefficient for predictor \\(x_j\\). See A.6: Distribution of model coefficients for more detail."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#mlr-hypothesis-test-hightemp",
+    "href": "slides/09-mlr-inference.html#mlr-hypothesis-test-hightemp",
+    "title": "Inference for multiple linear regression",
+    "section": "MLR hypothesis test: hightemp",
+    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) vs. \\(H_a: \\beta_{hightemp} \\ne 0\\), given season is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\). The p-value is calculated using a \\(t\\) distribution with 86 \\((n - p - 1)\\) degrees of freedom. The p-value is \\(\\approx 0\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains the season as a predictor for number of daily riders."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#interaction-terms",
+    "href": "slides/09-mlr-inference.html#interaction-terms",
+    "title": "Inference for multiple linear regression",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "href": "slides/09-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "title": "Inference for multiple linear regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C\\%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE_{\\hat{\\beta}_j}\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically: We are \\(C\\%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), \\(y\\) changes by LB to UB units, on average, holding all else constant."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "href": "slides/09-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "title": "Inference for multiple linear regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\ntidy(penguin_int_fit, conf.int = TRUE, conf.level = 0.95) |&gt;\n  kable(digits= 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4297.905\n645.054\n-6.663\n0.000\n-5566.772\n-3029.039\n\n\nflipper_length_mm\n27.263\n3.175\n8.586\n0.000\n21.017\n33.509\n\n\nspeciesChinstrap\n1146.287\n726.217\n1.578\n0.115\n-282.232\n2574.806\n\n\nspeciesGentoo\n54.716\n619.934\n0.088\n0.930\n-1164.739\n1274.171\n\n\nbill_length_mm\n72.692\n10.642\n6.831\n0.000\n51.759\n93.625\n\n\nspeciesChinstrap:bill_length_mm\n-41.035\n16.104\n-2.548\n0.011\n-72.713\n-9.357\n\n\nspeciesGentoo:bill_length_mm\n-1.163\n14.436\n-0.081\n0.936\n-29.559\n27.234"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#ci-for-hightemp",
+    "href": "slides/09-mlr-inference.html#ci-for-hightemp",
+    "title": "Inference for multiple linear regression",
+    "section": "CI for hightemp",
+    "text": "CI for hightemp\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\nWe are 95% confident that for every degree Fahrenheit the day is warmer, the number of riders increases by 5.21 to 9.87, on average, holding season constant."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#ci-for-seasonspring",
+    "href": "slides/09-mlr-inference.html#ci-for-seasonspring",
+    "title": "Inference for multiple linear regression",
+    "section": "CI for seasonSpring",
+    "text": "CI for seasonSpring\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\nWe are 95% confident that the number of riders on a Spring day is lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant.\n\n\nIs season a significant predictor of the number of riders, after accounting for high temperature?"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#large-sample-sizes",
+    "href": "slides/09-mlr-inference.html#large-sample-sizes",
+    "title": "Inference for multiple linear regression",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#small-sample-sizes",
+    "href": "slides/09-mlr-inference.html#small-sample-sizes",
+    "title": "Inference for multiple linear regression",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#recap",
+    "href": "slides/09-mlr-inference.html#recap",
+    "title": "Inference for multiple linear regression",
+    "section": "Recap",
+    "text": "Recap\n\nReviewed model comparison\nIntroduced inference for multiple linear regression"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#next-class",
+    "href": "slides/09-mlr-inference.html#next-class",
+    "title": "Inference for multiple linear regression",
+    "section": "Next class",
+    "text": "Next class\n\nExam 01 review"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#data-palmer-penguins",
+    "href": "slides/09-mlr-inference.html#data-palmer-penguins",
+    "title": "Inference for multiple linear regression",
+    "section": "Data: Palmer penguins",
+    "text": "Data: Palmer penguins\nThe penguins data set contains data for penguins found on three islands in the Palmer Archipelago, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. These data can be found in the palmerpenguins R package.\n\n\n\n# A tibble: 342 × 4\n   body_mass_g flipper_length_mm bill_length_mm species\n         &lt;int&gt;             &lt;int&gt;          &lt;dbl&gt; &lt;fct&gt;  \n 1        3750               181           39.1 Adelie \n 2        3800               186           39.5 Adelie \n 3        3250               195           40.3 Adelie \n 4        3450               193           36.7 Adelie \n 5        3650               190           39.3 Adelie \n 6        3625               181           38.9 Adelie \n 7        4675               195           39.2 Adelie \n 8        3475               193           34.1 Adelie \n 9        4250               190           42   Adelie \n10        3300               186           37.8 Adelie \n# ℹ 332 more rows"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#bill-length-versus-species",
+    "href": "slides/09-mlr-inference.html#bill-length-versus-species",
+    "title": "Inference for multiple linear regression",
+    "section": "Bill length versus species",
+    "text": "Bill length versus species\nIf the lines are not parallel, there is indication of a potential interaction effect, i.e., the slope of bill length may differ based on the species."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#interaction-terms-in-r",
+    "href": "slides/09-mlr-inference.html#interaction-terms-in-r",
+    "title": "Inference for multiple linear regression",
+    "section": "Interaction terms in R",
+    "text": "Interaction terms in R\n\nFit the model predicting body_mass_g using flipper_length_mm, bill_length_mm, speices, and the interaction between species and bill_length_mm.\n\nWrite the estimated regression equation for Adelie penguins.\nWrite the estimated regression equation for Chinstrap penguins.\n\n\n\n# code to fit and display model with interaction"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#interaction-term-in-model",
+    "href": "slides/09-mlr-inference.html#interaction-term-in-model",
+    "title": "Inference for multiple linear regression",
+    "section": "Interaction term in model",
+    "text": "Interaction term in model\n\npenguin_int_fit &lt;- lm(body_mass_g ~ flipper_length_mm + species + bill_length_mm + species * bill_length_mm,\n      data = penguins)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-4297.905\n645.054\n-6.663\n0.000\n\n\nflipper_length_mm\n27.263\n3.175\n8.586\n0.000\n\n\nspeciesChinstrap\n1146.287\n726.217\n1.578\n0.115\n\n\nspeciesGentoo\n54.716\n619.934\n0.088\n0.930\n\n\nbill_length_mm\n72.692\n10.642\n6.831\n0.000\n\n\nspeciesChinstrap:bill_length_mm\n-41.035\n16.104\n-2.548\n0.011\n\n\nspeciesGentoo:bill_length_mm\n-1.163\n14.436\n-0.081\n0.936"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#interpreting-interaction-terms",
+    "href": "slides/09-mlr-inference.html#interpreting-interaction-terms",
+    "title": "Inference for multiple linear regression",
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of bill length on the body mass is 41.035 less when the penguin is from the Chinstrap species compared to the effect for the Adelie species, holding all else constant.\nInterpreting bill_length_mm for Chinstrap: For each additional millimeter in bill length, we expect the body mass of Chinstrap penguins to increase by 31.657 grams (72.692 - 41.035), holding flipper length constant."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#inference-framework",
+    "href": "slides/09-mlr-inference.html#inference-framework",
+    "title": "Inference for multiple linear regression",
+    "section": "Inference framework",
+    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: Before collecting the data, the data are unknown and random. \\(\\hat{\\beta}_j\\), which is a function of the data, is also unknown and random.\nPost data collection: After collecting the data, \\(\\hat{\\beta}_j\\) is fixed and known.\nIn all cases: The true population parameter, \\(\\beta_j\\), is fixed but unknown."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#se_hatbeta_j",
+    "href": "slides/09-mlr-inference.html#se_hatbeta_j",
+    "title": "Inference for multiple linear regression",
+    "section": "\\(SE_{\\hat{\\beta}_j}\\)",
+    "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\\(SE_{\\hat{\\beta}_j} = \\sqrt{Var_{\\hat{\\beta}_j}}\\). Let’s take a look at the variance-covariance matrix for a model with flipper length and bill length\n\\(Var_{\\hat{\\beta}_{flipper}, \\ldots, \\hat{\\beta}_{bill}} =\\)\n\n\n\n                  (Intercept) flipper_length_mm bill_length_mm\n(Intercept)           205.877            -1.112          0.423\nflipper_length_mm      -1.112             0.009         -0.015\nbill_length_mm          0.423            -0.015          0.058\n\n\n\nThe diagonal elements are the variances for each coefficient\nThe off-diagonal elements are the covariances (measure of association) between the predictors"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#mlr-hypothesis-test-flipper_length_mm",
+    "href": "slides/09-mlr-inference.html#mlr-hypothesis-test-flipper_length_mm",
+    "title": "Inference for multiple linear regression",
+    "section": "MLR hypothesis test: flipper_length_mm",
+    "text": "MLR hypothesis test: flipper_length_mm\n\nSet hypotheses: \\(H_0: \\beta_{flipper} = 0\\) vs. \\(H_a: \\beta_{flipper} \\ne 0\\), given species and bill length in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 8.638\\). The p-value is computed from a \\(t\\) distribution with 337 df.\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that flipper length is a useful predictor of body mass, after accounting for bill length and species."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#interaction-terms-1",
+    "href": "slides/09-mlr-inference.html#interaction-terms-1",
+    "title": "Inference for multiple linear regression",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-4297.905\n645.054\n-6.663\n0.000\n\n\nflipper_length_mm\n27.263\n3.175\n8.586\n0.000\n\n\nspeciesChinstrap\n1146.287\n726.217\n1.578\n0.115\n\n\nspeciesGentoo\n54.716\n619.934\n0.088\n0.930\n\n\nbill_length_mm\n72.692\n10.642\n6.831\n0.000\n\n\nspeciesChinstrap:bill_length_mm\n-41.035\n16.104\n-2.548\n0.011\n\n\nspeciesGentoo:bill_length_mm\n-1.163\n14.436\n-0.081\n0.936\n\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#ci-for-flipper_length_mm",
+    "href": "slides/09-mlr-inference.html#ci-for-flipper_length_mm",
+    "title": "Inference for multiple linear regression",
+    "section": "CI for flipper_length_mm",
+    "text": "CI for flipper_length_mm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4297.905\n645.054\n-6.663\n0.000\n-5566.772\n-3029.039\n\n\nflipper_length_mm\n27.263\n3.175\n8.586\n0.000\n21.017\n33.509\n\n\nspeciesChinstrap\n1146.287\n726.217\n1.578\n0.115\n-282.232\n2574.806\n\n\nspeciesGentoo\n54.716\n619.934\n0.088\n0.930\n-1164.739\n1274.171\n\n\nbill_length_mm\n72.692\n10.642\n6.831\n0.000\n51.759\n93.625\n\n\nspeciesChinstrap:bill_length_mm\n-41.035\n16.104\n-2.548\n0.011\n-72.713\n-9.357\n\n\nspeciesGentoo:bill_length_mm\n-1.163\n14.436\n-0.081\n0.936\n-29.559\n27.234\n\n\n\n\n\n\nWe are 95% confident that for every one millimeter increase in a penguin’s flipper length, its weight is greater by 21.017 to 33.509 grams, on average, holding bill length and species constant."
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#ci-for-specieschinstrap",
+    "href": "slides/09-mlr-inference.html#ci-for-specieschinstrap",
+    "title": "Inference for multiple linear regression",
+    "section": "CI for speciesChinstrap",
+    "text": "CI for speciesChinstrap\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4297.905\n645.054\n-6.663\n0.000\n-5566.772\n-3029.039\n\n\nflipper_length_mm\n27.263\n3.175\n8.586\n0.000\n21.017\n33.509\n\n\nspeciesChinstrap\n1146.287\n726.217\n1.578\n0.115\n-282.232\n2574.806\n\n\nspeciesGentoo\n54.716\n619.934\n0.088\n0.930\n-1164.739\n1274.171\n\n\nbill_length_mm\n72.692\n10.642\n6.831\n0.000\n51.759\n93.625\n\n\nspeciesChinstrap:bill_length_mm\n-41.035\n16.104\n-2.548\n0.011\n-72.713\n-9.357\n\n\nspeciesGentoo:bill_length_mm\n-1.163\n14.436\n-0.081\n0.936\n-29.559\n27.234\n\n\n\n\n\n\nUPDATE!\n\n\nIs season a significant predictor of the number of riders, after accounting for high temperature?"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#ae",
+    "href": "slides/09-mlr-inference.html#ae",
+    "title": "Inference for multiple linear regression",
+    "section": "AE",
+    "text": "AE"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#questions",
+    "href": "slides/09-mlr-inference.html#questions",
+    "title": "Inference for multiple linear regression",
+    "section": "Questions",
+    "text": "Questions\n[insert today’s poll]"
+  },
+  {
+    "objectID": "slides/09-mlr-inference.html#interaction-between-flipper_length_mm-and-species",
+    "href": "slides/09-mlr-inference.html#interaction-between-flipper_length_mm-and-species",
+    "title": "Inference for multiple linear regression",
+    "section": "Interaction between flipper_length_mm and species?",
+    "text": "Interaction between flipper_length_mm and species?\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-3341.616\n810.145\n-4.125\n0.000\n\n\nflipper_length_mm\n24.963\n4.339\n5.753\n0.000\n\n\nspeciesChinstrap\n-27.293\n1394.166\n-0.020\n0.984\n\n\nspeciesGentoo\n-2215.913\n1328.583\n-1.668\n0.096\n\n\nbill_length_mm\n59.305\n7.250\n8.180\n0.000\n\n\nflipper_length_mm:speciesChinstrap\n-3.485\n7.211\n-0.483\n0.629\n\n\nflipper_length_mm:speciesGentoo\n11.026\n6.482\n1.701\n0.090\n\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
   }
 ]

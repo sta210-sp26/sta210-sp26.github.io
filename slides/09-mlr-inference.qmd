@@ -1,0 +1,389 @@
+---
+title: "Inference for multiple linear regression"
+author: "Prof. Maria Tackett"
+date: "02-05-2026"
+date-format: "MMMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 09-mlr-inference-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+## Announcements
+
+-   Lab 02 due **TODAY** at 11:59pm
+-   HW 02 due **Tuesday, February 10** at 11:59pm
+
+## Topics
+
+-   Interaction effects (from last class)
+
+-   Inference for multiple linear regression
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(countdown)
+library(rms)
+library(colorblindr)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## Data: Palmer penguins {.midi}
+
+The `penguins` data set contains data for penguins found on three islands in the Palmer Archipelago, Antarctica. Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). These data can be found in the **palmerpenguins** R package.
+
+. . .
+
+```{r}
+#| echo: false
+
+penguins <- penguins |>
+  select(body_mass_g, flipper_length_mm, bill_length_mm, species) |>
+  drop_na()
+
+penguins
+```
+
+## Variables
+
+**Predictors**:
+
+-   `bill_length_mm`: Bill length in millimeters
+-   `flipper_length_mm`: Flipper length in millimeters
+-   `species`: Adelie, Gentoo, or Chinstrap species
+
+**Response**: `body_mass_g`: Body mass in grams
+
+<br>
+
+**The goal of this analysis is to use the bill length, flipper length, and species to predict body mass.**
+
+# Interaction effects
+
+## Interaction terms
+
+-   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
+-   This is an **interaction effect**.
+-   To account for this, we can include **interaction terms** in the model.
+
+## Bill length versus species
+
+If the lines are not parallel, there is indication of a potential **interaction effect**, i.e., the slope of bill length may differ based on the species.
+
+```{r}
+#| echo: false
+
+p1 <- ggplot(penguins, 
+             aes(x = bill_length_mm, y = body_mass_g)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Bill length in millimeters",
+    y = "Body mass in grams"
+  )
+
+p2 <- ggplot(penguins, 
+             aes(x = bill_length_mm, y = body_mass_g,
+                 color = species)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Bill length in millimeters", y = NULL, color = NULL) +
+  theme(legend.position = c(0.3, 0.9)) +
+  scale_color_OkabeIto()
+
+p1 + p2 +
+  plot_annotation(title = "Body mass versus bill length")
+```
+
+## Interaction terms in R {.midi}
+
+::: question
+Fit the model predicting `body_mass_g` using `flipper_length_mm`, `bill_length_mm`, `speices`, and the interaction between `species` and `bill_length_mm`.
+
+-   Write the estimated regression equation for `Adelie` penguins.
+
+-   Write the estimated regression equation for `Chinstrap` penguins.
+:::
+
+```{webr-r}
+
+# code to fit and display model with interaction
+```
+
+## Interaction term in model {.smaller}
+
+```{r}
+#| echo: true
+penguin_int_fit <- lm(body_mass_g ~ flipper_length_mm + species + bill_length_mm + species * bill_length_mm,
+      data = penguins)
+```
+
+```{r}
+#| echo: false
+tidy(penguin_int_fit) |>
+  kable(digits = 3) |>
+  row_spec(c(6,7), background = "#dce5b2")
+```
+
+## Interpreting interaction terms
+
+-   What the interaction means: The effect of bill length on the body mass is 41.035 less when the penguin is from the Chinstrap species compared to the effect for the Adelie species, holding all else constant.
+-   Interpreting `bill_length_mm` for Chinstrap: For each additional millimeter in bill length, we expect the body mass of Chinstrap penguins to increase by 31.657 grams (72.692 - 41.035), holding flipper length constant.
+
+# Inference for multiple linear regression 
+
+## Inference framework 
+
+Our **objective** is to infer properties about a *population* using data from observational (or experimental) data collection
+
+-   **Pre data collection**: Before collecting the data, the data are unknown and random. $\hat{\beta}_j$, which is a function of the data, is also [unknown]{.underline} and [random.]{.underline}
+
+-   **Post data collection**: After collecting the data, $\hat{\beta}_j$ is [fixed]{.underline} and [known]{.underline}.
+
+-   **In all cases**: The true population parameter, $\beta_j$, is [fixed]{.underline} but [unknown]{.underline}.
+
+## Multiple linear regression
+
+The multiple linear regression model assumes $$Y|X_1, X_2,  \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_\epsilon^2)$$
+
+<br>
+
+. . .
+
+For a given observation $(x_{i1}, x_{i2}, \ldots, x_{ip}, y_i)$, we can rewrite the previous statement as
+
+$$y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsilon_{i} \hspace{10mm} \epsilon_i \sim N(0,\sigma_{\epsilon}^2)$$
+
+## Estimating $\sigma_\epsilon$ {.midi}
+
+For a given observation $(x_{i1}, x_{i2}, \ldots,x_{ip}, y_i)$ the residual is $$e_i = y_{i} - (\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_{2} x_{i2} + \dots + \hat{\beta}_p x_{ip})$$
+
+<br>
+
+. . .
+
+The estimated value of the regression standard error , $\sigma_{\epsilon}$, is
+
+$$\hat{\sigma}_\epsilon  = \sqrt{\frac{\sum_{i=1}^ne_i^2}{n-p-1}}$$
+
+As with SLR, we use $\hat{\sigma}_{\epsilon}$ to compute $SE_{\hat{\beta}_j}$, the standard error of the coefficient for predictor $x_j$. See [A.6: Distribution of model coefficients](https://intro-regression.github.io/appendix-linear.html#sec-beta-dist-matrix) for more detail.
+
+## $SE_{\hat{\beta}_j}$  {.midi}
+
+-   $SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}$. Let's take a look at the variance-covariance matrix for a model with flipper length and bill length
+
+-   $Var_{\hat{\beta}_{flipper}, \ldots, \hat{\beta}_{bill}} =$
+
+```{r}
+#| echo: false
+
+X <- model.matrix(~ flipper_length_mm + bill_length_mm, data = penguins)
+
+round(glance(penguin_int_fit)$sigma * solve(t(X)%*%X), 3)
+```
+
+-   The diagonal elements are the variances for each coefficient
+
+-   The off-diagonal elements are the covariances (measure of association) between the predictors
+
+#  Hypothesis test for $\beta_j$
+
+## Review: Simple linear regression (SLR)
+
+## SLR hypothesis test {.midi}
+
+```{r}
+#| echo: false
+
+penguin_slr <- lm(body_mass_g ~ flipper_length_mm, 
+                  data = penguins)
+
+tidy(penguin_slr) |> kable(digits = 3)
+```
+
+1.  **Set hypotheses:** $H_0: \beta_1 = 0$ vs. $H_a: \beta_1 \ne 0$
+
+. . .
+
+2.  **Calculate test statistic and p-value:** The test statistic is $t= 32.722$. The p-value is calculated using a $t$ distribution with `r nrow(penguins)` degrees of freedom. The p-value is $\approx 0$ .
+
+. . .
+
+3.  **State the conclusion:** The p-value is small, so we reject $H_0$. The data provide strong evidence that flipper length is a useful predictor of body mass, i.e. there is a linear relationship between the flipper length and body mass of penguins.
+
+## Multiple linear regression
+
+```{r}
+#| echo: false
+
+
+penguin_mlr <- lm(body_mass_g ~ flipper_length_mm + species + bill_length_mm , data = penguins)
+
+tidy(penguin_mlr) |>
+  kable(digits = 3)
+```
+
+## MLR hypothesis test: `flipper_length_mm` {.midi}
+
+1.  **Set hypotheses:** $H_0: \beta_{flipper} = 0$ vs. $H_a: \beta_{flipper} \ne 0$, given species and bill length in the model
+
+. . .
+
+2.  **Calculate test statistic and p-value:** The test statistic is $t = 8.638$. The p-value is computed from a $t$ distribution with `r nrow(penguins) - 5` df.
+
+. . .
+
+3.  **State the conclusion:** The p-value is small, so we reject $H_0$. The data provide strong evidence that flipper length is a useful predictor of body mass, after accounting for bill length and species.
+
+## Interaction between `flipper_length_mm` and `species`?  {.midi}
+
+```{r}
+#| echo: false
+
+penguin_int_fit_2 <- lm(body_mass_g ~ flipper_length_mm + species + bill_length_mm + flipper_length_mm * species, 
+                        data = penguins)
+
+tidy(penguin_int_fit_2) |>
+  kable(digits = 3)
+```
+
+<br>
+
+::: question
+Do the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms.
+:::
+
+# Confidence interval for $\beta_j$
+
+## Confidence interval for $\beta_j$ {.midi}
+
+::: incremental
+-   The $C\%$ confidence interval for $\beta_j$ $$\hat{\beta}_j \pm t^* SE_{\hat{\beta}_j}$$ where $t^*$ follows a $t$ distribution with $n - p - 1$ degrees of freedom.
+-   **Generically**: We are $C\%$ confident that the interval LB to UB contains the population coefficient of $x_j$.
+-   **In context:** We are $C\%$ confident that for every one unit increase in $x_j$, $y$ changes by LB to UB units, on average, holding all else constant.
+:::
+
+## Confidence interval for $\beta_j$
+
+```{r}
+tidy(penguin_int_fit, conf.int = TRUE, conf.level = 0.95) |>
+  kable(digits= 3)
+```
+
+## CI for `flipper_length_mm` {.midi}
+
+```{r}
+#| echo: false
+
+tidy(penguin_int_fit, conf.int = TRUE) |>
+  kable(digits = 3)
+```
+
+<br>
+
+We are 95% confident that for every one millimeter increase in a penguin's flipper length, its weight is greater by 21.017 to 33.509 grams, on average, holding bill length and species constant.
+
+## CI for `speciesChinstrap` {.midi}
+
+```{r}
+#| echo: false
+
+tidy(penguin_int_fit, conf.int = TRUE) |>
+  kable(digits = 3)
+```
+
+<br>
+
+UPDATE!
+
+. . .
+
+::: question
+Is `season` a significant predictor of the number of riders, after accounting for high temperature?
+:::
+
+# Inference pitfalls
+
+## Large sample sizes
+
+<br>
+
+:::: callout-caution
+If the sample size is large enough, the test will likely result in rejecting $H_0: \beta_j = 0$ even $x_j$ has a very small effect on $y$.
+
+::: nonincremental
+-   Consider the **practical significance** of the result not just the statistical significance.
+
+-   Use the confidence interval to draw conclusions instead of relying only p-values.
+:::
+::::
+
+## Small sample sizes
+
+<br>
+
+:::: callout-caution
+If the sample size is small, there may not be enough evidence to reject $H_0: \beta_j=0$.
+
+::: nonincremental
+-   When you fail to reject the null hypothesis, **DON'T** immediately conclude that the variable has no association with the response.
+
+-   There may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.
+:::
+::::
+
+## AE
+
+## Questions 
+
+\[insert today's poll\]
+
+## Recap
+
+-   Reviewed model comparison
+-   Introduced inference for multiple linear regression
+
+## Next class
+
+-   Exam 01 review

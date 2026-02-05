@@ -296,23 +296,11 @@ Prof.&nbsp;Maria Tackett
 <p>If the lines are not parallel, there is indication of a potential <strong>interaction effect</strong>, i.e., the slope of bill length may differ based on the species.</p>
 
 <img data-src="09-mlr-inference_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="3000"></section>
-<section id="interaction-terms-in-r" class="slide level2 midi">
-<h2>Interaction terms in R</h2>
-<div class="question">
-<p>Fit the model predicting <code>body_mass_g</code> using <code>flipper_length_mm</code>, <code>bill_length_mm</code>, <code>speices</code>, and the interaction between <code>species</code> and <code>bill_length_mm</code>.</p>
-<ul>
-<li><p>Write the estimated regression equation for <code>Adelie</code> penguins.</p></li>
-<li><p>Write the estimated regression equation for <code>Chinstrap</code> penguins.</p></li>
-</ul>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a></span>
-<span id="cb3-2"><a></a># code to fit and display model with interaction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
 <section id="interaction-term-in-model" class="slide level2 smaller">
 <h2>Interaction term in model</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>penguin_int_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> species <span class="sc">+</span> bill_length_mm <span class="sc">+</span> species <span class="sc">*</span> bill_length_mm,</span>
-<span id="cb4-2"><a></a>      <span class="at">data =</span> penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>penguin_int_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> species <span class="sc">+</span> bill_length_mm <span class="sc">+</span> species <span class="sc">*</span> bill_length_mm,</span>
+<span id="cb3-2"><a></a>      <span class="at">data =</span> penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -424,21 +412,62 @@ Prof.&nbsp;Maria Tackett
 <section id="se_hatbeta_j" class="slide level2 midi">
 <h2><span class="math inline">\(SE_{\hat{\beta}_j}\)</span></h2>
 <ul>
-<li><p><span class="math inline">\(SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}\)</span>. Let’s take a look at the variance-covariance matrix for a model with flipper length and bill length</p></li>
+<li><p><span class="math inline">\(SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}\)</span>. Let’s take a look at the variance-covariance matrix for a the model <span class="math inline">\(\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}\)</span></p></li>
 <li><p><span class="math inline">\(Var_{\hat{\beta}_{flipper}, \ldots, \hat{\beta}_{bill}} =\)</span></p></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  (Intercept) flipper_length_mm bill_length_mm
-(Intercept)           205.877            -1.112          0.423
-flipper_length_mm      -1.112             0.009         -0.015
-bill_length_mm          0.423            -0.015          0.058</code></pre>
+(Intercept)         94838.825          -512.386        194.921
+flipper_length_mm    -512.386             4.045         -6.836
+bill_length_mm        194.921            -6.836         26.831</code></pre>
 </div>
 </div>
 <ul>
 <li><p>The diagonal elements are the variances for each coefficient</p></li>
 <li><p>The off-diagonal elements are the covariances (measure of association) between the predictors</p></li>
 </ul>
+</section>
+<section id="se_hatbeta_j-1" class="slide level2">
+<h2><span class="math inline">\(SE_{\hat{\beta}_j}\)</span></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5736.897</td>
+<td style="text-align: right;">307.959</td>
+<td style="text-align: right;">-18.629</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">flipper_length_mm</td>
+<td style="text-align: right;">48.145</td>
+<td style="text-align: right;">2.011</td>
+<td style="text-align: right;">23.939</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bill_length_mm</td>
+<td style="text-align: right;">6.047</td>
+<td style="text-align: right;">5.180</td>
+<td style="text-align: right;">1.168</td>
+<td style="text-align: right;">0.244</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section></section>
 <section>
 <section id="hypothesis-test-for-beta_j" class="title-slide slide level1 center">
@@ -486,7 +515,7 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
-<li><strong>Calculate test statistic and p-value:</strong> The test statistic is <span class="math inline">\(t= 32.722\)</span>. The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with 342 degrees of freedom. The p-value is <span class="math inline">\(\approx 0\)</span> .</li>
+<li><strong>Calculate test statistic and p-value:</strong> The test statistic is <span class="math inline">\(t= 32.722\)</span>. The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with 340 degrees of freedom. The p-value is <span class="math inline">\(\approx 0\)</span> .</li>
 </ol>
 </div>
 <div class="fragment">
@@ -662,18 +691,18 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 <section id="confidence-interval-for-beta_j-2" class="slide level2">
 <h2>Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">tidy</span>(penguin_int_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">kable</span>(<span class="at">digits=</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">tidy</span>(penguin_mlr, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">kable</span>(<span class="at">digits=</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 35%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 23%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -689,66 +718,48 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-4297.905</td>
-<td style="text-align: right;">645.054</td>
-<td style="text-align: right;">-6.663</td>
+<td style="text-align: right;">-3904.387</td>
+<td style="text-align: right;">529.257</td>
+<td style="text-align: right;">-7.377</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-5566.772</td>
-<td style="text-align: right;">-3029.039</td>
+<td style="text-align: right;">-4945.450</td>
+<td style="text-align: right;">-2863.324</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">flipper_length_mm</td>
-<td style="text-align: right;">27.263</td>
-<td style="text-align: right;">3.175</td>
-<td style="text-align: right;">8.586</td>
+<td style="text-align: right;">27.429</td>
+<td style="text-align: right;">3.176</td>
+<td style="text-align: right;">8.638</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">21.017</td>
-<td style="text-align: right;">33.509</td>
+<td style="text-align: right;">21.182</td>
+<td style="text-align: right;">33.675</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">speciesChinstrap</td>
-<td style="text-align: right;">1146.287</td>
-<td style="text-align: right;">726.217</td>
-<td style="text-align: right;">1.578</td>
-<td style="text-align: right;">0.115</td>
-<td style="text-align: right;">-282.232</td>
-<td style="text-align: right;">2574.806</td>
+<td style="text-align: right;">-748.562</td>
+<td style="text-align: right;">81.534</td>
+<td style="text-align: right;">-9.181</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-908.943</td>
+<td style="text-align: right;">-588.182</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">speciesGentoo</td>
-<td style="text-align: right;">54.716</td>
-<td style="text-align: right;">619.934</td>
-<td style="text-align: right;">0.088</td>
-<td style="text-align: right;">0.930</td>
-<td style="text-align: right;">-1164.739</td>
-<td style="text-align: right;">1274.171</td>
+<td style="text-align: right;">90.435</td>
+<td style="text-align: right;">88.647</td>
+<td style="text-align: right;">1.020</td>
+<td style="text-align: right;">0.308</td>
+<td style="text-align: right;">-83.937</td>
+<td style="text-align: right;">264.807</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bill_length_mm</td>
-<td style="text-align: right;">72.692</td>
-<td style="text-align: right;">10.642</td>
-<td style="text-align: right;">6.831</td>
+<td style="text-align: right;">61.736</td>
+<td style="text-align: right;">7.126</td>
+<td style="text-align: right;">8.664</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">51.759</td>
-<td style="text-align: right;">93.625</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">speciesChinstrap:bill_length_mm</td>
-<td style="text-align: right;">-41.035</td>
-<td style="text-align: right;">16.104</td>
-<td style="text-align: right;">-2.548</td>
-<td style="text-align: right;">0.011</td>
-<td style="text-align: right;">-72.713</td>
-<td style="text-align: right;">-9.357</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">speciesGentoo:bill_length_mm</td>
-<td style="text-align: right;">-1.163</td>
-<td style="text-align: right;">14.436</td>
-<td style="text-align: right;">-0.081</td>
-<td style="text-align: right;">0.936</td>
-<td style="text-align: right;">-29.559</td>
-<td style="text-align: right;">27.234</td>
+<td style="text-align: right;">47.720</td>
+<td style="text-align: right;">75.753</td>
 </tr>
 </tbody>
 </table>
@@ -759,15 +770,15 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 <h2>CI for <code>flipper_length_mm</code></h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 35%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 23%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -783,87 +794,69 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-4297.905</td>
-<td style="text-align: right;">645.054</td>
-<td style="text-align: right;">-6.663</td>
+<td style="text-align: right;">-3904.387</td>
+<td style="text-align: right;">529.257</td>
+<td style="text-align: right;">-7.377</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-5566.772</td>
-<td style="text-align: right;">-3029.039</td>
+<td style="text-align: right;">-4945.450</td>
+<td style="text-align: right;">-2863.324</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">flipper_length_mm</td>
-<td style="text-align: right;">27.263</td>
-<td style="text-align: right;">3.175</td>
-<td style="text-align: right;">8.586</td>
+<td style="text-align: right;">27.429</td>
+<td style="text-align: right;">3.176</td>
+<td style="text-align: right;">8.638</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">21.017</td>
-<td style="text-align: right;">33.509</td>
+<td style="text-align: right;">21.182</td>
+<td style="text-align: right;">33.675</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">speciesChinstrap</td>
-<td style="text-align: right;">1146.287</td>
-<td style="text-align: right;">726.217</td>
-<td style="text-align: right;">1.578</td>
-<td style="text-align: right;">0.115</td>
-<td style="text-align: right;">-282.232</td>
-<td style="text-align: right;">2574.806</td>
+<td style="text-align: right;">-748.562</td>
+<td style="text-align: right;">81.534</td>
+<td style="text-align: right;">-9.181</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-908.943</td>
+<td style="text-align: right;">-588.182</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">speciesGentoo</td>
-<td style="text-align: right;">54.716</td>
-<td style="text-align: right;">619.934</td>
-<td style="text-align: right;">0.088</td>
-<td style="text-align: right;">0.930</td>
-<td style="text-align: right;">-1164.739</td>
-<td style="text-align: right;">1274.171</td>
+<td style="text-align: right;">90.435</td>
+<td style="text-align: right;">88.647</td>
+<td style="text-align: right;">1.020</td>
+<td style="text-align: right;">0.308</td>
+<td style="text-align: right;">-83.937</td>
+<td style="text-align: right;">264.807</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bill_length_mm</td>
-<td style="text-align: right;">72.692</td>
-<td style="text-align: right;">10.642</td>
-<td style="text-align: right;">6.831</td>
+<td style="text-align: right;">61.736</td>
+<td style="text-align: right;">7.126</td>
+<td style="text-align: right;">8.664</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">51.759</td>
-<td style="text-align: right;">93.625</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">speciesChinstrap:bill_length_mm</td>
-<td style="text-align: right;">-41.035</td>
-<td style="text-align: right;">16.104</td>
-<td style="text-align: right;">-2.548</td>
-<td style="text-align: right;">0.011</td>
-<td style="text-align: right;">-72.713</td>
-<td style="text-align: right;">-9.357</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">speciesGentoo:bill_length_mm</td>
-<td style="text-align: right;">-1.163</td>
-<td style="text-align: right;">14.436</td>
-<td style="text-align: right;">-0.081</td>
-<td style="text-align: right;">0.936</td>
-<td style="text-align: right;">-29.559</td>
-<td style="text-align: right;">27.234</td>
+<td style="text-align: right;">47.720</td>
+<td style="text-align: right;">75.753</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <p><br></p>
-<p>We are 95% confident that for every one millimeter increase in a penguin’s flipper length, its weight is greater by 21.017 to 33.509 grams, on average, holding bill length and species constant.</p>
+<p>We are 95% confident that for every one millimeter increase in a penguin’s flipper length, its weight is greater by 21.182 to 33.675 grams, on average, holding bill length and species constant.</p>
 </section>
 <section id="ci-for-specieschinstrap" class="slide level2 midi">
 <h2>CI for <code>speciesChinstrap</code></h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 35%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 23%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -879,77 +872,58 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-4297.905</td>
-<td style="text-align: right;">645.054</td>
-<td style="text-align: right;">-6.663</td>
+<td style="text-align: right;">-3904.387</td>
+<td style="text-align: right;">529.257</td>
+<td style="text-align: right;">-7.377</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-5566.772</td>
-<td style="text-align: right;">-3029.039</td>
+<td style="text-align: right;">-4945.450</td>
+<td style="text-align: right;">-2863.324</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">flipper_length_mm</td>
-<td style="text-align: right;">27.263</td>
-<td style="text-align: right;">3.175</td>
-<td style="text-align: right;">8.586</td>
+<td style="text-align: right;">27.429</td>
+<td style="text-align: right;">3.176</td>
+<td style="text-align: right;">8.638</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">21.017</td>
-<td style="text-align: right;">33.509</td>
+<td style="text-align: right;">21.182</td>
+<td style="text-align: right;">33.675</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">speciesChinstrap</td>
-<td style="text-align: right;">1146.287</td>
-<td style="text-align: right;">726.217</td>
-<td style="text-align: right;">1.578</td>
-<td style="text-align: right;">0.115</td>
-<td style="text-align: right;">-282.232</td>
-<td style="text-align: right;">2574.806</td>
+<td style="text-align: right;">-748.562</td>
+<td style="text-align: right;">81.534</td>
+<td style="text-align: right;">-9.181</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-908.943</td>
+<td style="text-align: right;">-588.182</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">speciesGentoo</td>
-<td style="text-align: right;">54.716</td>
-<td style="text-align: right;">619.934</td>
-<td style="text-align: right;">0.088</td>
-<td style="text-align: right;">0.930</td>
-<td style="text-align: right;">-1164.739</td>
-<td style="text-align: right;">1274.171</td>
+<td style="text-align: right;">90.435</td>
+<td style="text-align: right;">88.647</td>
+<td style="text-align: right;">1.020</td>
+<td style="text-align: right;">0.308</td>
+<td style="text-align: right;">-83.937</td>
+<td style="text-align: right;">264.807</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bill_length_mm</td>
-<td style="text-align: right;">72.692</td>
-<td style="text-align: right;">10.642</td>
-<td style="text-align: right;">6.831</td>
+<td style="text-align: right;">61.736</td>
+<td style="text-align: right;">7.126</td>
+<td style="text-align: right;">8.664</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">51.759</td>
-<td style="text-align: right;">93.625</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">speciesChinstrap:bill_length_mm</td>
-<td style="text-align: right;">-41.035</td>
-<td style="text-align: right;">16.104</td>
-<td style="text-align: right;">-2.548</td>
-<td style="text-align: right;">0.011</td>
-<td style="text-align: right;">-72.713</td>
-<td style="text-align: right;">-9.357</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">speciesGentoo:bill_length_mm</td>
-<td style="text-align: right;">-1.163</td>
-<td style="text-align: right;">14.436</td>
-<td style="text-align: right;">-0.081</td>
-<td style="text-align: right;">0.936</td>
-<td style="text-align: right;">-29.559</td>
-<td style="text-align: right;">27.234</td>
+<td style="text-align: right;">47.720</td>
+<td style="text-align: right;">75.753</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p><br></p>
-<p>UPDATE!</p>
-<div class="fragment">
 <div class="question">
-<p>Is <code>season</code> a significant predictor of the number of riders, after accounting for high temperature?</p>
-</div>
+<ul>
+<li><p>Interpret the 95% CI for <code>speciesChinstrap</code>.</p></li>
+<li><p>Does this model provide evidence that the mean body mass of Chinstrap penguins differs from the mean body mass of Adelie penguins?</p></li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -999,24 +973,27 @@ bill_length_mm          0.423            -0.015          0.058</code></pre>
 </div>
 </div>
 </section>
-<section id="ae" class="slide level2">
-<h2>AE</h2>
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
 </section>
 <section id="questions" class="slide level2">
 <h2>Questions</h2>
-<p>[insert today’s poll]</p>
+<center>
+  <iframe width="640px" height="480px" src="https://forms.office.com/r/y54VdEuzuW?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe>
+</center>
+<p>🔗 <a href="https://forms.office.com/r/y54VdEuzuW" class="uri">https://forms.office.com/r/y54VdEuzuW</a></p>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
-<li>Reviewed model comparison</li>
 <li>Introduced inference for multiple linear regression</li>
 </ul>
 </section>
 <section id="next-class" class="slide level2">
 <h2>Next class</h2>
 <ul>
-<li>Exam 01 review</li>
+<li>Model conditions and diagnostics</li>
+<li>Complete <a href="../prepare/prepare-lec10.html">Lecture 10 prepare</a></li>
 </ul>
 
 

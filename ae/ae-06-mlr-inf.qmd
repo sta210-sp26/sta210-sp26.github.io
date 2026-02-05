@@ -35,9 +35,9 @@ penguins <- palmerpenguins::penguins |>
 For this analysis, we will drop observations that have missing values for any of the variables of interest. In practice, we want to be careful about how this might bias our conclusions.
 :::
 
-## Main effects model 
+## Main effects model
 
-Let's fit the main effects model using `flipper_length_mm`, `species`, and `bill_length_mm` .
+Let's fit the main effects model using `flipper_length_mm`, `species`, and `bill_length_mm`.
 
 ```{r}
 #| label: main-effects-model
@@ -80,7 +80,7 @@ Use the bootstrap distribution to compute the standard error for `speciesGentoo`
 
 ```
 
-Construct the 95% confidence interval for `speciesGentoo`. How does it compare to the 95% CI in the model output. Is this what you expect? Why or why not?
+Construct the 95% confidence interval for `speciesGentoo`. How does it compare to the 95% CI in the model output? Is this what you expect? Why or why not?
 
 ```{r}
 #| label: bootstrap-ci
@@ -92,7 +92,7 @@ Construct the 95% confidence interval for `speciesGentoo`. How does it compare t
 
 Similar to simple linear regression, we can use permutation sampling for simulation-based hypothesis tests for coefficients in multiple linear regression.
 
-Now that we have 3 or more variables, there are many ways to permute the data. We will discuss two here:
+Now that we have multiple predictors, there are many ways to permute the data. We will discuss two here:
 
 -   Permute the response variable.
 
@@ -134,9 +134,9 @@ get_p_value(
 
 What is your conclusion about the coefficient of `speciesGentoo` based on the p-value?
 
-### Permute single variable
+### Permute single predictor
 
-Now let's construct the permutation sample by permuting the single variable `species`. We do so by adding the `variables` argument to the generate function. Remove `#| eval: false` after you have filled in the code.
+Now let's construct the permutation sample by permuting only the variable `species`. We do so by adding the `variables` argument to the generate function. Remove `#| eval: false` after you have filled in the code.
 
 ```{r}
 #| label: permute-single-var
@@ -171,7 +171,7 @@ What is your conclusion about the coefficient of `speciesGentoo` based on the p-
 
 ### Different conclusions
 
-Why did we get different conclusions?
+Why did we get different conclusions? *Hint: Think about what structure / variable relationships are preserved or broken in each approach.*
 
 # Wrapping up
 

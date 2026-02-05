@@ -3092,21 +3092,21 @@
     "href": "ae/ae-06-mlr-inf.html#main-effects-model",
     "title": "AE 06: Inference for multiple linear regression",
     "section": "Main effects model",
-    "text": "Main effects model\nLet’s fit the main effects model using flipper_length_mm, species, and bill_length_mm .\n\npenguins_fit &lt;- lm(body_mass_g ~ flipper_length_mm +\n                     species + bill_length_mm, \n                   data = penguins)\n\ntidy(penguins_fit, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-3904.387\n529.257\n-7.377\n0.000\n-4945.450\n-2863.324\n\n\nflipper_length_mm\n27.429\n3.176\n8.638\n0.000\n21.182\n33.675\n\n\nspeciesChinstrap\n-748.562\n81.534\n-9.181\n0.000\n-908.943\n-588.182\n\n\nspeciesGentoo\n90.435\n88.647\n1.020\n0.308\n-83.937\n264.807\n\n\nbill_length_mm\n61.736\n7.126\n8.664\n0.000\n47.720\n75.753"
+    "text": "Main effects model\nLet’s fit the main effects model using flipper_length_mm, species, and bill_length_mm.\n\npenguins_fit &lt;- lm(body_mass_g ~ flipper_length_mm +\n                     species + bill_length_mm, \n                   data = penguins)\n\ntidy(penguins_fit, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-3904.387\n529.257\n-7.377\n0.000\n-4945.450\n-2863.324\n\n\nflipper_length_mm\n27.429\n3.176\n8.638\n0.000\n21.182\n33.675\n\n\nspeciesChinstrap\n-748.562\n81.534\n-9.181\n0.000\n-908.943\n-588.182\n\n\nspeciesGentoo\n90.435\n88.647\n1.020\n0.308\n-83.937\n264.807\n\n\nbill_length_mm\n61.736\n7.126\n8.664\n0.000\n47.720\n75.753"
   },
   {
     "objectID": "ae/ae-06-mlr-inf.html#bootstrap-ci",
     "href": "ae/ae-06-mlr-inf.html#bootstrap-ci",
     "title": "AE 06: Inference for multiple linear regression",
     "section": "Bootstrap CI",
-    "text": "Bootstrap CI\n\nConstruct the bootstrap CI\nFill in the code to construct a bootstrap distribution for speciesGentoo. Remove #| eval: false after filling in the code.\n\nn = 100\nset.seed(210)\n\nboot_dist &lt;- penguins |&gt;\n  specify(______) |&gt;\n  generate(reps = n, type = \"bootstrap\") |&gt;\n  fit()\n\n\n\nConfidence interval for speciesGentoo\nUse the bootstrap distribution to compute the standard error for speciesGentoo. How does it compare to the standard error in the model output? Is this what you expected? Why or why not?\n\n# add code\n\nConstruct the 95% confidence interval for speciesGentoo. How does it compare to the 95% CI in the model output. Is this what you expect? Why or why not?\n\n# add code"
+    "text": "Bootstrap CI\n\nConstruct the bootstrap CI\nFill in the code to construct a bootstrap distribution for speciesGentoo. Remove #| eval: false after filling in the code.\n\nn = 100\nset.seed(210)\n\nboot_dist &lt;- penguins |&gt;\n  specify(______) |&gt;\n  generate(reps = n, type = \"bootstrap\") |&gt;\n  fit()\n\n\n\nConfidence interval for speciesGentoo\nUse the bootstrap distribution to compute the standard error for speciesGentoo. How does it compare to the standard error in the model output? Is this what you expected? Why or why not?\n\n# add code\n\nConstruct the 95% confidence interval for speciesGentoo. How does it compare to the 95% CI in the model output? Is this what you expect? Why or why not?\n\n# add code"
   },
   {
     "objectID": "ae/ae-06-mlr-inf.html#permutation-test",
     "href": "ae/ae-06-mlr-inf.html#permutation-test",
     "title": "AE 06: Inference for multiple linear regression",
     "section": "Permutation test",
-    "text": "Permutation test\nSimilar to simple linear regression, we can use permutation sampling for simulation-based hypothesis tests for coefficients in multiple linear regression.\nNow that we have 3 or more variables, there are many ways to permute the data. We will discuss two here:\n\nPermute the response variable.\nPermute the predictor of interest.\n\nWe will use both methods to conduct a hypothesis test for the coefficient of speciesGentoo.\n\nPermute response variable\nFill in the code to construct permutation samples by permuting the response variable for the variable in Main effects model. We will also compute the p-value for the coefficient. Remove #| eval: false after you have filled in the code.\n\nn = 100\nset.seed(210)\n\n# construct null distribution \nnull_dist &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\") |&gt;\n  fit()\n\n# observed fit\nobserved_fit &lt;- penguins |&gt;\n  specify(body_mass_g ~ flipper_length_mm +\n                     species + bill_length_mm) |&gt;\n  fit()\n\n# compute the p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\nWhat is your conclusion about the coefficient of speciesGentoo based on the p-value?\n\n\nPermute single variable\nNow let’s construct the permutation sample by permuting the single variable species. We do so by adding the variables argument to the generate function. Remove #| eval: false after you have filled in the code.\n\nn = 100\nset.seed(210)\n\n# construct null distribution \nnull_dist_2 &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\", \n           variables = c(species)) |&gt;\n  fit()\n\n# observed fit\nobserved_fit &lt;- penguins |&gt;\n  specify(body_mass_g ~ flipper_length_mm +\n                     species + bill_length_mm) |&gt;\n  fit()\n\n# compute the p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\nWhat is your conclusion about the coefficient of speciesGentoo based on the p-value?\n\n\nDifferent conclusions\nWhy did we get different conclusions?"
+    "text": "Permutation test\nSimilar to simple linear regression, we can use permutation sampling for simulation-based hypothesis tests for coefficients in multiple linear regression.\nNow that we have multiple predictors, there are many ways to permute the data. We will discuss two here:\n\nPermute the response variable.\nPermute the predictor of interest.\n\nWe will use both methods to conduct a hypothesis test for the coefficient of speciesGentoo.\n\nPermute response variable\nFill in the code to construct permutation samples by permuting the response variable for the variable in Main effects model. We will also compute the p-value for the coefficient. Remove #| eval: false after you have filled in the code.\n\nn = 100\nset.seed(210)\n\n# construct null distribution \nnull_dist &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\") |&gt;\n  fit()\n\n# observed fit\nobserved_fit &lt;- penguins |&gt;\n  specify(body_mass_g ~ flipper_length_mm +\n                     species + bill_length_mm) |&gt;\n  fit()\n\n# compute the p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\nWhat is your conclusion about the coefficient of speciesGentoo based on the p-value?\n\n\nPermute single predictor\nNow let’s construct the permutation sample by permuting only the variable species. We do so by adding the variables argument to the generate function. Remove #| eval: false after you have filled in the code.\n\nn = 100\nset.seed(210)\n\n# construct null distribution \nnull_dist_2 &lt;- _____ |&gt;\n  specify(______) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = _____, type = \"permute\", \n           variables = c(species)) |&gt;\n  fit()\n\n# observed fit\nobserved_fit &lt;- penguins |&gt;\n  specify(body_mass_g ~ flipper_length_mm +\n                     species + bill_length_mm) |&gt;\n  fit()\n\n# compute the p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\nWhat is your conclusion about the coefficient of speciesGentoo based on the p-value?\n\n\nDifferent conclusions\nWhy did we get different conclusions? Hint: Think about what structure / variable relationships are preserved or broken in each approach."
   },
   {
     "objectID": "ae/ae-12-exam-02-review.html",
@@ -3539,7 +3539,7 @@
     "href": "slides/09-mlr-inference-notes.html#se_hatbeta_j",
     "title": "Inference for multiple linear regression",
     "section": "\\(SE_{\\hat{\\beta}_j}\\)",
-    "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\n\\(SE_{\\hat{\\beta}_j} = \\sqrt{Var_{\\hat{\\beta}_j}}\\).\nLet’s look at \\(Var_{\\hat{\\beta}_{flipper}, \\hat{\\beta}_{bill}}\\) corresponding to the model \\(\\widehat{\\text{body_mass_g}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\text{flipper_length_mm} + \\hat{\\beta}_2 \\text{bill_length_mm}\\)\n\n\n\n. . .\n\n\n                  (Intercept) flipper_length_mm bill_length_mm\n(Intercept)         94838.825          -512.386        194.921\nflipper_length_mm    -512.386             4.045         -6.836\nbill_length_mm        194.921            -6.836         26.831\n\n\n\n\nThe diagonal elements are the variances for each coefficient\nThe off-diagonal elements are the covariances (measure of association) between the predictors"
+    "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\n\\(SE_{\\hat{\\beta}_j} = \\sqrt{Var_{\\hat{\\beta}_j}}\\)\nLet’s look at \\(Var_{\\hat{\\beta}_{flipper}, \\hat{\\beta}_{bill}}\\) corresponding to the model \\(\\widehat{\\text{body_mass_g}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\text{flipper_length_mm} + \\hat{\\beta}_2 \\text{bill_length_mm}\\)\n\n\n\n. . .\n\n\n                  (Intercept) flipper_length_mm bill_length_mm\n(Intercept)         94838.825          -512.386        194.921\nflipper_length_mm    -512.386             4.045         -6.836\nbill_length_mm        194.921            -6.836         26.831\n\n\n\n\nThe diagonal elements are the variances for each coefficient\nThe off-diagonal elements are the covariances (measure of association) between the predictors"
   },
   {
     "objectID": "slides/09-mlr-inference-notes.html#se_hatbeta_j-1",
@@ -3549,18 +3549,11 @@
     "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5736.897\n307.959\n-18.629\n0.000\n\n\nflipper_length_mm\n48.145\n2.011\n23.939\n0.000\n\n\nbill_length_mm\n6.047\n5.180\n1.168\n0.244"
   },
   {
-    "objectID": "slides/09-mlr-inference-notes.html#review-simple-linear-regression-slr",
-    "href": "slides/09-mlr-inference-notes.html#review-simple-linear-regression-slr",
+    "objectID": "slides/09-mlr-inference-notes.html#review-slr-hypothesis-test",
+    "href": "slides/09-mlr-inference-notes.html#review-slr-hypothesis-test",
     "title": "Inference for multiple linear regression",
-    "section": "Review: Simple linear regression (SLR)",
-    "text": "Review: Simple linear regression (SLR)"
-  },
-  {
-    "objectID": "slides/09-mlr-inference-notes.html#slr-hypothesis-test",
-    "href": "slides/09-mlr-inference-notes.html#slr-hypothesis-test",
-    "title": "Inference for multiple linear regression",
-    "section": "SLR hypothesis test",
-    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5780.831\n305.815\n-18.903\n0\n\n\nflipper_length_mm\n49.686\n1.518\n32.722\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_a: \\beta_1 \\ne 0\\)\n\n. . .\n\nCalculate test statistic and p-value: The test statistic is \\(t= 32.722\\). The p-value is calculated using a \\(t\\) distribution with 340 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n. . .\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that flipper length is a useful predictor of body mass, i.e. there is a linear relationship between the flipper length and body mass of penguins."
+    "section": "Review: SLR hypothesis test",
+    "text": "Review: SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5780.831\n305.815\n-18.903\n0\n\n\nflipper_length_mm\n49.686\n1.518\n32.722\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_a: \\beta_1 \\ne 0\\)\n\n. . .\n\nCalculate test statistic and p-value: The test statistic is \\(t= 32.722\\). The p-value is calculated using a \\(t\\) distribution with 340 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n. . .\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that flipper length is a useful predictor of body mass, i.e. there is a linear relationship between the flipper length and body mass of penguins."
   },
   {
     "objectID": "slides/09-mlr-inference-notes.html#multiple-linear-regression-1",
@@ -3581,7 +3574,7 @@
     "href": "slides/09-mlr-inference-notes.html#interaction-between-flipper_length_mm-and-species",
     "title": "Inference for multiple linear regression",
     "section": "Interaction between flipper_length_mm and species?",
-    "text": "Interaction between flipper_length_mm and species?\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-3341.616\n810.145\n-4.125\n0.000\n\n\nflipper_length_mm\n24.963\n4.339\n5.753\n0.000\n\n\nspeciesChinstrap\n-27.293\n1394.166\n-0.020\n0.984\n\n\nspeciesGentoo\n-2215.913\n1328.583\n-1.668\n0.096\n\n\nbill_length_mm\n59.305\n7.250\n8.180\n0.000\n\n\nflipper_length_mm:speciesChinstrap\n-3.485\n7.211\n-0.483\n0.629\n\n\nflipper_length_mm:speciesGentoo\n11.026\n6.482\n1.701\n0.090\n\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
+    "text": "Interaction between flipper_length_mm and species?\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-3341.616\n810.145\n-4.125\n0.000\n\n\nflipper_length_mm\n24.963\n4.339\n5.753\n0.000\n\n\nspeciesChinstrap\n-27.293\n1394.166\n-0.020\n0.984\n\n\nspeciesGentoo\n-2215.913\n1328.583\n-1.668\n0.096\n\n\nbill_length_mm\n59.305\n7.250\n8.180\n0.000\n\n\nflipper_length_mm:speciesChinstrap\n-3.485\n7.211\n-0.483\n0.629\n\n\nflipper_length_mm:speciesGentoo\n11.026\n6.482\n1.701\n0.090\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
   },
   {
     "objectID": "slides/09-mlr-inference-notes.html#confidence-interval-for-beta_j-1",
@@ -3735,7 +3728,7 @@
     "href": "slides/09-mlr-inference.html#se_hatbeta_j",
     "title": "Inference for multiple linear regression",
     "section": "\\(SE_{\\hat{\\beta}_j}\\)",
-    "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\\(SE_{\\hat{\\beta}_j} = \\sqrt{Var_{\\hat{\\beta}_j}}\\).\nLet’s look at \\(Var_{\\hat{\\beta}_{flipper}, \\hat{\\beta}_{bill}}\\) corresponding to the model \\(\\widehat{\\text{body_mass_g}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\text{flipper_length_mm} + \\hat{\\beta}_2 \\text{bill_length_mm}\\)\n\n\n\n\n\n                  (Intercept) flipper_length_mm bill_length_mm\n(Intercept)         94838.825          -512.386        194.921\nflipper_length_mm    -512.386             4.045         -6.836\nbill_length_mm        194.921            -6.836         26.831\n\n\n\nThe diagonal elements are the variances for each coefficient\nThe off-diagonal elements are the covariances (measure of association) between the predictors"
+    "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\\(SE_{\\hat{\\beta}_j} = \\sqrt{Var_{\\hat{\\beta}_j}}\\)\nLet’s look at \\(Var_{\\hat{\\beta}_{flipper}, \\hat{\\beta}_{bill}}\\) corresponding to the model \\(\\widehat{\\text{body_mass_g}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\text{flipper_length_mm} + \\hat{\\beta}_2 \\text{bill_length_mm}\\)\n\n\n\n\n\n                  (Intercept) flipper_length_mm bill_length_mm\n(Intercept)         94838.825          -512.386        194.921\nflipper_length_mm    -512.386             4.045         -6.836\nbill_length_mm        194.921            -6.836         26.831\n\n\n\nThe diagonal elements are the variances for each coefficient\nThe off-diagonal elements are the covariances (measure of association) between the predictors"
   },
   {
     "objectID": "slides/09-mlr-inference.html#se_hatbeta_j-1",
@@ -3745,18 +3738,11 @@
     "text": "\\(SE_{\\hat{\\beta}_j}\\)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5736.897\n307.959\n-18.629\n0.000\n\n\nflipper_length_mm\n48.145\n2.011\n23.939\n0.000\n\n\nbill_length_mm\n6.047\n5.180\n1.168\n0.244"
   },
   {
-    "objectID": "slides/09-mlr-inference.html#review-simple-linear-regression-slr",
-    "href": "slides/09-mlr-inference.html#review-simple-linear-regression-slr",
+    "objectID": "slides/09-mlr-inference.html#review-slr-hypothesis-test",
+    "href": "slides/09-mlr-inference.html#review-slr-hypothesis-test",
     "title": "Inference for multiple linear regression",
-    "section": "Review: Simple linear regression (SLR)",
-    "text": "Review: Simple linear regression (SLR)"
-  },
-  {
-    "objectID": "slides/09-mlr-inference.html#slr-hypothesis-test",
-    "href": "slides/09-mlr-inference.html#slr-hypothesis-test",
-    "title": "Inference for multiple linear regression",
-    "section": "SLR hypothesis test",
-    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5780.831\n305.815\n-18.903\n0\n\n\nflipper_length_mm\n49.686\n1.518\n32.722\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_a: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 32.722\\). The p-value is calculated using a \\(t\\) distribution with 340 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that flipper length is a useful predictor of body mass, i.e. there is a linear relationship between the flipper length and body mass of penguins."
+    "section": "Review: SLR hypothesis test",
+    "text": "Review: SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5780.831\n305.815\n-18.903\n0\n\n\nflipper_length_mm\n49.686\n1.518\n32.722\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_a: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 32.722\\). The p-value is calculated using a \\(t\\) distribution with 340 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that flipper length is a useful predictor of body mass, i.e. there is a linear relationship between the flipper length and body mass of penguins."
   },
   {
     "objectID": "slides/09-mlr-inference.html#multiple-linear-regression-1",
@@ -3777,7 +3763,7 @@
     "href": "slides/09-mlr-inference.html#interaction-between-flipper_length_mm-and-species",
     "title": "Inference for multiple linear regression",
     "section": "Interaction between flipper_length_mm and species?",
-    "text": "Interaction between flipper_length_mm and species?\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-3341.616\n810.145\n-4.125\n0.000\n\n\nflipper_length_mm\n24.963\n4.339\n5.753\n0.000\n\n\nspeciesChinstrap\n-27.293\n1394.166\n-0.020\n0.984\n\n\nspeciesGentoo\n-2215.913\n1328.583\n-1.668\n0.096\n\n\nbill_length_mm\n59.305\n7.250\n8.180\n0.000\n\n\nflipper_length_mm:speciesChinstrap\n-3.485\n7.211\n-0.483\n0.629\n\n\nflipper_length_mm:speciesGentoo\n11.026\n6.482\n1.701\n0.090\n\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
+    "text": "Interaction between flipper_length_mm and species?\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-3341.616\n810.145\n-4.125\n0.000\n\n\nflipper_length_mm\n24.963\n4.339\n5.753\n0.000\n\n\nspeciesChinstrap\n-27.293\n1394.166\n-0.020\n0.984\n\n\nspeciesGentoo\n-2215.913\n1328.583\n-1.668\n0.096\n\n\nbill_length_mm\n59.305\n7.250\n8.180\n0.000\n\n\nflipper_length_mm:speciesChinstrap\n-3.485\n7.211\n-0.483\n0.629\n\n\nflipper_length_mm:speciesGentoo\n11.026\n6.482\n1.701\n0.090\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
   },
   {
     "objectID": "slides/09-mlr-inference.html#confidence-interval-for-beta_j-1",

@@ -197,7 +197,7 @@ As with SLR, we use $\hat{\sigma}_{\epsilon}$ to compute $SE_{\hat{\beta}_j}$, t
 ## $SE_{\hat{\beta}_j}$ {.midi}
 
 ::: incremental
--   $SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}$.
+-   $SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}$
 -   Let's look at $Var_{\hat{\beta}_{flipper}, \hat{\beta}_{bill}}$ corresponding to the model $\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}$
 :::
 
@@ -233,9 +233,7 @@ tidy(penguin_se_fit) |>
 
 # Hypothesis test for $\beta_j$
 
-## Review: Simple linear regression (SLR)
-
-## SLR hypothesis test {.midi}
+## Review: SLR hypothesis test {.midi}
 
 ```{r}
 #| echo: false
@@ -291,8 +289,6 @@ penguin_int_fit_2 <- lm(body_mass_g ~ flipper_length_mm + species + bill_length_
 tidy(penguin_int_fit_2) |>
   kable(digits = 3)
 ```
-
-<br>
 
 ::: question
 Do the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms.

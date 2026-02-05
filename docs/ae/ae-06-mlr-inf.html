@@ -377,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#permutation-test" id="toc-permutation-test" class="nav-link" data-scroll-target="#permutation-test">Permutation test</a>
   <ul class="collapse">
   <li><a href="#permute-response-variable" id="toc-permute-response-variable" class="nav-link" data-scroll-target="#permute-response-variable">Permute response variable</a></li>
-  <li><a href="#permute-single-variable" id="toc-permute-single-variable" class="nav-link" data-scroll-target="#permute-single-variable">Permute single variable</a></li>
+  <li><a href="#permute-single-predictor" id="toc-permute-single-predictor" class="nav-link" data-scroll-target="#permute-single-predictor">Permute single predictor</a></li>
   <li><a href="#different-conclusions" id="toc-different-conclusions" class="nav-link" data-scroll-target="#different-conclusions">Different conclusions</a></li>
   </ul></li>
   <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
@@ -455,7 +455,7 @@ Caution
 </section>
 <section id="main-effects-model" class="level2">
 <h2 class="anchored" data-anchor-id="main-effects-model">Main effects model</h2>
-<p>Let’s fit the main effects model using <code>flipper_length_mm</code>, <code>species</code>, and <code>bill_length_mm</code> .</p>
+<p>Let’s fit the main effects model using <code>flipper_length_mm</code>, <code>species</code>, and <code>bill_length_mm</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                     species <span class="sc">+</span> bill_length_mm, </span>
@@ -557,7 +557,7 @@ Caution
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Construct the 95% confidence interval for <code>speciesGentoo</code>. How does it compare to the 95% CI in the model output. Is this what you expect? Why or why not?</p>
+<p>Construct the 95% confidence interval for <code>speciesGentoo</code>. How does it compare to the 95% CI in the model output? Is this what you expect? Why or why not?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -566,7 +566,7 @@ Caution
 <section id="permutation-test" class="level2">
 <h2 class="anchored" data-anchor-id="permutation-test">Permutation test</h2>
 <p>Similar to simple linear regression, we can use permutation sampling for simulation-based hypothesis tests for coefficients in multiple linear regression.</p>
-<p>Now that we have 3 or more variables, there are many ways to permute the data. We will discuss two here:</p>
+<p>Now that we have multiple predictors, there are many ways to permute the data. We will discuss two here:</p>
 <ul>
 <li><p>Permute the response variable.</p></li>
 <li><p>Permute the predictor of interest.</p></li>
@@ -601,9 +601,9 @@ Caution
 </div>
 <p>What is your conclusion about the coefficient of <code>speciesGentoo</code> based on the p-value?</p>
 </section>
-<section id="permute-single-variable" class="level3">
-<h3 class="anchored" data-anchor-id="permute-single-variable">Permute single variable</h3>
-<p>Now let’s construct the permutation sample by permuting the single variable <code>species</code>. We do so by adding the <code>variables</code> argument to the generate function. Remove <code>#| eval: false</code> after you have filled in the code.</p>
+<section id="permute-single-predictor" class="level3">
+<h3 class="anchored" data-anchor-id="permute-single-predictor">Permute single predictor</h3>
+<p>Now let’s construct the permutation sample by permuting only the variable <code>species</code>. We do so by adding the <code>variables</code> argument to the generate function. Remove <code>#| eval: false</code> after you have filled in the code.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">100</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
@@ -633,7 +633,7 @@ Caution
 </section>
 <section id="different-conclusions" class="level3">
 <h3 class="anchored" data-anchor-id="different-conclusions">Different conclusions</h3>
-<p>Why did we get different conclusions?</p>
+<p>Why did we get different conclusions? <em>Hint: Think about what structure / variable relationships are preserved or broken in each approach.</em></p>
 </section>
 </section>
 <section id="wrapping-up" class="level1">

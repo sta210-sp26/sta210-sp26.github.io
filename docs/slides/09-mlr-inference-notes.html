@@ -421,8 +421,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#hypothesis-test-for-beta_j" id="toc-hypothesis-test-for-beta_j" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j">Hypothesis test for <span class="math inline">\(\beta_j\)</span></a>
   <ul class="collapse">
-  <li><a href="#review-simple-linear-regression-slr" id="toc-review-simple-linear-regression-slr" class="nav-link" data-scroll-target="#review-simple-linear-regression-slr">Review: Simple linear regression (SLR)</a></li>
-  <li><a href="#slr-hypothesis-test" id="toc-slr-hypothesis-test" class="nav-link" data-scroll-target="#slr-hypothesis-test">SLR hypothesis test</a></li>
+  <li><a href="#review-slr-hypothesis-test" id="toc-review-slr-hypothesis-test" class="nav-link" data-scroll-target="#review-slr-hypothesis-test">Review: SLR hypothesis test</a></li>
   <li><a href="#multiple-linear-regression-1" id="toc-multiple-linear-regression-1" class="nav-link" data-scroll-target="#multiple-linear-regression-1">Multiple linear regression</a></li>
   <li><a href="#mlr-hypothesis-test-flipper_length_mm" id="toc-mlr-hypothesis-test-flipper_length_mm" class="nav-link" data-scroll-target="#mlr-hypothesis-test-flipper_length_mm">MLR hypothesis test: <code>flipper_length_mm</code></a></li>
   <li><a href="#interaction-between-flipper_length_mm-and-species" id="toc-interaction-between-flipper_length_mm-and-species" class="nav-link" data-scroll-target="#interaction-between-flipper_length_mm-and-species">Interaction between <code>flipper_length_mm</code> and <code>species</code>?</a></li>
@@ -684,7 +683,7 @@ window.Quarto = {
 <h2 class="midi anchored" data-anchor-id="se_hatbeta_j"><span class="math inline">\(SE_{\hat{\beta}_j}\)</span></h2>
 <div class="incremental">
 <ul class="incremental">
-<li><span class="math inline">\(SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}\)</span>.</li>
+<li><span class="math inline">\(SE_{\hat{\beta}_j} = \sqrt{Var_{\hat{\beta}_j}}\)</span></li>
 <li>Let’s look at <span class="math inline">\(Var_{\hat{\beta}_{flipper}, \hat{\beta}_{bill}}\)</span> corresponding to the model <span class="math inline">\(\widehat{\text{body_mass_g}} = \hat{\beta}_0 + \hat{\beta}_1 \text{flipper_length_mm} + \hat{\beta}_2 \text{bill_length_mm}\)</span></li>
 </ul>
 </div>
@@ -749,11 +748,8 @@ bill_length_mm        194.921            -6.836         26.831</code></pre>
 </section>
 <section id="hypothesis-test-for-beta_j" class="level1">
 <h1>Hypothesis test for <span class="math inline">\(\beta_j\)</span></h1>
-<section id="review-simple-linear-regression-slr" class="level2">
-<h2 class="anchored" data-anchor-id="review-simple-linear-regression-slr">Review: Simple linear regression (SLR)</h2>
-</section>
-<section id="slr-hypothesis-test" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="slr-hypothesis-test">SLR hypothesis test</h2>
+<section id="review-slr-hypothesis-test" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="review-slr-hypothesis-test">Review: SLR hypothesis test</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -941,7 +937,6 @@ bill_length_mm        194.921            -6.836         26.831</code></pre>
 </table>
 </div>
 </div>
-<p><br></p>
 <div class="question">
 <p>Do the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms.</p>
 </div>

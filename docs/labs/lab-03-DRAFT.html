@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 02: Inference for regression using mathematical models – STA 210 - Spring 2026</title>
+<title>Lab 03: Multiple linear regression – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -145,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 02: Inference for regression using mathematical models</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 03: Multiple linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -406,8 +406,9 @@ window.Quarto = {
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
   </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data-coffee-ratings" id="toc-data-coffee-ratings" class="nav-link" data-scroll-target="#data-coffee-ratings">Data: Coffee ratings</a></li>
+  <li><a href="#data-candy-competition" id="toc-data-candy-competition" class="nav-link" data-scroll-target="#data-candy-competition">Data: Candy competition</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -417,12 +418,9 @@ window.Quarto = {
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading-10pts" id="toc-grading-10pts" class="nav-link" data-scroll-target="#grading-10pts"><strong>Grading (10pts)</strong></a></li>
+  <li><a href="#grading-10-points" id="toc-grading-10-points" class="nav-link" data-scroll-target="#grading-10-points">Grading (10 points)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -431,8 +429,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 02: Inference for regression using mathematical models</h1>
-<p class="subtitle lead">Coffee ratings</p>
+<h1 class="title">Lab 03: Multiple linear regression</h1>
+<p class="subtitle lead">Candy competition</p>
 </div>
 
 
@@ -459,57 +457,42 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This lab is due on <strong>Thursday, February 5 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This lab is due on <strong>Thursday, February 12 at 11:59pm.</strong></p>
+<p>To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
 <li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
 </ul>
+<section id="section" class="level1">
+<h1></h1>
+</section>
 </div>
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In today’s lab, you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aftertaste and its overall quality.</p>
+<p>In today’s lab you will analyze data collected from an online experiment conducted by the now defunct data journalism website FiveThirtyEight to describe what makes the best candy.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
-<p>By the end of the lab you will…</p>
+<p>By the end of the lab you will be able to…</p>
 <ul>
-<li>use mathematical models to conduct inference for the slope.</li>
-<li>assess conditions for linear regression.</li>
+<li><p>transform and create new variables</p></li>
+<li><p>fit and interpret multiple linear regression models</p></li>
+<li><p>compare models to select the “best” one</p></li>
+<li><p>collaborate using GitHub</p></li>
 </ul>
 </section>
 </section>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-02-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-03-</strong>. It contains the starter documents you need to complete the lab.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+<li><p>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</p></li>
+<li><p><strong>Do not make any changes to the <code>.qmd</code> file until the instructions tell you to do so.</strong></p></li>
 </ul>
 </section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages are used in the lab.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="data-coffee-ratings" class="level1">
-<h1>Data: Coffee ratings</h1>
-<p>We will analyze data originally from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a>. It was featured in the TidyTuesday weekly data visualization challenge in July 2020, and the data set for the lab was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various coffee characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably treated as a random sample.</p>
-<p>This lab will focus on the following variables:</p>
-<ul>
-<li><code>aftertaste</code>: Aftertaste rating, 0 (worst aftertaste) - 10 (best aftertaste)</li>
-<li><code>total_cup_points</code>: Rating of overall quality, 0 (worst quality) - 10 (best quality)</li>
-</ul>
-<p><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">Click here</a> for the definitions of all variables in the data set. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these characteristics were measured.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/coffee-ratings.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<hr>
+<section id="workflow-using-git-and-github-as-a-team" class="level1">
+<h1>Workflow: Using Git and GitHub as a team</h1>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -520,34 +503,136 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Make sure the teaching team can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is to start a new line after every pipe (<code>|&gt;</code>) and plus sign (<code>+</code>).</p>
+<p>Assign each person on your team a number 1 through 4. For teams of three, Team Member 1 can take on the role of Team Member 4.</p>
+<p>The following exercises must be done in order. <strong>Only one person should type in the <code>.qmd</code> file, commit, and push updates at a time.</strong> When it is not your turn to type, you should still share ideas and contribute to the team’s discussion.</p>
 </div>
 </div>
-<p><strong>Goal</strong>: The goal of this analysis is to use linear regression to understand variability in overall quality rating based on the aftertaste rating in coffee.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>⌨️ <strong>Team Member 1: Hands on the keyboard.</strong></p>
+<p>🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</div>
+</div>
+</div>
+<p>Change the author to your team name and include each team member’s name in the <code>author</code> field of the YAML in the following format: <code>Team Name: Member 1, Member 2, Member 3, Member 4</code>.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 1:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub.</p>
+<p><br></p>
+</div>
+<div class="pull">
+<p><strong>Team Members 2, 3, 4:</strong> Once Team Member 1 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the updated name in your <code>.qmd</code> file.</p>
+</div>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-candy-competition" class="level1">
+<h1>Data: Candy competition</h1>
+<p>The data from this lab comes from the <em>FiveThirtyEight</em> article <a href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking"><em>The Ultimate Halloween Candy Power Ranking</em></a> by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g.&nbsp;Reeses vs.&nbsp;Skittles). Click <a href="http://walthickey.com/2017/10/18/whats-the-best-halloween-candy/">here</a> to check out some of the matchups.</p>
+<p>The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chocolate</code></td>
+<td>Does it contain chocolate?</td>
+</tr>
+<tr class="even">
+<td><code>fruity</code></td>
+<td>Is it fruit flavored?</td>
+</tr>
+<tr class="odd">
+<td><code>caramel</code></td>
+<td>Is there caramel in the candy?</td>
+</tr>
+<tr class="even">
+<td><code>peanutalmondy</code></td>
+<td>Does it contain peanuts, peanut butter or almonds?</td>
+</tr>
+<tr class="odd">
+<td><code>nougat</code></td>
+<td>Does it contain nougat?</td>
+</tr>
+<tr class="even">
+<td><code>crispedricewafer</code></td>
+<td>Does it contain crisped rice, wafers, or a cookie component?</td>
+</tr>
+<tr class="odd">
+<td><code>hard</code></td>
+<td>Is it a hard candy?</td>
+</tr>
+<tr class="even">
+<td><code>bar</code></td>
+<td>Is it a candy bar?</td>
+</tr>
+<tr class="odd">
+<td><code>pluribus</code></td>
+<td>Is it one of many candies in a bag or box?</td>
+</tr>
+<tr class="even">
+<td><code>sugarpercent</code></td>
+<td>The percentile of sugar it falls under within the data set. Values 0 - 1.</td>
+</tr>
+<tr class="odd">
+<td><code>pricepercent</code></td>
+<td>The unit price percentile compared to the rest of the set. Values 0 - 1.</td>
+</tr>
+<tr class="even">
+<td><code>winpercent</code></td>
+<td>The overall win percentage according to 269,000 matchups. Values 0 - 100.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the code below to get a glimpse of the <code>candy_rankings</code> data frame in the <strong>fivethirtyeight</strong> R package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candy_rankings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 85
+Columns: 13
+$ competitorname   &lt;chr&gt; "100 Grand", "3 Musketeers", "One dime", "One quarter…
+$ chocolate        &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
+$ fruity           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…
+$ caramel          &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
+$ peanutyalmondy   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, …
+$ nougat           &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
+$ crispedricewafer &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
+$ hard             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ bar              &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
+$ pluribus         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE…
+$ sugarpercent     &lt;dbl&gt; 0.732, 0.604, 0.011, 0.011, 0.906, 0.465, 0.604, 0.31…
+$ pricepercent     &lt;dbl&gt; 0.860, 0.511, 0.116, 0.511, 0.511, 0.767, 0.767, 0.51…
+$ winpercent       &lt;dbl&gt; 66.97173, 67.60294, 32.26109, 46.11650, 52.34146, 50.…</code></pre>
+</div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p>The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy, as measured by <code>winpercent</code>.</p>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Visualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot.</p>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Fit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the <strong>98%</strong> confidence interval for the model coefficients in the output.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <ol type="a">
-<li>Interpret the slope in the context of the data.</li>
-<li>Assume you are a coffee drinker using the model from <a href="#exercise-2">Exercise 2</a>. Would you drink a coffee represented by the intercept? Why or why not?</li>
-</ol>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>You can obtain the predicted values and other observation-level statistics from the model using the <code>augment()</code> function. Create a data frame called <code>coffee_aug</code> by replacing the blank with the name of the fitted model.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coffee_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(_____)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol type="a">
-<li>Write code to “manually” compute the regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span> using the residuals (stored in the column <code>.resid</code>).</li>
-<li>State the definition of the regression standard error in the context of the data.</li>
+<li><p>Visualize the relationship between the response variable <code>winpercent</code> and one potential quantitative predictor. Write an observation from the graph.</p></li>
+<li><p>Visualize the relationship between the response variable and one potential categorical predictor. Write an observation from the graph.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -559,104 +644,67 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can check your answer to part (b) by using the code below to get <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></p>
-<center>
-<code>glance(model_name)$sigma</code>
-</center>
+<p>Include informative axis labels and titles on the visualizations.</p>
 </div>
 </div>
 </section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>We will do some feature engineering<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> to transform and create new variables to consider for the model.</p>
+<ul>
+<li><p>Create a categorical variable that breaks <code>sugarpercent</code> into quartiles:</p>
+<ul>
+<li><p>“Q1” if <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> the <span class="math inline">\(25^{th}\)</span> percentile.</p></li>
+<li><p>“Q2” if <span class="math inline">\(25^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(50^{th}\)</span> percentile.</p></li>
+<li><p>“Q3” if <span class="math inline">\(50^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
+<li><p>“Q4” if <code>sugarpercent</code> <span class="math inline">\(\geq\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
+</ul></li>
+<li><p>Multiply <code>pricepercent</code> * 100, so the variable ranges from 0 - 100% instead of 0 - 1.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will use these variables whenever <code>sugarpercent</code> and <code>pricepercent</code> are referenced in the remainder of the lab.</p>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ol type="a">
+<li><p>Fit a model using <code>sugarpercent</code>, <code>pricepercent</code>, <code>chocolate</code>, <code>peanutalmondy</code>, the interaction between <code>pricepercent</code> and <code>chocolate</code>, and the interaction between <code>chocolate</code> and <code>peanutalmondy</code> to predict <code>winpercent</code>. Neatly display the model using 3 decimal places. <em>Remember to use the variables created in the previous exercise.</em></p></li>
+<li><p>Interpret the intercept in the context of the data.</p></li>
+</ol>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Use the model from the previous exercise to interpret the following in the context of the data:</p>
+<ol type="a">
+<li><p>Coefficient of <code>sugarpercent = Q3</code>.</p></li>
+<li><p>Coefficient of <code>pricepercent:chocolateTRUE</code></p></li>
+<li><p>Effect of <code>peanutalmondy</code> for chocolate candy</p></li>
+</ol>
+</section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Do the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.</p>
-<ol type="a">
-<li>State the null and alternative hypotheses in words and in mathematical notation.</li>
-<li>What is the test statistic? State what the test statistic means in the context of this problem. <em>Note: You do not need to show how the test statistic is computed.</em></li>
-<li>What distribution was used to calculate the p-value? Be specific.</li>
-<li>State the conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.02\)</span> to make your decision.</li>
-</ol>
+<p>Let’s consider another model. Fit a model that includes <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutalmondy</code>, <code>sugarpercent</code> , along with the interaction between <code>pricepercent</code> and <code>peanutalmondy</code> . Neatly display the model using 3 decimal places. <em>Remember to use the variables created in Exercise 2.</em></p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <ol type="a">
-<li><p>What is the critical value used to calculate the confidence interval displayed in <a href="#exercise-2">Exercise 2</a>? Show the code and output used to get your response.</p></li>
-<li><p>Is the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.</p></li>
+<li><p>Compute the RMSE for the models fit in <a href="#exercise-3">Exercise 3</a> and <a href="#exercise-5">Exercise 5</a>.</p></li>
+<li><p>Which model would you choose based on the results from part (a)? Briefly explain.</p></li>
 </ol>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<ol type="a">
-<li><p>Compute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.</p></li>
-<li><p>One coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.</p></li>
-<li><p>How do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why.</p></li>
-</ol>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>We have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame <code>coffee_aug</code> from <a href="#exercise-4">Exercise 4</a> that includes the residuals, predicted values, and other observation-level statistics from the model.</p>
-<ol type="a">
-<li>Make a scatterplot of the residuals (<code>.resid</code>) vs.&nbsp;fitted values (<code>.fitted</code>). Use <a href="https://ggplot2.tidyverse.org/reference/geom_abline.html"><code>geom_hline()</code></a> to add a horizontal dotted line at <span class="math inline">\(residuals = 0\)</span>.</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>linearity condition</strong> is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs.&nbsp;fitted values.<br>
-<br>
-The <strong>equal variance</strong> condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.</p>
-<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#linearity">Section 6.2.2</a> and <a href="https://intro-regression.github.io/06-slr-conditions.html#equal-variance">Section 6.2.5</a> of the textbook for more on linearity and equal variance, respectively.</p>
-</div>
-</div>
-<ol start="2" type="a">
-<li><p>Is the linearity condition satisfied? Briefly explain why or why not.</p></li>
-<li><p>Is the equal variance condition satisfied? Briefly explain why or why not.</p></li>
-</ol>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>normality</strong> condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large <span class="math inline">\((n &gt; 30)\)</span>.</p>
-<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#normality">Section 6.2.4</a> of the textbook for more on normality.</p>
-</div>
-</div>
-<ol type="a">
-<li>Make a histogram or density plot of the residuals (<code>.resid</code>).</li>
-<li>Is the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain.</li>
-</ol>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>independence</strong> condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.</p>
-<p>This condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.</p>
-<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#independence">Section 6.2.3</a> of the textbook for more on independence.</p>
-</div>
-</div>
-<p>Is the independence condition satisfied for these data? Briefly explain why or why not.</p>
+<p>Use the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.</p>
 </section>
 </section>
 <section id="submission" class="level1">
@@ -675,56 +723,63 @@ Warning
 <p>Reminder: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
 </div>
 </div>
-<p>To submit your assignment:</p>
+<p>To submit the assignment:</p>
 <ul>
 <li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Select all team members’ names, so they receive credit on the assignment. <a href="https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members">Click here</a> for instructions on adding team members to assignment on Gradescope.</p></li>
 <li><p>Mark the pages for the <em>“Exercises”</em> question.</p></li>
 <li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> question.</p></li>
 </ul>
 </section>
-<section id="grading-10pts" class="level1">
-<h1><strong>Grading (10pts)</strong></h1>
-<p>This lab will be graded based on completion and workflow &amp; formatting. The point breakdown is as follows:</p>
+<section id="grading-10-points" class="level1">
+<h1>Grading (10 points)</h1>
+<p><br></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Component</th>
-<th>Points</th>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Completion</td>
-<td>8</td>
+<td style="text-align: left;">Completion</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
-<td>Workflow &amp; formatting</td>
-<td>2</td>
+<td style="text-align: left;">Workflow &amp; formatting</td>
+<td style="text-align: left;">2</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Completion:</strong> Points will be awarded for completion based on the following:</p>
 <ul>
-<li><p>8pts: Complete 10 exercises</p></li>
-<li><p>7pts: Complete 8 - 9 exercises</p></li>
-<li><p>6pts: Complete 6 - 7 exercises</p></li>
-<li><p>5pts: Complete 4 - 5 exercises</p></li>
-<li><p>4pts: Complete 2 - 3 exercises</p></li>
-<li><p>0pts: Complete &lt; 2 exercises</p></li>
+<li><p>7 pts: Complete all exercises</p></li>
+<li><p>6 pts: Complete 6 exercises</p></li>
+<li><p>5 pts: Complete 5 exercises</p></li>
+<li><p>4 pts: Complete 4 exercises</p></li>
+<li><p>3 pts: Complete 3 exercises</p></li>
+<li><p>0 pts: Complete &lt; 2 exercises</p></li>
 </ul>
 <p><strong>Workflow &amp; formatting</strong></p>
-<p>The workflow &amp; formatting grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code, and your name and the date updated in the YAML.</p>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.</p>
 <ul>
-<li><p>2pts: Meet all criteria</p></li>
-<li><p>1pt: Meet some criteria</p></li>
-<li><p>0pt: Meet no criteria</p></li>
+<li><p>2 pts: Meet all criteria</p></li>
+<li><p>1 pt: Meet some criteria</p></li>
+<li><p>0 pt: Meet no criteria</p></li>
 </ul>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -20,6 +20,8 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  warning: false
+  message: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -27,10 +29,112 @@ knitr:
 bibliography: references.bib
 ---
 
+```{r}
+#| echo: false
+
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(patchwork)
+```
+
 ## Goals
 
+-   Practice: Inference for multiple linear regression
 -   Team workflow
 -   Lab 03: Candy competition
+
+# Inference for multiple linear regression 
+
+## Data: NCAA Football expenditures {.midi}
+
+Today's data come from [Equity in Athletics Data Analysis](https://ope.ed.gov/athletics/#/datafile/list) and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a [March 2022 Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-29/readme.md).
+
+We will focus on the 2019 - 2020 season expenditures on football for 127 institutions in the NCAA - Division 1 FBS. The variables are :
+
+-   `total_exp_m`: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)
+
+-   `enrollment_th`: Total student enrollment in the 2019 - 2020 academic year (in thousands)
+
+-   `type`: institution type (Public or Private)
+
+```{r}
+football <- read_csv("data/ncaa-football-exp.csv")
+```
+
+## Bivariate EDA
+
+```{r}
+#| code-fold: true
+p1 <- ggplot(data = football, aes(x = enrollment_th, y = total_exp_m)) +
+  geom_point() + 
+  labs(x = "Enrollment (in thousands)", 
+       y = "Total expenditures (in millions)", 
+       title = "Football expenditures vs. enrollment")
+
+p2 <- ggplot(data = football, aes(x = type, y = total_exp_m)) +
+  geom_boxplot() + 
+  labs(x = "Institution type", 
+       y = "Total expenditures (in millions)", 
+       title = "Football expenditures vs. institution type")
+
+p1 + p2
+```
+
+## Potential interaction effect? 
+
+```{r}
+#| code-fold: true
+ggplot(data = football, aes(x = enrollment_th, y = total_exp_m, color = type,
+                            linetype = type)) +
+  geom_point(alpha = 0.7) + 
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Enrollment (in thousands)", 
+       y = "Total expenditures (in millions)", 
+       title = "Football expenditures vs. enrollment",
+       subtitle = "by institution type", 
+       color = "Type", 
+       linetype = "Type") +
+  theme_bw()
+```
+
+## Inference {.midi}
+
+```{r}
+#| code-fold: true
+football_fit <- lm(total_exp_m ~ enrollment_th + type + enrollment_th * type, 
+                   data = football)
+
+tidy(football_fit) |> 
+  kable(digits = 3)
+```
+
+::: question
+Let's look at the test for `enrollment_th:typePublic`.
+
+-   State the null and alternative hypotheses being tested in the model output.
+
+-   Explain what `std.error = 0.387` quantifies.
+
+-   Explain how the test statistic `2.364` is computed and what it means in the context of the data.
+:::
+
+## Inference {.midi}
+
+```{r}
+#| code-fold: true
+football_fit <- lm(total_exp_m ~ enrollment_th + type + enrollment_th * type, 
+                   data = football)
+
+tidy(football_fit) |> 
+  kable(digits = 3)
+```
+
+::: question
+-   State the distribution used to compute the p-value.
+
+-   The coefficient of `enrollment_th:typePublic` has a low p-value but the coefficient for `enrollment_th` has a high p-value. What does this mean about the relationship between football expenditures and enrollment?
+:::
 
 ## Meet your team! 
 

@@ -1850,7 +1850,42 @@
     "href": "slides/lab-03.html#goals",
     "title": "Lab 03",
     "section": "Goals",
-    "text": "Goals\n\nTeam workflow\nLab 03: Candy competition"
+    "text": "Goals\n\nPractice: Inference for multiple linear regression\nTeam workflow\nLab 03: Candy competition"
+  },
+  {
+    "objectID": "slides/lab-03.html#data-ncaa-football-expenditures",
+    "href": "slides/lab-03.html#data-ncaa-football-expenditures",
+    "title": "Lab 03",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for 127 institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/lab-03.html#bivariate-eda",
+    "href": "slides/lab-03.html#bivariate-eda",
+    "title": "Lab 03",
+    "section": "Bivariate EDA",
+    "text": "Bivariate EDA\n\n\nCode\np1 &lt;- ggplot(data = football, aes(x = enrollment_th, y = total_exp_m)) +\n  geom_point() + \n  labs(x = \"Enrollment (in thousands)\", \n       y = \"Total expenditures (in millions)\", \n       title = \"Football expenditures vs. enrollment\")\n\np2 &lt;- ggplot(data = football, aes(x = type, y = total_exp_m)) +\n  geom_boxplot() + \n  labs(x = \"Institution type\", \n       y = \"Total expenditures (in millions)\", \n       title = \"Football expenditures vs. institution type\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/lab-03.html#potential-interaction-effect",
+    "href": "slides/lab-03.html#potential-interaction-effect",
+    "title": "Lab 03",
+    "section": "Potential interaction effect?",
+    "text": "Potential interaction effect?\n\n\nCode\nggplot(data = football, aes(x = enrollment_th, y = total_exp_m, color = type,\n                            linetype = type)) +\n  geom_point(alpha = 0.7) + \n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Enrollment (in thousands)\", \n       y = \"Total expenditures (in millions)\", \n       title = \"Football expenditures vs. enrollment\",\n       subtitle = \"by institution type\", \n       color = \"Type\", \n       linetype = \"Type\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/lab-03.html#inference",
+    "href": "slides/lab-03.html#inference",
+    "title": "Lab 03",
+    "section": "Inference",
+    "text": "Inference\n\n\nCode\nfootball_fit &lt;- lm(total_exp_m ~ enrollment_th + type + enrollment_th * type, \n                   data = football)\n\ntidy(football_fit) |&gt; \n  kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n28.487\n4.856\n5.866\n0.00\n\n\nenrollment_th\n-0.056\n0.370\n-0.151\n0.88\n\n\ntypePublic\n-24.038\n5.523\n-4.353\n0.00\n\n\nenrollment_th:typePublic\n0.915\n0.387\n2.364\n0.02\n\n\n\n\n\n\nLet’s look at the test for enrollment_th:typePublic.\n\nState the null and alternative hypotheses being tested in the model output.\nExplain what std.error = 0.387 quantifies.\nExplain how the test statistic 2.364 is computed and what it means in the context of the data."
+  },
+  {
+    "objectID": "slides/lab-03.html#inference-1",
+    "href": "slides/lab-03.html#inference-1",
+    "title": "Lab 03",
+    "section": "Inference",
+    "text": "Inference\n\n\nCode\nfootball_fit &lt;- lm(total_exp_m ~ enrollment_th + type + enrollment_th * type, \n                   data = football)\n\ntidy(football_fit) |&gt; \n  kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n28.487\n4.856\n5.866\n0.00\n\n\nenrollment_th\n-0.056\n0.370\n-0.151\n0.88\n\n\ntypePublic\n-24.038\n5.523\n-4.353\n0.00\n\n\nenrollment_th:typePublic\n0.915\n0.387\n2.364\n0.02\n\n\n\n\n\n\n\nState the distribution used to compute the p-value.\nThe coefficient of enrollment_th:typePublic has a low p-value but the coefficient for enrollment_th has a high p-value. What does this mean about the relationship between football expenditures and enrollment?"
   },
   {
     "objectID": "slides/lab-03.html#meet-your-team",

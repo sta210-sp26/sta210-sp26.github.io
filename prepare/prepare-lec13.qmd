@@ -1,0 +1,9 @@
+---
+title: "Prepare for Lecture 13: Model selection"
+---
+
+<br>
+
+📖 Read [Sections 10.1 - 10.4](https://intro-regression.github.io/10-model-eval.html)
+
+💻 Computing reference - [Section 10.6](https://intro-regression.github.io/10-model-eval.html#model-evaluation-and-selection-in-r)

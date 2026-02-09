@@ -568,7 +568,7 @@ Important
 <td>Is there caramel in the candy?</td>
 </tr>
 <tr class="even">
-<td><code>peanutalmondy</code></td>
+<td><code>peanutyalmondy</code></td>
 <td>Does it contain peanuts, peanut butter or almonds?</td>
 </tr>
 <tr class="odd">
@@ -690,7 +690,7 @@ Important
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <ol type="a">
-<li><p>Fit a model using <code>sugarpercent</code>, <code>pricepercent</code>, <code>chocolate</code>, <code>peanutalmondy</code>, the interaction between <code>pricepercent</code> and <code>chocolate</code>, and the interaction between <code>chocolate</code> and <code>peanutalmondy</code> to predict <code>winpercent</code>. Neatly display the model using 3 decimal places. <em>Remember to use the variables created in the previous exercise.</em></p></li>
+<li><p>Fit a model using <code>sugarpercent</code>, <code>pricepercent</code>, <code>chocolate</code>, <code>peanutyalmondy</code>, and the interaction between <code>chocolate</code> and <code>peanutyalmondy</code> to predict <code>winpercent</code>. Neatly display the model using 3 decimal places. <em>Remember to use the variables created in the previous exercise.</em></p></li>
 <li><p>Interpret the intercept in the context of the data.</p></li>
 </ol>
 </section>
@@ -699,8 +699,8 @@ Important
 <p>Use the model from the previous exercise to interpret the following in the context of the data:</p>
 <ol type="a">
 <li><p>Coefficient of <code>sugarpercent = Q3</code>.</p></li>
-<li><p>Coefficient of <code>pricepercent:chocolateTRUE</code></p></li>
-<li><p>Effect of <code>peanutalmondy</code> for chocolate candy</p></li>
+<li><p>Coefficient of <code>chocolateTRUE</code></p></li>
+<li><p>Coefficient of <code>peanutyalmondyTRUE:chocolateTRUE</code></p></li>
 </ol>
 <div class="render-commit-push">
 <p><strong>Team Member 2</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
@@ -712,13 +712,21 @@ Important
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Let’s consider another model. Fit a model that includes <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutalmondy</code>, <code>sugarpercent</code> , along with the interaction between <code>pricepercent</code> and <code>peanutalmondy</code> . Neatly display the model using 3 decimal places. <em>Remember to use the variables created in Exercise 2.</em></p>
+<ol type="a">
+<li><p>Let’s consider another model. Fit a model that includes <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutyalmondy</code>, <code>sugarpercent</code> , along with the interaction between <code>pricepercent</code> and <code>peanutyalmondy</code> . Neatly display the model using 3 decimal places. <em>Remember to use the variables created in Exercise 2.</em></p></li>
+<li><p>Show how the values for <strong>statistic</strong> and <strong>p.value</strong> are computed for the coefficient of <code>pricepercent</code>.</p></li>
+</ol>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <ol type="a">
-<li><p>Compute the RMSE for the models fit in <a href="#exercise-3">Exercise 3</a> and <a href="#exercise-5">Exercise 5</a>.</p></li>
-<li><p>Which model would you choose based on the results from part (a)? Briefly explain.</p></li>
+<li>Compute the Root Mean Square Error (RMSE) for the models fit in <a href="#exercise-3">Exercise 3</a> and <a href="#exercise-5">Exercise 5</a>. The Root Mean Square Error is</li>
+</ol>
+<p><span class="math display">\[
+RMSE = \sqrt{\frac{\sum_{i=1}^n e_i^2}{n}}
+\]</span></p>
+<ol start="2" type="a">
+<li>Which model would you choose based on the results from part (a)? Briefly explain.</li>
 </ol>
 <div class="render-commit-push">
 <p><strong>Team Member 3</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>

@@ -3609,7 +3609,7 @@
     "href": "labs/lab-03.html#exercise-3",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nFit a model using sugarpercent, pricepercent, chocolate, peanutalmondy, the interaction between pricepercent and chocolate, and the interaction between chocolate and peanutalmondy to predict winpercent. Neatly display the model using 3 decimal places. Remember to use the variables created in the previous exercise.\nInterpret the intercept in the context of the data.",
+    "text": "Exercise 3\n\nFit a model using sugarpercent, pricepercent, chocolate, peanutyalmondy, and the interaction between chocolate and peanutyalmondy to predict winpercent. Neatly display the model using 3 decimal places. Remember to use the variables created in the previous exercise.\nInterpret the intercept in the context of the data.",
     "crumbs": [
       "Labs",
       "Lab 03"
@@ -3620,7 +3620,7 @@
     "href": "labs/lab-03.html#exercise-4",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\nUse the model from the previous exercise to interpret the following in the context of the data:\n\nCoefficient of sugarpercent = Q3.\nCoefficient of pricepercent:chocolateTRUE\nEffect of peanutalmondy for chocolate candy\n\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6.",
+    "text": "Exercise 4\nUse the model from the previous exercise to interpret the following in the context of the data:\n\nCoefficient of sugarpercent = Q3.\nCoefficient of chocolateTRUE\nCoefficient of peanutyalmondyTRUE:chocolateTRUE\n\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6.",
     "crumbs": [
       "Labs",
       "Lab 03"
@@ -3631,7 +3631,7 @@
     "href": "labs/lab-03.html#exercise-5",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nLet’s consider another model. Fit a model that includes chocolate, pricepercent, crispedricewafer, peanutalmondy, sugarpercent , along with the interaction between pricepercent and peanutalmondy . Neatly display the model using 3 decimal places. Remember to use the variables created in Exercise 2.",
+    "text": "Exercise 5\n\nLet’s consider another model. Fit a model that includes chocolate, pricepercent, crispedricewafer, peanutyalmondy, sugarpercent , along with the interaction between pricepercent and peanutyalmondy . Neatly display the model using 3 decimal places. Remember to use the variables created in Exercise 2.\nShow how the values for statistic and p.value are computed for the coefficient of pricepercent.",
     "crumbs": [
       "Labs",
       "Lab 03"
@@ -3642,7 +3642,7 @@
     "href": "labs/lab-03.html#exercise-6",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\n\nCompute the RMSE for the models fit in Exercise 3 and Exercise 5.\nWhich model would you choose based on the results from part (a)? Briefly explain.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7.",
+    "text": "Exercise 6\n\nCompute the Root Mean Square Error (RMSE) for the models fit in Exercise 3 and Exercise 5. The Root Mean Square Error is\n\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n}}\n\\]\n\nWhich model would you choose based on the results from part (a)? Briefly explain.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7.",
     "crumbs": [
       "Labs",
       "Lab 03"

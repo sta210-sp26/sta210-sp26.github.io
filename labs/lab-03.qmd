@@ -102,7 +102,7 @@ The data set contains the characteristics and win percentage from 85 candies in 
 | `chocolate` | Does it contain chocolate? |
 | `fruity` | Is it fruit flavored? |
 | `caramel` | Is there caramel in the candy? |
-| `peanutalmondy` | Does it contain peanuts, peanut butter or almonds? |
+| `peanutyalmondy` | Does it contain peanuts, peanut butter or almonds? |
 | `nougat` | Does it contain nougat? |
 | `crispedricewafer` | Does it contain crisped rice, wafers, or a cookie component? |
 | `hard` | Is it a hard candy? |
@@ -170,7 +170,7 @@ You will use these variables whenever `sugarpercent` and `pricepercent` are refe
 
 ## Exercise 3
 
-a.  Fit a model using `sugarpercent`, `pricepercent`, `chocolate`, `peanutalmondy`, the interaction between `pricepercent` and `chocolate`, and the interaction between `chocolate` and `peanutalmondy` to predict `winpercent`. Neatly display the model using 3 decimal places. *Remember to use the variables created in the previous exercise.*
+a.  Fit a model using `sugarpercent`, `pricepercent`, `chocolate`, `peanutyalmondy`, and the interaction between `chocolate` and `peanutyalmondy` to predict `winpercent`. Neatly display the model using 3 decimal places. *Remember to use the variables created in the previous exercise.*
 
 b.  Interpret the intercept in the context of the data.
 
@@ -180,9 +180,9 @@ Use the model from the previous exercise to interpret the following in the conte
 
 a.  Coefficient of `sugarpercent = Q3`.
 
-b.  Coefficient of `pricepercent:chocolateTRUE`
+b.  Coefficient of `chocolateTRUE`
 
-c.  Effect of `peanutalmondy` for chocolate candy
+c.  Coefficient of `peanutyalmondyTRUE:chocolateTRUE`
 
 ::: render-commit-push
 **Team Member 2**: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.
@@ -196,11 +196,17 @@ c.  Effect of `peanutalmondy` for chocolate candy
 
 ## Exercise 5
 
-Let's consider another model. Fit a model that includes `chocolate`, `pricepercent`, `crispedricewafer`, `peanutalmondy`, `sugarpercent` , along with the interaction between `pricepercent` and `peanutalmondy` . Neatly display the model using 3 decimal places. *Remember to use the variables created in Exercise 2.*
+a.  Let's consider another model. Fit a model that includes `chocolate`, `pricepercent`, `crispedricewafer`, `peanutyalmondy`, `sugarpercent` , along with the interaction between `pricepercent` and `peanutyalmondy` . Neatly display the model using 3 decimal places. *Remember to use the variables created in Exercise 2.*
+
+b.  Show how the values for **statistic** and **p.value** are computed for the coefficient of `pricepercent`.
 
 ## Exercise 6
 
-a.  Compute the RMSE for the models fit in [Exercise 3] and [Exercise 5].
+a.  Compute the Root Mean Square Error (RMSE) for the models fit in [Exercise 3] and [Exercise 5]. The Root Mean Square Error is
+
+$$
+RMSE = \sqrt{\frac{\sum_{i=1}^n e_i^2}{n}}
+$$
 
 b.  Which model would you choose based on the results from part (a)? Briefly explain.
 

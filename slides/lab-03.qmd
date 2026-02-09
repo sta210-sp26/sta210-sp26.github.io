@@ -44,7 +44,7 @@ library(patchwork)
 -   Team workflow
 -   Lab 03: Candy competition
 
-# Inference for multiple linear regression 
+# Inference for multiple linear regression
 
 ## Data: NCAA Football expenditures {.midi}
 
@@ -81,7 +81,7 @@ p2 <- ggplot(data = football, aes(x = type, y = total_exp_m)) +
 p1 + p2
 ```
 
-## Potential interaction effect? 
+## Potential interaction effect?
 
 ```{r}
 #| code-fold: true
@@ -136,7 +136,7 @@ tidy(football_fit) |>
 -   The coefficient of `enrollment_th:typePublic` has a low p-value but the coefficient for `enrollment_th` has a high p-value. What does this mean about the relationship between football expenditures and enrollment?
 :::
 
-## Meet your team! 
+## Meet your team!
 
 -   [**Click here**](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/IQBOyCiOAbuCTaSDqSwx5e17AXQXY39VvMy2szPYTCGCMUY?e=muOdca) to find your team for this week's lab.
 

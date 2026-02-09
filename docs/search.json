@@ -3563,9 +3563,108 @@
   {
     "objectID": "labs/lab-03.html",
     "href": "labs/lab-03.html",
-    "title": "Lab 03",
+    "title": "Lab 03: Multiple linear regression",
     "section": "",
-    "text": "To be posted.",
+    "text": "Important\n\n\n\nThis lab is due on Thursday, February 12 at 11:59pm.\nTo be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#learning-goals",
+    "href": "labs/lab-03.html#learning-goals",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab you will be able to…\n\ntransform and create new variables\nfit and interpret multiple linear regression models\ncompare models to select the “best” one\ncollaborate using GitHub",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-1",
+    "href": "labs/lab-03.html#exercise-1",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nVisualize the relationship between the response variable winpercent and one potential quantitative predictor. Write an observation from the graph.\nVisualize the relationship between the response variable and one potential categorical predictor. Write an observation from the graph.\n\n\n\n\n\n\n\nTip\n\n\n\nInclude informative axis labels and titles on the visualizations.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-2",
+    "href": "labs/lab-03.html#exercise-2",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWe will do some feature engineering2 to transform and create new variables to consider for the model.\n\nCreate a categorical variable that breaks sugarpercent into quartiles:\n\n“Q1” if sugarpercent \\(&lt;\\) the \\(25^{th}\\) percentile.\n“Q2” if \\(25^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(50^{th}\\) percentile.\n“Q3” if \\(50^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(75^{th}\\) percentile.\n“Q4” if sugarpercent \\(\\geq\\) \\(75^{th}\\) percentile.\n\nMultiply pricepercent * 100, so the variable ranges from 0 - 100% instead of 0 - 1.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use these variables whenever sugarpercent and pricepercent are referenced in the remainder of the lab.\n\n\n\nTeam Member 1: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.\nTeam Member 2: It’s your turn! Type the team’s response to exercises 3 - 4.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-3",
+    "href": "labs/lab-03.html#exercise-3",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nFit a model using sugarpercent, pricepercent, chocolate, peanutalmondy, the interaction between pricepercent and chocolate, and the interaction between chocolate and peanutalmondy to predict winpercent. Neatly display the model using 3 decimal places. Remember to use the variables created in the previous exercise.\nInterpret the intercept in the context of the data.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-4",
+    "href": "labs/lab-03.html#exercise-4",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse the model from the previous exercise to interpret the following in the context of the data:\n\nCoefficient of sugarpercent = Q3.\nCoefficient of pricepercent:chocolateTRUE\nEffect of peanutalmondy for chocolate candy\n\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-5",
+    "href": "labs/lab-03.html#exercise-5",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nLet’s consider another model. Fit a model that includes chocolate, pricepercent, crispedricewafer, peanutalmondy, sugarpercent , along with the interaction between pricepercent and peanutalmondy . Neatly display the model using 3 decimal places. Remember to use the variables created in Exercise 2.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-6",
+    "href": "labs/lab-03.html#exercise-6",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nCompute the RMSE for the models fit in Exercise 3 and Exercise 5.\nWhich model would you choose based on the results from part (a)? Briefly explain.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-7",
+    "href": "labs/lab-03.html#exercise-7",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nUse the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.\n\nTeam Member 4: Render, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards and the rest of the team can see the completed lab.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#footnotes",
+    "href": "labs/lab-03.html#footnotes",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from Tidy Modeling with R↩︎\n“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from Tidy Modeling with R↩︎",
     "crumbs": [
       "Labs",
       "Lab 03"
@@ -3773,7 +3872,7 @@
     "href": "labs/lab-03-DRAFT.html#exercise-2",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nWe will do some feature engineering2 to transform and create new variables to consider for the model.\n\nCreate a categorical variable that breaks sugarpercent into quartiles:\n\n“Q1” if sugarpercent \\(&lt;\\) the \\(25^{th}\\) percentile.\n“Q2” if \\(25^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(50^{th}\\) percentile.\n“Q3” if \\(50^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(75^{th}\\) percentile.\n“Q4” if sugarpercent \\(\\geq\\) \\(75^{th}\\) percentile.\n\nMultiply pricepercent * 100, so the variable ranges from 0 - 100% instead of 0 - 1.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use these variables whenever sugarpercent and pricepercent are referenced in the remainder of the lab."
+    "text": "Exercise 2\nWe will do some feature engineering2 to transform and create new variables to consider for the model.\n\nCreate a categorical variable that breaks sugarpercent into quartiles:\n\n“Q1” if sugarpercent \\(&lt;\\) the \\(25^{th}\\) percentile.\n“Q2” if \\(25^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(50^{th}\\) percentile.\n“Q3” if \\(50^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(75^{th}\\) percentile.\n“Q4” if sugarpercent \\(\\geq\\) \\(75^{th}\\) percentile.\n\nMultiply pricepercent * 100, so the variable ranges from 0 - 100% instead of 0 - 1.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use these variables whenever sugarpercent and pricepercent are referenced in the remainder of the lab.\n\n\n\nTeam Member 1: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.\nTeam Member 2: It’s your turn! Type the team’s response to exercises 3 - 4."
   },
   {
     "objectID": "labs/lab-03-DRAFT.html#exercise-3",
@@ -3787,7 +3886,7 @@
     "href": "labs/lab-03-DRAFT.html#exercise-4",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\nUse the model from the previous exercise to interpret the following in the context of the data:\n\nCoefficient of sugarpercent = Q3.\nCoefficient of pricepercent:chocolateTRUE\nEffect of peanutalmondy for chocolate candy"
+    "text": "Exercise 4\nUse the model from the previous exercise to interpret the following in the context of the data:\n\nCoefficient of sugarpercent = Q3.\nCoefficient of pricepercent:chocolateTRUE\nEffect of peanutalmondy for chocolate candy\n\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6."
   },
   {
     "objectID": "labs/lab-03-DRAFT.html#exercise-5",
@@ -3801,14 +3900,14 @@
     "href": "labs/lab-03-DRAFT.html#exercise-6",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\n\nCompute the RMSE for the models fit in Exercise 3 and Exercise 5.\nWhich model would you choose based on the results from part (a)? Briefly explain."
+    "text": "Exercise 6\n\nCompute the RMSE for the models fit in Exercise 3 and Exercise 5.\nWhich model would you choose based on the results from part (a)? Briefly explain.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7."
   },
   {
     "objectID": "labs/lab-03-DRAFT.html#exercise-7",
     "href": "labs/lab-03-DRAFT.html#exercise-7",
     "title": "Lab 03: Multiple linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\nUse the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output."
+    "text": "Exercise 7\nUse the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.\n\nTeam Member 4: Render, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards and the rest of the team can see the completed lab.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!"
   },
   {
     "objectID": "labs/lab-03-DRAFT.html#footnotes",

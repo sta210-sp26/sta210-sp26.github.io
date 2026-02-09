@@ -122,6 +122,10 @@ glimpse(candy_rankings)
 
 The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy, as measured by `winpercent`.
 
+::: render-commit-push
+**Team Member 1**: Type the team’s responses to exercises 1 - 2.
+:::
+
 ## Exercise 1
 
 a.  Visualize the relationship between the response variable `winpercent` and one potential quantitative predictor. Write an observation from the graph.
@@ -154,6 +158,16 @@ We will do some feature engineering[^2] to transform and create new variables to
 You will use these variables whenever `sugarpercent` and `pricepercent` are referenced in the remainder of the lab.
 :::
 
+::: render-commit-push
+**Team Member 1**: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.
+:::
+
+::: pull
+**All other team members**: **Pull** to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.
+
+**Team Member 2**: It’s your turn! Type the team’s response to exercises 3 - 4.
+:::
+
 ## Exercise 3
 
 a.  Fit a model using `sugarpercent`, `pricepercent`, `chocolate`, `peanutalmondy`, the interaction between `pricepercent` and `chocolate`, and the interaction between `chocolate` and `peanutalmondy` to predict `winpercent`. Neatly display the model using 3 decimal places. *Remember to use the variables created in the previous exercise.*
@@ -170,6 +184,16 @@ b.  Coefficient of `pricepercent:chocolateTRUE`
 
 c.  Effect of `peanutalmondy` for chocolate candy
 
+::: render-commit-push
+**Team Member 2**: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.
+:::
+
+::: pull
+**All other team members**: **Pull** to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.
+
+**Team Member 3**: It’s your turn! Type the team’s response to exercises 5 - 6.
+:::
+
 ## Exercise 5
 
 Let's consider another model. Fit a model that includes `chocolate`, `pricepercent`, `crispedricewafer`, `peanutalmondy`, `sugarpercent` , along with the interaction between `pricepercent` and `peanutalmondy` . Neatly display the model using 3 decimal places. *Remember to use the variables created in Exercise 2.*
@@ -180,9 +204,27 @@ a.  Compute the RMSE for the models fit in [Exercise 3] and [Exercise 5].
 
 b.  Which model would you choose based on the results from part (a)? Briefly explain.
 
+::: render-commit-push
+**Team Member 3**: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.
+:::
+
+::: pull
+**All other team members**: **Pull** to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.
+
+**Team Member 4**: It’s your turn! Type the team’s response to exercises 7.
+:::
+
 ## Exercise 7
 
 Use the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.
+
+::: render-commit-push
+**Team Member 4**: Render, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards and the rest of the team can see the completed lab.
+:::
+
+::: pull
+**All other team members**: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!
+:::
 
 # Submission
 
@@ -198,7 +240,7 @@ To submit the assignment:
 
 -   Click on the assignment, and you’ll be prompted to submit it.
 
--   Select all team members’ names, so they receive credit on the assignment. [Click here](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members) for instructions on adding team members to assignment on Gradescope.
+-   Select the name of **every** team member.
 
 -   Mark the pages for the *“Exercises”* question.
 

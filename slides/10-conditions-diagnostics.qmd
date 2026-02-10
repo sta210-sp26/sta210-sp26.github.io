@@ -43,7 +43,7 @@ bibliography: references.bib
 📋 [sta210-sp26.github.io/ae/ae-06-mlr-inf.html](../ae/ae-06-mlr-inf.html)
 :::
 
-## Question 
+## Question
 
 -   write question about the structure that gets preserved vs. messed up depending on how you do permutation sampling.
 
@@ -99,6 +99,8 @@ lemurs <- read_csv("data/lemurs-sample-young.csv")
     -   `ERUF`: Eulemur rufus, commonly known as Red-fronted brown lemur
     -   `PCOQ`: Propithecus coquereli, commonly known as Coquerel’s sifaka
     -   `VRUB`: Varecia rubra, commonly known as Red ruffed lemur
+
+## Variables
 
 -   `sex` : Sex of lemur (`M`: Male, `F`: Female)
 
@@ -171,7 +173,7 @@ How do we know if these assumptions hold in our data?
 ## Linearity {.midi}
 
 -   Look at plot of residuals versus fitted (predicted) values.
--   Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around $\text{residuals} = 0$
+-   Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around $\text{residuals} = 0$)
 
 . . .
 
@@ -191,7 +193,7 @@ ggplot(data = lemurs_aug, aes(x = .fitted, y = .resid)) +
 
 . . .
 
-<center>**Linearity is** **satisfied**</center>
+<center>**Linearity is satisfied**</center>
 
 ## Residuals vs. predictors
 
@@ -353,7 +355,7 @@ ggplot(df, aes(x = fitted, y = residuals)) +
 ```{r}
 #| echo: false
 #| fig-align: center
-#| out.width: 65%
+#| out.width: 55%
 
 ggplot(data = lemurs_aug, aes(x = .resid)) +
   geom_histogram(fill = "steelblue", color = "black") + 
@@ -363,7 +365,7 @@ ggplot(data = lemurs_aug, aes(x = .resid)) +
 
 . . .
 
-<center>Distribution approximately unimodal and symmetric, aside from the outlier. There are `r nrow(lemurs)` observations, so inference robust to departures.</center>
+<center>Distribution approximately unimodal and symmetric, aside from the outlier. There are `r nrow(lemurs)` observations, so inference robust to departures from normality</center>
 
 ## Independence
 
@@ -388,7 +390,7 @@ resid_sex <- ggplot(data = lemurs_aug, aes(x = sex, y = .resid)) +
        y = "Residuals", 
        title = "Residuals vs. sex")
 
-resid_taxon <- ggplot(data = lemurs_aug, aes(x = sex, y = .resid)) + 
+resid_taxon <- ggplot(data = lemurs_aug, aes(x = taxon, y = .resid)) + 
   geom_boxplot(fill = "steelblue", color = "black") + 
   geom_hline(yintercept = 0, color = "red", linetype = 2) + 
   labs(x = "Taxon", 
@@ -398,16 +400,16 @@ resid_taxon <- ggplot(data = lemurs_aug, aes(x = sex, y = .resid)) +
 resid_sex + resid_taxon
 ```
 
-<center>**The independence condition is** **satisfied**. The lemurs could reasonably be treated as independent.</center>
+<center>**The independence condition is** **satisfied**.</center>
 
-## What conditions are needed? 
+## What conditions are needed? {.midi}
 
 +--------------------+-----------------------+----------------------------+-------------------------+
 | Model condition    | Interpret and predict | Simulation-based inference | Theory-based inference  |
 +====================+=======================+============================+=========================+
 | **Linearity**      | Important             | Important                  | Important               |
 +--------------------+-----------------------+----------------------------+-------------------------+
-| **Independence**   | Important             | Important                  | Important               |
+| **Independence**   | Not needed            | Important                  | Important               |
 +--------------------+-----------------------+----------------------------+-------------------------+
 | **Normality**      | Not needed            | Not needed                 | Not needed if $n >> 30$ |
 |                    |                       |                            |                         |
@@ -735,7 +737,7 @@ lemurs_aug |>
 
     -   Cook's Distance
 
-## Next class 
+## Next class
 
 -   Exam 01 review
 

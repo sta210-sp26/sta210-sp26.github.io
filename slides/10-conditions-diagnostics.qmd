@@ -15,7 +15,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 12-conditions-diagnostics-notes.html
+    output-file: 10-conditions-diagnostics-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -29,23 +29,25 @@ knitr:
 bibliography: references.bib
 ---
 
-## Announcements - UPDATE
+## Announcements 
 
--   HW 02
+-   HW 02 due **TODAY** at 11:59pm
 
--   Lab 03
+-   Lab 03 due **Thursday, February 12** at 11:59pm
 
--   Lecture recordings + exam 01 practice problems on menu of course website
+## Exam 01 resources
 
-## Review: AE 06
+-   [Exam 01 practice](../exam-01-practice.html)
 
-::: appex
-📋 [sta210-sp26.github.io/ae/ae-06-mlr-inf.html](../ae/ae-06-mlr-inf.html)
-:::
+-   [Lecture recordings](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=edec3a44-0ec4-4414-89b5-b3c901375980)
 
-## Question
+-   Prepare readings (see course schedule)
 
--   write question about the structure that gets preserved vs. messed up depending on how you do permutation sampling.
+-   Lecture notes
+
+-   AEs
+
+-   Lab and HW assignments
 
 ## Computing set up
 
@@ -66,6 +68,8 @@ ggplot2::theme_set(ggplot2::theme_bw())
 
 ## Topics
 
+-   Review AE 06
+
 -   Model conditions
 
 -   Influential points
@@ -78,7 +82,35 @@ ggplot2::theme_set(ggplot2::theme_bw())
 
     -   Cook's Distance
 
-## Data: Duke lemurs - UPDATE {.midi}
+## Review: AE 06
+
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-06-mlr-inf.html](../ae/ae-06-mlr-inf.html)
+:::
+
+## Permutation sampling in MLR
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: appex
+In the last lecture, we talked about two different ways to permute data when conducting a permutation test for multiple linear regression. Choose the response that best describes how the structure of the data is changed with each method.
+:::
+
+🔗 <https://forms.office.com/r/LBXenrfGJw>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/LBXenrfGJw?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+## 
+
+## Data: Duke lemurs  {.midi}
 
 Today's data contains a subset of the original Duke Lemur data set available in the [TidyTuesday GitHub repo](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md). This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.
 
@@ -94,19 +126,19 @@ lemurs <- read_csv("data/lemurs-sample-young.csv")
 
 -   `weight`: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights \>500g generally to the nearest 1-20g.
 
--   `taxon` : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:
-
-    -   `ERUF`: Eulemur rufus, commonly known as Red-fronted brown lemur
-    -   `PCOQ`: Propithecus coquereli, commonly known as Coquerel’s sifaka
-    -   `VRUB`: Varecia rubra, commonly known as Red ruffed lemur
-
-## Variables
-
 -   `sex` : Sex of lemur (`M`: Male, `F`: Female)
 
 -   `age`: Age of lemur when weight was recorded (in months)
 
 -   `litter_size`: Total number of infants in the litter the lemur was born into (this includes the observed lemur)
+
+## Variables
+
+-   `taxon` : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:
+
+    -   `ERUF`: Eulemur rufus, commonly known as Red-fronted brown lemur
+    -   `PCOQ`: Propithecus coquereli, commonly known as Coquerel’s sifaka
+    -   `VRUB`: Varecia rubra, commonly known as Red ruffed lemur
 
 ## Bivariate EDA
 

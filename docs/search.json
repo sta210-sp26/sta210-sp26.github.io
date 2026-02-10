@@ -677,25 +677,18 @@
     "text": "Next class\n\nInference for multiple linear regression\nComplete Lecture 09 prepare"
   },
   {
-    "objectID": "slides/10-conditions-diagnostics.html#announcements---update",
-    "href": "slides/10-conditions-diagnostics.html#announcements---update",
+    "objectID": "slides/10-conditions-diagnostics.html#announcements",
+    "href": "slides/10-conditions-diagnostics.html#announcements",
     "title": "Model conditions + diagnostics",
-    "section": "Announcements - UPDATE",
-    "text": "Announcements - UPDATE\n\nHW 02\nLab 03\nLecture recordings + exam 01 practice problems on menu of course website"
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 02 due TODAY at 11:59pm\nLab 03 due Thursday, February 12 at 11:59pm"
   },
   {
-    "objectID": "slides/10-conditions-diagnostics.html#review-ae-06",
-    "href": "slides/10-conditions-diagnostics.html#review-ae-06",
+    "objectID": "slides/10-conditions-diagnostics.html#exam-01-resources",
+    "href": "slides/10-conditions-diagnostics.html#exam-01-resources",
     "title": "Model conditions + diagnostics",
-    "section": "Review: AE 06",
-    "text": "Review: AE 06\n\n📋 sta210-sp26.github.io/ae/ae-06-mlr-inf.html"
-  },
-  {
-    "objectID": "slides/10-conditions-diagnostics.html#question",
-    "href": "slides/10-conditions-diagnostics.html#question",
-    "title": "Model conditions + diagnostics",
-    "section": "Question",
-    "text": "Question\n\nwrite question about the structure that gets preserved vs. messed up depending on how you do permutation sampling."
+    "section": "Exam 01 resources",
+    "text": "Exam 01 resources\n\nExam 01 practice\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes\nAEs\nLab and HW assignments"
   },
   {
     "objectID": "slides/10-conditions-diagnostics.html#computing-set-up",
@@ -709,28 +702,42 @@
     "href": "slides/10-conditions-diagnostics.html#topics",
     "title": "Model conditions + diagnostics",
     "section": "Topics",
-    "text": "Topics\n\nModel conditions\nInfluential points\nModel diagnostics\n\nLeverage\nStudentized residuals\nCook’s Distance"
+    "text": "Topics\n\nReview AE 06\nModel conditions\nInfluential points\nModel diagnostics\n\nLeverage\nStudentized residuals\nCook’s Distance"
   },
   {
-    "objectID": "slides/10-conditions-diagnostics.html#data-duke-lemurs---update",
-    "href": "slides/10-conditions-diagnostics.html#data-duke-lemurs---update",
+    "objectID": "slides/10-conditions-diagnostics.html#review-ae-06",
+    "href": "slides/10-conditions-diagnostics.html#review-ae-06",
     "title": "Model conditions + diagnostics",
-    "section": "Data: Duke lemurs - UPDATE",
-    "text": "Data: Duke lemurs - UPDATE\nToday’s data contains a subset of the original Duke Lemur data set available in the TidyTuesday GitHub repo. This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.\nThe goal of the analysis is to use the age, sex, taxon, and litter size of the lemurs to understand variability in the weight."
+    "section": "Review: AE 06",
+    "text": "Review: AE 06\n\n📋 sta210-sp26.github.io/ae/ae-06-mlr-inf.html"
+  },
+  {
+    "objectID": "slides/10-conditions-diagnostics.html#permutation-sampling-in-mlr",
+    "href": "slides/10-conditions-diagnostics.html#permutation-sampling-in-mlr",
+    "title": "Model conditions + diagnostics",
+    "section": "Permutation sampling in MLR",
+    "text": "Permutation sampling in MLR\n\nQuestionSubmit\n\n\n\n\nIn the last lecture, we talked about two different ways to permute data when conducting a permutation test for multiple linear regression. Choose the response that best describes how the structure of the data is changed with each method.\n\n🔗 https://forms.office.com/r/LBXenrfGJw"
+  },
+  {
+    "objectID": "slides/10-conditions-diagnostics.html#data-duke-lemurs",
+    "href": "slides/10-conditions-diagnostics.html#data-duke-lemurs",
+    "title": "Model conditions + diagnostics",
+    "section": "Data: Duke lemurs",
+    "text": "Data: Duke lemurs\nToday’s data contains a subset of the original Duke Lemur data set available in the TidyTuesday GitHub repo. This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.\nThe goal of the analysis is to use the age, sex, taxon, and litter size of the lemurs to understand variability in the weight."
   },
   {
     "objectID": "slides/10-conditions-diagnostics.html#variables",
     "href": "slides/10-conditions-diagnostics.html#variables",
     "title": "Model conditions + diagnostics",
     "section": "Variables",
-    "text": "Variables\n\nweight: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights &gt;500g generally to the nearest 1-20g.\ntaxon : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:\n\nERUF: Eulemur rufus, commonly known as Red-fronted brown lemur\nPCOQ: Propithecus coquereli, commonly known as Coquerel’s sifaka\nVRUB: Varecia rubra, commonly known as Red ruffed lemur"
+    "text": "Variables\n\nweight: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights &gt;500g generally to the nearest 1-20g.\nsex : Sex of lemur (M: Male, F: Female)\nage: Age of lemur when weight was recorded (in months)\nlitter_size: Total number of infants in the litter the lemur was born into (this includes the observed lemur)"
   },
   {
     "objectID": "slides/10-conditions-diagnostics.html#variables-1",
     "href": "slides/10-conditions-diagnostics.html#variables-1",
     "title": "Model conditions + diagnostics",
     "section": "Variables",
-    "text": "Variables\n\nsex : Sex of lemur (M: Male, F: Female)\nage: Age of lemur when weight was recorded (in months)\nlitter_size: Total number of infants in the litter the lemur was born into (this includes the observed lemur)"
+    "text": "Variables\n\ntaxon : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:\n\nERUF: Eulemur rufus, commonly known as Red-fronted brown lemur\nPCOQ: Propithecus coquereli, commonly known as Coquerel’s sifaka\nVRUB: Varecia rubra, commonly known as Red ruffed lemur"
   },
   {
     "objectID": "slides/10-conditions-diagnostics.html#bivariate-eda",
@@ -978,309 +985,316 @@
     "text": "Next class\n\nExam 01 review\nNo prepare assignment"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html",
-    "href": "slides/12-conditions-diagnostics-notes.html",
+    "objectID": "slides/10-conditions-diagnostics-notes.html",
+    "href": "slides/10-conditions-diagnostics-notes.html",
     "title": "Model conditions + diagnostics",
     "section": "",
-    "text": "HW 02\nLab 03\nLecture recordings + exam 01 practice problems on menu of course website"
+    "text": "HW 02 due TODAY at 11:59pm\nLab 03 due Thursday, February 12 at 11:59pm"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#announcements---update",
-    "href": "slides/12-conditions-diagnostics-notes.html#announcements---update",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#announcements",
+    "href": "slides/10-conditions-diagnostics-notes.html#announcements",
     "title": "Model conditions + diagnostics",
     "section": "",
-    "text": "HW 02\nLab 03\nLecture recordings + exam 01 practice problems on menu of course website"
+    "text": "HW 02 due TODAY at 11:59pm\nLab 03 due Thursday, February 12 at 11:59pm"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#review-ae-06",
-    "href": "slides/12-conditions-diagnostics-notes.html#review-ae-06",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#exam-01-resources",
+    "href": "slides/10-conditions-diagnostics-notes.html#exam-01-resources",
     "title": "Model conditions + diagnostics",
-    "section": "Review: AE 06",
-    "text": "Review: AE 06\n\n📋 sta210-sp26.github.io/ae/ae-06-mlr-inf.html"
+    "section": "Exam 01 resources",
+    "text": "Exam 01 resources\n\nExam 01 practice\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes\nAEs\nLab and HW assignments"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#question",
-    "href": "slides/12-conditions-diagnostics-notes.html#question",
-    "title": "Model conditions + diagnostics",
-    "section": "Question",
-    "text": "Question\n\nwrite question about the structure that gets preserved vs. messed up depending on how you do permutation sampling."
-  },
-  {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#computing-set-up",
-    "href": "slides/12-conditions-diagnostics-notes.html#computing-set-up",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#computing-set-up",
+    "href": "slides/10-conditions-diagnostics-notes.html#computing-set-up",
     "title": "Model conditions + diagnostics",
     "section": "Computing set up",
     "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(patchwork)   \nlibrary(viridis)\n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#topics",
-    "href": "slides/12-conditions-diagnostics-notes.html#topics",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#topics",
+    "href": "slides/10-conditions-diagnostics-notes.html#topics",
     "title": "Model conditions + diagnostics",
     "section": "Topics",
-    "text": "Topics\n\nModel conditions\nInfluential points\nModel diagnostics\n\nLeverage\nStudentized residuals\nCook’s Distance"
+    "text": "Topics\n\nReview AE 06\nModel conditions\nInfluential points\nModel diagnostics\n\nLeverage\nStudentized residuals\nCook’s Distance"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#data-duke-lemurs---update",
-    "href": "slides/12-conditions-diagnostics-notes.html#data-duke-lemurs---update",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#review-ae-06",
+    "href": "slides/10-conditions-diagnostics-notes.html#review-ae-06",
     "title": "Model conditions + diagnostics",
-    "section": "Data: Duke lemurs - UPDATE",
-    "text": "Data: Duke lemurs - UPDATE\nToday’s data contains a subset of the original Duke Lemur data set available in the TidyTuesday GitHub repo. This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.\nThe goal of the analysis is to use the age, sex, taxon, and litter size of the lemurs to understand variability in the weight."
+    "section": "Review: AE 06",
+    "text": "Review: AE 06\n\n📋 sta210-sp26.github.io/ae/ae-06-mlr-inf.html"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#variables",
-    "href": "slides/12-conditions-diagnostics-notes.html#variables",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#permutation-sampling-in-mlr",
+    "href": "slides/10-conditions-diagnostics-notes.html#permutation-sampling-in-mlr",
+    "title": "Model conditions + diagnostics",
+    "section": "Permutation sampling in MLR",
+    "text": "Permutation sampling in MLR\n\nQuestionSubmit\n\n\n\n\nIn the last lecture, we talked about two different ways to permute data when conducting a permutation test for multiple linear regression. Choose the response that best describes how the structure of the data is changed with each method.\n\n🔗 https://forms.office.com/r/LBXenrfGJw"
+  },
+  {
+    "objectID": "slides/10-conditions-diagnostics-notes.html#data-duke-lemurs",
+    "href": "slides/10-conditions-diagnostics-notes.html#data-duke-lemurs",
+    "title": "Model conditions + diagnostics",
+    "section": "Data: Duke lemurs",
+    "text": "Data: Duke lemurs\nToday’s data contains a subset of the original Duke Lemur data set available in the TidyTuesday GitHub repo. This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.\nThe goal of the analysis is to use the age, sex, taxon, and litter size of the lemurs to understand variability in the weight."
+  },
+  {
+    "objectID": "slides/10-conditions-diagnostics-notes.html#variables",
+    "href": "slides/10-conditions-diagnostics-notes.html#variables",
     "title": "Model conditions + diagnostics",
     "section": "Variables",
-    "text": "Variables\n\nweight: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights &gt;500g generally to the nearest 1-20g.\ntaxon : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:\n\nERUF: Eulemur rufus, commonly known as Red-fronted brown lemur\nPCOQ: Propithecus coquereli, commonly known as Coquerel’s sifaka\nVRUB: Varecia rubra, commonly known as Red ruffed lemur"
+    "text": "Variables\n\nweight: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights &gt;500g generally to the nearest 1-20g.\nsex : Sex of lemur (M: Male, F: Female)\nage: Age of lemur when weight was recorded (in months)\nlitter_size: Total number of infants in the litter the lemur was born into (this includes the observed lemur)"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#variables-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#variables-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#variables-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#variables-1",
     "title": "Model conditions + diagnostics",
     "section": "Variables",
-    "text": "Variables\n\nsex : Sex of lemur (M: Male, F: Female)\nage: Age of lemur when weight was recorded (in months)\nlitter_size: Total number of infants in the litter the lemur was born into (this includes the observed lemur)"
+    "text": "Variables\n\ntaxon : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:\n\nERUF: Eulemur rufus, commonly known as Red-fronted brown lemur\nPCOQ: Propithecus coquereli, commonly known as Coquerel’s sifaka\nVRUB: Varecia rubra, commonly known as Red ruffed lemur"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#bivariate-eda",
-    "href": "slides/12-conditions-diagnostics-notes.html#bivariate-eda",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#bivariate-eda",
+    "href": "slides/10-conditions-diagnostics-notes.html#bivariate-eda",
     "title": "Model conditions + diagnostics",
     "section": "Bivariate EDA",
     "text": "Bivariate EDA"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#fit-model",
-    "href": "slides/12-conditions-diagnostics-notes.html#fit-model",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#fit-model",
+    "href": "slides/10-conditions-diagnostics-notes.html#fit-model",
     "title": "Model conditions + diagnostics",
     "section": "Fit model",
     "text": "Fit model\n\nlemurs_fit &lt;- lm(weight ~ age + sex + taxon + litter_size, data = lemurs)\n\ntidy(lemurs_fit) |&gt; \n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n43.844\n121.715\n0.360\n0.719\n\n\nage\n136.903\n4.858\n28.182\n0.000\n\n\nsexM\n-88.838\n68.001\n-1.306\n0.193\n\n\ntaxonPCOQ\n471.715\n95.430\n4.943\n0.000\n\n\ntaxonVRUB\n1037.323\n133.906\n7.747\n0.000\n\n\nlitter_size\n-19.607\n65.797\n-0.298\n0.766"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#assumptions-for-regression",
-    "href": "slides/12-conditions-diagnostics-notes.html#assumptions-for-regression",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#assumptions-for-regression",
+    "href": "slides/10-conditions-diagnostics-notes.html#assumptions-for-regression",
     "title": "Model conditions + diagnostics",
     "section": "Assumptions for regression",
     "text": "Assumptions for regression\n\\[\nY|X_1, \\ldots, X_p \\sim N(\\beta_0 + \\beta_1X_1 + \\dots + \\beta_pX_p, \\sigma_\\epsilon^2)\n\\]\n\nLinearity: There is a linear relationship between the response and predictor variables.\nEqual variance: The variability about the least squares line is equal for all combinations of predictors.\nNormality: The distribution of the errors (residuals) is approximately normal.\nIndependence: The errors (residuals) are independent from one another.\n\n. . .\n\nHow do we know if these assumptions hold in our data?"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#linearity",
-    "href": "slides/12-conditions-diagnostics-notes.html#linearity",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#linearity",
+    "href": "slides/10-conditions-diagnostics-notes.html#linearity",
     "title": "Model conditions + diagnostics",
     "section": "Linearity",
     "text": "Linearity\n\nLook at plot of residuals versus fitted (predicted) values.\nLinearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around \\(\\text{residuals} = 0\\))\n\n. . .\n\n\n\n\n\n\n\n\n\n. . .\n\nLinearity is satisfied"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#residuals-vs.-predictors",
-    "href": "slides/12-conditions-diagnostics-notes.html#residuals-vs.-predictors",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#residuals-vs.-predictors",
+    "href": "slides/10-conditions-diagnostics-notes.html#residuals-vs.-predictors",
     "title": "Model conditions + diagnostics",
     "section": "Residuals vs. predictors",
     "text": "Residuals vs. predictors\nIf we need a closer look at the linearity condition, we can plot the residuals versus each quantitative predictor."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#example-linearity-not-satisfied",
-    "href": "slides/12-conditions-diagnostics-notes.html#example-linearity-not-satisfied",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#example-linearity-not-satisfied",
+    "href": "slides/10-conditions-diagnostics-notes.html#example-linearity-not-satisfied",
     "title": "Model conditions + diagnostics",
     "section": "Example: Linearity not satisfied",
     "text": "Example: Linearity not satisfied\n\n\n\n\n\n\n\n\n\n. . .\n\nIf linearity is not satisfied, examine the plots of residuals versus each predictor.\nAdd higher order term(s), as needed."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#equal-variance",
-    "href": "slides/12-conditions-diagnostics-notes.html#equal-variance",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#equal-variance",
+    "href": "slides/10-conditions-diagnostics-notes.html#equal-variance",
     "title": "Model conditions + diagnostics",
     "section": "Equal variance",
     "text": "Equal variance\n\nLook at plot of residuals versus fitted (predicted) values.\nEqual variance is satisfied if the vertical spread of the points is approximately equal for all fitted values\n\n. . .\n\n\n\n\n\n\n\n\n\n. . .\n\nEqual variance is satisfied"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#example-equal-variance-not-satisfied",
-    "href": "slides/12-conditions-diagnostics-notes.html#example-equal-variance-not-satisfied",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#example-equal-variance-not-satisfied",
+    "href": "slides/10-conditions-diagnostics-notes.html#example-equal-variance-not-satisfied",
     "title": "Model conditions + diagnostics",
     "section": "Example: Equal variance not satisfied",
     "text": "Example: Equal variance not satisfied\n\n\n\n\n\n\n\n\n\n. . .\n\nCondition is critical for inference\nAddress violations by applying transformation on the response"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#normality",
-    "href": "slides/12-conditions-diagnostics-notes.html#normality",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#normality",
+    "href": "slides/10-conditions-diagnostics-notes.html#normality",
     "title": "Model conditions + diagnostics",
     "section": "Normality",
     "text": "Normality\n\nLook at the distribution of the residuals\nNormality is satisfied if the distribution is approximately unimodal and symmetric. Inference robust to violations if \\(n &gt; 30\\)\n\n\n\n\n\n\n\n\n\n\n. . .\n\nDistribution approximately unimodal and symmetric, aside from the outlier. There are 252 observations, so inference robust to departures from normality"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#independence",
-    "href": "slides/12-conditions-diagnostics-notes.html#independence",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#independence",
+    "href": "slides/10-conditions-diagnostics-notes.html#independence",
     "title": "Model conditions + diagnostics",
     "section": "Independence",
     "text": "Independence\n\nWe can often check the independence condition based on the context of the data and how the observations were collected.\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.\nIf data has spatial element, plot residuals on a map to examine potential spatial correlation.\nIf there are subgroups in the data, plot the residuals by subgroup"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#independence-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#independence-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#independence-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#independence-1",
     "title": "Model conditions + diagnostics",
     "section": "Independence",
     "text": "Independence\n\n\n\n\n\n\n\n\n\n\nThe independence condition is satisfied."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#what-conditions-are-needed",
-    "href": "slides/12-conditions-diagnostics-notes.html#what-conditions-are-needed",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#what-conditions-are-needed",
+    "href": "slides/10-conditions-diagnostics-notes.html#what-conditions-are-needed",
     "title": "Model conditions + diagnostics",
     "section": "What conditions are needed?",
     "text": "What conditions are needed?\n\n\n\n\n\n\n\n\n\nModel condition\nInterpret and predict\nSimulation-based inference\nTheory-based inference\n\n\n\n\nLinearity\nImportant\nImportant\nImportant\n\n\nIndependence\nNot needed\nImportant\nImportant\n\n\nNormality\nNot needed\nNot needed\nNot needed if \\(n &gt;&gt; 30\\)\nImportant if \\(n &lt; 30\\)\n\n\nEqual variance\nNot needed\nNot needed\nImportant"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#model-diagnostics-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#model-diagnostics-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#model-diagnostics-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#model-diagnostics-1",
     "title": "Model conditions + diagnostics",
     "section": "Model diagnostics",
     "text": "Model diagnostics\n\nlemurs_aug &lt;- augment(lemurs_fit)\n\nlemurs_aug |&gt; slice(1:10)\n\n# A tibble: 10 × 11\n   weight   age sex   taxon litter_size .fitted .resid   .hat .sigma    .cooksd\n    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n 1    410  2.27 F     ERUF            1    335.   75.0 0.0277   534. 0.0000968 \n 2    137  0.72 F     ERUF            1    123.   14.2 0.0298   534. 0.00000374\n 3    206  0.69 F     PCOQ            1    590. -384.  0.0201   533. 0.00182   \n 4    185  1.05 M     PCOQ            1    551. -366.  0.0183   533. 0.00150   \n 5    373  2.66 F     PCOQ            1    860. -487.  0.0178   533. 0.00257   \n 6    200  0.76 F     ERUF            1    128.   71.7 0.0297   534. 0.0000953 \n 7   1861  9.01 F     ERUF            1   1258.  603.  0.0234   533. 0.00525   \n 8   1634  8.02 M     ERUF            1   1033.  601.  0.0272   533. 0.00609   \n 9    636  2.76 F     ERUF            1    402.  234.  0.0272   534. 0.000921  \n10    373  1.74 F     ERUF            1    262.  111.  0.0284   534. 0.000216  \n# ℹ 1 more variable: .std.resid &lt;dbl&gt;"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#model-diagnostics-in-r",
-    "href": "slides/12-conditions-diagnostics-notes.html#model-diagnostics-in-r",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#model-diagnostics-in-r",
+    "href": "slides/10-conditions-diagnostics-notes.html#model-diagnostics-in-r",
     "title": "Model conditions + diagnostics",
     "section": "Model diagnostics in R",
     "text": "Model diagnostics in R\nUse the augment() function in the broom package to output the model diagnostics (along with the predicted values and residuals)\n\nresponse and predictor variables in the model\n.fitted: predicted values\n.se.fit: standard errors of predicted values\n.resid: residuals\n.hat: leverage\n.sigma: estimate of residual standard deviation when the corresponding observation is dropped from model\n.cooksd: Cook’s distance\n.std.resid: standardized residuals"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#influential-point",
-    "href": "slides/12-conditions-diagnostics-notes.html#influential-point",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#influential-point",
+    "href": "slides/10-conditions-diagnostics-notes.html#influential-point",
     "title": "Model conditions + diagnostics",
     "section": "Influential Point",
     "text": "Influential Point\nAn observation is influential if removing has a noticeable impact on the regression coefficients"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#influential-points",
-    "href": "slides/12-conditions-diagnostics-notes.html#influential-points",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#influential-points",
+    "href": "slides/10-conditions-diagnostics-notes.html#influential-points",
     "title": "Model conditions + diagnostics",
     "section": "Influential points",
     "text": "Influential points\n\n\nInfluential points have a noticeable impact on the coefficients and standard errors used for inference\nThese points can sometimes be identified in a scatterplot if there is only one predictor variable\n\nThis is often not the case when there are multiple predictors\n\nWe will use measures to quantify an individual observation’s influence on the regression model\n\nleverage, standardized & studentized residuals, and Cook’s distance"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#leverage-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#leverage-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#leverage-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#leverage-1",
     "title": "Model conditions + diagnostics",
     "section": "Leverage",
     "text": "Leverage\n\n\nLeverage \\((h_i)\\) : a measure of the distance of the predictor (or combination of predictors) for the \\(i^{th}\\) observation is from the mean value of the predictor (or combination of predictors)\nFor simple linear regression:\n\n\\[\nh_i = \\frac{1}{n} + \\frac{(x_i - \\bar{x})^2}{\\sum_{j = 1}^n(x_j - \\bar{x})^2}\n\\]\n\nObservations with large values of \\(h_{i}\\) are far away from the typical value (or combination of values) of the predictors in the data\n\n\n\n\nSee Appendix A.4 for math details of leverage in multiple linear regression."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#large-leverage",
-    "href": "slides/12-conditions-diagnostics-notes.html#large-leverage",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#large-leverage",
+    "href": "slides/10-conditions-diagnostics-notes.html#large-leverage",
     "title": "Model conditions + diagnostics",
     "section": "Large leverage",
     "text": "Large leverage\n\n\nThe sum of the leverages for all points is \\(p + 1\\), where \\(p\\) is the number of predictors in the model\nThe average value of leverage is \\(\\bar{h} =  \\frac{(p+1)}{n}\\)\nAn observation has large leverage if \\[h_{i} &gt; \\frac{2(p+1)}{n}\\]"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#lemurs-leverage",
-    "href": "slides/12-conditions-diagnostics-notes.html#lemurs-leverage",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#lemurs-leverage",
+    "href": "slides/10-conditions-diagnostics-notes.html#lemurs-leverage",
     "title": "Model conditions + diagnostics",
     "section": "Lemurs: Leverage",
     "text": "Lemurs: Leverage\n\nh_threshold &lt;- 2 * (5 + 1) / nrow(lemurs)\nh_threshold\n\n[1] 0.04761905\n\n\n. . .\n\nlemurs_aug |&gt;\n  filter(.hat &gt; h_threshold)\n\n# A tibble: 13 × 11\n   weight   age sex   taxon litter_size .fitted .resid   .hat .sigma  .cooksd\n    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n 1  2605   4.9  F     VRUB            1   1732.  873.  0.0563   531. 0.0282  \n 2  2574  12.3  M     VRUB            1   2657.  -82.6 0.0503   534. 0.000224\n 3  2502. 10.3  M     VRUB            1   2377.  124.  0.0502   534. 0.000503\n 4  2076  12.0  F     VRUB            1   2700. -624.  0.0520   532. 0.0132  \n 5  3532  20.2  F     VRUB            4   3771. -239.  0.0520   534. 0.00194 \n 6  3804  17.8  F     VRUB            1   3497.  307.  0.0547   534. 0.00339 \n 7  1589  18.5  M     ERUF            2   2454. -865.  0.0504   531. 0.0246  \n 8  3010  13.0  F     VRUB            1   2834.  176.  0.0521   534. 0.00105 \n 9  2550  11.6  F     VRUB            1   2655. -105.  0.0520   534. 0.000375\n10   440   0.76 F     VRUB            1   1166. -726.  0.0626   532. 0.0220  \n11   680   1.55 M     VRUB            4   1126. -446.  0.0485   533. 0.00625 \n12  3820  14.5  M     VRUB            1   2954.  866.  0.0513   531. 0.0251  \n13   617   1.12 M     VRUB            1   1126. -509.  0.0579   533. 0.00993 \n# ℹ 1 more variable: .std.resid &lt;dbl&gt;"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#lets-look-at-the-data",
-    "href": "slides/12-conditions-diagnostics-notes.html#lets-look-at-the-data",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#lets-look-at-the-data",
+    "href": "slides/10-conditions-diagnostics-notes.html#lets-look-at-the-data",
     "title": "Model conditions + diagnostics",
     "section": "Let’s look at the data",
     "text": "Let’s look at the data\n\n\n\n\n\n\n\n\n\nThe high leverage points are primarily VRUB lemurs with no siblings."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#large-leverage-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#large-leverage-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#large-leverage-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#large-leverage-1",
     "title": "Model conditions + diagnostics",
     "section": "Large leverage",
     "text": "Large leverage\nIf there is point with high leverage, ask\n\n❓ Is there a data entry error?\n❓ Is this observation within the scope of individuals for which you want to make predictions and draw conclusions?\n❓ Is this observation impacting the estimates of the model coefficients? (Need more information!)\n\n. . .\nJust because a point has high leverage does not necessarily mean it will have a substantial impact on the regression. Therefore we need to check other measures."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#scaled-residuals-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#scaled-residuals-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#scaled-residuals-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#scaled-residuals-1",
     "title": "Model conditions + diagnostics",
     "section": "Scaled residuals",
     "text": "Scaled residuals\n\n\nWhat is the best way to identify outlier points that don’t fit the pattern from the regression line?\n\nLook for points that have large residuals\n\nWe can rescale residuals and put them on a common scale to more easily identify “large” residuals\nWe will consider two types of scaled residuals: standardized residuals and studentized residuals"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#standardized-residuals",
-    "href": "slides/12-conditions-diagnostics-notes.html#standardized-residuals",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#standardized-residuals",
+    "href": "slides/10-conditions-diagnostics-notes.html#standardized-residuals",
     "title": "Model conditions + diagnostics",
     "section": "Standardized residuals",
     "text": "Standardized residuals\n\n\nThe variance of the residuals can be estimated by the mean squared residuals (MSR) \\(= \\frac{SSR}{n - p - 1} = \\hat{\\sigma}^2_{\\epsilon}\\)\nWe can use MSR to compute standardized residuals\n\\[\nstd.res_i = \\frac{e_i}{\\hat{\\sigma}_{\\epsilon}}\n\\]\nStandardized residuals are produced by augment() in the column .std.resid"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#using-standardized-residuals",
-    "href": "slides/12-conditions-diagnostics-notes.html#using-standardized-residuals",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#using-standardized-residuals",
+    "href": "slides/10-conditions-diagnostics-notes.html#using-standardized-residuals",
     "title": "Model conditions + diagnostics",
     "section": "Using standardized residuals",
     "text": "Using standardized residuals\nWe can examine the standardized residuals directly from the output from the augment() function\n\n\n\n\n\n\n\n\n\n\nAn observation is a potential outlier if its standardized residual is beyond \\(\\pm 3\\)"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#digging-in-to-the-data",
-    "href": "slides/12-conditions-diagnostics-notes.html#digging-in-to-the-data",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#digging-in-to-the-data",
+    "href": "slides/10-conditions-diagnostics-notes.html#digging-in-to-the-data",
     "title": "Model conditions + diagnostics",
     "section": "Digging in to the data",
     "text": "Digging in to the data\nLet’s look at the value of the response variable to better understand potential outliers"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#studentized-residuals",
-    "href": "slides/12-conditions-diagnostics-notes.html#studentized-residuals",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#studentized-residuals",
+    "href": "slides/10-conditions-diagnostics-notes.html#studentized-residuals",
     "title": "Model conditions + diagnostics",
     "section": "Studentized residuals",
     "text": "Studentized residuals\n\n\nMSR is an approximation of the variance of the residuals.\nA more precise calculation of the variance for the \\(i^{th}\\) residual is is \\(Var(e_i) = \\hat{\\sigma}^2_{\\epsilon}(1 - h_{i})\\)\n\nThis is called the studentized residual\n\n\n\n\\[\nr_i = \\frac{e_{i}}{\\sqrt{\\hat{\\sigma}^2_{\\epsilon}(1 - h_{i})}}\n\\]\n\nStandardized and studentized residuals provide similar information about which points are outliers in the response.\n\nStudentized residuals are used to compute Cook’s Distance"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#motivating-cooks-distance",
-    "href": "slides/12-conditions-diagnostics-notes.html#motivating-cooks-distance",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#motivating-cooks-distance",
+    "href": "slides/10-conditions-diagnostics-notes.html#motivating-cooks-distance",
     "title": "Model conditions + diagnostics",
     "section": "Motivating Cook’s Distance",
     "text": "Motivating Cook’s Distance\n\nAn observation’s influence on the regression line depends on\n\nHow close it lies to the general trend of the data\nIts leverage\n\nCook’s Distance is a statistic that includes both of these components to measure an observation’s overall impact on the model"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#cooks-distance-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#cooks-distance-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#cooks-distance-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#cooks-distance-1",
     "title": "Model conditions + diagnostics",
     "section": "Cook’s Distance",
     "text": "Cook’s Distance\nCook’s distance for the \\(i^{th}\\) observation is\n\\[\nD_i = \\frac{r^2_i}{p + 1}\\Big(\\frac{h_{i}}{1 - h_{i}}\\Big)\n\\]\nwhere \\(r_i\\) is the studentized residual and \\(h_{i}\\) is the leverage for the \\(i^{th}\\) observation\n. . .\nThis measure is a combination of\n\nHow well the model fits the \\(i^{th}\\) observation (magnitude of residuals)\nHow far the combination of predictors for the \\(i^{th}\\) observation is from the rest of the observations"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#using-cooks-distance",
-    "href": "slides/12-conditions-diagnostics-notes.html#using-cooks-distance",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#using-cooks-distance",
+    "href": "slides/10-conditions-diagnostics-notes.html#using-cooks-distance",
     "title": "Model conditions + diagnostics",
     "section": "Using Cook’s Distance",
     "text": "Using Cook’s Distance\n\nAn observation with large value of \\(D_i\\) is said to have a strong influence on the predicted values\nGeneral thresholds .An observation with\n\n\\(D_i &gt; 0.5\\) is moderately influential\n\\(D_i &gt; 1\\) is very influential"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#cooks-distance-2",
-    "href": "slides/12-conditions-diagnostics-notes.html#cooks-distance-2",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#cooks-distance-2",
+    "href": "slides/10-conditions-diagnostics-notes.html#cooks-distance-2",
     "title": "Model conditions + diagnostics",
     "section": "Cook’s Distance",
     "text": "Cook’s Distance\nCook’s Distance is in the column .cooksd in the output from the augment() function"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#using-these-measures",
-    "href": "slides/12-conditions-diagnostics-notes.html#using-these-measures",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#using-these-measures",
+    "href": "slides/10-conditions-diagnostics-notes.html#using-these-measures",
     "title": "Model conditions + diagnostics",
     "section": "Using these measures",
     "text": "Using these measures\n\nStandardized residuals, leverage, and Cook’s Distance should all be examined together\nExamine plots of the measures to identify observations that are outliers, high leverage, and may potentially impact the model."
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points",
-    "href": "slides/12-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points",
+    "href": "slides/10-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points",
     "title": "Model conditions + diagnostics",
     "section": "What to do with outliers/influential points?",
     "text": "What to do with outliers/influential points?\n\n\nFirst consider if the outlier is a result of a data entry error.\nIf not, you may consider dropping an observation if it’s an outlier in the predictor variables if…\n\nIt is meaningful to drop the observation given the context of the problem\nYou intended to build a model on a smaller range of the predictor variables. Mention this in the write up of the results and be careful to avoid extrapolation when making predictions"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points-1",
-    "href": "slides/12-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points-1",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points-1",
+    "href": "slides/10-conditions-diagnostics-notes.html#what-to-do-with-outliersinfluential-points-1",
     "title": "Model conditions + diagnostics",
     "section": "What to do with outliers/influential points?",
     "text": "What to do with outliers/influential points?\n\n\nIt is generally not good practice to drop observations that ar outliers in the value of the response variable\n\nThese are legitimate observations and should be in the model\nYou can try transformations or increasing the sample size by collecting more data\n\nA general strategy when there are influential points is to fit the model with and without the influential points and compare the outcomes"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#recap",
-    "href": "slides/12-conditions-diagnostics-notes.html#recap",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#recap",
+    "href": "slides/10-conditions-diagnostics-notes.html#recap",
     "title": "Model conditions + diagnostics",
     "section": "Recap",
     "text": "Recap\n\nIntroduced model conditions for linear regression\nDefined influential points\nIntroduced model diagnostics for linear regression\n\nLeverage\nStudentized residuals\nCook’s Distance"
   },
   {
-    "objectID": "slides/12-conditions-diagnostics-notes.html#next-class",
-    "href": "slides/12-conditions-diagnostics-notes.html#next-class",
+    "objectID": "slides/10-conditions-diagnostics-notes.html#next-class",
+    "href": "slides/10-conditions-diagnostics-notes.html#next-class",
     "title": "Model conditions + diagnostics",
     "section": "Next class",
     "text": "Next class\n\nExam 01 review\nNo prepare assignment"
@@ -2704,7 +2718,7 @@
     "href": "index.html",
     "title": "STA 210 - Regression Analysis",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 210!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 12\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 13\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nJan 19\nNo lab: Martin Luther King Jr. Day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 20\nInference: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nInference: Permutation tests\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nJan 26\nLab 01: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 27\nInference: Mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due\n\n\n\nTh\nJan 29\nInference cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\n\n\n\nMultiple linear regression (MLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nM\nFeb 2\nLab 02: Inference using mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 3\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n6\nM\nFeb 9\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 10\nModel conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n7\nM\nFeb 16\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due at end of lab\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nM\nFeb 23\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 24\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nCross validation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nM\nMar 2\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 3\nWrapping up MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n10\nM\nMar 9\nNo Lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 10\nNo Lecture: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo Lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nM\nMar 16\nLab\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 17\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due\n\n\n\nTh\nMar 19\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nM\nMar 23\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 24\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 26\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n13\nM\nMar 30\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 31\nSpecial topic/ Catch up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nTh\nApr 2\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n14\nM\nApr 6\nLab 08: Exam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 08 due at end of lab\n\n\n\nTu\nApr 7\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 9\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nApr 13\nProject work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 14\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nApr 20\nLab: Draft peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 21\nProject meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\nExam period",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 210!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 12\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 13\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nJan 19\nNo lab: Martin Luther King Jr. Day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 20\nInference: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nInference: Permutation tests\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nJan 26\nLab 01: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 27\nInference: Mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due\n\n\n\nTh\nJan 29\nInference cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\n\n\n\nMultiple linear regression (MLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nM\nFeb 2\nLab 02: Inference using mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 3\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n6\nM\nFeb 9\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 10\nModel conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n7\nM\nFeb 16\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due at end of lab\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nM\nFeb 23\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 24\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nCross validation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nM\nMar 2\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 3\nWrapping up MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n10\nM\nMar 9\nNo Lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 10\nNo Lecture: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo Lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nM\nMar 16\nLab\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 17\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due\n\n\n\nTh\nMar 19\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nM\nMar 23\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 24\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 26\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n13\nM\nMar 30\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 31\nSpecial topic/ Catch up\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nTh\nApr 2\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n14\nM\nApr 6\nLab 08: Exam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 08 due at end of lab\n\n\n\nTu\nApr 7\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 9\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nApr 13\nProject work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 14\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nApr 20\nLab: Draft peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 21\nProject meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\nExam period",
     "crumbs": [
       "Schedule"
     ]

@@ -33,13 +33,13 @@ We will review data about the Kentucky Derby, an annual 1.25-mile horse race hel
 
 -   `condition` : Condition of the track (fast, good, slow)
 
--    `speed`: average speed of the winner (in feet per second)
+-   `speed`: average speed of the winner (in feet per second)
 
--    `starters`: Number of horses who raced
+-   `starters`: Number of horses who raced
 
 There are `r nrow(derby)` observations in the data. These data are analyzed in [Chapter 1 of Beyond Multiple Linear Regression](https://bookdown.org/roback/bookdown-BeyondMLR/ch-MLRreview.html#cs:derby).
 
-## Exploratory data analysis 
+## Exploratory data analysis
 
 ### Univariate EDA
 
@@ -57,7 +57,7 @@ p3 <- ggplot(data = derby, aes(x = starters)) +
 p1 / (p2 + p3)
 ```
 
-### Bivariate EDA 
+### Bivariate EDA
 
 ```{r}
 #| code-fold: true
@@ -125,8 +125,8 @@ f.  Does this hypothesis test answer the stated analysis question?
 
 ## Exercise 6
 
-1.  Interpret the 95% confidence interval for `years_since_1896` in the context of the data.
-2.  Is the interval consistent with the test from the previous exercise? Briefly explain.
+-   Interpret the 95% confidence interval for `years_since_1896` in the context of the data.
+-   Is the interval consistent with the test from the previous exercise? Briefly explain.
 
 ## Exercise 7
 
@@ -136,7 +136,7 @@ Describe the effect of the track condition on the average speed of the winner. I
 
 We want to consider a potential interaction effect between `starters` and `condition`. Sketch a scatterplot that shows the relationship between `starters` and `speed` differing by `condition`.
 
-### Exercise 9
+## Exercise 9
 
 The output of the model that includes the interaction between `starters` and `conditions` is shown below:
 
@@ -162,6 +162,26 @@ We conduct inference on the coefficients $\beta_j$ assuming that the variability
 ## Exercise 11
 
 Explain why we say "holding all else constant" when interpreting the coefficients in a multiple linear regression model.
+
+## Exercise 12
+
+Suppose we construct a bootstrap confidence interval for $\beta_{\text{starters}}$. We use 1,000 iterations and the seed 210
+
+-   What is the approximate center of the bootstrap distribution?
+
+-   How many observations are in the bootstrap sample for a single iteration?
+
+-   What is the approximate variance of the bootstrap distribution?
+
+## Exercise 13
+
+-   Describe how indicator variables, if at all, impact a model (e.g., the intercept, the slope, both).
+
+-   Describe how interaction terms, if at all, impact a model (e.g., the intercept, the slope, both).
+
+## Exercise 14
+
+Explain why the equal variance condition is important for inference based on mathematical models but not important for simulation-based inference.
 
 ## Relevant lectures, assignments and AEs
 

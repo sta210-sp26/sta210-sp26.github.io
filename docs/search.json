@@ -3282,7 +3282,17 @@
     "href": "exam-01-practice.html#exercise-8",
     "title": "Exam 01 practice",
     "section": "Exercise 8",
-    "text": "Exercise 8\nWe want to consider a potential interaction effect between starters and condition. Sketch a scatterplot that shows the relationship between starters and speed differing by condition.\n\nExercise 9\nThe output of the model that includes the interaction between starters and conditions is shown below:\n\nderby_fit_int &lt;- lm(speed ~ years_since_1896 + condition + starters +\n                      starters * condition, \n                   data = derby)\n\ntidy(derby_fit_int, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n52.416\n0.225\n232.511\n0.000\n51.970\n52.863\n\n\nyears_since_1896\n0.023\n0.002\n9.954\n0.000\n0.019\n0.028\n\n\nconditiongood\n-1.290\n0.768\n-1.679\n0.096\n-2.811\n0.231\n\n\nconditionslow\n-2.283\n0.431\n-5.299\n0.000\n-3.136\n-1.430\n\n\nstarters\n-0.023\n0.019\n-1.238\n0.218\n-0.060\n0.014\n\n\nconditiongood:starters\n0.062\n0.054\n1.147\n0.254\n-0.045\n0.170\n\n\nconditionslow:starters\n0.054\n0.029\n1.841\n0.068\n-0.004\n0.112\n\n\n\n\n\n\nInterpret the coefficient of conditiongood:starters in the context fo the data.\nWrite the estimated model for fast track conditions.\nWhat is the effect of starters went the track condition is slow?",
+    "text": "Exercise 8\nWe want to consider a potential interaction effect between starters and condition. Sketch a scatterplot that shows the relationship between starters and speed differing by condition.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-9",
+    "href": "exam-01-practice.html#exercise-9",
+    "title": "Exam 01 practice",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nThe output of the model that includes the interaction between starters and conditions is shown below:\n\nderby_fit_int &lt;- lm(speed ~ years_since_1896 + condition + starters +\n                      starters * condition, \n                   data = derby)\n\ntidy(derby_fit_int, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n52.416\n0.225\n232.511\n0.000\n51.970\n52.863\n\n\nyears_since_1896\n0.023\n0.002\n9.954\n0.000\n0.019\n0.028\n\n\nconditiongood\n-1.290\n0.768\n-1.679\n0.096\n-2.811\n0.231\n\n\nconditionslow\n-2.283\n0.431\n-5.299\n0.000\n-3.136\n-1.430\n\n\nstarters\n-0.023\n0.019\n-1.238\n0.218\n-0.060\n0.014\n\n\nconditiongood:starters\n0.062\n0.054\n1.147\n0.254\n-0.045\n0.170\n\n\nconditionslow:starters\n0.054\n0.029\n1.841\n0.068\n-0.004\n0.112\n\n\n\n\n\n\nInterpret the coefficient of conditiongood:starters in the context fo the data.\nWrite the estimated model for fast track conditions.\nWhat is the effect of starters went the track condition is slow?",
     "crumbs": [
       "Exam 01 practice"
     ]
@@ -3303,6 +3313,36 @@
     "title": "Exam 01 practice",
     "section": "Exercise 11",
     "text": "Exercise 11\nExplain why we say “holding all else constant” when interpreting the coefficients in a multiple linear regression model.",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-12",
+    "href": "exam-01-practice.html#exercise-12",
+    "title": "Exam 01 practice",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nSuppose we construct a bootstrap confidence interval for \\(\\beta_{\\text{starters}}\\). We use 1,000 iterations and the seed 210\n\nWhat is the approximate center of the bootstrap distribution?\nHow many observations are in the bootstrap sample for a single iteration?\nWhat is the approximate variance of the bootstrap distribution?",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-13",
+    "href": "exam-01-practice.html#exercise-13",
+    "title": "Exam 01 practice",
+    "section": "Exercise 13",
+    "text": "Exercise 13\n\nDescribe how indicator variables, if at all, impact a model (e.g., the intercept, the slope, both).\nDescribe how interaction terms, if at all, impact a model (e.g., the intercept, the slope, both).",
+    "crumbs": [
+      "Exam 01 practice"
+    ]
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-14",
+    "href": "exam-01-practice.html#exercise-14",
+    "title": "Exam 01 practice",
+    "section": "Exercise 14",
+    "text": "Exercise 14\nExplain why the equal variance condition is important for inference based on mathematical models but not important for simulation-based inference.",
     "crumbs": [
       "Exam 01 practice"
     ]

@@ -415,12 +415,13 @@ window.Quarto = {
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a>
-  <ul class="collapse">
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  </ul></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
+  <li><a href="#exercise-12" id="toc-exercise-12" class="nav-link" data-scroll-target="#exercise-12">Exercise 12</a></li>
+  <li><a href="#exercise-13" id="toc-exercise-13" class="nav-link" data-scroll-target="#exercise-13">Exercise 13</a></li>
+  <li><a href="#exercise-14" id="toc-exercise-14" class="nav-link" data-scroll-target="#exercise-14">Exercise 14</a></li>
   <li><a href="#relevant-lectures-assignments-and-aes" id="toc-relevant-lectures-assignments-and-aes" class="nav-link" data-scroll-target="#relevant-lectures-assignments-and-aes">Relevant lectures, assignments and AEs</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -649,10 +650,10 @@ There is no answer key for these problems. You are encouraged to ask questions d
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<ol type="1">
+<ul>
 <li>Interpret the 95% confidence interval for <code>years_since_1896</code> in the context of the data.</li>
 <li>Is the interval consistent with the test from the previous exercise? Briefly explain.</li>
-</ol>
+</ul>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
@@ -661,8 +662,9 @@ There is no answer key for these problems. You are encouraged to ask questions d
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <p>We want to consider a potential interaction effect between <code>starters</code> and <code>condition</code>. Sketch a scatterplot that shows the relationship between <code>starters</code> and <code>speed</code> differing by <code>condition</code>.</p>
-<section id="exercise-9" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
 <p>The output of the model that includes the interaction between <code>starters</code> and <code>conditions</code> is shown below:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>derby_fit_int <span class="ot">&lt;-</span> <span class="fu">lm</span>(speed <span class="sc">~</span> years_since_1896 <span class="sc">+</span> condition <span class="sc">+</span> starters <span class="sc">+</span></span>
@@ -767,7 +769,6 @@ There is no answer key for these problems. You are encouraged to ask questions d
 <li><p>What is the effect of <code>starters</code> went the track condition is <code>slow</code>?</p></li>
 </ul>
 </section>
-</section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
 <p>We conduct inference on the coefficients <span class="math inline">\(\beta_j\)</span> assuming that the variability of <span class="math inline">\(Y|X_1, \ldots, X_p\)</span> is equal for all values (or combination of values) of the predictor(s). Briefly explain why this assumption is important.</p>
@@ -775,6 +776,26 @@ There is no answer key for these problems. You are encouraged to ask questions d
 <section id="exercise-11" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
 <p>Explain why we say “holding all else constant” when interpreting the coefficients in a multiple linear regression model.</p>
+</section>
+<section id="exercise-12" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
+<p>Suppose we construct a bootstrap confidence interval for <span class="math inline">\(\beta_{\text{starters}}\)</span>. We use 1,000 iterations and the seed 210</p>
+<ul>
+<li><p>What is the approximate center of the bootstrap distribution?</p></li>
+<li><p>How many observations are in the bootstrap sample for a single iteration?</p></li>
+<li><p>What is the approximate variance of the bootstrap distribution?</p></li>
+</ul>
+</section>
+<section id="exercise-13" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-13">Exercise 13</h2>
+<ul>
+<li><p>Describe how indicator variables, if at all, impact a model (e.g., the intercept, the slope, both).</p></li>
+<li><p>Describe how interaction terms, if at all, impact a model (e.g., the intercept, the slope, both).</p></li>
+</ul>
+</section>
+<section id="exercise-14" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-14">Exercise 14</h2>
+<p>Explain why the equal variance condition is important for inference based on mathematical models but not important for simulation-based inference.</p>
 </section>
 <section id="relevant-lectures-assignments-and-aes" class="level2">
 <h2 class="anchored" data-anchor-id="relevant-lectures-assignments-and-aes">Relevant lectures, assignments and AEs</h2>

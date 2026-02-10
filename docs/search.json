@@ -719,6 +719,13 @@
     "text": "Permutation sampling in MLR\n\nQuestionSubmit\n\n\n\n\nIn the last lecture, we talked about two different ways to permute data when conducting a permutation test for multiple linear regression. Choose the response that best describes how the structure of the data is changed with each method.\n\n🔗 https://forms.office.com/r/LBXenrfGJw"
   },
   {
+    "objectID": "slides/10-conditions-diagnostics.html#permutation-illustrated",
+    "href": "slides/10-conditions-diagnostics.html#permutation-illustrated",
+    "title": "Model conditions + diagnostics",
+    "section": "Permutation illustrated",
+    "text": "Permutation illustrated\n\nGenerate from Claude AI Sonnet 4.5 using the prompt: “Please draw a picture illustrating permuting the response variable versus permuting individual predictor variables.”"
+  },
+  {
     "objectID": "slides/10-conditions-diagnostics.html#data-duke-lemurs",
     "href": "slides/10-conditions-diagnostics.html#data-duke-lemurs",
     "title": "Model conditions + diagnostics",
@@ -1032,6 +1039,13 @@
     "title": "Model conditions + diagnostics",
     "section": "Permutation sampling in MLR",
     "text": "Permutation sampling in MLR\n\nQuestionSubmit\n\n\n\n\nIn the last lecture, we talked about two different ways to permute data when conducting a permutation test for multiple linear regression. Choose the response that best describes how the structure of the data is changed with each method.\n\n🔗 https://forms.office.com/r/LBXenrfGJw"
+  },
+  {
+    "objectID": "slides/10-conditions-diagnostics-notes.html#permutation-illustrated",
+    "href": "slides/10-conditions-diagnostics-notes.html#permutation-illustrated",
+    "title": "Model conditions + diagnostics",
+    "section": "Permutation illustrated",
+    "text": "Permutation illustrated\n\n\n\n\n\nGenerate from Claude AI Sonnet 4.5 using the prompt: “Please draw a picture illustrating permuting the response variable versus permuting individual predictor variables.”"
   },
   {
     "objectID": "slides/10-conditions-diagnostics-notes.html#data-duke-lemurs",

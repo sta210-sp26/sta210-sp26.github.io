@@ -29,7 +29,7 @@ knitr:
 bibliography: references.bib
 ---
 
-## Announcements 
+## Announcements
 
 -   HW 02 due **TODAY** at 11:59pm
 
@@ -108,9 +108,13 @@ In the last lecture, we talked about two different ways to permute data when con
 ```
 :::::
 
-## 
+## Permutation illustrated 
 
-## Data: Duke lemurs  {.midi}
+![](images/10/permutation-sampling.png){fig-align="center" width="80%"}
+
+<small>Generate from Claude AI Sonnet 4.5 using the prompt: "Please draw a picture illustrating permuting the response variable versus permuting individual predictor variables."</small>
+
+## Data: Duke lemurs
 
 Today's data contains a subset of the original Duke Lemur data set available in the [TidyTuesday GitHub repo](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md). This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.
 

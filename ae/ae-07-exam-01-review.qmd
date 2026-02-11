@@ -1,23 +1,26 @@
 ---
 title: "AE 07: Exam 01 review"
 subtitle: "Trail users"
-date: "February 13, 2025"
+date: "February 12, 2026"
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-sp25) and locate your `ae-07`- to get started.
+Go to the [course GitHub organization](https://github.com/sta210-sp26) and locate your `ae-07` repo to get started.
 
 Render, commit, and push your responses to GitHub by the end of class.
 :::
 
 ## Packages
 
-```{r load-packages}
+```{r}
+#| label: load-packages
 #| message: false
+
 library(tidyverse)
 library(tidymodels)
 library(knitr)
+library(patchwork)
 ```
 
 ## Trail users
@@ -26,11 +29,12 @@ The Pioneer Valley Planning Commission (PVPC) collected data for ninety days fro
 
 We will use regression analysis to predict the number of trail users based on weather and other features describing the day.
 
-The variables we'll focus on for this analysis are
+We'll use the following variables in this analysis:
 
 -   `volume` estimated number of trail users that day (number of breaks recorded)
+
 -   `hightemp` daily high temperature (in degrees Fahrenheit)
--   `season` one of "Fall", "Spring", or "Summer"
+
 -   `daytype` one of "weekday" or "weekend"
 
 View the data set[^1] to see the remaining variables.
@@ -43,51 +47,88 @@ View the data set[^1] to see the remaining variables.
 rail_trail <- read_csv("data/rail-trail.csv")
 ```
 
-## Exploratory analysis
+## Bivariate EDA
+
+```{r}
+p1 <- ggplot(data = rail_trail, aes(x = hightemp, y = volume)) + 
+  geom_point() + 
+  labs(x = "High temperature (in Fahrenheit)", 
+       y = "Number of users", 
+       title = "Volume versus high temperature")
+
+p2 <- ggplot(data = rail_trail, aes(x = daytype, y = volume)) + 
+  geom_boxplot() + 
+  labs(x = "", 
+       y = "Number of users", 
+       title = "Volume versus day type")
+
+p1 + p2
+```
+
+## Models
+
+Below is the code for the two models used in this analysis.
+
+```{r}
+# main effects model 
+main_effects_model <- lm(volume ~ hightemp + daytype, data = rail_trail)
+
+
+# interaction model 
+interaction_model <- lm(volume ~ hightemp + daytype + hightemp * daytype,
+                         data = rail_trail)
+
+```
+
+## Exercises
 
 ### Exercise 1
 
-Visualize, summarize, and describe the distribution of `volume`.
+Consider the **main effects** model.
+
+-   Display the model along with the 90% confidence intervals for the coefficients.
+
+<!-- -->
+
+-   Interpret the coefficient of `hightemp` in the context of the data.
+
+-   Interpret the coefficient of `daytypeWeekend` in the context of the data.
+
+-   Does it make sense to interpret the intercept? Explain your reasoning.
+
+-   If not, what can we do to make the interpretation meaningful?
 
 ### Exercise 2
 
--   Visualize and describe the relationship between `hightemp` and `volume`.
--   Modify the plot to consider if the relationship between these variables differs by `daytype`.
+Consider the **interactions effects** model.
 
-## Modeling
+-   Display the model along with the 90% confidence intervals for the coefficients.
 
-Fit a model using `hightemp` and `daytype` to predict the `volume` for this trail.
+<!-- -->
+
+-   Interpret the main effect of `hightemp`.
+
+-   Interpret the coefficient `hightemp:daytypeWeekend` .
+
+-   According to this model, does the effect of `hightemp` differ for weekends vs. weekdays? Explain.
 
 ### Exercise 3
 
--   Write the statistical model.
+The following code can be used to create a bootstrap distribution for the model coefficients in the **main effects model**.
 
--   Fit the model and write the estimated regression equation. Neatly display the results using 3 digits and the 90% confidence interval for the coefficients.
-
-### Exercise 4
-
-Interpret the slope of `hightemp` in the context of the data.
-
-### Exercise 5
-
--   Does it make sense to interpret the intercept? Explain your reasoning.
--   If not, what can we do to make the interpretation meaningful?
-
-## Inference for coefficients
-
-### Exercise 6
-
-The following code can be used to create a bootstrap distribution for the model coefficients. Describe what each line of code does, supplemented by any visualizations that might help with your description.
+-   Describe what each line of code does.
 
 ```{r}
 #| label: ex-6
 
-set.seed(1234)
+set.seed(210)
 
 boot_dist <- rail_trail |> # <1>
   specify(volume ~ hightemp + daytype) |> # <2>
   generate(reps = 100, type = "bootstrap") |> # <3>
   fit() # <4>
+
+
 ```
 
 1.  \_\_\_
@@ -98,56 +139,49 @@ boot_dist <- rail_trail |> # <1>
 
 4.  \_\_\_
 
-### Exercise 7
+-   How many observations are in each bootstrap sample?
 
-Use the bootstrap distribution created in Exercise 6, `boot_dist`, to construct a 90% confidence interval for the coefficient of `hightemp` using bootstrapping and the percentile method and interpret it in context of the data.
+-   Explain why we use bootstrap samples, instead of permutation sampling, to construct confidence intervals.
 
-### Exercise 8
+### Exercise 4
 
-Conduct a hypothesis test for the coefficient of `hightemp` significance level using permutation with 100 reps. State the hypotheses in words and mathematical notation. Also include a visualization of the null distribution of the slope with the observed slope marked as a vertical line.
+Consider the bootstrap distribution for the coefficient of `hightemp` in the **main effects** model.
 
-### Exercise 9
+-   How many estimated $\hat{\beta}_{\text{hightemp}}$ make up the bootstrap distribution?
 
-Now repeat Exercises 7 and 8 using approaches based on mathematical models. You can reference output from previous exercises and/or write new code as needed.
+-   Run the code from the previous exercise to construct the bootstrap distribution. Use the bootstrap distribution to compute $SE_{\hat{\beta}_\text{hightemp}}$. Explain what this value means in the context of the data.
 
-## Inference for prediction
+-   Construct a 90% confidence interval for the coefficient of `hightemp`. Interpret the interval in the context of the data.
 
-### Exercise 10
+### Exercise 5
 
-Based on your model, predict the volume for a weekday with high temperature of degrees.
+We would like to conduct the following hypothesis test for the **main effects** model.
 
-### Exercise 11
+$$
+\begin{aligned}
+&H_0: \beta_\text{hightemp} = 0 \\
+&H_a: \beta_\text{hightemp} \neq 0
+\end{aligned}
+$$
 
-Suppose you're asked to construct a confidence and a prediction interval for your finding in the previous exercise. Which one would you expect to be wider and why? In your answer clearly state the difference between these intervals.
+-   State the hypotheses in words.
 
-### Exercise 12
+-   Conduct a permutation test permuting the response variable. Use 100 reps, a seed of 210, and a significance level of $\alpha = 0.05$.
 
-Now construct the intervals and comment on whether your guess is confirmed.
+### Exercise 6
 
-## Interaction terms
+-   Use the **interaction effects** model to predict the volume for a Saturday that has a high temperature of 75 degrees Fahrenheit.
 
-### Exercise 13
+-   Suppose you're asked to construct a confidence and a prediction interval for your finding in the previous exercise. Which one would you expect to be wider and why? In your answer clearly state the difference between these intervals.
 
-Now fit the model using `hightemp` and `daytype` to predict volume such that the effect of `hightemp` can differ by `daytype`.
+-   Construct the intervals and interpret them in the context of the data.
 
-### Exercise 14
-
--   Write the estimated regression equation for weekends.
--   Write the estimated regression equation for weekdays.
-
-### Exercise 15
-
-According to this model, does the effect of `hightemp` differ for weekends vs. weekdays? Explain.
-
-## Model comparison
-
-### Exercise 16
-
-Which model is a better fit for the data - the model with or without the interaction? Show any work to support your choice.
+# Wrapping up
 
 ::: callout-important
-To submit the AE:
+Once you’ve completed the AE:
 
--   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-07-` repo on GitHub. (You do not submit AEs on Gradescope).
+-   Render the document to produce the PDF with all of your work from today’s class.
+
+-   Push all your work to your AE repo on GitHub. You’re done! 🎉
 :::

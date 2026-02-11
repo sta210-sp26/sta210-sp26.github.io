@@ -288,6 +288,19 @@ Prof.&nbsp;Maria Tackett
 <h2>Data: Duke lemurs</h2>
 <p>Today’s data contains a subset of the original Duke Lemur data set available in the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md">TidyTuesday GitHub repo</a>. This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.</p>
 <p><strong>The goal of the analysis is to use the age, sex, taxon, and litter size of the lemurs to understand variability in the weight.</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 252 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (3): name, sex, taxon
+dbl  (4): dlc_id, litter_size, age, weight
+date (1): dob
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
 </section>
 <section id="variables" class="slide level2">
 <h2>Variables</h2>
@@ -312,14 +325,14 @@ Prof.&nbsp;Maria Tackett
 <section id="bivariate-eda" class="slide level2">
 <h2>Bivariate EDA</h2>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-3-1.png" width="672" class="r-stretch"></section>
 <section id="fit-model" class="slide level2">
 <h2>Fit model</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>lemurs_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> age <span class="sc">+</span> sex <span class="sc">+</span> taxon <span class="sc">+</span> litter_size, <span class="at">data =</span> lemurs)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="fu">tidy</span>(lemurs_fit) <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>lemurs_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> age <span class="sc">+</span> sex <span class="sc">+</span> taxon <span class="sc">+</span> litter_size, <span class="at">data =</span> lemurs)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="fu">tidy</span>(lemurs_fit) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -412,7 +425,7 @@ Y|X_1, \ldots, X_p \sim N(\beta_0 + \beta_1X_1 + \dots + \beta_pX_p, \sigma_\eps
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+<p><img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div>
@@ -428,11 +441,11 @@ Y|X_1, \ldots, X_p \sim N(\beta_0 + \beta_1X_1 + \dots + \beta_pX_p, \sigma_\eps
 <h2>Residuals vs.&nbsp;predictors</h2>
 <p>If we need a closer look at the linearity condition, we can plot the residuals versus each quantitative predictor.</p>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
 <section id="example-linearity-not-satisfied" class="slide level2">
 <h2>Example: Linearity not satisfied</h2>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="fragment">
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"><div class="fragment">
 <ul>
 <li>If linearity is not satisfied, examine the plots of residuals versus each predictor.</li>
 <li>Add higher order term(s), as needed.</li>
@@ -450,7 +463,7 @@ Y|X_1, \ldots, X_p \sim N(\beta_0 + \beta_1X_1 + \dots + \beta_pX_p, \sigma_\eps
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+<p><img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div>
@@ -465,7 +478,7 @@ Y|X_1, \ldots, X_p \sim N(\beta_0 + \beta_1X_1 + \dots + \beta_pX_p, \sigma_\eps
 <section id="example-equal-variance-not-satisfied" class="slide level2">
 <h2>Example: Equal variance not satisfied</h2>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="fragment">
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"><div class="fragment">
 <ul>
 <li><p>Condition is critical for inference</p></li>
 <li><p>Address violations by applying transformation on the response</p></li>
@@ -478,8 +491,13 @@ Y|X_1, \ldots, X_p \sim N(\beta_0 + \beta_1X_1 + \dots + \beta_pX_p, \sigma_\eps
 <li>Look at the distribution of the residuals</li>
 <li>Normality is satisfied if the distribution is approximately unimodal and symmetric. Inference robust to violations if <span class="math inline">\(n &gt; 30\)</span></li>
 </ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
+</div>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div class="fragment">
+</div>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div class="fragment">
 <center>
 Distribution approximately unimodal and symmetric, aside from the outlier. There are 252 observations, so inference robust to departures from normality
 </center>
@@ -497,7 +515,7 @@ Distribution approximately unimodal and symmetric, aside from the outlier. There
 <section id="independence-1" class="slide level2">
 <h2>Independence</h2>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><center>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"><center>
 <strong>The independence condition is</strong> <strong>satisfied</strong>.
 </center>
 </section>
@@ -555,9 +573,9 @@ Distribution approximately unimodal and symmetric, aside from the outlier. There
 <section id="model-diagnostics-1" class="slide level2">
 <h2>Model diagnostics</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>lemurs_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(lemurs_fit)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>lemurs_aug <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>lemurs_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(lemurs_fit)</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>lemurs_aug <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 11
    weight   age sex   taxon litter_size .fitted .resid   .hat .sigma    .cooksd
@@ -593,8 +611,14 @@ Distribution approximately unimodal and symmetric, aside from the outlier. There
 <section id="influential-point" class="slide level2">
 <h2>Influential Point</h2>
 <p>An observation is <strong>influential</strong> if removing has a noticeable impact on the regression coefficients</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+</div>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-13-1.png" width="672" class="r-stretch"></section>
 <section id="influential-points" class="slide level2">
 <h2>Influential points</h2>
 <ul>
@@ -641,16 +665,16 @@ h_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{j = 1}^n(x_j - \bar{x})^2}
 <section id="lemurs-leverage" class="slide level2">
 <h2>Lemurs: Leverage</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>h_threshold <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="fu">nrow</span>(lemurs)</span>
-<span id="cb5-2"><a></a>h_threshold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>h_threshold <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="fu">nrow</span>(lemurs)</span>
+<span id="cb8-2"><a></a>h_threshold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04761905</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>lemurs_aug <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> h_threshold)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>lemurs_aug <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> h_threshold)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 13 × 11
    weight   age sex   taxon litter_size .fitted .resid   .hat .sigma  .cooksd
@@ -675,8 +699,13 @@ h_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{j = 1}^n(x_j - \bar{x})^2}
 </section>
 <section id="lets-look-at-the-data" class="slide level2">
 <h2>Let’s look at the data</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
+</div>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"><p><strong>The high leverage points are primarily VRUB lemurs with no siblings.</strong></p>
+</div>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-16-1.png" width="672" class="r-stretch"><p><strong>The high leverage points are primarily VRUB lemurs with no siblings.</strong></p>
 </section>
 <section id="large-leverage-1" class="slide level2">
 <h2>Large leverage</h2>
@@ -721,7 +750,7 @@ std.res_i = \frac{e_i}{\hat{\sigma}_{\epsilon}}
 <h2>Using standardized residuals</h2>
 <p>We can examine the standardized residuals directly from the output from the <code>augment()</code> function</p>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/std residuals vs fitted-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<img data-src="10-conditions-diagnostics_files/figure-html/std residuals vs fitted-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"><ul>
 <li>An observation is a <em>potential outlier</em> if its standardized residual is beyond <span class="math inline">\(\pm 3\)</span></li>
 </ul>
 </section>
@@ -729,7 +758,7 @@ std.res_i = \frac{e_i}{\hat{\sigma}_{\epsilon}}
 <h2>Digging in to the data</h2>
 <p>Let’s look at the value of the response variable to better understand potential outliers</p>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-17-1.png" width="672" class="r-stretch"></section>
 <section id="studentized-residuals" class="slide level2 midi">
 <h2>Studentized residuals</h2>
 <ul>
@@ -795,7 +824,7 @@ D_i = \frac{r^2_i}{p + 1}\Big(\frac{h_{i}}{1 - h_{i}}\Big)
 <h2>Cook’s Distance</h2>
 <p>Cook’s Distance is in the column <code>.cooksd</code> in the output from the <code>augment()</code> function</p>
 
-<img data-src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<img data-src="10-conditions-diagnostics_files/figure-html/unnamed-chunk-18-1.png" width="672" class="r-stretch"></section>
 <section id="using-these-measures" class="slide level2">
 <h2>Using these measures</h2>
 <ul>
@@ -1065,44 +1094,6 @@ D_i = \frac{r^2_i}{p + 1}\Big(\frac{h_{i}}{1 - h_{i}}\Big)
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

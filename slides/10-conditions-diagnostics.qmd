@@ -108,7 +108,7 @@ In the last lecture, we talked about two different ways to permute data when con
 ```
 :::::
 
-## Permutation illustrated 
+## Permutation illustrated
 
 ![](images/10/permutation-sampling.png){fig-align="center" width="80%"}
 

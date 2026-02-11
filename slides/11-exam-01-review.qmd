@@ -1,0 +1,149 @@
+---
+title: "Exam 01 review"
+author: "Prof. Maria Tackett"
+date: "02-12-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 11-exam-01-review-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Announcements {.midi}
+
+-   Lab 03 due **TODAY** at 11:59pm
+
+-   Monday's lab: Exam 01 review
+
+-   Exam 01: Tuesday, February 17 (in-class)
+
+## Exam 01 - UPDATE
+
+-   50 points total
+
+-   In-class: 75 minutes during February 17 lecture
+
+-   Take-home: due February 19
+
+-   If you miss any part of the exam for an excused absence (with academic dean’s note), your Exam 02 score will be counted twice
+
+## Outline of in-class portion {.midi}
+
+-   Closed-book, closed-note.
+
+-   Potential question types:
+
+    -   Multiple choice
+    -   Short answer (no more than 3 sentences)
+    -   Interpretation
+    -   Evaluate a response.
+
+-   Analysis output included in the exam
+
+-   Just need a pen or pencil. No calculator permitted on exam.
+
+## Outline of take-home portion
+
+-   Released: Tuesday, February 17 right after class
+
+-   Due: Thursday, February 19
+
+-   Similar in format to a lab/ HW
+
+    -   Will receive Exam questions in README of GitHub repo
+
+-   Push work to GitHub and submit a PDF of responses to GitHub
+
+## Tips for studying
+
+-   Review exercises in AEs and assignments, asking “why” as you review your process and reasoning
+
+    -   e.g., Why do we include “holding all else constant” in interpretations?
+
+-   Focus on understanding not memorization
+
+-   Explain concepts / process to others
+
+-   Ask questions in office hours, lab, Ed Discussion
+
+-   Review lecture recordings as needed
+
+## Content: Weeks 1 - 6
+
+-   Exploratory data analysis
+
+-   Fitting and interpreting linear regression models
+
+-   Statistical models and regression equations
+
+-   Simulation-based inference
+
+-   Mathematical models for inference
+
+-   Prediction
+
+-   Different types of predictors
+
+-   Model conditions and diagnostics
+
+## Data: Rail trail  {.midi}
+
+The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
+
+We will use regression analysis to predict the number of trail users based on weather and other features describing the day.
+
+We'll use the following variables in this analysis:
+
+-   `volume` estimated number of trail users that day (number of breaks recorded)
+
+-   `hightemp` daily high temperature (in degrees Fahrenheit)
+
+-   `daytype` one of "weekday" or "weekend"
+
+## Main effects vs. interactions 
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: appex
+-   Consider the main effects model using hightemp and daytype to explain variability in volume. Which of the following is true for this model? Select all that apply.
+
+-   Consider the interaction effects model using hightemp, daytype, and the interaction between the two variables to explain variability in volume. Which of the following is true for this model? Select all that apply.
+:::
+
+🔗 <https://forms.office.com/r/NqDLZ92x4d>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/NqDLZ92x4d?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+# Application exercise
+
+::: appex
+📋 [sta210-26.github.io/ae/ae-07-exam-01-review.html](../ae/ae-07-exam-01-review.html)
+:::

@@ -8,19 +8,22 @@ editor: visual
 ::: callout-important
 Go to the [course GitHub organization](https://github.com/sta210-sp26) and locate your `ae-07` repo to get started.
 
-Render, commit, and push your responses to GitHub by the end of class.
+**One person from each group:** Put your group's response on your slide: <https://docs.google.com/presentation/d/15nF9ADDlQwiDiRG55TCMOkqQgCy6_JB5hjPKE_kZE90/edit?usp=sharing>
 :::
 
 ## Packages
 
 ```{r}
-#| label: load-packages
+#| label: load-packages-data
 #| message: false
+#| warning: false
 
 library(tidyverse)
 library(tidymodels)
 library(knitr)
 library(patchwork)
+
+rail_trail <- read_csv("data/rail-trail.csv")
 ```
 
 ## Trail users
@@ -40,12 +43,6 @@ We'll use the following variables in this analysis:
 View the data set[^1] to see the remaining variables.
 
 [^1]: Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
-
-```{r}
-#| message: false
-
-rail_trail <- read_csv("data/rail-trail.csv")
-```
 
 ## Bivariate EDA
 

@@ -106,7 +106,7 @@ bibliography: references.bib
 
 -   Model conditions and diagnostics
 
-## Data: Rail trail  {.midi}
+## Data: Rail trail {.midi}
 
 The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
 
@@ -120,7 +120,7 @@ We'll use the following variables in this analysis:
 
 -   `daytype` one of "weekday" or "weekend"
 
-## Main effects vs. interactions 
+## Main effects vs. interactions
 
 ::::: panel-tabset
 ## Question

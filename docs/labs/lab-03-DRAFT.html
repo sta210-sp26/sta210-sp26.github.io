@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-02-12">
 
-<title>AE 07: Exam 01 review – STA 210 - Spring 2026</title>
+<title>Lab 03: Multiple linear regression – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 07: Exam 01 review</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 03: Multiple linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -402,10 +401,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#trail-users" id="toc-trail-users" class="nav-link" data-scroll-target="#trail-users">Trail users</a></li>
-  <li><a href="#bivariate-eda" id="toc-bivariate-eda" class="nav-link" data-scroll-target="#bivariate-eda">Bivariate EDA</a></li>
-  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-candy-competition" id="toc-data-candy-competition" class="nav-link" data-scroll-target="#data-candy-competition">Data: Candy competition</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -414,8 +417,10 @@ window.Quarto = {
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   </ul></li>
-  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-10-points" id="toc-grading-10-points" class="nav-link" data-scroll-target="#grading-10-points">Grading (10 points)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -424,8 +429,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 07: Exam 01 review</h1>
-<p class="subtitle lead">Trail users</p>
+<h1 class="title">Lab 03: Multiple linear regression</h1>
+<p class="subtitle lead">Candy competition</p>
 </div>
 
 
@@ -433,12 +438,6 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -458,174 +457,42 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-sp26">course GitHub organization</a> and locate your <code>ae-07</code> repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class.</p>
-</div>
-</div>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="trail-users" class="level2">
-<h2 class="anchored" data-anchor-id="trail-users">Trail users</h2>
-<p>The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</p>
-<p>We will use regression analysis to predict the number of trail users based on weather and other features describing the day.</p>
-<p>We’ll use the following variables in this analysis:</p>
+<p>This lab is due on <strong>Thursday, February 12 at 11:59pm.</strong></p>
+<p>To be considered on time, the following must be done by the due date:</p>
 <ul>
-<li><p><code>volume</code> estimated number of trail users that day (number of breaks recorded)</p></li>
-<li><p><code>hightemp</code> daily high temperature (in degrees Fahrenheit)</p></li>
-<li><p><code>daytype</code> one of “weekday” or “weekend”</p></li>
+<li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
+<li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
 </ul>
-<p>View the data set<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to see the remaining variables.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rail_trail <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rail-trail.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section id="section" class="level1">
+<h1></h1>
 </section>
-<section id="bivariate-eda" class="level2">
-<h2 class="anchored" data-anchor-id="bivariate-eda">Bivariate EDA</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> rail_trail, <span class="fu">aes</span>(<span class="at">x =</span> hightemp, <span class="at">y =</span> volume)) <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"High temperature (in Fahrenheit)"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of users"</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Volume versus high temperature"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> rail_trail, <span class="fu">aes</span>(<span class="at">x =</span> daytype, <span class="at">y =</span> volume)) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of users"</span>, </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Volume versus day type"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-07-exam-01-review_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
 </div>
-</div>
-</section>
-<section id="models" class="level2">
-<h2 class="anchored" data-anchor-id="models">Models</h2>
-<p>Below is the code for the two models used in this analysis.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main effects model </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>main_effects_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> daytype, <span class="at">data =</span> rail_trail)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># interaction model </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>interaction_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> daytype <span class="sc">+</span> hightemp <span class="sc">*</span> daytype,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> rail_trail)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Consider the <strong>main effects</strong> model.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In today’s lab you will analyze data collected from an online experiment conducted by the now defunct data journalism website FiveThirtyEight to describe what makes the best candy.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of the lab you will be able to…</p>
 <ul>
-<li>Display the model along with the 90% confidence intervals for the coefficients.</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>Interpret the coefficient of <code>hightemp</code> in the context of the data.</p></li>
-<li><p>Interpret the coefficient of <code>daytypeWeekend</code> in the context of the data.</p></li>
-<li><p>Does it make sense to interpret the intercept? Explain your reasoning.</p></li>
-<li><p>If not, what can we do to make the interpretation meaningful?</p></li>
-</ul>
-</section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Consider the <strong>interactions effects</strong> model.</p>
-<ul>
-<li>Display the model along with the 90% confidence intervals for the coefficients.</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>Interpret the main effect of <code>hightemp</code>.</p></li>
-<li><p>Interpret the coefficient <code>hightemp:daytypeWeekend</code> .</p></li>
-<li><p>According to this model, does the effect of <code>hightemp</code> differ for weekends vs.&nbsp;weekdays? Explain.</p></li>
-</ul>
-</section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>The following code can be used to create a bootstrap distribution for the model coefficients in the <strong>main effects model</strong>.</p>
-<ul>
-<li>Describe what each line of code does.</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
-<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="ot">&lt;-</span> rail_trail <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-4" class="code-annotation-target"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> daytype) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-6" class="code-annotation-target"><a href="#annotated-cell-5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="1">___</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="4" data-code-annotation="2">___</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="5" data-code-annotation="3">___</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="6" data-code-annotation="4">___</span>
-</dd>
-</dl>
-</div>
-</div>
-<ul>
-<li><p>How many observations are in each bootstrap sample?</p></li>
-<li><p>Explain why we use bootstrap sampling, instead of permutation sampling, to construct confidence intervals.</p></li>
-</ul>
-</section>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Consider the bootstrap distribution for the coefficient of <code>hightemp</code> in the <strong>main effects</strong> model.</p>
-<ul>
-<li><p>How many estimated coefficients of <code>hightemp</code> make up the bootstrap distribution?</p></li>
-<li><p>Run the code from the previous exercise to construct the bootstrap distribution. Use the bootstrap distribution to compute <span class="math inline">\(SE_{\hat{\beta}_\text{hightemp}}\)</span>. Explain what this value means in the context of the data.</p></li>
-<li><p>Construct a 90% bootstrap confidence interval for the coefficient of <code>hightemp</code>. Interpret the interval in the context of the data.</p></li>
-</ul>
-</section>
-<section id="exercise-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>We would like to conduct the following hypothesis test for the <strong>main effects</strong> model.</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_\text{hightemp} = 0 \\
-&amp;H_a: \beta_\text{hightemp} \neq 0
-\end{aligned}
-\]</span></p>
-<ul>
-<li><p>State the hypotheses in words.</p></li>
-<li><p>Conduct a permutation test by permuting the response variable. Use 100 iterations, a seed of 210, and a significance level of <span class="math inline">\(\alpha = 0.05\)</span>.</p></li>
-</ul>
-</section>
-<section id="exercise-6" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<ul>
-<li><p>Use the <strong>interaction effects</strong> model to predict the volume for a Saturday that has a high temperature of 75 degrees Fahrenheit.</p></li>
-<li><p>Suppose you’re asked to construct a confidence interval and a prediction interval given a Saturday with a high temperature of 75 degrees Fahrenheit. Which interval would you expect to be wider and why? In your answer clearly state the difference between these intervals.</p></li>
-<li><p>Construct the intervals and interpret them in the context of the data.</p></li>
+<li><p>transform and create new variables</p></li>
+<li><p>fit and interpret multiple linear regression models</p></li>
+<li><p>compare models to select the “best” one</p></li>
+<li><p>collaborate using GitHub</p></li>
 </ul>
 </section>
 </section>
-<section id="wrapping-up" class="level1">
-<h1>Wrapping up</h1>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-03-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+<li><p>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</p></li>
+<li><p><strong>Do not make any changes to the <code>.qmd</code> file until the instructions tell you to do so.</strong></p></li>
+</ul>
+</section>
+<section id="workflow-using-git-and-github-as-a-team" class="level1">
+<h1>Workflow: Using Git and GitHub as a team</h1>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -636,13 +503,301 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Once you’ve completed the AE:</p>
+<p>Assign each person on your team a number 1 through 4. For teams of three, Team Member 1 can take on the role of Team Member 4.</p>
+<p>The following exercises must be done in order. <strong>Only one person should type in the <code>.qmd</code> file, commit, and push updates at a time.</strong> When it is not your turn to type, you should still share ideas and contribute to the team’s discussion.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>⌨️ <strong>Team Member 1: Hands on the keyboard.</strong></p>
+<p>🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</div>
+</div>
+</div>
+<p>Change the author to your team name and include each team member’s name in the <code>author</code> field of the YAML in the following format: <code>Team Name: Member 1, Member 2, Member 3, Member 4</code>.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 1:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub.</p>
+<p><br></p>
+</div>
+<div class="pull">
+<p><strong>Team Members 2, 3, 4:</strong> Once Team Member 1 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the updated name in your <code>.qmd</code> file.</p>
+</div>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-candy-competition" class="level1">
+<h1>Data: Candy competition</h1>
+<p>The data from this lab comes from the <em>FiveThirtyEight</em> article <a href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking"><em>The Ultimate Halloween Candy Power Ranking</em></a> by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g.&nbsp;Reeses vs.&nbsp;Skittles). Click <a href="http://walthickey.com/2017/10/18/whats-the-best-halloween-candy/">here</a> to check out some of the matchups.</p>
+<p>The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chocolate</code></td>
+<td>Does it contain chocolate?</td>
+</tr>
+<tr class="even">
+<td><code>fruity</code></td>
+<td>Is it fruit flavored?</td>
+</tr>
+<tr class="odd">
+<td><code>caramel</code></td>
+<td>Is there caramel in the candy?</td>
+</tr>
+<tr class="even">
+<td><code>peanutalmondy</code></td>
+<td>Does it contain peanuts, peanut butter or almonds?</td>
+</tr>
+<tr class="odd">
+<td><code>nougat</code></td>
+<td>Does it contain nougat?</td>
+</tr>
+<tr class="even">
+<td><code>crispedricewafer</code></td>
+<td>Does it contain crisped rice, wafers, or a cookie component?</td>
+</tr>
+<tr class="odd">
+<td><code>hard</code></td>
+<td>Is it a hard candy?</td>
+</tr>
+<tr class="even">
+<td><code>bar</code></td>
+<td>Is it a candy bar?</td>
+</tr>
+<tr class="odd">
+<td><code>pluribus</code></td>
+<td>Is it one of many candies in a bag or box?</td>
+</tr>
+<tr class="even">
+<td><code>sugarpercent</code></td>
+<td>The percentile of sugar it falls under within the data set. Values 0 - 1.</td>
+</tr>
+<tr class="odd">
+<td><code>pricepercent</code></td>
+<td>The unit price percentile compared to the rest of the set. Values 0 - 1.</td>
+</tr>
+<tr class="even">
+<td><code>winpercent</code></td>
+<td>The overall win percentage according to 269,000 matchups. Values 0 - 100.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the code below to get a glimpse of the <code>candy_rankings</code> data frame in the <strong>fivethirtyeight</strong> R package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candy_rankings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 85
+Columns: 13
+$ competitorname   &lt;chr&gt; "100 Grand", "3 Musketeers", "One dime", "One quarter…
+$ chocolate        &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
+$ fruity           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…
+$ caramel          &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
+$ peanutyalmondy   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, …
+$ nougat           &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
+$ crispedricewafer &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
+$ hard             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ bar              &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
+$ pluribus         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE…
+$ sugarpercent     &lt;dbl&gt; 0.732, 0.604, 0.011, 0.011, 0.906, 0.465, 0.604, 0.31…
+$ pricepercent     &lt;dbl&gt; 0.860, 0.511, 0.116, 0.511, 0.511, 0.767, 0.767, 0.51…
+$ winpercent       &lt;dbl&gt; 66.97173, 67.60294, 32.26109, 46.11650, 52.34146, 50.…</code></pre>
+</div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p>The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy, as measured by <code>winpercent</code>.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 1</strong>: Type the team’s responses to exercises 1 - 2.</p>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<ol type="a">
+<li><p>Visualize the relationship between the response variable <code>winpercent</code> and one potential quantitative predictor. Write an observation from the graph.</p></li>
+<li><p>Visualize the relationship between the response variable and one potential categorical predictor. Write an observation from the graph.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Include informative axis labels and titles on the visualizations.</p>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>We will do some feature engineering<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> to transform and create new variables to consider for the model.</p>
 <ul>
-<li><p>Render the document to produce the PDF with all of your work from today’s class.</p></li>
-<li><p>Push all your work to your AE repo on GitHub. You’re done! 🎉</p></li>
+<li><p>Create a categorical variable that breaks <code>sugarpercent</code> into quartiles:</p>
+<ul>
+<li><p>“Q1” if <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> the <span class="math inline">\(25^{th}\)</span> percentile.</p></li>
+<li><p>“Q2” if <span class="math inline">\(25^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(50^{th}\)</span> percentile.</p></li>
+<li><p>“Q3” if <span class="math inline">\(50^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
+<li><p>“Q4” if <code>sugarpercent</code> <span class="math inline">\(\geq\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
+</ul></li>
+<li><p>Multiply <code>pricepercent</code> * 100, so the variable ranges from 0 - 100% instead of 0 - 1.</p></li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>You will use these variables whenever <code>sugarpercent</code> and <code>pricepercent</code> are referenced in the remainder of the lab.</p>
+</div>
+</div>
+<div class="render-commit-push">
+<p><strong>Team Member 1</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.</p>
+<p><strong>Team Member 2</strong>: It’s your turn! Type the team’s response to exercises 3 - 4.</p>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ol type="a">
+<li><p>Fit a model using <code>sugarpercent</code>, <code>pricepercent</code>, <code>chocolate</code>, <code>peanutalmondy</code>, the interaction between <code>pricepercent</code> and <code>chocolate</code>, and the interaction between <code>chocolate</code> and <code>peanutalmondy</code> to predict <code>winpercent</code>. Neatly display the model using 3 decimal places. <em>Remember to use the variables created in the previous exercise.</em></p></li>
+<li><p>Interpret the intercept in the context of the data.</p></li>
+</ol>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Use the model from the previous exercise to interpret the following in the context of the data:</p>
+<ol type="a">
+<li><p>Coefficient of <code>sugarpercent = Q3</code>.</p></li>
+<li><p>Coefficient of <code>pricepercent:chocolateTRUE</code></p></li>
+<li><p>Effect of <code>peanutalmondy</code> for chocolate candy</p></li>
+</ol>
+<div class="render-commit-push">
+<p><strong>Team Member 2</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.</p>
+<p><strong>Team Member 3</strong>: It’s your turn! Type the team’s response to exercises 5 - 6.</p>
+</div>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Let’s consider another model. Fit a model that includes <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutalmondy</code>, <code>sugarpercent</code> , along with the interaction between <code>pricepercent</code> and <code>peanutalmondy</code> . Neatly display the model using 3 decimal places. <em>Remember to use the variables created in Exercise 2.</em></p>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<ol type="a">
+<li><p>Compute the RMSE for the models fit in <a href="#exercise-3">Exercise 3</a> and <a href="#exercise-5">Exercise 5</a>.</p></li>
+<li><p>Which model would you choose based on the results from part (a)? Briefly explain.</p></li>
+</ol>
+<div class="render-commit-push">
+<p><strong>Team Member 3</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.</p>
+<p><strong>Team Member 4</strong>: It’s your turn! Type the team’s response to exercises 7.</p>
+</div>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Use the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 4</strong>: Render, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards and the rest of the team can see the completed lab.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!</p>
+</div>
+</section>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Reminder: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit the assignment:</p>
+<ul>
+<li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
+<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Select the name of <strong>every</strong> team member.</p></li>
+<li><p>Mark the pages for the <em>“Exercises”</em> question.</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> question.</p></li>
+</ul>
+</section>
+<section id="grading-10-points" class="level1">
+<h1>Grading (10 points)</h1>
+<p><br></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Completion</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Workflow &amp; formatting</td>
+<td style="text-align: left;">2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>7 pts: Complete all exercises</p></li>
+<li><p>6 pts: Complete 6 exercises</p></li>
+<li><p>5 pts: Complete 5 exercises</p></li>
+<li><p>4 pts: Complete 4 exercises</p></li>
+<li><p>3 pts: Complete 3 exercises</p></li>
+<li><p>0 pts: Complete &lt; 2 exercises</p></li>
+</ul>
+<p><strong>Workflow &amp; formatting</strong></p>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.</p>
+<ul>
+<li><p>2 pts: Meet all criteria</p></li>
+<li><p>1 pt: Meet some criteria</p></li>
+<li><p>0 pt: Meet no criteria</p></li>
+</ul>
 
 
 </section>
@@ -651,7 +806,8 @@ Important
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Source: <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

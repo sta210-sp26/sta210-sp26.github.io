@@ -2991,6 +2991,17 @@
     ]
   },
   {
+    "objectID": "labs/lab-08.html",
+    "href": "labs/lab-08.html",
+    "title": "Lab 08",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 08"
+    ]
+  },
+  {
     "objectID": "labs/lab-06.html",
     "href": "labs/lab-06.html",
     "title": "Lab 06",
@@ -3376,15 +3387,158 @@
     ]
   },
   {
-    "objectID": "labs/lab-08.html",
-    "href": "labs/lab-08.html",
-    "title": "Lab 08",
+    "objectID": "labs/lab-03-DRAFT.html",
+    "href": "labs/lab-03-DRAFT.html",
+    "title": "Lab 03: Multiple linear regression",
     "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 08"
-    ]
+    "text": "Important\n\n\n\nThis lab is due on Thursday, February 12 at 11:59pm.\nTo be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#learning-goals",
+    "href": "labs/lab-03-DRAFT.html#learning-goals",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab you will be able to…\n\ntransform and create new variables\nfit and interpret multiple linear regression models\ncompare models to select the “best” one\ncollaborate using GitHub"
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-1",
+    "href": "labs/lab-03-DRAFT.html#exercise-1",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nVisualize the relationship between the response variable winpercent and one potential quantitative predictor. Write an observation from the graph.\nVisualize the relationship between the response variable and one potential categorical predictor. Write an observation from the graph.\n\n\n\n\n\n\n\nTip\n\n\n\nInclude informative axis labels and titles on the visualizations."
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-2",
+    "href": "labs/lab-03-DRAFT.html#exercise-2",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWe will do some feature engineering2 to transform and create new variables to consider for the model.\n\nCreate a categorical variable that breaks sugarpercent into quartiles:\n\n“Q1” if sugarpercent \\(&lt;\\) the \\(25^{th}\\) percentile.\n“Q2” if \\(25^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(50^{th}\\) percentile.\n“Q3” if \\(50^{th}\\) percentile \\(\\leq\\) sugarpercent \\(&lt;\\) \\(75^{th}\\) percentile.\n“Q4” if sugarpercent \\(\\geq\\) \\(75^{th}\\) percentile.\n\nMultiply pricepercent * 100, so the variable ranges from 0 - 100% instead of 0 - 1.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou will use these variables whenever sugarpercent and pricepercent are referenced in the remainder of the lab.\n\n\n\nTeam Member 1: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.\nTeam Member 2: It’s your turn! Type the team’s response to exercises 3 - 4."
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-3",
+    "href": "labs/lab-03-DRAFT.html#exercise-3",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nFit a model using sugarpercent, pricepercent, chocolate, peanutalmondy, the interaction between pricepercent and chocolate, and the interaction between chocolate and peanutalmondy to predict winpercent. Neatly display the model using 3 decimal places. Remember to use the variables created in the previous exercise.\nInterpret the intercept in the context of the data."
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-4",
+    "href": "labs/lab-03-DRAFT.html#exercise-4",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse the model from the previous exercise to interpret the following in the context of the data:\n\nCoefficient of sugarpercent = Q3.\nCoefficient of pricepercent:chocolateTRUE\nEffect of peanutalmondy for chocolate candy\n\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6."
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-5",
+    "href": "labs/lab-03-DRAFT.html#exercise-5",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nLet’s consider another model. Fit a model that includes chocolate, pricepercent, crispedricewafer, peanutalmondy, sugarpercent , along with the interaction between pricepercent and peanutalmondy . Neatly display the model using 3 decimal places. Remember to use the variables created in Exercise 2."
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-6",
+    "href": "labs/lab-03-DRAFT.html#exercise-6",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nCompute the RMSE for the models fit in Exercise 3 and Exercise 5.\nWhich model would you choose based on the results from part (a)? Briefly explain.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7."
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#exercise-7",
+    "href": "labs/lab-03-DRAFT.html#exercise-7",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nUse the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.\n\nTeam Member 4: Render, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards and the rest of the team can see the completed lab.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!"
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#footnotes",
+    "href": "labs/lab-03-DRAFT.html#footnotes",
+    "title": "Lab 03: Multiple linear regression",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from Tidy Modeling with R↩︎\n“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from Tidy Modeling with R↩︎"
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html",
+    "href": "labs/lab-02-DRAFT.html",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "",
+    "text": "Important\n\n\n\nThis lab is due on Thursday, February 5 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#learning-goals",
+    "href": "labs/lab-02-DRAFT.html#learning-goals",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab you will…\n\nuse mathematical models to conduct inference for the slope.\nassess conditions for linear regression."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-1",
+    "href": "labs/lab-02-DRAFT.html#exercise-1",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nVisualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-2",
+    "href": "labs/lab-02-DRAFT.html#exercise-2",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the 98% confidence interval for the model coefficients in the output."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-3",
+    "href": "labs/lab-02-DRAFT.html#exercise-3",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nInterpret the slope in the context of the data.\nAssume you are a coffee drinker using the model from Exercise 2. Would you drink a coffee represented by the intercept? Why or why not?"
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-4",
+    "href": "labs/lab-02-DRAFT.html#exercise-4",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nYou can obtain the predicted values and other observation-level statistics from the model using the augment() function. Create a data frame called coffee_aug by replacing the blank with the name of the fitted model.\n\ncoffee_aug &lt;- augment(_____)\n\n\nWrite code to “manually” compute the regression standard error, \\(\\hat{\\sigma}_\\epsilon\\) using the residuals (stored in the column .resid).\nState the definition of the regression standard error in the context of the data.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can check your answer to part (b) by using the code below to get \\(\\hat{\\sigma}_\\epsilon\\)\n\nglance(model_name)$sigma"
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-5",
+    "href": "labs/lab-02-DRAFT.html#exercise-5",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nDo the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.\n\nState the null and alternative hypotheses in words and in mathematical notation.\nWhat is the test statistic? State what the test statistic means in the context of this problem. Note: You do not need to show how the test statistic is computed.\nWhat distribution was used to calculate the p-value? Be specific.\nState the conclusion in the context of the data using a threshold of \\(\\alpha = 0.02\\) to make your decision."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-6",
+    "href": "labs/lab-02-DRAFT.html#exercise-6",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nWhat is the critical value used to calculate the confidence interval displayed in Exercise 2? Show the code and output used to get your response.\nIs the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-7",
+    "href": "labs/lab-02-DRAFT.html#exercise-7",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nCompute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.\nOne coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.\nHow do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-8",
+    "href": "labs/lab-02-DRAFT.html#exercise-8",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWe have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame coffee_aug from Exercise 4 that includes the residuals, predicted values, and other observation-level statistics from the model.\n\nMake a scatterplot of the residuals (.resid) vs. fitted values (.fitted). Use geom_hline() to add a horizontal dotted line at \\(residuals = 0\\).\n\n\n\n\n\n\n\nNote\n\n\n\nThe linearity condition is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs. fitted values.\n\nThe equal variance condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.\nSee Section 6.2.2 and Section 6.2.5 of the textbook for more on linearity and equal variance, respectively.\n\n\n\nIs the linearity condition satisfied? Briefly explain why or why not.\nIs the equal variance condition satisfied? Briefly explain why or why not."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-9",
+    "href": "labs/lab-02-DRAFT.html#exercise-9",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\n\n\n\n\n\nNote\n\n\n\nThe normality condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large \\((n &gt; 30)\\).\nSee Section 6.2.4 of the textbook for more on normality.\n\n\n\nMake a histogram or density plot of the residuals (.resid).\nIs the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain."
+  },
+  {
+    "objectID": "labs/lab-02-DRAFT.html#exercise-10",
+    "href": "labs/lab-02-DRAFT.html#exercise-10",
+    "title": "Lab 02: Inference for regression using mathematical models",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\n\n\n\n\n\nNote\n\n\n\nThe independence condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.\nThis condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.\nSee Section 6.2.3 of the textbook for more on independence.\n\n\nIs the independence condition satisfied for these data? Briefly explain why or why not."
   },
   {
     "objectID": "hw/hw-05.html",
@@ -3816,7 +3970,7 @@
     "href": "ae/ae-07-exam-01-review.html#exercises",
     "title": "AE 07: Exam 01 review",
     "section": "Exercises",
-    "text": "Exercises\n\nExercise 1\nConsider the main effects model.\n\nDisplay the model along with the 90% confidence intervals for the coefficients.\n\n\n\nInterpret the coefficient of hightemp in the context of the data.\nInterpret the coefficient of daytypeWeekend in the context of the data.\nDoes it make sense to interpret the intercept? Explain your reasoning.\nIf not, what can we do to make the interpretation meaningful?\n\n\n\nExercise 2\nConsider the interactions effects model.\n\nDisplay the model along with the 90% confidence intervals for the coefficients.\n\n\n\nInterpret the main effect of hightemp.\nInterpret the coefficient hightemp:daytypeWeekend .\nAccording to this model, does the effect of hightemp differ for weekends vs. weekdays? Explain.\n\n\n\nExercise 3\nThe following code can be used to create a bootstrap distribution for the model coefficients in the main effects model.\n\nDescribe what each line of code does.\n\n\nset.seed(210)\n\n1boot_dist &lt;- rail_trail |&gt;\n2  specify(volume ~ hightemp + daytype) |&gt;\n3  generate(reps = 100, type = \"bootstrap\") |&gt;\n4  fit()\n\n\n1\n\n___\n\n2\n\n___\n\n3\n\n___\n\n4\n\n___\n\n\n\n\n\nHow many observations are in each bootstrap sample?\nExplain why we use bootstrap samples, instead of permutation sampling, to construct confidence intervals.\n\n\n\nExercise 4\nConsider the bootstrap distribution for the coefficient of hightemp in the main effects model.\n\nHow many estimated \\(\\hat{\\beta}_{\\text{hightemp}}\\) make up the bootstrap distribution?\nRun the code from the previous exercise to construct the bootstrap distribution. Use the bootstrap distribution to compute \\(SE_{\\hat{\\beta}_\\text{hightemp}}\\). Explain what this value means in the context of the data.\nConstruct a 90% confidence interval for the coefficient of hightemp. Interpret the interval in the context of the data.\n\n\n\nExercise 5\nWe would like to conduct the following hypothesis test for the main effects model.\n\\[\n\\begin{aligned}\n&H_0: \\beta_\\text{hightemp} = 0 \\\\\n&H_a: \\beta_\\text{hightemp} \\neq 0\n\\end{aligned}\n\\]\n\nState the hypotheses in words.\nConduct a permutation test permuting the response variable. Use 100 reps, a seed of 210, and a significance level of \\(\\alpha = 0.05\\).\n\n\n\nExercise 6\n\nUse the interaction effects model to predict the volume for a Saturday that has a high temperature of 75 degrees Fahrenheit.\nSuppose you’re asked to construct a confidence and a prediction interval for your finding in the previous exercise. Which one would you expect to be wider and why? In your answer clearly state the difference between these intervals.\nConstruct the intervals and interpret them in the context of the data."
+    "text": "Exercises\n\nExercise 1\nConsider the main effects model.\n\nDisplay the model along with the 90% confidence intervals for the coefficients.\n\n\n\nInterpret the coefficient of hightemp in the context of the data.\nInterpret the coefficient of daytypeWeekend in the context of the data.\nDoes it make sense to interpret the intercept? Explain your reasoning.\nIf not, what can we do to make the interpretation meaningful?\n\n\n\nExercise 2\nConsider the interactions effects model.\n\nDisplay the model along with the 90% confidence intervals for the coefficients.\n\n\n\nInterpret the main effect of hightemp.\nInterpret the coefficient hightemp:daytypeWeekend .\nAccording to this model, does the effect of hightemp differ for weekends vs. weekdays? Explain.\n\n\n\nExercise 3\nThe following code can be used to create a bootstrap distribution for the model coefficients in the main effects model.\n\nDescribe what each line of code does.\n\n\nset.seed(210)\n\n1boot_dist &lt;- rail_trail |&gt;\n2  specify(volume ~ hightemp + daytype) |&gt;\n3  generate(reps = 100, type = \"bootstrap\") |&gt;\n4  fit()\n\n\n1\n\n___\n\n2\n\n___\n\n3\n\n___\n\n4\n\n___\n\n\n\n\n\nHow many observations are in each bootstrap sample?\nExplain why we use bootstrap sampling, instead of permutation sampling, to construct confidence intervals.\n\n\n\nExercise 4\nConsider the bootstrap distribution for the coefficient of hightemp in the main effects model.\n\nHow many estimated coefficients of hightemp make up the bootstrap distribution?\nRun the code from the previous exercise to construct the bootstrap distribution. Use the bootstrap distribution to compute \\(SE_{\\hat{\\beta}_\\text{hightemp}}\\). Explain what this value means in the context of the data.\nConstruct a 90% bootstrap confidence interval for the coefficient of hightemp. Interpret the interval in the context of the data.\n\n\n\nExercise 5\nWe would like to conduct the following hypothesis test for the main effects model.\n\\[\n\\begin{aligned}\n&H_0: \\beta_\\text{hightemp} = 0 \\\\\n&H_a: \\beta_\\text{hightemp} \\neq 0\n\\end{aligned}\n\\]\n\nState the hypotheses in words.\nConduct a permutation test by permuting the response variable. Use 100 iterations, a seed of 210, and a significance level of \\(\\alpha = 0.05\\).\n\n\n\nExercise 6\n\nUse the interaction effects model to predict the volume for a Saturday that has a high temperature of 75 degrees Fahrenheit.\nSuppose you’re asked to construct a confidence interval and a prediction interval given a Saturday with a high temperature of 75 degrees Fahrenheit. Which interval would you expect to be wider and why? In your answer clearly state the difference between these intervals.\nConstruct the intervals and interpret them in the context of the data."
   },
   {
     "objectID": "ae/ae-07-exam-01-review.html#footnotes",

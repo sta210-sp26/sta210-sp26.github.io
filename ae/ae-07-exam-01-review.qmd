@@ -141,17 +141,17 @@ boot_dist <- rail_trail |> # <1>
 
 -   How many observations are in each bootstrap sample?
 
--   Explain why we use bootstrap samples, instead of permutation sampling, to construct confidence intervals.
+-   Explain why we use bootstrap sampling, instead of permutation sampling, to construct confidence intervals.
 
 ### Exercise 4
 
 Consider the bootstrap distribution for the coefficient of `hightemp` in the **main effects** model.
 
--   How many estimated $\hat{\beta}_{\text{hightemp}}$ make up the bootstrap distribution?
+-   How many estimated coefficients of `hightemp` make up the bootstrap distribution?
 
 -   Run the code from the previous exercise to construct the bootstrap distribution. Use the bootstrap distribution to compute $SE_{\hat{\beta}_\text{hightemp}}$. Explain what this value means in the context of the data.
 
--   Construct a 90% confidence interval for the coefficient of `hightemp`. Interpret the interval in the context of the data.
+-   Construct a 90% bootstrap confidence interval for the coefficient of `hightemp`. Interpret the interval in the context of the data.
 
 ### Exercise 5
 
@@ -166,13 +166,13 @@ $$
 
 -   State the hypotheses in words.
 
--   Conduct a permutation test permuting the response variable. Use 100 reps, a seed of 210, and a significance level of $\alpha = 0.05$.
+-   Conduct a permutation test by permuting the response variable. Use 100 iterations, a seed of 210, and a significance level of $\alpha = 0.05$.
 
 ### Exercise 6
 
 -   Use the **interaction effects** model to predict the volume for a Saturday that has a high temperature of 75 degrees Fahrenheit.
 
--   Suppose you're asked to construct a confidence and a prediction interval for your finding in the previous exercise. Which one would you expect to be wider and why? In your answer clearly state the difference between these intervals.
+-   Suppose you're asked to construct a confidence interval and a prediction interval given a Saturday with a high temperature of 75 degrees Fahrenheit. Which interval would you expect to be wider and why? In your answer clearly state the difference between these intervals.
 
 -   Construct the intervals and interpret them in the context of the data.
 

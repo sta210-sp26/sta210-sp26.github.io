@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-02-12">
 
-<title>AE 07: Exam 01 review – STA 210 - Spring 2026</title>
+<title>Lab 02: Inference for regression using mathematical models – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 07: Exam 01 review</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 02: Inference for regression using mathematical models</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -402,10 +401,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#trail-users" id="toc-trail-users" class="nav-link" data-scroll-target="#trail-users">Trail users</a></li>
-  <li><a href="#bivariate-eda" id="toc-bivariate-eda" class="nav-link" data-scroll-target="#bivariate-eda">Bivariate EDA</a></li>
-  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-coffee-ratings" id="toc-data-coffee-ratings" class="nav-link" data-scroll-target="#data-coffee-ratings">Data: Coffee ratings</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -414,8 +416,13 @@ window.Quarto = {
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
-  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-10pts" id="toc-grading-10pts" class="nav-link" data-scroll-target="#grading-10pts"><strong>Grading (10pts)</strong></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -424,8 +431,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 07: Exam 01 review</h1>
-<p class="subtitle lead">Trail users</p>
+<h1 class="title">Lab 02: Inference for regression using mathematical models</h1>
+<p class="subtitle lead">Coffee ratings</p>
 </div>
 
 
@@ -433,12 +440,6 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -458,174 +459,57 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-sp26">course GitHub organization</a> and locate your <code>ae-07</code> repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class.</p>
+<p>This lab is due on <strong>Thursday, February 5 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<ul>
+<li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
+<li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
+</ul>
 </div>
 </div>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In today’s lab, you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aftertaste and its overall quality.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of the lab you will…</p>
+<ul>
+<li>use mathematical models to conduct inference for the slope.</li>
+<li>assess conditions for linear regression.</li>
+</ul>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-02-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+</ul>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="trail-users" class="level2">
-<h2 class="anchored" data-anchor-id="trail-users">Trail users</h2>
-<p>The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</p>
-<p>We will use regression analysis to predict the number of trail users based on weather and other features describing the day.</p>
-<p>We’ll use the following variables in this analysis:</p>
+<section id="data-coffee-ratings" class="level1">
+<h1>Data: Coffee ratings</h1>
+<p>We will analyze data originally from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a>. It was featured in the TidyTuesday weekly data visualization challenge in July 2020, and the data set for the lab was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various coffee characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably treated as a random sample.</p>
+<p>This lab will focus on the following variables:</p>
 <ul>
-<li><p><code>volume</code> estimated number of trail users that day (number of breaks recorded)</p></li>
-<li><p><code>hightemp</code> daily high temperature (in degrees Fahrenheit)</p></li>
-<li><p><code>daytype</code> one of “weekday” or “weekend”</p></li>
+<li><code>aftertaste</code>: Aftertaste rating, 0 (worst aftertaste) - 10 (best aftertaste)</li>
+<li><code>total_cup_points</code>: Rating of overall quality, 0 (worst quality) - 10 (best quality)</li>
 </ul>
-<p>View the data set<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to see the remaining variables.</p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">Click here</a> for the definitions of all variables in the data set. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these characteristics were measured.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rail_trail <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rail-trail.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/coffee-ratings.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="bivariate-eda" class="level2">
-<h2 class="anchored" data-anchor-id="bivariate-eda">Bivariate EDA</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> rail_trail, <span class="fu">aes</span>(<span class="at">x =</span> hightemp, <span class="at">y =</span> volume)) <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"High temperature (in Fahrenheit)"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of users"</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Volume versus high temperature"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> rail_trail, <span class="fu">aes</span>(<span class="at">x =</span> daytype, <span class="at">y =</span> volume)) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of users"</span>, </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Volume versus day type"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-07-exam-01-review_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="models" class="level2">
-<h2 class="anchored" data-anchor-id="models">Models</h2>
-<p>Below is the code for the two models used in this analysis.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main effects model </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>main_effects_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> daytype, <span class="at">data =</span> rail_trail)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># interaction model </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>interaction_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> daytype <span class="sc">+</span> hightemp <span class="sc">*</span> daytype,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> rail_trail)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Consider the <strong>main effects</strong> model.</p>
-<ul>
-<li>Display the model along with the 90% confidence intervals for the coefficients.</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>Interpret the coefficient of <code>hightemp</code> in the context of the data.</p></li>
-<li><p>Interpret the coefficient of <code>daytypeWeekend</code> in the context of the data.</p></li>
-<li><p>Does it make sense to interpret the intercept? Explain your reasoning.</p></li>
-<li><p>If not, what can we do to make the interpretation meaningful?</p></li>
-</ul>
-</section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Consider the <strong>interactions effects</strong> model.</p>
-<ul>
-<li>Display the model along with the 90% confidence intervals for the coefficients.</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>Interpret the main effect of <code>hightemp</code>.</p></li>
-<li><p>Interpret the coefficient <code>hightemp:daytypeWeekend</code> .</p></li>
-<li><p>According to this model, does the effect of <code>hightemp</code> differ for weekends vs.&nbsp;weekdays? Explain.</p></li>
-</ul>
-</section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>The following code can be used to create a bootstrap distribution for the model coefficients in the <strong>main effects model</strong>.</p>
-<ul>
-<li>Describe what each line of code does.</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
-<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="ot">&lt;-</span> rail_trail <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-4" class="code-annotation-target"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> daytype) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-6" class="code-annotation-target"><a href="#annotated-cell-5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="1">___</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="4" data-code-annotation="2">___</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="5" data-code-annotation="3">___</span>
-</dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-5" data-code-lines="6" data-code-annotation="4">___</span>
-</dd>
-</dl>
-</div>
-</div>
-<ul>
-<li><p>How many observations are in each bootstrap sample?</p></li>
-<li><p>Explain why we use bootstrap sampling, instead of permutation sampling, to construct confidence intervals.</p></li>
-</ul>
-</section>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Consider the bootstrap distribution for the coefficient of <code>hightemp</code> in the <strong>main effects</strong> model.</p>
-<ul>
-<li><p>How many estimated coefficients of <code>hightemp</code> make up the bootstrap distribution?</p></li>
-<li><p>Run the code from the previous exercise to construct the bootstrap distribution. Use the bootstrap distribution to compute <span class="math inline">\(SE_{\hat{\beta}_\text{hightemp}}\)</span>. Explain what this value means in the context of the data.</p></li>
-<li><p>Construct a 90% bootstrap confidence interval for the coefficient of <code>hightemp</code>. Interpret the interval in the context of the data.</p></li>
-</ul>
-</section>
-<section id="exercise-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>We would like to conduct the following hypothesis test for the <strong>main effects</strong> model.</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_\text{hightemp} = 0 \\
-&amp;H_a: \beta_\text{hightemp} \neq 0
-\end{aligned}
-\]</span></p>
-<ul>
-<li><p>State the hypotheses in words.</p></li>
-<li><p>Conduct a permutation test by permuting the response variable. Use 100 iterations, a seed of 210, and a significance level of <span class="math inline">\(\alpha = 0.05\)</span>.</p></li>
-</ul>
-</section>
-<section id="exercise-6" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<ul>
-<li><p>Use the <strong>interaction effects</strong> model to predict the volume for a Saturday that has a high temperature of 75 degrees Fahrenheit.</p></li>
-<li><p>Suppose you’re asked to construct a confidence interval and a prediction interval given a Saturday with a high temperature of 75 degrees Fahrenheit. Which interval would you expect to be wider and why? In your answer clearly state the difference between these intervals.</p></li>
-<li><p>Construct the intervals and interpret them in the context of the data.</p></li>
-</ul>
-</section>
-</section>
-<section id="wrapping-up" class="level1">
-<h1>Wrapping up</h1>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -636,24 +520,211 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Once you’ve completed the AE:</p>
+<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Make sure the teaching team can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is to start a new line after every pipe (<code>|&gt;</code>) and plus sign (<code>+</code>).</p>
+</div>
+</div>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression to understand variability in overall quality rating based on the aftertaste rating in coffee.</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Visualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Fit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the <strong>98%</strong> confidence interval for the model coefficients in the output.</p>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ol type="a">
+<li>Interpret the slope in the context of the data.</li>
+<li>Assume you are a coffee drinker using the model from <a href="#exercise-2">Exercise 2</a>. Would you drink a coffee represented by the intercept? Why or why not?</li>
+</ol>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>You can obtain the predicted values and other observation-level statistics from the model using the <code>augment()</code> function. Create a data frame called <code>coffee_aug</code> by replacing the blank with the name of the fitted model.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coffee_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(_____)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li>Write code to “manually” compute the regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span> using the residuals (stored in the column <code>.resid</code>).</li>
+<li>State the definition of the regression standard error in the context of the data.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can check your answer to part (b) by using the code below to get <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></p>
+<center>
+<code>glance(model_name)$sigma</code>
+</center>
+</div>
+</div>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Do the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.</p>
+<ol type="a">
+<li>State the null and alternative hypotheses in words and in mathematical notation.</li>
+<li>What is the test statistic? State what the test statistic means in the context of this problem. <em>Note: You do not need to show how the test statistic is computed.</em></li>
+<li>What distribution was used to calculate the p-value? Be specific.</li>
+<li>State the conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.02\)</span> to make your decision.</li>
+</ol>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<ol type="a">
+<li><p>What is the critical value used to calculate the confidence interval displayed in <a href="#exercise-2">Exercise 2</a>? Show the code and output used to get your response.</p></li>
+<li><p>Is the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.</p></li>
+</ol>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<ol type="a">
+<li><p>Compute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.</p></li>
+<li><p>One coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.</p></li>
+<li><p>How do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why.</p></li>
+</ol>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>We have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame <code>coffee_aug</code> from <a href="#exercise-4">Exercise 4</a> that includes the residuals, predicted values, and other observation-level statistics from the model.</p>
+<ol type="a">
+<li>Make a scatterplot of the residuals (<code>.resid</code>) vs.&nbsp;fitted values (<code>.fitted</code>). Use <a href="https://ggplot2.tidyverse.org/reference/geom_abline.html"><code>geom_hline()</code></a> to add a horizontal dotted line at <span class="math inline">\(residuals = 0\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>linearity condition</strong> is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs.&nbsp;fitted values.<br>
+<br>
+The <strong>equal variance</strong> condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.</p>
+<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#linearity">Section 6.2.2</a> and <a href="https://intro-regression.github.io/06-slr-conditions.html#equal-variance">Section 6.2.5</a> of the textbook for more on linearity and equal variance, respectively.</p>
+</div>
+</div>
+<ol start="2" type="a">
+<li><p>Is the linearity condition satisfied? Briefly explain why or why not.</p></li>
+<li><p>Is the equal variance condition satisfied? Briefly explain why or why not.</p></li>
+</ol>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>normality</strong> condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large <span class="math inline">\((n &gt; 30)\)</span>.</p>
+<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#normality">Section 6.2.4</a> of the textbook for more on normality.</p>
+</div>
+</div>
+<ol type="a">
+<li>Make a histogram or density plot of the residuals (<code>.resid</code>).</li>
+<li>Is the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain.</li>
+</ol>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>independence</strong> condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.</p>
+<p>This condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.</p>
+<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#independence">Section 6.2.3</a> of the textbook for more on independence.</p>
+</div>
+</div>
+<p>Is the independence condition satisfied for these data? Briefly explain why or why not.</p>
+</section>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Reminder: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
 <ul>
-<li><p>Render the document to produce the PDF with all of your work from today’s class.</p></li>
-<li><p>Push all your work to your AE repo on GitHub. You’re done! 🎉</p></li>
+<li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
+<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Mark the pages for the <em>“Exercises”</em> question.</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> question.</p></li>
 </ul>
-</div>
-</div>
+</section>
+<section id="grading-10pts" class="level1">
+<h1><strong>Grading (10pts)</strong></h1>
+<p>This lab will be graded based on completion and workflow &amp; formatting. The point breakdown is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Completion</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Workflow &amp; formatting</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Completion:</strong> Points will be awarded for completion based on the following:</p>
+<ul>
+<li><p>8pts: Complete 10 exercises</p></li>
+<li><p>7pts: Complete 8 - 9 exercises</p></li>
+<li><p>6pts: Complete 6 - 7 exercises</p></li>
+<li><p>5pts: Complete 4 - 5 exercises</p></li>
+<li><p>4pts: Complete 2 - 3 exercises</p></li>
+<li><p>0pts: Complete &lt; 2 exercises</p></li>
+</ul>
+<p><strong>Workflow &amp; formatting</strong></p>
+<p>The workflow &amp; formatting grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code, and your name and the date updated in the YAML.</p>
+<ul>
+<li><p>2pts: Meet all criteria</p></li>
+<li><p>1pt: Meet some criteria</p></li>
+<li><p>0pt: Meet no criteria</p></li>
+</ul>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Source: <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

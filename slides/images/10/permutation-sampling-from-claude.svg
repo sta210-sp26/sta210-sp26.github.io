@@ -1,0 +1,200 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="500" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">
+    Permutation Methods in Multiple Linear Regression
+  </text>
+  
+  <!-- Original Data Section -->
+  <text x="170" y="70" font-size="18" font-weight="bold" fill="#333">Original Data</text>
+  
+  <!-- Original data table -->
+  <g id="original">
+    <!-- Headers -->
+    <rect x="50" y="85" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="130" y="85" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="210" y="85" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="290" y="85" width="80" height="35" fill="#fff4e6" stroke="#333" stroke-width="2"/>
+    
+    <text x="90" y="108" font-size="14" font-weight="bold" text-anchor="middle">X₁</text>
+    <text x="170" y="108" font-size="14" font-weight="bold" text-anchor="middle">X₂</text>
+    <text x="250" y="108" font-size="14" font-weight="bold" text-anchor="middle">X₃</text>
+    <text x="330" y="108" font-size="14" font-weight="bold" text-anchor="middle">Y</text>
+    
+    <!-- Data rows -->
+    <rect x="50" y="120" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="120" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="210" y="120" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="120" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="140" font-size="13" text-anchor="middle" fill="#2563eb">2.1</text>
+    <text x="170" y="140" font-size="13" text-anchor="middle" fill="#2563eb">5.3</text>
+    <text x="250" y="140" font-size="13" text-anchor="middle" fill="#2563eb">8.7</text>
+    <text x="330" y="140" font-size="13" text-anchor="middle" fill="#dc2626">12.4</text>
+    
+    <rect x="50" y="150" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="150" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="210" y="150" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="150" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="170" font-size="13" text-anchor="middle" fill="#2563eb">4.5</text>
+    <text x="170" y="170" font-size="13" text-anchor="middle" fill="#2563eb">3.1</text>
+    <text x="250" y="170" font-size="13" text-anchor="middle" fill="#2563eb">6.2</text>
+    <text x="330" y="170" font-size="13" text-anchor="middle" fill="#dc2626">9.8</text>
+    
+    <rect x="50" y="180" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="180" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="210" y="180" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="180" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="200" font-size="13" text-anchor="middle" fill="#2563eb">1.8</text>
+    <text x="170" y="200" font-size="13" text-anchor="middle" fill="#2563eb">7.9</text>
+    <text x="250" y="200" font-size="13" text-anchor="middle" fill="#2563eb">4.1</text>
+    <text x="330" y="200" font-size="13" text-anchor="middle" fill="#dc2626">8.3</text>
+    
+    <rect x="50" y="210" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="210" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="210" y="210" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="210" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="230" font-size="13" text-anchor="middle" fill="#2563eb">3.7</text>
+    <text x="170" y="230" font-size="13" text-anchor="middle" fill="#2563eb">2.4</text>
+    <text x="250" y="230" font-size="13" text-anchor="middle" fill="#2563eb">9.5</text>
+    <text x="330" y="230" font-size="13" text-anchor="middle" fill="#dc2626">15.1</text>
+    
+    <text x="90" y="255" font-size="13" text-anchor="middle" fill="#666">⋮</text>
+    <text x="170" y="255" font-size="13" text-anchor="middle" fill="#666">⋮</text>
+    <text x="250" y="255" font-size="13" text-anchor="middle" fill="#666">⋮</text>
+    <text x="330" y="255" font-size="13" text-anchor="middle" fill="#666">⋮</text>
+  </g>
+  
+  <!-- Arrow down -->
+  <path d="M 210 280 L 210 310" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 210 280 L 80 380" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 210 280 L 340 380" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Method 1: Permute Y -->
+  <g id="method1">
+    <text x="580" y="340" font-size="18" font-weight="bold" fill="#333">Method 1: Permute Response (Y)</text>
+    
+    <!-- Table -->
+    <rect x="460" y="355" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="540" y="355" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="620" y="355" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="700" y="355" width="80" height="35" fill="#ffe6e6" stroke="#333" stroke-width="2"/>
+    
+    <text x="500" y="378" font-size="14" font-weight="bold" text-anchor="middle">X₁</text>
+    <text x="580" y="378" font-size="14" font-weight="bold" text-anchor="middle">X₂</text>
+    <text x="660" y="378" font-size="14" font-weight="bold" text-anchor="middle">X₃</text>
+    <text x="740" y="378" font-size="14" font-weight="bold" text-anchor="middle">Y*</text>
+    
+    <!-- Data rows - X values stay same, Y shuffled -->
+    <rect x="460" y="390" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="540" y="390" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="620" y="390" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="700" y="390" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <text x="500" y="410" font-size="13" text-anchor="middle" fill="#2563eb">2.1</text>
+    <text x="580" y="410" font-size="13" text-anchor="middle" fill="#2563eb">5.3</text>
+    <text x="660" y="410" font-size="13" text-anchor="middle" fill="#2563eb">8.7</text>
+    <text x="740" y="410" font-size="13" text-anchor="middle" fill="#dc2626" font-weight="bold">9.8</text>
+    
+    <rect x="460" y="420" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="540" y="420" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="620" y="420" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="700" y="420" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <text x="500" y="440" font-size="13" text-anchor="middle" fill="#2563eb">4.5</text>
+    <text x="580" y="440" font-size="13" text-anchor="middle" fill="#2563eb">3.1</text>
+    <text x="660" y="440" font-size="13" text-anchor="middle" fill="#2563eb">6.2</text>
+    <text x="740" y="440" font-size="13" text-anchor="middle" fill="#dc2626" font-weight="bold">15.1</text>
+    
+    <rect x="460" y="450" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="540" y="450" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="620" y="450" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="700" y="450" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <text x="500" y="470" font-size="13" text-anchor="middle" fill="#2563eb">1.8</text>
+    <text x="580" y="470" font-size="13" text-anchor="middle" fill="#2563eb">7.9</text>
+    <text x="660" y="470" font-size="13" text-anchor="middle" fill="#2563eb">4.1</text>
+    <text x="740" y="470" font-size="13" text-anchor="middle" fill="#dc2626" font-weight="bold">12.4</text>
+    
+    <rect x="460" y="480" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="540" y="480" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="620" y="480" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="700" y="480" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <text x="500" y="500" font-size="13" text-anchor="middle" fill="#2563eb">3.7</text>
+    <text x="580" y="500" font-size="13" text-anchor="middle" fill="#2563eb">2.4</text>
+    <text x="660" y="500" font-size="13" text-anchor="middle" fill="#2563eb">9.5</text>
+    <text x="740" y="500" font-size="13" text-anchor="middle" fill="#dc2626" font-weight="bold">8.3</text>
+    
+    <!-- Description box -->
+    <rect x="460" y="530" width="320" height="80" fill="#f0f9ff" stroke="#3b82f6" stroke-width="2" rx="5"/>
+    <text x="620" y="555" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">Predictors stay together</text>
+    <text x="620" y="575" font-size="12" text-anchor="middle" fill="#555">✓ Preserves X₁-X₂-X₃ correlations</text>
+    <text x="620" y="595" font-size="12" text-anchor="middle" fill="#555">✗ Breaks Y relationship with ALL X's</text>
+  </g>
+  
+  <!-- Method 2: Permute Individual X -->
+  <g id="method2">
+    <text x="210" y="340" font-size="18" font-weight="bold" fill="#333">Method 2: Permute One Predictor (X₂)</text>
+    
+    <!-- Table -->
+    <rect x="50" y="355" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="130" y="355" width="80" height="35" fill="#ffe6e6" stroke="#333" stroke-width="2"/>
+    <rect x="210" y="355" width="80" height="35" fill="#e8f4f8" stroke="#333" stroke-width="2"/>
+    <rect x="290" y="355" width="80" height="35" fill="#fff4e6" stroke="#333" stroke-width="2"/>
+    
+    <text x="90" y="378" font-size="14" font-weight="bold" text-anchor="middle">X₁</text>
+    <text x="170" y="378" font-size="14" font-weight="bold" text-anchor="middle">X₂*</text>
+    <text x="250" y="378" font-size="14" font-weight="bold" text-anchor="middle">X₃</text>
+    <text x="330" y="378" font-size="14" font-weight="bold" text-anchor="middle">Y</text>
+    
+    <!-- Data rows - X2 shuffled, others stay same -->
+    <rect x="50" y="390" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="390" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <rect x="210" y="390" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="390" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="410" font-size="13" text-anchor="middle" fill="#2563eb">2.1</text>
+    <text x="170" y="410" font-size="13" text-anchor="middle" fill="#2563eb" font-weight="bold">2.4</text>
+    <text x="250" y="410" font-size="13" text-anchor="middle" fill="#2563eb">8.7</text>
+    <text x="330" y="410" font-size="13" text-anchor="middle" fill="#dc2626">12.4</text>
+    
+    <rect x="50" y="420" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="420" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <rect x="210" y="420" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="420" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="440" font-size="13" text-anchor="middle" fill="#2563eb">4.5</text>
+    <text x="170" y="440" font-size="13" text-anchor="middle" fill="#2563eb" font-weight="bold">7.9</text>
+    <text x="250" y="440" font-size="13" text-anchor="middle" fill="#2563eb">6.2</text>
+    <text x="330" y="440" font-size="13" text-anchor="middle" fill="#dc2626">9.8</text>
+    
+    <rect x="50" y="450" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="450" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <rect x="210" y="450" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="450" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="470" font-size="13" text-anchor="middle" fill="#2563eb">1.8</text>
+    <text x="170" y="470" font-size="13" text-anchor="middle" fill="#2563eb" font-weight="bold">3.1</text>
+    <text x="250" y="470" font-size="13" text-anchor="middle" fill="#2563eb">4.1</text>
+    <text x="330" y="470" font-size="13" text-anchor="middle" fill="#dc2626">8.3</text>
+    
+    <rect x="50" y="480" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="130" y="480" width="80" height="30" fill="#fff0f0" stroke="#666"/>
+    <rect x="210" y="480" width="80" height="30" fill="white" stroke="#666"/>
+    <rect x="290" y="480" width="80" height="30" fill="#fffaf0" stroke="#666"/>
+    <text x="90" y="500" font-size="13" text-anchor="middle" fill="#2563eb">3.7</text>
+    <text x="170" y="500" font-size="13" text-anchor="middle" fill="#2563eb" font-weight="bold">5.3</text>
+    <text x="250" y="500" font-size="13" text-anchor="middle" fill="#2563eb">9.5</text>
+    <text x="330" y="500" font-size="13" text-anchor="middle" fill="#dc2626">15.1</text>
+    
+    <!-- Description box -->
+    <rect x="50" y="530" width="320" height="80" fill="#fef3f2" stroke="#ef4444" stroke-width="2" rx="5"/>
+    <text x="210" y="555" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">Only X₂ changes position</text>
+    <text x="210" y="575" font-size="12" text-anchor="middle" fill="#555">✗ Breaks X₂-Y relationship</text>
+    <text x="210" y="595" font-size="12" text-anchor="middle" fill="#555">✗ Breaks X₂ correlation with X₁ and X₃</text>
+  </g>
+  
+  <!-- Legend -->
+  <rect x="400" y="640" width="200" height="50" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="3"/>
+  <text x="500" y="660" font-size="12" text-anchor="middle" fill="#666">Bold values = shuffled/permuted</text>
+  <text x="500" y="678" font-size="12" text-anchor="middle" fill="#666">* indicates permuted column</text>
+</svg>

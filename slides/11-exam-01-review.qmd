@@ -39,11 +39,9 @@ bibliography: references.bib
 
 ## Exam 01 - UPDATE
 
--   50 points total
-
 -   In-class: 75 minutes during February 17 lecture
 
--   Take-home: **due February 19 at 9pm** (no lecture on February 19)
+-   Take-home: **due February 19 at 5pm** (no lecture on February 19)
 
 -   If you miss any part of the exam for an excused absence (with academic dean’s note), your Exam 02 score will be counted twice
 
@@ -66,13 +64,13 @@ bibliography: references.bib
 
 -   Released: Tuesday, February 17 right after class
 
--   Due: Thursday, February 19
+-   Due: Thursday, February 19 at 5pm
 
 -   Similar in format to a lab/ HW
 
-    -   Will receive Exam questions in README of GitHub repo
+    -   Will receive exam questions in README of GitHub repo
 
--   Push work to GitHub and submit a PDF of responses to GitHub
+-   Push work to GitHub and submit a PDF of responses to Gradescope
 
 ## Tips for studying
 

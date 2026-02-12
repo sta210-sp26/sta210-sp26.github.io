@@ -91,7 +91,7 @@ Consider the **main effects** model.
 
 -   Interpret the coefficient of `daytypeWeekend` in the context of the data.
 
--   Does it make sense to interpret the intercept? Explain your reasoning.
+-   Does the intercept have a meaningful interpretation? Explain your reasoning.
 
 -   If not, what can we do to make the interpretation meaningful?
 
@@ -171,7 +171,7 @@ $$
 
 -   Suppose you're asked to construct a confidence interval and a prediction interval given a Saturday with a high temperature of 75 degrees Fahrenheit. Which interval would you expect to be wider and why? In your answer clearly state the difference between these intervals.
 
--   Construct the intervals and interpret them in the context of the data.
+-   Construct the 90% intervals and interpret them in the context of the data.
 
 # Wrapping up
 

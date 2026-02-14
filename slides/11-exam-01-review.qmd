@@ -37,7 +37,7 @@ bibliography: references.bib
 
 -   Exam 01: Tuesday, February 17 (in-class) + take-home due February 19
 
-## Exam 01 - UPDATE
+## Exam 01 
 
 -   In-class: 75 minutes during February 17 lecture
 

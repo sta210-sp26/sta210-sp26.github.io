@@ -9,8 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 210 - Spring 2026 – Exam 01 review</title>
+  <title>STA 210 - Spring 2026 – Lab 03</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,139 +129,31 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Exam 01 review</h1>
+  <h1 class="title">Lab 03</h1>
+  <p class="subtitle">Exam 01 review</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Prof.&nbsp;Maria Tackett 
-</div>
-</div>
 </div>
 
-  <p class="date">Feb 12, 2026</p>
+  <p class="date">Feb 16, 2026</p>
 </section>
-<section id="announcements" class="slide level2 midi">
-<h2>Announcements</h2>
+<section id="reminders" class="slide level2">
+<h2>Reminders</h2>
 <ul>
-<li><p>Lab 03 due <strong>TODAY</strong> at 11:59pm</p></li>
-<li><p>Monday’s lab: Exam 01 review (will turn in during class)</p></li>
-<li><p>Exam 01: Tuesday, February 17 (in-class) + take-home due February 19</p></li>
-</ul>
-</section>
-<section id="exam-01" class="slide level2">
-<h2>Exam 01</h2>
+<li><p>Exam 01 will be during lecture on Tuesday, February 17</p></li>
+<li><p>Exam 01 take home will be released Tuesday and is due Thursday, February 19 at 5pm</p></li>
+<li><p>Next week:</p>
 <ul>
-<li><p>In-class: 75 minutes during February 17 lecture</p></li>
-<li><p>Take-home: <strong>due February 19 at 5pm</strong> (no lecture on February 19)</p></li>
-<li><p>If you miss any part of the exam for an excused absence (with academic dean’s note), your Exam 02 score will be counted twice</p></li>
-</ul>
-</section>
-<section id="outline-of-in-class-portion" class="slide level2 midi">
-<h2>Outline of in-class portion</h2>
-<ul>
-<li><p>Closed-book, closed-note.</p></li>
-<li><p>Potential question types:</p>
-<ul>
-<li>Multiple choice</li>
-<li>Short answer (no more than 3 sentences)</li>
-<li>Interpretation</li>
-<li>Evaluate a response.</li>
+<li><p>No office hours Tuesday - Wednesday</p></li>
+<li><p>Ed Discussion will be read-only Tuesday 3:05pm - Thursday 5pm</p></li>
+<li><p>No lecture Thursday, February 19</p></li>
 </ul></li>
-<li><p>Analysis output included in the exam</p></li>
-<li><p>Just need a pen or pencil. No calculator permitted on exam.</p></li>
 </ul>
 </section>
-<section id="outline-of-take-home-portion" class="slide level2">
-<h2>Outline of take-home portion</h2>
-<ul>
-<li><p>Released: Tuesday, February 17 right after class</p></li>
-<li><p>Due: Thursday, February 19 at 5pm</p></li>
-<li><p>Similar in format to a lab/ HW</p>
-<ul>
-<li>Will receive exam questions in README of GitHub repo</li>
-</ul></li>
-<li><p>Push work to GitHub and submit a PDF of responses to Gradescope</p></li>
-</ul>
-</section>
-<section id="tips-for-studying" class="slide level2">
-<h2>Tips for studying</h2>
-<ul>
-<li><p>Review exercises in AEs and assignments, asking “why” as you review your process and reasoning</p>
-<ul>
-<li>e.g., Why do we include “holding all else constant” in interpretations?</li>
-</ul></li>
-<li><p>Focus on understanding not memorization</p></li>
-<li><p>Explain concepts / process to others</p></li>
-<li><p>Ask questions in office hours, lab, Ed Discussion</p></li>
-<li><p>Review lecture recordings as needed</p></li>
-</ul>
-</section>
-<section id="content-weeks-1---6" class="slide level2">
-<h2>Content: Weeks 1 - 6</h2>
-<ul>
-<li><p>Exploratory data analysis</p></li>
-<li><p>Fitting and interpreting linear regression models</p></li>
-<li><p>Statistical models and regression equations</p></li>
-<li><p>Simulation-based inference</p></li>
-<li><p>Mathematical models for inference</p></li>
-<li><p>Prediction</p></li>
-<li><p>Different types of predictors</p></li>
-<li><p>Model conditions and diagnostics</p></li>
-</ul>
-</section>
-<section id="data-rail-trail" class="slide level2 midi">
-<h2>Data: Rail trail</h2>
-<p>The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</p>
-<p>We will use regression analysis to predict the number of trail users based on weather and other features describing the day.</p>
-<p>We’ll use the following variables in this analysis:</p>
-<ul>
-<li><p><code>volume</code> estimated number of trail users that day (number of breaks recorded)</p></li>
-<li><p><code>hightemp</code> daily high temperature (in degrees Fahrenheit)</p></li>
-<li><p><code>daytype</code> one of “weekday” or “weekend”</p></li>
-</ul>
-</section>
-<section id="main-effects-vs.-interactions" class="slide level2">
-<h2>Main effects vs.&nbsp;interactions</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Question</a></li><li><a href="#tabset-1-2">Submit</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="midi">
-<div class="appex">
-<ul>
-<li><p>Consider the main effects model using hightemp and daytype to explain variability in volume.&nbsp;Which of the following is true for this model? Select all that apply.</p></li>
-<li><p>Consider the interaction effects model using hightemp, daytype, and the interaction between the two variables to explain variability in volume.&nbsp;Which of the following is true for this model? Select all that apply.</p></li>
-</ul>
-</div>
-<p>🔗 <a href="https://forms.office.com/r/NqDLZ92x4d" class="uri">https://forms.office.com/r/NqDLZ92x4d</a></p>
-</div>
-</div>
-<div id="tabset-1-2">
-<center><iframe width="640px" height="480px" src="https://forms.office.com/r/NqDLZ92x4d?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe></center>
-</div>
-</div>
-</div>
-</section>
-<section id="application-exercise" class="title-slide slide level1 center">
-<h1>Application exercise</h1>
-<div class="appex">
-<p>📋 <a href="../ae/ae-07-exam-01-review.html">sta210-26.github.io/ae/ae-07-exam-01-review.html</a></p>
-</div>
-<p><br></p>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>One person from each group:</strong> Put your group’s response on your slide: <a href="https://docs.google.com/presentation/d/15nF9ADDlQwiDiRG55TCMOkqQgCy6_JB5hjPKE_kZE90/edit?usp=sharing" class="uri">https://docs.google.com/presentation/d/15nF9ADDlQwiDiRG55TCMOkqQgCy6_JB5hjPKE_kZE90/edit?usp=sharing</a></p>
-</div>
-</div>
-</div>
+<section id="todays-lab" class="slide level2">
+<h2>Today’s lab</h2>
+<p>This lab is a review for Exam 01. <strong>It is due TODAY at 9pm.</strong> Solutions will be released at that time.</p>
+<p>🔗 <a href="https://sta210-sp26.github.io/labs/lab-04.html">sta210-sp26.github.io/labs/lab-04.html</a></p>
 
 
 </section>

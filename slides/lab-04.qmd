@@ -1,5 +1,5 @@
 ---
-title: "Lab 03"
+title: "Lab 04"
 subtitle: "Exam 01 review"
 date: "02-16-2026"
 date-format: "MMM DD, YYYY"
@@ -52,8 +52,10 @@ library(patchwork)
 
     -   No lecture Thursday, February 19
 
-## Today's lab 
+## Today's lab
 
-This lab is a review for Exam 01. **It is due TODAY at 9pm.** Solutions will be released at that time.
+This lab is a review for Exam 01. **Turn in what you have at the end of your lab section for credit on the lab.** Solutions will be released Monday, February 16 at 6pm (after Lab 02L).
+
+Today's lab will be individual, but you are encouraged to work with others.
 
 🔗 [sta210-sp26.github.io/labs/lab-04.html](https://sta210-sp26.github.io/labs/lab-04.html)

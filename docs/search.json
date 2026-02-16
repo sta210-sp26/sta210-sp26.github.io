@@ -3437,7 +3437,7 @@
     "href": "labs/lab-04.html#exercise-1",
     "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWe will start with the main effects model that includes Age and Party.\n\nFit the model and neatly display the results with 95% confidence intervals for the coefficients, using 3 decimal places.\nInterpret the coefficient of Party in the context of the data.\nCompute the regression standard error \\(\\hat{\\sigma}_\\epsilon\\) and interpret this value in the context of the data.",
+    "text": "Exercise 1\nWe will start with the main effects model that includes Age and Party.\n\nFit the model and neatly display the results with 95% confidence intervals for the coefficients, using 2 decimal places.\nInterpret the coefficient of Party in the context of the data.\nCompute the regression standard error \\(\\hat{\\sigma}_\\epsilon\\) and interpret this value in the context of the data.",
     "crumbs": [
       "Labs",
       "Lab 04"
@@ -3448,7 +3448,7 @@
     "href": "labs/lab-04.html#exercise-2",
     "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\nYou wish to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Explain what the test statistic means in the context of the data.\nExplain what the p-value means in the context of the data.\nState the conclusion from the test in the context of the data.\nAn article claims that one can expect about $2 in tips for each additional person at a table. Does the model support this claim? Why or why not.\n\n\n2 * pt(abs(test-statistic), df, lower.tail = FALSE)",
+    "text": "Exercise 2\n\nYou wish to use the model in Exercise 1 to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Explain what the test statistic means in the context of the data.\nExplain what the p-value means in the context of the data.\nState the conclusion from the test in the context of the data.\nAn article claims that one can expect about $2 in tips for each additional person at a table. Does the model support this claim? Why or why not.",
     "crumbs": [
       "Labs",
       "Lab 04"
@@ -3481,7 +3481,7 @@
     "href": "labs/lab-04.html#exercise-5",
     "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 5",
-    "text": "Exercise 5\nNow let’s fit a model using Age, Party and the interaction between the two variables. Display the 95% confidence interval for the coefficients.\n\nState what the standard error for the coefficient of AgeSenCit means in the context of the data.\nWrite code to show how the 95% confidence interval for AgeSenCit was computed.\nBased on the confidence interval, is there evidence that senior citizens pay less per additional person in the party compared to middle aged diners? Briefly explain.",
+    "text": "Exercise 5\nNow let’s fit a model using Age, Party and the interaction between the two variables. Display the 95% confidence interval for the coefficients.\n\nState what the standard error for the coefficient of AgeSenCit:Party means in the context of the data.\nWrite code to show how the 95% confidence interval for AgeSenCit:Party was computed.\nBased on the confidence interval, is there evidence that senior citizens pay less per additional person in the party compared to middle aged diners? Briefly explain.",
     "crumbs": [
       "Labs",
       "Lab 04"
@@ -3492,7 +3492,7 @@
     "href": "labs/lab-04.html#exercise-6",
     "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 6",
-    "text": "Exercise 6\nWe want to consider a new variable other_diners = Party - 1 that is the number of people in the party aside from the payor. We will use this variable in a model that includes Age, other_diners, and the interaction between the two variables.\n\nWhat is an advantage to using other_diners instead of Party in the model?\nHow will the responses to the previous exercise change, if at all, by using other_diners instead of Party in the model?",
+    "text": "Exercise 6\nWe want to consider a new variable other_diners = Party - 1 that is the number of people in the party aside from the payer. We will use this variable in a model that includes Age, other_diners, and the interaction between the two variables.\n\nWhat is an advantage to using other_diners instead of Party in the model?\nHow will the responses to the previous exercise change, if at all, by using other_diners instead of Party in the model?",
     "crumbs": [
       "Labs",
       "Lab 04"

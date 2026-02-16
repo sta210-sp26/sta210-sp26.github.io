@@ -111,7 +111,7 @@ p4 + p5
 
 We will start with the main effects model that includes `Age` and `Party`.
 
-a.  Fit the model and neatly display the results with 95% confidence intervals for the coefficients, using 3 decimal places.
+a.  Fit the model and neatly display the results with 95% confidence intervals for the coefficients, using 2 decimal places.
 
 b.  Interpret the coefficient of `Party` in the context of the data.
 
@@ -119,18 +119,13 @@ c.  Compute the regression standard error $\hat{\sigma}_\epsilon$ and interpret 
 
 ## Exercise 2
 
-a.  You wish to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Explain what the test statistic means in the context of the data.
+a.  You wish to use the model in Exercise 1 to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Explain what the test statistic means in the context of the data.
 
 b.  Explain what the p-value means in the context of the data.
 
 c.  State the conclusion from the test in the context of the data.
 
 d.  An article claims that one can expect about \$2 in tips for each additional person at a table. Does the model support this claim? Why or why not.
-
-```{r}
-#| eval: false
-2 * pt(abs(test-statistic), df, lower.tail = FALSE)
-```
 
 ## Exercise 3
 
@@ -174,15 +169,15 @@ One observation in the data set has a leverage of 0.190, standardized residual o
 
 Now let's fit a model using `Age`, `Party` and the interaction between the two variables. Display the 95% confidence interval for the coefficients.
 
-a.  State what the standard error for the coefficient of `AgeSenCit` means in the context of the data.
+a.  State what the standard error for the coefficient of `AgeSenCit:Party` means in the context of the data.
 
-b.  Write code to show how the 95% confidence interval for `AgeSenCit` was computed.
+b.  Write code to show how the 95% confidence interval for `AgeSenCit:Party` was computed.
 
 c.  Based on the confidence interval, is there evidence that senior citizens pay less per additional person in the party compared to middle aged diners? Briefly explain.
 
 ## Exercise 6
 
-We want to consider a new variable `other_diners = Party - 1` that is the number of people in the party aside from the payor. We will use this variable in a model that includes `Age`, `other_diners`, and the interaction between the two variables.
+We want to consider a new variable `other_diners = Party - 1` that is the number of people in the party aside from the payer. We will use this variable in a model that includes `Age`, `other_diners`, and the interaction between the two variables.
 
 a.  What is an advantage to using `other_diners` instead of `Party` in the model?
 b.  How will the responses to the previous exercise change, if at all, by using `other_diners` instead of `Party` in the model?

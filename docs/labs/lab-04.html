@@ -560,7 +560,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>We will start with the main effects model that includes <code>Age</code> and <code>Party</code>.</p>
 <ol type="a">
-<li><p>Fit the model and neatly display the results with 95% confidence intervals for the coefficients, using 3 decimal places.</p></li>
+<li><p>Fit the model and neatly display the results with 95% confidence intervals for the coefficients, using 2 decimal places.</p></li>
 <li><p>Interpret the coefficient of <code>Party</code> in the context of the data.</p></li>
 <li><p>Compute the regression standard error <span class="math inline">\(\hat{\sigma}_\epsilon\)</span> and interpret this value in the context of the data.</p></li>
 </ol>
@@ -568,14 +568,11 @@ window.Quarto = {
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <ol type="a">
-<li><p>You wish to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Explain what the test statistic means in the context of the data.</p></li>
+<li><p>You wish to use the model in Exercise 1 to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Explain what the test statistic means in the context of the data.</p></li>
 <li><p>Explain what the p-value means in the context of the data.</p></li>
 <li><p>State the conclusion from the test in the context of the data.</p></li>
 <li><p>An article claims that one can expect about $2 in tips for each additional person at a table. Does the model support this claim? Why or why not.</p></li>
 </ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="fu">abs</span>(test<span class="sc">-</span>statistic), df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
@@ -584,28 +581,28 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tip_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Age <span class="sc">+</span> Party, <span class="at">data =</span> tips)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>tip_model_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(tip_model)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>resid_fitted <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> tip_model_aug, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fitted values"</span>, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Residuals"</span>, </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Residuals versus fitted values"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dist_resid <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> tip_model_aug, <span class="fu">aes</span>( <span class="at">x=</span> .resid)) <span class="sc">+</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Residuals"</span>, </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Distribution of residuals"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>resid_fitted <span class="sc">+</span> dist_resid</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tip_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Age <span class="sc">+</span> Party, <span class="at">data =</span> tips)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tip_model_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(tip_model)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>resid_fitted <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> tip_model_aug, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fitted values"</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Residuals"</span>, </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Residuals versus fitted values"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>dist_resid <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> tip_model_aug, <span class="fu">aes</span>( <span class="at">x=</span> .resid)) <span class="sc">+</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Residuals"</span>, </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Distribution of residuals"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>resid_fitted <span class="sc">+</span> dist_resid</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="lab-04_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="lab-04_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -624,14 +621,14 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <p>Now let’s fit a model using <code>Age</code>, <code>Party</code> and the interaction between the two variables. Display the 95% confidence interval for the coefficients.</p>
 <ol type="a">
-<li><p>State what the standard error for the coefficient of <code>AgeSenCit</code> means in the context of the data.</p></li>
-<li><p>Write code to show how the 95% confidence interval for <code>AgeSenCit</code> was computed.</p></li>
+<li><p>State what the standard error for the coefficient of <code>AgeSenCit:Party</code> means in the context of the data.</p></li>
+<li><p>Write code to show how the 95% confidence interval for <code>AgeSenCit:Party</code> was computed.</p></li>
 <li><p>Based on the confidence interval, is there evidence that senior citizens pay less per additional person in the party compared to middle aged diners? Briefly explain.</p></li>
 </ol>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>We want to consider a new variable <code>other_diners = Party - 1</code> that is the number of people in the party aside from the payor. We will use this variable in a model that includes <code>Age</code>, <code>other_diners</code>, and the interaction between the two variables.</p>
+<p>We want to consider a new variable <code>other_diners = Party - 1</code> that is the number of people in the party aside from the payer. We will use this variable in a model that includes <code>Age</code>, <code>other_diners</code>, and the interaction between the two variables.</p>
 <ol type="a">
 <li>What is an advantage to using <code>other_diners</code> instead of <code>Party</code> in the model?</li>
 <li>How will the responses to the previous exercise change, if at all, by using <code>other_diners</code> instead of <code>Party</code> in the model?</li>

@@ -12,11 +12,11 @@ title: Final project
 
 [Presentation](#presentation) + [Presentation comments](#presentation-comments) due Tuesday, April 14 and Thursday, April 16
 
-[Draft report] + [Peer review] due Monday, April 20 (draft due before lab)
+[Draft report](#draft-report) + [Peer review] due Monday, April 20 (draft due before lab)
 
 [Written report](#written-report) due Monday, April 27
 
-[Repo organization] due Monday, April 27
+[Repo organization](#reproducibility-organization) due Monday, April 27
 
 ## Introduction
 
@@ -146,7 +146,7 @@ The proposal is worth 10 points and will be graded based on accurately and compr
 
 \[To be posted.\]
 
-## Draft analysis 
+## Draft analysis
 
 ## Presentation {#presentation}
 

@@ -46,7 +46,7 @@ Final project: Proposal
 
 ## Today's focus: Proposal {.midi}
 
--   **Goals:** Identify a research quesiton and data set you're interested in investigating
+-   **Goals:** Identify a research question and data set you're interested in investigating
 
 -   What is due:
 

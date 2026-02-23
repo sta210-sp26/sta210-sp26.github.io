@@ -110,11 +110,11 @@ The proposal will include the following sections:
 
 ### Section 3: Data processing
 
--   Description of data processing you need to do to prepare for analysis, such as joining multiple data sets, handling missing data, etc.
-
--   Visualizations, summary statistics, and narrative to describe the distribution of the [**response**]{.underline} variable.
+Description of data processing you need to do to prepare for analysis, such as joining multiple data sets, handling missing data, etc.
 
 ### Section 4: Analysis approach
+
+-   Visualizations, summary statistics, and narrative to describe the distribution of the [**response**]{.underline} variable.
 
 -   A description of the potential predictor variables of interest
 

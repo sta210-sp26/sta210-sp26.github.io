@@ -33,10 +33,6 @@ bibliography: references.bib
 
 -   Project proposal due **Thursday** t 11:59pm
 
--   jfjfjdfjsdfAnnouncements - Events
-
-<!-- -->
-
 -   February 25, 5-6 pm \@ East Duke 108: Duke Sports Analytics Club is hosting **Sam Marks**, Director of Business Strategy and Analytics at the Boston Bruins
 
     -   [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdethCogomC5DTNwSyQy5N_R5fOkT5LfJGR27VSEHGfWIH-cw/viewform) to register
@@ -159,7 +155,7 @@ correlations <- rail_trail |>
 corrplot(correlations, method = "number")
 ```
 
-## Question 
+## Question
 
 ::::: panel-tabset
 ## Question

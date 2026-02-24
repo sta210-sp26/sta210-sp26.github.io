@@ -5943,7 +5943,14 @@
     "href": "slides/12-multicollinearity-notes.html#eda-correlation-matrix-1",
     "title": "Multicollinearity",
     "section": "EDA: Correlation matrix",
-    "text": "EDA: Correlation matrix\n\n\n\n\n\n\n\n\n\n\nWhat might be a potential concern with a model that uses high temperature, average temperature, season, and precipitation to predict volume?"
+    "text": "EDA: Correlation matrix"
+  },
+  {
+    "objectID": "slides/12-multicollinearity-notes.html#question",
+    "href": "slides/12-multicollinearity-notes.html#question",
+    "title": "Multicollinearity",
+    "section": "Question",
+    "text": "Question\n\nQuestionSubmit\n\n\n\n\nWhat is a potential concern about a model that uses high temperature, average temperature, season, and precipitation to predict volume?\n\n🔗 https://forms.office.com/r/tPPLSe8eVg"
   },
   {
     "objectID": "slides/12-multicollinearity-notes.html#multicollinearity-1",
@@ -6083,7 +6090,14 @@
     "href": "slides/12-multicollinearity.html#eda-correlation-matrix-1",
     "title": "Multicollinearity",
     "section": "EDA: Correlation matrix",
-    "text": "EDA: Correlation matrix\n\n\nWhat might be a potential concern with a model that uses high temperature, average temperature, season, and precipitation to predict volume?"
+    "text": "EDA: Correlation matrix"
+  },
+  {
+    "objectID": "slides/12-multicollinearity.html#question",
+    "href": "slides/12-multicollinearity.html#question",
+    "title": "Multicollinearity",
+    "section": "Question",
+    "text": "Question\n\nQuestionSubmit\n\n\n\n\nWhat is a potential concern about a model that uses high temperature, average temperature, season, and precipitation to predict volume?\n\n🔗 https://forms.office.com/r/tPPLSe8eVg"
   },
   {
     "objectID": "slides/12-multicollinearity.html#multicollinearity-1",

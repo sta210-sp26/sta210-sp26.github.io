@@ -159,13 +159,29 @@ correlations <- rail_trail |>
 corrplot(correlations, method = "number")
 ```
 
+## Question 
+
+::::: panel-tabset
+## Question
+
+:::: midi
 ::: question
-What might be a potential concern with a model that uses high temperature, average temperature, season, and precipitation to predict volume?
+What is a potential concern about a model that uses high temperature, average temperature, season, and precipitation to predict volume?
 :::
+
+🔗 <https://forms.office.com/r/tPPLSe8eVg>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/tPPLSe8eVg?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
 
 # Multicollinearity
 
-## Multicollinearity
+## Multicollinearity {.midi}
 
 ::: incremental
 -   Ideally the predictors are completely independent of one another

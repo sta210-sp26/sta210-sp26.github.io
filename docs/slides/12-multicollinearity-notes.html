@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-02-24">
+<meta name="author" content="Prof.&nbsp;Maria Tackett">
 
-<title>AE 08: Multicollinearity – STA 210 - Spring 2026</title>
+<title>Multicollinearity – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -106,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -137,7 +157,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 08: Multicollinearity</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Multicollinearity</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -402,39 +422,61 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#computing-set-up" id="toc-computing-set-up" class="nav-link" data-scroll-target="#computing-set-up">Computing set up</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#data-trail-users" id="toc-data-trail-users" class="nav-link" data-scroll-target="#data-trail-users">Data: Trail users</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#eda-relationship-between-predictors" id="toc-eda-relationship-between-predictors" class="nav-link" data-scroll-target="#eda-relationship-between-predictors">EDA: Relationship between predictors</a></li>
+  <li><a href="#eda-relationship-between-predictors-1" id="toc-eda-relationship-between-predictors-1" class="nav-link" data-scroll-target="#eda-relationship-between-predictors-1">EDA: Relationship between predictors</a></li>
+  <li><a href="#eda-correlation-matrix" id="toc-eda-correlation-matrix" class="nav-link" data-scroll-target="#eda-correlation-matrix">EDA: Correlation matrix</a></li>
+  <li><a href="#eda-correlation-matrix-1" id="toc-eda-correlation-matrix-1" class="nav-link" data-scroll-target="#eda-correlation-matrix-1">EDA: Correlation matrix</a></li>
+  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity">Multicollinearity</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#multicollinearity-1" id="toc-multicollinearity-1" class="nav-link" data-scroll-target="#multicollinearity-1">Multicollinearity</a></li>
+  <li><a href="#sources-of-multicollinearity" id="toc-sources-of-multicollinearity" class="nav-link" data-scroll-target="#sources-of-multicollinearity">Sources of multicollinearity</a></li>
+  <li><a href="#example-issue-with-multicollinearity" id="toc-example-issue-with-multicollinearity" class="nav-link" data-scroll-target="#example-issue-with-multicollinearity">Example: Issue with multicollinearity</a></li>
+  <li><a href="#example-issue-with-mulitcollinearity" id="toc-example-issue-with-mulitcollinearity" class="nav-link" data-scroll-target="#example-issue-with-mulitcollinearity">Example: Issue with mulitcollinearity</a></li>
+  <li><a href="#variance-inflation-factor" id="toc-variance-inflation-factor" class="nav-link" data-scroll-target="#variance-inflation-factor">Variance inflation factor</a></li>
+  <li><a href="#detecting-multicollinearity" id="toc-detecting-multicollinearity" class="nav-link" data-scroll-target="#detecting-multicollinearity">Detecting multicollinearity</a></li>
   </ul></li>
-  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
   <ul class="collapse">
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#how-multicollinearity-impacts-model" id="toc-how-multicollinearity-impacts-model" class="nav-link" data-scroll-target="#how-multicollinearity-impacts-model">How multicollinearity impacts model</a></li>
+  <li><a href="#dealing-with-multicollinearity" id="toc-dealing-with-multicollinearity" class="nav-link" data-scroll-target="#dealing-with-multicollinearity">Dealing with multicollinearity</a></li>
   </ul></li>
-  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
+  <li><a href="#application-exercise-1" id="toc-application-exercise-1" class="nav-link" data-scroll-target="#application-exercise-1">Application exercise</a>
+  <ul class="collapse">
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="12-multicollinearity.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 08: Multicollinearity</h1>
+<h1 class="title">Multicollinearity</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Maria Tackett </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 24, 2026</p>
+      <p class="date">Feb 24, 2026</p>
     </div>
   </div>
   
@@ -446,29 +488,70 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-sp26">course GitHub organization</a> and locate your <code>ae-08</code> repo to get started.</p>
-</div>
-</div>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<ul>
+<li><p>Project proposal due <strong>Thursday</strong> t 11:59pm</p></li>
+<li><p>February 25, 5-6 pm @ East Duke 108: Duke Sports Analytics Club is hosting <strong>Sam Marks</strong>,&nbsp;Director of Business Strategy and Analytics at the Boston Bruins</p>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdethCogomC5DTNwSyQy5N_R5fOkT5LfJGR27VSEHGfWIH-cw/viewform">Click here</a> to register</li>
+</ul></li>
+<li><p>SSMU Mini DataFest #2: February 27 - March 1. <a href="https://edstem.org/us/courses/91299/discussion/7720540">Click here</a> for announcement</p></li>
+<li><p>March 20 - 22: ASA DataFest at Duke</p>
+<ul>
+<li>Learn more and register:&nbsp;<a href="https://dukestatsci.github.io/datafest/#signup" class="uri">https://dukestatsci.github.io/datafest/#signup</a>&nbsp;</li>
+</ul></li>
+</ul>
+</section>
+<section id="computing-set-up" class="level2">
+<h2 class="anchored" data-anchor-id="computing-set-up">Computing set up</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rms) <span class="co">#calculate VIF</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)       </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)   <span class="co"># for pairwise plot matrix</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot) <span class="co"># for correlation matrix</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># set default theme in ggplot2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>The Pioneer Valley Planning Commission (PVPC) collected data at the beginning a trail in Florence, MA for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. The data were collected from by <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.</p>
-<p>We will use the following variables in this analysis:</p>
+</section>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<ul>
+<li><p>Multicollinearity</p>
+<ul>
+<li><p>Definition</p></li>
+<li><p>How it impacts the model</p></li>
+<li><p>How to detect it</p></li>
+<li><p>What to do about it</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="data-trail-users" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="data-trail-users">Data: Trail users</h2>
+<ul>
+<li>The Pioneer Valley Planning Commission (PVPC) collected data at the beginning a trail in Florence, MA for ninety days from April 5, 2005 to November 15, 2005</li>
+<li>Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  volume hightemp avgtemp season cloudcover precip day_type
+   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   
+1    501       83    66.5 Summer       7.60  0     Weekday 
+2    419       73    61   Summer       6.30  0.290 Weekday 
+3    397       74    63   Spring       7.5   0.320 Weekday 
+4    385       95    78   Summer       2.60  0     Weekend 
+5    200       44    48   Spring      10     0.140 Weekday </code></pre>
+</div>
+</div>
+<p>Source: <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.</p>
+</section>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <p><strong>Response</strong></p>
 <ul>
 <li><code>volume</code> estimated number of trail users that day (number of breaks recorded)</li>
@@ -480,70 +563,246 @@ Important
 <li><p><code>season</code> one of “Fall”, “Spring”, or “Summer”</p></li>
 <li><p><code>precip</code> measure of precipitation (in inches)</p></li>
 </ul>
+</section>
+<section id="eda-relationship-between-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="eda-relationship-between-predictors">EDA: Relationship between predictors</h2>
+<p>We can create a pairwise plot matrix using the <code>ggpairs</code> function from the <strong>GGally</strong> R package</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rail_trail <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rail_trail.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>rail_trail <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(hightemp, avgtemp, season, precip) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="part-1" class="level1">
-<h1>Part 1</h1>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<ul>
-<li><p>Fit the regression model using high temperature, average temperature, season, and precipitation to predict volume.</p></li>
-<li><p>Are there any coefficients that may be not what you expected?</p></li>
-</ul>
+<section id="eda-relationship-between-predictors-1" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="eda-relationship-between-predictors-1">EDA: Relationship between predictors</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Use the formula</p>
+<section id="eda-correlation-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="eda-correlation-matrix">EDA: Correlation matrix</h2>
+<p>We can. use <code>corrplot()</code> in the <strong>corrplot</strong> R package to make a matrix of pairwise correlations between <u>quantitative</u> predictors</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>correlations <span class="ot">&lt;-</span> rail_trail <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(hightemp, avgtemp, precip) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(correlations, <span class="at">method =</span> <span class="st">"number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="eda-correlation-matrix-1" class="level2">
+<h2 class="anchored" data-anchor-id="eda-correlation-matrix-1">EDA: Correlation matrix</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="question">
+<p>What might be a potential concern with a model that uses high temperature, average temperature, season, and precipitation to predict volume?</p>
+</div>
+</section>
+<section id="multicollinearity" class="level1 page-columns page-full">
+<h1>Multicollinearity</h1>
+<section id="multicollinearity-1" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="multicollinearity-1">Multicollinearity</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Ideally the predictors are completely independent of one another</p></li>
+<li><p>In practice, there is typically some relationship between predictors but it is often not a major issue in the model</p></li>
+<li><p>If there predictors are perfectly correlated, we cannot find values of <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_p\)</span> that best fit the model</p></li>
+<li><p>If predictors are strongly correlated, we can find <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_p\)</span>, but there may be other issues with the model</p></li>
+<li><p><strong>Multicollinearity</strong>: predictors are strongly correlated with each other</p></li>
+</ul>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <span class="citation" data-cites="montgomery2021introduction">Montgomery, Peck, and Vining (<a href="#ref-montgomery2021introduction" role="doc-biblioref">2021</a>)</span></p>
+</div></div></section>
+<section id="sources-of-multicollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="sources-of-multicollinearity">Sources of multicollinearity</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Data collection method - only sample from a subspace of the region of predictors</p></li>
+<li><p>Constraints in the population - e.g., predictors family income and size of house</p></li>
+<li><p>Choice of model - e.g., adding high order or interaction terms to the model</p></li>
+<li><p>Overdefined model - have more predictors than observations</p></li>
+</ul>
+</div>
+</section>
+<section id="example-issue-with-multicollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="example-issue-with-multicollinearity">Example: Issue with multicollinearity</h2>
+<p>Let’s assume the true population regression equation is <span class="math inline">\(y = 3 + 4x\)</span></p>
+<p>. . .</p>
+<p>Suppose we try estimating that equation using a model with variables <span class="math inline">\(x\)</span> and <span class="math inline">\(z = x/10\)</span></p>
 <p><span class="math display">\[
-VIF_j = \frac{1}{1 - R^2_j}
+\begin{aligned}\hat{y}&amp;= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2z\\
+&amp;= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2\frac{x}{10}\\
+&amp;= \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x
+\end{aligned}
 \]</span></p>
-<p>to calculate the VIF for <code>avgtemp</code>.</p>
 </section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Based on the VIF from the previous exercise, does <code>avgtemp</code> have a linear dependency with one or more other predictors? Explain.</p>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<section id="example-issue-with-mulitcollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="example-issue-with-mulitcollinearity">Example: Issue with mulitcollinearity</h2>
+<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x\]</span></p>
 <ul>
-<li><p>Use the <code>vif</code> function to compute VIF for all the predictors in Exercise 1.</p></li>
-<li><p>Are there predictors with near-linear dependencies? If so, which ones?</p></li>
+<li><p>We can set <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> to any two numbers such that <span class="math inline">\(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10} = 4\)</span></p></li>
+<li><p>Therefore, we are unable to choose the “best” combination of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span></p></li>
 </ul>
 </section>
-</section>
-<section id="part-2" class="level1">
-<h1>Part 2</h1>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Let’s address the issue of multicollinearity. Choose a strategy to address the multicollinearity. Apply it, then use the regression standard error <span class="math inline">\(\hat{\sigma}_\epsilon\)</span> to choose a final model.</p>
-</section>
-</section>
-<section id="wrapping-up" class="level1">
-<h1>Wrapping up</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Once you’ve completed the AE:</p>
+<section id="variance-inflation-factor" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="variance-inflation-factor">Variance inflation factor</h2>
 <ul>
-<li><p>Render the document to produce the PDF with all of your work from today’s class.</p></li>
-<li><p>Push all your work to your AE repo on GitHub. You’re done! 🎉</p></li>
+<li>The <strong>variance inflation factor (VIF)</strong> is a measure of the collinearity between predictor <span class="math inline">\(x_j\)</span> and all other predictors in the model</li>
+</ul>
+<p><span class="math display">\[
+VIF_{j} = \frac{1}{1 - R^2_j}
+\]</span></p>
+<p>where <span class="math inline">\(R^2_j\)</span> is the proportion of variation in <span class="math inline">\(x_j\)</span> that is explained by all the other predictors</p>
+</section>
+<section id="detecting-multicollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="detecting-multicollinearity">Detecting multicollinearity</h2>
+<ul>
+<li><p>Common practice uses threshold <span class="math inline">\(VIF &gt; 10\)</span> as indication of concerning multicollinearity (some say VIF &gt; 5 is worth investigation)</p></li>
+<li><p>Variables with similar values of VIF are typically the ones correlated with each other</p></li>
+<li><p>Use the <code>vif()</code> function in the <strong>rms</strong> R package to calculate VIF</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rms)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>trail_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> avgtemp <span class="sc">+</span> precip, <span class="at">data =</span> rail_trail)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(trail_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hightemp  avgtemp   precip 
+7.161882 7.597154 1.193431 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="application-exercise" class="level1">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-08-multicollinearity.html">sta210-sp26.github.io/ae/ae-08-multicollinearity.html</a></p>
+<p>Part 1</p>
+</div>
+<section id="how-multicollinearity-impacts-model" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="how-multicollinearity-impacts-model">How multicollinearity impacts model</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>When we have perfect collinearities, we are unable to get estimates for the coefficients</p></li>
+<li><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients inflate</p>
+<ul class="incremental">
+<li><p>In other words, we lose precision in our estimates of the regression coefficients</p></li>
+<li><p>This impedes our ability to use the model for inference</p></li>
+</ul></li>
+<li><p>It is also difficult to interpret the model coefficients</p></li>
 </ul>
 </div>
+</section>
+<section id="dealing-with-multicollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="dealing-with-multicollinearity">Dealing with multicollinearity</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Collect more data (often not feasible given practical constraints)</p></li>
+<li><p>Redefine the correlated predictors to keep the information from predictors but eliminate collinearity</p>
+<ul class="incremental">
+<li>e.g., if <span class="math inline">\(x_1, x_2, x_3\)</span> are correlated, use a new variable <span class="math inline">\((x_1 + x_2) / x_3\)</span> in the model</li>
+</ul></li>
+<li><p>For categorical predictors, avoid using levels with very few observations as the baseline</p></li>
+<li><p>Remove one of the correlated variables</p>
+<ul class="incremental">
+<li>Be careful about substantially reducing predictive power of the model</li>
+</ul></li>
+</ul>
 </div>
+</section>
+</section>
+<section id="application-exercise-1" class="level1">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-08-multicollinearity.html">sta210-sp26.github.io/ae/ae-08-multicollinearity.html</a></p>
+<p>Part 2</p>
+</div>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li><p>Introduced multicollinearity</p>
+<ul>
+<li><p>Definition</p></li>
+<li><p>How it impacts the model</p></li>
+<li><p>How to detect it</p></li>
+<li><p>What to do about it</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="next-class" class="level2">
+<h2 class="anchored" data-anchor-id="next-class">Next class</h2>
+<ul>
+<li><p>Variable transformations</p></li>
+<li><p>Complete <a href="../prepare-lec13.html">Lecture 13 prepare</a></p></li>
+</ul>
+</section>
+<section id="references" class="level2">
+
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-montgomery2021introduction" class="csl-entry" role="listitem">
+Montgomery, Douglas C, Elizabeth A Peck, and G Geoffrey Vining. 2021. <em>Introduction to Linear Regression Analysis</em>. John Wiley &amp; Sons.
+</div>
+</div></section></div></main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

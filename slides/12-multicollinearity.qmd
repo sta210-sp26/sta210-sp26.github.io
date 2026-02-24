@@ -1,0 +1,307 @@
+---
+title: "Multicollinearity"
+author: "Prof. Maria Tackett"
+date: "02-24-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 12-multicollinearity-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Announcements
+
+-   Project proposal due **Thursday** t 11:59pm
+
+-   February 25, 5-6 pm \@ East Duke 108: Duke Sports Analytics Club is hosting **Sam Marks**, Director of Business Strategy and Analytics at the Boston Bruins
+
+    -   [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdethCogomC5DTNwSyQy5N_R5fOkT5LfJGR27VSEHGfWIH-cw/viewform) to register
+
+-   SSMU Mini DataFest #2: February 27 - March 1. [Click here](https://edstem.org/us/courses/91299/discussion/7720540) for announcement
+
+-   March 20 - 22: ASA DataFest at Duke
+
+    -   Learn more and register: <https://dukestatsci.github.io/datafest/#signup> 
+
+## Computing set up
+
+```{r}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)  
+library(tidymodels)  
+library(knitr)       
+library(patchwork)
+library(GGally)   # for pairwise plot matrix
+library(corrplot) # for correlation matrix
+
+# set default theme in ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+## Topics
+
+-   Multicollinearity
+
+    -   Definition
+
+    -   How it impacts the model
+
+    -   How to detect it
+
+    -   What to do about it
+
+## Data: Trail users {.midi}
+
+-   The Pioneer Valley Planning Commission (PVPC) collected data at the beginning a trail in Florence, MA for ninety days from April 5, 2005 to November 15, 2005
+-   Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+rail_trail <- read_csv(here::here("slides", "data/rail_trail.csv"))
+rail_trail |> slice(1:5)
+```
+
+Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
+
+## Variables
+
+**Response**
+
+-   `volume` estimated number of trail users that day (number of breaks recorded)
+
+**Predictors**
+
+-   `hightemp` daily high temperature (in degrees Fahrenheit)
+
+-   `avgtemp` average of daily low and daily high temperature (in degrees Fahrenheit)
+
+-   `season` one of “Fall”, “Spring”, or “Summer”
+
+-   `precip` measure of precipitation (in inches)
+
+## EDA: Relationship between predictors
+
+We can create a pairwise plot matrix using the `ggpairs` function from the **GGally** R package
+
+```{r}
+#| eval: false
+
+rail_trail |>
+  select(hightemp, avgtemp, season, precip) |>
+  ggpairs()
+```
+
+## EDA: Relationship between predictors {.midi}
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+rail_trail |>
+  select(hightemp, avgtemp, season, precip) |>
+  ggpairs()
+```
+
+## EDA: Correlation matrix
+
+We can. use `corrplot()` in the **corrplot** R package to make a matrix of pairwise correlations between [quantitative]{.underline} predictors
+
+```{r}
+#| eval: false
+correlations <- rail_trail |>
+  select(hightemp, avgtemp, precip) |>
+  cor()
+
+corrplot(correlations, method = "number")
+```
+
+## EDA: Correlation matrix
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+correlations <- rail_trail |>
+  select(hightemp, avgtemp, precip) |>
+  cor()
+
+
+corrplot(correlations, method = "number")
+```
+
+::: question
+What might be a potential concern with a model that uses high temperature, average temperature, season, and precipitation to predict volume?
+:::
+
+# Multicollinearity
+
+## Multicollinearity
+
+::: incremental
+-   Ideally the predictors are completely independent of one another
+
+-   In practice, there is typically some relationship between predictors but it is often not a major issue in the model
+
+-   If there predictors are perfectly correlated, we cannot find values of $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_p$ that best fit the model
+
+-   If predictors are strongly correlated, we can find $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_p$, but there may be other issues with the model
+
+-   **Multicollinearity**: predictors are strongly correlated with each other
+:::
+
+::: aside
+Source: @montgomery2021introduction
+:::
+
+## Sources of multicollinearity
+
+::: incremental
+-   Data collection method - only sample from a subspace of the region of predictors
+
+-   Constraints in the population - e.g., predictors family income and size of house
+
+-   Choice of model - e.g., adding high order or interaction terms to the model
+
+-   Overdefined model - have more predictors than observations
+:::
+
+## Example: Issue with multicollinearity
+
+Let's assume the true population regression equation is $y = 3 + 4x$
+
+. . .
+
+Suppose we try estimating that equation using a model with variables $x$ and $z = x/10$
+
+$$
+\begin{aligned}\hat{y}&= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2z\\
+&= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2\frac{x}{10}\\
+&= \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x
+\end{aligned}
+$$
+
+## Example: Issue with mulitcollinearity
+
+$$\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x$$
+
+-   We can set $\hat{\beta}_1$ and $\hat{\beta}_2$ to any two numbers such that $\hat{\beta}_1 + \frac{\hat{\beta}_2}{10} = 4$
+
+-   Therefore, we are unable to choose the "best" combination of $\hat{\beta}_1$ and $\hat{\beta}_2$
+
+## Variance inflation factor {.midi}
+
+-   The **variance inflation factor (VIF)** is a measure of the collinearity between predictor $x_j$ and all other predictors in the model
+
+$$
+VIF_{j} = \frac{1}{1 - R^2_j}
+$$
+
+where $R^2_j$ is the proportion of variation in $x_j$ that is explained by all the other predictors
+
+## Detecting multicollinearity
+
+-   Common practice uses threshold $VIF > 10$ as indication of concerning multicollinearity (some say VIF \> 5 is worth investigation)
+
+-   Variables with similar values of VIF are typically the ones correlated with each other
+
+-   Use the `vif()` function in the **rms** R package to calculate VIF
+
+```{r}
+library(rms)
+
+trail_fit <- lm(volume ~ hightemp + avgtemp + precip, data = rail_trail)
+
+vif(trail_fit)
+```
+
+# Application exercise
+
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-08-multicollinearity.html](../ae/ae-08-multicollinearity.html)
+
+Part 1
+:::
+
+## How multicollinearity impacts model {.midi}
+
+::: incremental
+-   When we have perfect collinearities, we are unable to get estimates for the coefficients
+
+-   When we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate
+
+    -   In other words, we lose precision in our estimates of the regression coefficients
+
+    -   This impedes our ability to use the model for inference
+
+-   It is also difficult to interpret the model coefficients
+:::
+
+## Dealing with multicollinearity
+
+::: incremental
+-   Collect more data (often not feasible given practical constraints)
+
+-   Redefine the correlated predictors to keep the information from predictors but eliminate collinearity
+
+    -   e.g., if $x_1, x_2, x_3$ are correlated, use a new variable $(x_1 + x_2) / x_3$ in the model
+
+-   For categorical predictors, avoid using levels with very few observations as the baseline
+
+-   Remove one of the correlated variables
+
+    -   Be careful about substantially reducing predictive power of the model
+:::
+
+# Application exercise
+
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-08-multicollinearity.html](../ae/ae-08-multicollinearity.html)
+
+Part 2
+:::
+
+## Recap
+
+-   Introduced multicollinearity
+
+    -   Definition
+
+    -   How it impacts the model
+
+    -   How to detect it
+
+    -   What to do about it
+
+## Next class
+
+-   Variable transformations
+
+-   Complete [Lecture 13 prepare](../prepare-lec13.html)
+
+## References

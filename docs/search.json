@@ -348,18 +348,18 @@
     "text": "Log Transformation on \\(X\\)\nTry a transformation on \\(X\\) if the scatterplot in EDA shows non-linear relationship and residuals vs. predictor make parabola"
   },
   {
+    "objectID": "slides/13-variable-transformations.html#bivariate-eda-with-loghealth_expend",
+    "href": "slides/13-variable-transformations.html#bivariate-eda-with-loghealth_expend",
+    "title": "Variable transformations",
+    "section": "Bivariate EDA with log(health_expend)",
+    "text": "Bivariate EDA with log(health_expend)"
+  },
+  {
     "objectID": "slides/13-variable-transformations.html#model-with-transformation-on-x_j",
     "href": "slides/13-variable-transformations.html#model-with-transformation-on-x_j",
     "title": "Variable transformations",
     "section": "Model with Transformation on \\(X_j\\)",
     "text": "Model with Transformation on \\(X_j\\)\nIf we fit a model with predictor \\(\\log(X_j)\\), we fit a model of the form\n\\[\nY = \\beta_0 + \\beta_1X_1 + \\dots + \\beta_j\\log(X_j) + \\dots \\beta_pX_p + \\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\\]\n\nThe estimated regression model is\n\\[\n\\begin{aligned}\n&\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1X_1 + \\dots + \\hat{\\beta}_j\\log(X_j) + \\dots \\hat{\\beta}_pX_p \\\\[8pt]\n\\Rightarrow \\quad &\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\ldots + \\hat{\\beta}_j\\log(x_{ij}) + \\dots + \\hat{\\beta}_px_{ip}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/13-variable-transformations.html#distribution-of-x_jand-logx_j",
-    "href": "slides/13-variable-transformations.html#distribution-of-x_jand-logx_j",
-    "title": "Variable transformations",
-    "section": "Distribution of \\(X_j\\)and \\(\\log(X_j)\\)",
-    "text": "Distribution of \\(X_j\\)and \\(\\log(X_j)\\)"
   },
   {
     "objectID": "slides/13-variable-transformations.html#model-with-logx_j",
@@ -394,7 +394,7 @@
     "href": "slides/13-variable-transformations.html#interpretation-1",
     "title": "Variable transformations",
     "section": "Interpretation",
-    "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n59.151\n3.184\n18.576\n0.000\n\n\nlog(health_expenditure)\n3.092\n0.396\n7.814\n0.000\n\n\nincome_inequality\n-0.362\n0.058\n-6.225\n0.000\n\n\neducationHigh\n-0.168\n1.103\n-0.152\n0.879\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of health expenditure in the context of the data.\nInterpret the effect of education in the context of the data."
+    "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n59.151\n3.184\n18.576\n0.000\n\n\nlog(health_expenditure)\n3.092\n0.396\n7.814\n0.000\n\n\nincome_inequality\n-0.362\n0.058\n-6.225\n0.000\n\n\neducationHigh\n-0.168\n1.103\n-0.152\n0.879\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of a 10% increase in health expenditure in the context of the data.\nInterpret the effect of education in the context of the data."
   },
   {
     "objectID": "slides/13-variable-transformations.html#learn-more",
@@ -628,18 +628,18 @@
     "text": "Log Transformation on \\(X\\)\nTry a transformation on \\(X\\) if the scatterplot in EDA shows non-linear relationship and residuals vs. predictor make parabola"
   },
   {
+    "objectID": "slides/13-variable-transformations-notes.html#bivariate-eda-with-loghealth_expend",
+    "href": "slides/13-variable-transformations-notes.html#bivariate-eda-with-loghealth_expend",
+    "title": "Variable transformations",
+    "section": "Bivariate EDA with log(health_expend)",
+    "text": "Bivariate EDA with log(health_expend)"
+  },
+  {
     "objectID": "slides/13-variable-transformations-notes.html#model-with-transformation-on-x_j",
     "href": "slides/13-variable-transformations-notes.html#model-with-transformation-on-x_j",
     "title": "Variable transformations",
     "section": "Model with Transformation on \\(X_j\\)",
     "text": "Model with Transformation on \\(X_j\\)\nIf we fit a model with predictor \\(\\log(X_j)\\), we fit a model of the form\n\\[\nY = \\beta_0 + \\beta_1X_1 + \\dots + \\beta_j\\log(X_j) + \\dots \\beta_pX_p + \\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\\]\n. . .\nThe estimated regression model is\n\\[\n\\begin{aligned}\n&\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1X_1 + \\dots + \\hat{\\beta}_j\\log(X_j) + \\dots \\hat{\\beta}_pX_p \\\\[8pt]\n\\Rightarrow \\quad &\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\ldots + \\hat{\\beta}_j\\log(x_{ij}) + \\dots + \\hat{\\beta}_px_{ip}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/13-variable-transformations-notes.html#distribution-of-x_jand-logx_j",
-    "href": "slides/13-variable-transformations-notes.html#distribution-of-x_jand-logx_j",
-    "title": "Variable transformations",
-    "section": "Distribution of \\(X_j\\)and \\(\\log(X_j)\\)",
-    "text": "Distribution of \\(X_j\\)and \\(\\log(X_j)\\)"
   },
   {
     "objectID": "slides/13-variable-transformations-notes.html#model-with-logx_j",
@@ -674,7 +674,7 @@
     "href": "slides/13-variable-transformations-notes.html#interpretation-1",
     "title": "Variable transformations",
     "section": "Interpretation",
-    "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n59.151\n3.184\n18.576\n0.000\n\n\nlog(health_expenditure)\n3.092\n0.396\n7.814\n0.000\n\n\nincome_inequality\n-0.362\n0.058\n-6.225\n0.000\n\n\neducationHigh\n-0.168\n1.103\n-0.152\n0.879\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of health expenditure in the context of the data.\nInterpret the effect of education in the context of the data."
+    "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n59.151\n3.184\n18.576\n0.000\n\n\nlog(health_expenditure)\n3.092\n0.396\n7.814\n0.000\n\n\nincome_inequality\n-0.362\n0.058\n-6.225\n0.000\n\n\neducationHigh\n-0.168\n1.103\n-0.152\n0.879\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of a 10% increase in health expenditure in the context of the data.\nInterpret the effect of education in the context of the data."
   },
   {
     "objectID": "slides/13-variable-transformations-notes.html#learn-more",

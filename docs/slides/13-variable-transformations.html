@@ -622,6 +622,10 @@ e^{a - b} &amp;= \frac{e^a}{e^b}
 <p>Try a transformation on <span class="math inline">\(X\)</span> if the scatterplot in EDA shows non-linear relationship and residuals vs.&nbsp;predictor make parabola</p>
 
 <img data-src="13-variable-transformations_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="bivariate-eda-with-loghealth_expend" class="slide level2">
+<h2>Bivariate EDA with log(health_expend)</h2>
+
+<img data-src="13-variable-transformations_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
 <section id="model-with-transformation-on-x_j" class="slide level2 midi">
 <h2>Model with Transformation on <span class="math inline">\(X_j\)</span></h2>
 <p>If we fit a model with predictor <span class="math inline">\(\log(X_j)\)</span>, we fit a model of the form</p>
@@ -637,10 +641,6 @@ Y = \beta_0 + \beta_1X_1 + \dots + \beta_j\log(X_j) + \dots \beta_pX_p + \epsilo
 \]</span></p>
 </div>
 </section>
-<section id="distribution-of-x_jand-logx_j" class="slide level2">
-<h2>Distribution of <span class="math inline">\(X_j\)</span>and <span class="math inline">\(\log(X_j)\)</span></h2>
-
-<img data-src="13-variable-transformations_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
 <section id="model-with-logx_j" class="slide level2">
 <h2>Model with <span class="math inline">\(\log(X_j)\)</span></h2>
 <div class="cell">
@@ -775,7 +775,7 @@ Y = \beta_0 + \beta_1X_1 + \dots + \beta_j\log(X_j) + \dots \beta_pX_p + \epsilo
 <div class="question">
 <ul>
 <li><p>Interpret the intercept in the context of the data.</p></li>
-<li><p>Interpret the effect of health expenditure in the context of the data.</p></li>
+<li><p>Interpret the effect of a 10% increase in health expenditure in the context of the data.</p></li>
 <li><p>Interpret the effect of education in the context of the data.</p></li>
 </ul>
 </div>

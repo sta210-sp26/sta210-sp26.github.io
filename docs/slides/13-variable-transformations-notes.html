@@ -458,8 +458,8 @@ window.Quarto = {
   <li><a href="#original-model-residuals" id="toc-original-model-residuals" class="nav-link" data-scroll-target="#original-model-residuals">Original model: Residuals</a></li>
   <li><a href="#residuals-vs.-predictors" id="toc-residuals-vs.-predictors" class="nav-link" data-scroll-target="#residuals-vs.-predictors">Residuals vs.&nbsp;predictors</a></li>
   <li><a href="#log-transformation-on-x" id="toc-log-transformation-on-x" class="nav-link" data-scroll-target="#log-transformation-on-x">Log Transformation on <span class="math inline">\(X\)</span></a></li>
+  <li><a href="#bivariate-eda-with-loghealth_expend" id="toc-bivariate-eda-with-loghealth_expend" class="nav-link" data-scroll-target="#bivariate-eda-with-loghealth_expend">Bivariate EDA with log(health_expend)</a></li>
   <li><a href="#model-with-transformation-on-x_j" id="toc-model-with-transformation-on-x_j" class="nav-link" data-scroll-target="#model-with-transformation-on-x_j">Model with Transformation on <span class="math inline">\(X_j\)</span></a></li>
-  <li><a href="#distribution-of-x_jand-logx_j" id="toc-distribution-of-x_jand-logx_j" class="nav-link" data-scroll-target="#distribution-of-x_jand-logx_j">Distribution of <span class="math inline">\(X_j\)</span>and <span class="math inline">\(\log(X_j)\)</span></a></li>
   <li><a href="#model-with-logx_j" id="toc-model-with-logx_j" class="nav-link" data-scroll-target="#model-with-logx_j">Model with <span class="math inline">\(\log(X_j)\)</span></a></li>
   <li><a href="#model-with-logx-residuals" id="toc-model-with-logx-residuals" class="nav-link" data-scroll-target="#model-with-logx-residuals">Model with log(X): Residuals</a></li>
   <li><a href="#compare-residual-plots-1" id="toc-compare-residual-plots-1" class="nav-link" data-scroll-target="#compare-residual-plots-1">Compare residual plots</a></li>
@@ -990,6 +990,18 @@ e^{a - b} &amp;= \frac{e^a}{e^b}
 </div>
 </div>
 </section>
+<section id="bivariate-eda-with-loghealth_expend" class="level2">
+<h2 class="anchored" data-anchor-id="bivariate-eda-with-loghealth_expend">Bivariate EDA with log(health_expend)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13-variable-transformations_files/figure-revealjs/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="model-with-transformation-on-x_j" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="model-with-transformation-on-x_j">Model with Transformation on <span class="math inline">\(X_j\)</span></h2>
 <p>If we fit a model with predictor <span class="math inline">\(\log(X_j)\)</span>, we fit a model of the form</p>
@@ -1003,18 +1015,6 @@ Y = \beta_0 + \beta_1X_1 + \dots + \beta_j\log(X_j) + \dots \beta_pX_p + \epsilo
 \Rightarrow \quad &amp;\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_{i1} + \ldots + \hat{\beta}_j\log(x_{ij}) + \dots + \hat{\beta}_px_{ip}
 \end{aligned}
 \]</span></p>
-</section>
-<section id="distribution-of-x_jand-logx_j" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-of-x_jand-logx_j">Distribution of <span class="math inline">\(X_j\)</span>and <span class="math inline">\(\log(X_j)\)</span></h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="13-variable-transformations_files/figure-revealjs/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="model-with-logx_j" class="level2">
 <h2 class="anchored" data-anchor-id="model-with-logx_j">Model with <span class="math inline">\(\log(X_j)\)</span></h2>
@@ -1168,7 +1168,7 @@ Y = \beta_0 + \beta_1X_1 + \dots + \beta_j\log(X_j) + \dots \beta_pX_p + \epsilo
 <div class="question">
 <ul>
 <li><p>Interpret the intercept in the context of the data.</p></li>
-<li><p>Interpret the effect of health expenditure in the context of the data.</p></li>
+<li><p>Interpret the effect of a 10% increase in health expenditure in the context of the data.</p></li>
 <li><p>Interpret the effect of education in the context of the data.</p></li>
 </ul>
 </div>

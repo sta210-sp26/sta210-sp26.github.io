@@ -159,7 +159,7 @@ resid_orig <- ggplot(data = health_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7) + 
   geom_hline(yintercept = 0,color = "red", linetype. = 2) + 
   labs(x = "Predicted", y = "Residuals", 
-       title = "Original Y")
+       title = "Model for Y")
 
 resid_orig
 ```
@@ -279,7 +279,7 @@ resid_logy <- ggplot(data = health_logy_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7) + 
   geom_hline(yintercept=0, color="red") +
   labs(x="Predicted", y="Residuals",
-       title="log(Y) Model")
+       title="Model for log(Y)")
 
 resid_logy
 ```
@@ -477,6 +477,18 @@ resid1 <-  ggplot(data = life_exp_aug, aes(x = health_expenditure, y = .resid)) 
 p1 + resid1 + plot_annotation(title = "Health expenditure ")
 ```
 
+## Bivariate EDA with log(health_expend)
+
+```{r}
+#| echo: false
+
+ggplot(data = health_data, aes(x = log(health_expenditure), y = life_exp)) + 
+  geom_point() + 
+  labs(x = "Log-transformed healthcare expenditure",
+       y = "Life expectancy",
+       title = "Life expectancy vs. Log-transformed healthcare expenditure")
+```
+
 ## Model with Transformation on $X_j$ {.midi}
 
 If we fit a model with predictor $\log(X_j)$, we fit a model of the form
@@ -494,24 +506,6 @@ $$
 \Rightarrow \quad &\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_{i1} + \ldots + \hat{\beta}_j\log(x_{ij}) + \dots + \hat{\beta}_px_{ip} 
 \end{aligned}
 $$
-
-## Distribution of $X_j$and $\log(X_j)$
-
-```{r}
-#| echo: false
-
-y_orig <- ggplot(data = health_data, aes(x = health_expenditure)) + 
-  geom_histogram(fill = "steelblue", color = "black") + 
-  labs(x = "",
-       title = "Original")
-
-y_transformed <- ggplot(data = health_data, aes(x = log(health_expenditure))) + 
-  geom_histogram(fill = "darkcyan", color = "black") + 
-  labs(x = "",
-       title = "Log-transformed")
-
-y_orig + y_transformed + plot_annotation(title = "Original vs. transformed healthcare expenditure")
-```
 
 ## Model with $\log(X_j)$ 
 
@@ -545,7 +539,7 @@ resid_logx <- ggplot(data = life_exp_logx_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7) + 
   geom_hline(yintercept=0, color="red") +
   labs(x="Predicted", y="Residuals",
-       title="log(X) model")
+       title="Model with log(x)")
 
 resid_logx
 ```
@@ -588,7 +582,7 @@ tidy(life_exp_logx_fit) |>
 ::: question
 -   Interpret the intercept in the context of the data.
 
--   Interpret the effect of health expenditure in the context of the data.
+-   Interpret the effect of a 10% increase in health expenditure in the context of the data.
 
 -   Interpret the effect of education in the context of the data.
 :::

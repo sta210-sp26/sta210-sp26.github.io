@@ -1089,9 +1089,9 @@ Y = \beta_0 + \beta_1X_1 + \dots + \beta_j\log(X_j) + \dots \beta_pX_p + \epsilo
 </div>
 <p><span class="math display">\[
 \begin{aligned}
-\text{life_exp} = 78.575 &amp;+ 0.001 \times \log(\text{health_expend})\\
-&amp; - 0.484 \times \text{income_inequality} \\
-&amp;+ 0.020 \times \text{educationHigh}
+\text{life_exp} = 59.151 &amp;+ 3.092 \times \log(\text{health_expend})\\
+&amp; -0.362 \times \text{income_inequality} \\
+&amp;-0.168 \times \text{educationHigh}
 \end{aligned}
 \]</span></p>
 </section>
@@ -1130,9 +1130,9 @@ Y = \beta_0 + \beta_1X_1 + \dots + \beta_j\log(X_j) + \dots \beta_pX_p + \epsilo
 <ul class="incremental">
 <li><span class="math inline">\(\log(x_{ij}) = 0\)</span> when <span class="math inline">\(x_{ij} = 1\)</span></li>
 </ul></li>
-<li><p><strong>Coefficient of</strong> <span class="math inline">\(X_j\)</span><strong>:</strong> When <span class="math inline">\(x_{ij}\)</span> is multiplied by a factor of <span class="math inline">\(C\)</span>, <span class="math inline">\(y_i\)</span> is expected to change by <span class="math inline">\(\hat{\beta}_1\log(C)\)</span> units, on average, holding all else constant.</p>
+<li><p><strong>Coefficient of</strong> <span class="math inline">\(X_j\)</span><strong>:</strong> When <span class="math inline">\(x_{ij}\)</span> is multiplied by a factor of <span class="math inline">\(C\)</span>, <span class="math inline">\(y_i\)</span> is expected to change by <span class="math inline">\(\hat{\beta}_j\log(C)\)</span> units, on average, holding all else constant.</p>
 <ul class="incremental">
-<li><strong>Example</strong>: When <span class="math inline">\(x_{ij}\)</span> is multiplied by a factor of 2, <span class="math inline">\(y_i\)</span> is expected to increase by <span class="math inline">\(\hat{\beta}_1\log(2)\)</span> units, on average, holding all else constant.</li>
+<li><strong>Example</strong>: When <span class="math inline">\(x_{ij}\)</span> is multiplied by a factor of 2, <span class="math inline">\(y_i\)</span> is expected to increase by <span class="math inline">\(\hat{\beta}_j\log(2)\)</span> units, on average, holding all else constant.</li>
 </ul></li>
 </ul>
 </div>

@@ -299,11 +299,11 @@
     "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.096\n0.324\n21.895\n0\n\n\nincome_inequality\n-0.065\n0.011\n-5.714\n0\n\n\neducationHigh\n1.117\n0.218\n5.121\n0\n\n\n\n\n\n\n\nInterpret each of the following in terms of the original units of health expenditure\n\nIntercept\nincome_inequality\neducation"
   },
   {
-    "objectID": "slides/13-variable-transformations.html#poll-question",
-    "href": "slides/13-variable-transformations.html#poll-question",
+    "objectID": "slides/13-variable-transformations.html#interpretation-1",
+    "href": "slides/13-variable-transformations.html#interpretation-1",
     "title": "Variable transformations",
-    "section": "Poll question",
-    "text": "Poll question"
+    "section": "Interpretation",
+    "text": "Interpretation\n\nQuestionSubmit\n\n\n\n\nThe coefficient of educationHigh is 1.117. Interpret this value in terms of the original units of healthcare expenditure.\n\n🔗 https://forms.office.com/r/wax7jftQDg"
   },
   {
     "objectID": "slides/13-variable-transformations.html#variability-in-life-expectancy",
@@ -390,8 +390,8 @@
     "text": "Model interpretation\n\\[\n\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\ldots + \\hat{\\beta}_j\\log(x_{ij}) + \\dots + \\hat{\\beta}_px_{ip}\n\\]\n\nIntercept: When \\(x_{i1} = \\dots = \\log(x_{ij}) = \\dots = x_{ip} = 0\\) , \\(y_i\\) is expected to be \\(\\hat{\\beta}_0\\), on average, holding all else constant.\n\n\\(\\log(x_{ij}) = 0\\) when \\(x_{ij} = 1\\)\n\nCoefficient of \\(X_j\\): When \\(x_{ij}\\) is multiplied by a factor of \\(C\\), \\(y_i\\) is expected to change by \\(\\hat{\\beta}_1\\log(C)\\) units, on average, holding all else constant.\n\nExample: When \\(x_{ij}\\) is multiplied by a factor of 2, \\(y_i\\) is expected to increase by \\(\\hat{\\beta}_1\\log(2)\\) units, on average, holding all else constant."
   },
   {
-    "objectID": "slides/13-variable-transformations.html#interpretation-1",
-    "href": "slides/13-variable-transformations.html#interpretation-1",
+    "objectID": "slides/13-variable-transformations.html#interpretation-2",
+    "href": "slides/13-variable-transformations.html#interpretation-2",
     "title": "Variable transformations",
     "section": "Interpretation",
     "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n59.151\n3.184\n18.576\n0.000\n\n\nlog(health_expenditure)\n3.092\n0.396\n7.814\n0.000\n\n\nincome_inequality\n-0.362\n0.058\n-6.225\n0.000\n\n\neducationHigh\n-0.168\n1.103\n-0.152\n0.879\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of a 10% increase in health expenditure in the context of the data.\nInterpret the effect of education in the context of the data."
@@ -579,11 +579,11 @@
     "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n7.096\n0.324\n21.895\n0\n\n\nincome_inequality\n-0.065\n0.011\n-5.714\n0\n\n\neducationHigh\n1.117\n0.218\n5.121\n0\n\n\n\n\n\n\n\nInterpret each of the following in terms of the original units of health expenditure\n\nIntercept\nincome_inequality\neducation"
   },
   {
-    "objectID": "slides/13-variable-transformations-notes.html#poll-question",
-    "href": "slides/13-variable-transformations-notes.html#poll-question",
+    "objectID": "slides/13-variable-transformations-notes.html#interpretation-1",
+    "href": "slides/13-variable-transformations-notes.html#interpretation-1",
     "title": "Variable transformations",
-    "section": "Poll question",
-    "text": "Poll question"
+    "section": "Interpretation",
+    "text": "Interpretation\n\nQuestionSubmit\n\n\n\n\nThe coefficient of educationHigh is 1.117. Interpret this value in terms of the original units of healthcare expenditure.\n\n🔗 https://forms.office.com/r/wax7jftQDg"
   },
   {
     "objectID": "slides/13-variable-transformations-notes.html#variability-in-life-expectancy",
@@ -670,8 +670,8 @@
     "text": "Model interpretation\n\\[\n\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\ldots + \\hat{\\beta}_j\\log(x_{ij}) + \\dots + \\hat{\\beta}_px_{ip}\n\\]\n\n\nIntercept: When \\(x_{i1} = \\dots = \\log(x_{ij}) = \\dots = x_{ip} = 0\\) , \\(y_i\\) is expected to be \\(\\hat{\\beta}_0\\), on average, holding all else constant.\n\n\\(\\log(x_{ij}) = 0\\) when \\(x_{ij} = 1\\)\n\nCoefficient of \\(X_j\\): When \\(x_{ij}\\) is multiplied by a factor of \\(C\\), \\(y_i\\) is expected to change by \\(\\hat{\\beta}_1\\log(C)\\) units, on average, holding all else constant.\n\nExample: When \\(x_{ij}\\) is multiplied by a factor of 2, \\(y_i\\) is expected to increase by \\(\\hat{\\beta}_1\\log(2)\\) units, on average, holding all else constant."
   },
   {
-    "objectID": "slides/13-variable-transformations-notes.html#interpretation-1",
-    "href": "slides/13-variable-transformations-notes.html#interpretation-1",
+    "objectID": "slides/13-variable-transformations-notes.html#interpretation-2",
+    "href": "slides/13-variable-transformations-notes.html#interpretation-2",
     "title": "Variable transformations",
     "section": "Interpretation",
     "text": "Interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n59.151\n3.184\n18.576\n0.000\n\n\nlog(health_expenditure)\n3.092\n0.396\n7.814\n0.000\n\n\nincome_inequality\n-0.362\n0.058\n-6.225\n0.000\n\n\neducationHigh\n-0.168\n1.103\n-0.152\n0.879\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of a 10% increase in health expenditure in the context of the data.\nInterpret the effect of education in the context of the data."

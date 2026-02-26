@@ -346,7 +346,27 @@ Interpret each of the following in terms of the original units of health expendi
 :::
 ::::
 
-## Poll question
+## Interpretation 
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: question
+The coefficient of educationHigh is 1.117. Interpret this value in terms of the original units of healthcare expenditure.
+:::
+
+🔗 <https://forms.office.com/r/wax7jftQDg>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/wax7jftQDg?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+# 
 
 # Log transformation on a predictor variable
 
@@ -507,7 +527,7 @@ $$
 \end{aligned}
 $$
 
-## Model with $\log(X_j)$ 
+## Model with $\log(X_j)$
 
 ```{r}
 life_exp_logx_fit <- lm(life_exp ~ log(health_expenditure) + income_inequality + education, 
@@ -544,7 +564,7 @@ resid_logx <- ggplot(data = life_exp_logx_aug, aes(x = .fitted, y = .resid)) +
 resid_logx
 ```
 
-## Compare residual plots 
+## Compare residual plots
 
 ```{r}
 #| echo: false

@@ -1,0 +1,15 @@
+{
+  "hash": "bb68db808fe97f535998132723c1af51",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab 05\"\nsubtitle: \"Expanding multiple linear regression\"\ndate: \"03-02-2026\"\ndate-format: \"MMM DD, YYYY\"\nfooter: \"🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs: \n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: true\n    incremental: false \n    chalkboard: true\n    include-before: [ '<script type=\"text/x-mathjax-config\">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']\nhtml-math-method:\n  method: mathjax\n  url: \"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"\nexecute:\n  freeze: auto\n  echo: true\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\nbibliography: references.bib\n---\n\n## Goals\n\n-   Mid-semester survey\n\n-   Lab 05: Expanding multiple linear regression\n\n## Mid-semester feedback\n\n-   **Purpose**: To give the teaching team feedback on what is working well (or not as well) in helping you learn the course content\n\n-   The feedback is **anonymous**\n\n-   Please take a few minutes to fill it out during lab today\n\n**The teaching team appreciates your feedback!**\n\n🔗 <https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA>\n\n## Today's lab\n\nThis lab focuses on\n\n-   modeling complex data using variable transformations, categorical predictors and interactions, and various model specifications.\n\n-   evaluating model diagnostics and conditions.\n\n🔗 [sta210-sp26.github.io/labs/lab-05.html](https://sta210-sp26.github.io/labs/lab-05.html)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

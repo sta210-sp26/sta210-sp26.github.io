@@ -1,0 +1,56 @@
+---
+title: "Lab 05"
+subtitle: "Expanding multiple linear regression"
+date: "03-02-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Goals
+
+-   Mid-semester survey
+
+-   Lab 05: Expanding multiple linear regression
+
+## Mid-semester feedback
+
+-   **Purpose**: To give the teaching team feedback on what is working well (or not as well) in helping you learn the course content
+
+-   The feedback is **anonymous**
+
+-   Please take a few minutes to fill it out during lab today
+
+**The teaching team appreciates your feedback!**
+
+🔗 <https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA>
+
+## Today's lab
+
+This lab focuses on
+
+-   modeling complex data using variable transformations, categorical predictors and interactions, and various model specifications.
+
+-   evaluating model diagnostics and conditions.
+
+🔗 [sta210-sp26.github.io/labs/lab-05.html](https://sta210-sp26.github.io/labs/lab-05.html)

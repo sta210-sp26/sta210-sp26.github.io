@@ -1,0 +1,316 @@
+---
+title: "Cross validation"
+author: "Prof. Maria Tackett"
+date: "2025-04-10"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 23-cross-validation-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+## Announcements
+
+-   Exam 02 - April 17 (same format as Exam 01)
+
+    -   Lecture videos available
+
+-   Next project milestone: Draft and peer review in April 21 lab
+
+-   Statistics experience due April 15
+
+## Topics
+
+::: nonincremental
+-   Cross validation
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## Data: Sesame Street
+
+Today's data comes from [an experiment](https://files.eric.ed.gov/fulltext/ED122799.pdf) by the Educational Testing Service to test the effectiveness of the children's program *Sesame Street*. *Sesame Street* is an educational program designed to teach young children basic educational skills such as counting and the alphabet
+
+As part of the experiment, children were assigned to one of two groups: those who were encouraged to watch the program and those who were not.
+
+The show is only effective if children watch it, so we want to understand what effect the encouragement had on the frequency children watched the program.
+
+## Variables
+
+**Response:**
+
+-   `viewcat`
+    -   1: rarely watched show
+    -   2: watched once or twice a week
+    -   3: watched three to five times a week
+    -   4: watched show on average more than five times a week
+
+**Predictors:**
+
+-   `age`: child's age in months
+-   `viewenc`: 1: encouraged to watch, 0: not encouraged
+
+# Application exercise
+
+::: appex
+📋 <https://sta210-sp25.netlify.app/ae/ae-11-multinomial.html>
+:::
+
+# Cross validation
+
+## Spending our data
+
+-   We have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.
+-   However, we usually need to understand the effectiveness of the model [*before*]{.underline} *using the test set*.
+-   Typically we can't decide on *which* final model to take to the test set without making model assessments.
+-   **Remedy:** Resampling to make model assessments on training data in a way that can generalize to new data.
+
+## Resampling for model assessment
+
+**Resampling is only conducted on the** <u>**training**</u> **set**. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:
+
+-   The model is fit with the **analysis set**. Model fit statistics such as $R^2_{Adj}$, AIC, BIC, and AUC are calculated based on this fit.
+-   The model is evaluated with the **assessment set**.
+
+## Resampling for model assessment
+
+![](images/23/resampling.svg){fig-align="center"}
+
+<br>
+
+Image source: Kuhn and Silge. [Tidy modeling with R](https://www.tmwr.org/).
+
+## Analysis and assessment sets
+
+-   Analysis set is analogous to training set.
+-   Assessment set is analogous to test set.
+-   The terms *analysis* and *assessment* avoids confusion with initial split of the data.
+-   These data sets are mutually exclusive.
+
+## Cross validation
+
+More specifically, **v-fold cross validation** -- commonly used resampling technique:
+
+-   Randomly split your **training** **data** into ***v*** partitions
+-   Use ***v-1*** partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)
+-   Repeat ***v*** times, updating which partition is used for assessment each time
+
+. . .
+
+Let's give an example where `v = 3`...
+
+```{r}
+#| echo: false
+
+sesame <- read_csv("https://bit.ly/sesame-street-data")
+
+# mean-center relevant continuous variables, make categorical variables factors
+sesame <- sesame |> 
+  mutate(viewcat = factor(viewcat), 
+         site = factor(site), 
+         prenumbCent = prenumb - mean(prenumb), 
+         preletCent = prelet - mean(prelet), 
+         ageCent = age - mean(age),
+         viewenc = factor(if_else(viewenc == 1, "1", "0"))
+  )
+
+```
+
+## To get started...
+
+**Split data into training and test sets**
+
+```{r}
+#| echo: true
+set.seed(345)
+
+sesame_split <- initial_split(sesame)
+sesame_train <- training(sesame_split)
+sesame_test <- testing(sesame_split)
+```
+
+## To get started... {.midi}
+
+**Specify model**
+
+```{r}
+#| echo: true
+sesame_spec <- multinom_reg()
+```
+
+<br>
+
+. . .
+
+```{r}
+sesame_spec
+```
+
+<br>
+
+. . .
+
+**Note:** Use `linear_reg()` or `logistic_reg()` for linear or logistic models, respectively.
+
+## To get started...
+
+**Create workflow**
+
+```{r}
+#| echo: true
+sesame_wflow1 <- workflow() |>
+  add_model(sesame_spec) |>
+  add_formula(viewcat ~ ageCent + viewenc + site)
+```
+
+. . .
+
+```{r}
+sesame_wflow1
+```
+
+## Cross validation, step 1
+
+Randomly split your **training** **data** into 3 partitions:
+
+<br>
+
+![](images/23/three-CV.svg){fig-align="center"}
+
+## Tips: Split training data
+
+```{r}
+#| echo: true
+folds <- vfold_cv(sesame_train, v = 3)
+folds
+```
+
+## Cross validation, steps 2 and 3
+
+::: nonincremental
+-   Use *v-1* partitions for analysis, and the remaining 1 partition for assessment
+-   Repeat *v* times, updating which partition is used for assessment each time
+:::
+
+![](images/23/three-CV-iter.svg){fig-align="center"}
+
+## Sesame Street: Fit resamples {.midi}
+
+```{r}
+sesame_fit_rs1 <- sesame_wflow1 |>
+  fit_resamples(resamples = folds,
+               metrics = metric_set(accuracy, roc_auc))
+
+sesame_fit_rs1
+```
+
+## Cross validation, now what?
+
+-   We've fit a bunch of models
+-   Now it's time to use them to collect metrics (e.g., AUC, ) on each model and use them to evaluate model fit and how it varies across folds
+
+## Collect metrics from CV
+
+```{r}
+# Produces summary across all CV
+collect_metrics(sesame_fit_rs1)
+```
+
+<br>
+
+Note: These are calculated using the *assessment* data
+
+## Deeper look into results
+
+```{r}
+cv_metrics1 <- collect_metrics(sesame_fit_rs1, summarize = FALSE) 
+
+cv_metrics1
+```
+
+## Better presentation of results
+
+```{r}
+cv_metrics1 |>
+  mutate(.estimate = round(.estimate, 3)) |>
+  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |>
+  kable(col.names = c("Fold", "Accuracy", "AUC"))
+```
+
+## Cross validation in practice
+
+::: incremental
+-   To illustrate how CV works, we used `v = 3`:
+
+    ::: nonincremental
+    -   Analysis sets are 2/3 of the training set
+    -   Each assessment set is a distinct 1/3
+    -   The final resampling estimate of performance averages each of the 3 replicates
+    :::
+
+-   This was useful for illustrative purposes, but `v` is often 5 or 10; we generally prefer 10-fold cross-validation as a default
+:::
+
+## Example modeling workflow 
+
+-   Exploratory data analysis
+
+-   Using training data...
+
+    -   Fit and evaluate candidate model using cross validation
+
+    -   Select the best fit model
+
+    -   Check model conditions and diagnostics
+
+    -   Repeat as needed until you've landed on final model
+
+-   Evaluate the final model performance using the test set
+
+## Data analysis workflow
+
+![Source: [*R for Data Science*](https://r4ds.hadley.nz/) with additions from *The Art of Statistics: How to Learn from Data*.](images/02/data-analysis-life-cycle.png){alt="Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data."}

@@ -2,6 +2,7 @@
 title: "Model comparison"
 author: "Prof. Maria Tackett"
 date: "2025-02-06"
+date-format: "MMM DD, YYYY"
 footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
 logo: "../images/logo.png"
 format: 
@@ -118,15 +119,15 @@ ggplot(tips, aes(x = Tip)) +
 ```{r}
 #| echo: false
 p1 <- ggplot(tips, aes(x = Party)) +
-  geom_histogram(binwidth = 1) +
+  geom_histogram(binwidth = 1, color = "black", fill = "steelblue") +
   labs(title = "Number of people in party")
 
 p2 <- ggplot(tips, aes(x = Meal)) +
-  geom_bar() +
+  geom_bar(color = "black", fill = "steelblue") +
   labs(title = "Meal type")
 
 p3 <- ggplot(tips, aes(x = Age)) +
-  geom_bar() +
+  geom_bar(color = "black", fill = "steelblue") +
   labs(title = "Age of payer")
 
 p1 + (p2 / p3)
@@ -149,7 +150,7 @@ tips <- tips |>
 ```{r}
 #| echo: false
 p1 <- ggplot(tips, aes(x = Party)) +
-  geom_histogram(binwidth = 1) +
+  geom_histogram(binwidth = 1,color = "black", fill = "steelblue") +
   labs(title = "Number of people in party")
 
 p2 <- ggplot(tips, aes(x = Meal, fill = Meal)) +
@@ -192,9 +193,7 @@ p4 + p5 + p6
 ```{r}
 #| echo: true
 
-tip_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(Tip ~ Party + Age, data = tips)
+tip_fit <- lm(Tip ~ Party + Age, data = tips)
 
 tidy(tip_fit) |>
   kable(digits = 3)
@@ -205,7 +204,7 @@ tidy(tip_fit) |>
 <br>
 
 ::: question
-Is this model useful for explaining variation in tips?
+Is this a useful model? How well does this model perform?
 :::
 
 ## RMSE
@@ -270,31 +269,50 @@ Let's consider two models:
 
 <center><b> Which model is a better fit for the data? </b></center>
 
-## R-squared, $R^2$
+## Limitation of $R^2$
 
--   $R^2$ will always increase as we add more variables to the model (let's see why)
+<br> 
 
--   If we add enough variables, we can always achieve $R^2=100\%$
+When we add a predictor to a model:
 
--   If we only use $R^2$ to choose a best fit model, we will be prone to choose the model with the most predictor variables (assuming we're comparing nested models)
+- The residual sum of squares (SSR) can only decrease (or stay the same)
+- Therefore, $R^2$ can only increase (or stay the same)
+
+
+## Why can't we soley rely on $R^2$? 
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: question
+Why can’t we rely solely on $R^2$ for model comparison?
+:::
+
+🔗 <https://forms.office.com/r/ZWQEhqkcRX>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/ZWQEhqkcRX?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+## Limitation of $R^2$
+
+<br> 
+
+If we choose models based only on $R^2$:
+
+- We will always prefer models with more predictors  
+- Even if those predictors add little real value  
+
+We need a measure that balances model fit and model complexity
 
 ## Adjusted $R^2$
 
-::: incremental
--   **Adjusted** $R^2$: measure that includes a penalty for unnecessary predictor variables
--   Similar to $R^2$, it is a measure of the amount of variation in the response that is explained by the regression model
--   Differs from $R^2$ by using the mean squares (sumsq/df) rather than sums of squares and therefore adjusting for the number of predictor variables
--   The penalty for added model complexity attempts to strike a balance between underfitting (too few predictors in the model) and overfitting (too many predictors in the model)
--   Goal: **Parsimony**
-:::
-
-## $R^2$ and Adjusted $R^2$
-
-$$R^2 = \frac{SSM}{SST} = 1 - \frac{SSR}{SST}$$
-
-<br>
-
-. . .
+Adjusted $R^2$ penalizes for unncessary predictors
 
 $$Adj. R^2 = 1 - \frac{SSR/(n-p-1)}{SST/(n-1)}$$
 
@@ -304,12 +322,8 @@ where
 
 -   $p$ is the number of terms (not including the intercept) in the model
 
-## Using $R^2$ and Adjusted $R^2$
 
--   Adjusted $R^2$ can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!
--   Use $R^2$ when describing the relationship between the response and predictor variables
-
-## Comparing models with $Adj. R^2$ {.smaller}
+## Comparing models with $Adj. R^2$ {.midi}
 
 ::::: columns
 ::: {.column width="50%"}
@@ -343,6 +357,14 @@ glance(tip_fit_2) |>
 2.  Which model would we choose based on $R^2$?
 3.  Which model would we choose based on Adjusted $R^2$?
 :::
+
+## Model comparison and evaluation 
+
+-   Adjusted $R^2$ can be used to compare models 
+
+-   $R^2$ describes how much variability in the response is explained by the predictors
+
+- RMSE can be used to compare models and describe predictive performance
 
 ## Parsimony and Occam's razor {.small}
 
@@ -382,7 +404,17 @@ glance(tip_fit_2) |>
 
 [^2]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
 
-## Evaluating models: training vs. testing sets {.midi}
+## Why parsimony matters 
+
+Potential issues with overly complex models: 
+
+- Can overfit the data  
+- May not generalize well to new observations  
+- Are harder to interpret  
+
+# Evaluating models with training and testing sets
+
+## Training vs. testing sets {.midi}
 
 ::: incremental
 -   The training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.

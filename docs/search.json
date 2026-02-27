@@ -1437,7 +1437,7 @@
     "href": "slides/14-model-comparison.html#fit-and-summarize-model",
     "title": "Model comparison",
     "section": "Fit and summarize model",
-    "text": "Fit and summarize model\n\ntip_fit &lt;- linear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.170\n0.366\n-0.465\n0.643\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeMiddle\n1.009\n0.408\n2.475\n0.014\n\n\nAgeSenCit\n1.388\n0.485\n2.862\n0.005\n\n\n\n\n\n\n\n\nIs this model useful for explaining variation in tips?"
+    "text": "Fit and summarize model\n\ntip_fit &lt;- lm(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.170\n0.366\n-0.465\n0.643\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeMiddle\n1.009\n0.408\n2.475\n0.014\n\n\nAgeSenCit\n1.388\n0.485\n2.862\n0.005\n\n\n\n\n\n\n\n\nIs this a useful model? How well does this model perform?"
   },
   {
     "objectID": "slides/14-model-comparison.html#rmse",
@@ -1493,7 +1493,7 @@
     "href": "slides/14-model-comparison.html#adjusted-r2",
     "title": "Model comparison",
     "section": "Adjusted \\(R^2\\)",
-    "text": "Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\): measure that includes a penalty for unnecessary predictor variables\nSimilar to \\(R^2\\), it is a measure of the amount of variation in the response that is explained by the regression model\nDiffers from \\(R^2\\) by using the mean squares (sumsq/df) rather than sums of squares and therefore adjusting for the number of predictor variables\nThe penalty for added model complexity attempts to strike a balance between underfitting (too few predictors in the model) and overfitting (too many predictors in the model)\nGoal: Parsimony"
+    "text": "Adjusted \\(R^2\\)\nAdjusted \\(R^2\\) penalizes for unncessary predictors\n\\[Adj. R^2 = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of terms (not including the intercept) in the model"
   },
   {
     "objectID": "slides/14-model-comparison.html#r2-and-adjusted-r2",
@@ -1507,7 +1507,7 @@
     "href": "slides/14-model-comparison.html#using-r2-and-adjusted-r2",
     "title": "Model comparison",
     "section": "Using \\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!\nUse \\(R^2\\) when describing the relationship between the response and predictor variables"
+    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used to compare models\n\\(R^2\\) describes how much variability in the response is explained by the predictors"
   },
   {
     "objectID": "slides/14-model-comparison.html#comparing-models-with-adj.-r2",
@@ -9397,5 +9397,61 @@
       "Project",
       "Instructions"
     ]
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#why-not-use-r2-to-compare-models",
+    "href": "slides/14-model-comparison.html#why-not-use-r2-to-compare-models",
+    "title": "Model comparison",
+    "section": "Why not use \\(R^2\\) to compare models?",
+    "text": "Why not use \\(R^2\\) to compare models?\n\nQuestionSubmit\n\n\n\n\nWhy can’t we rely solely on \\(R^2\\) for model comparison?\n\n🔗 https://forms.office.com/r/ZWQEhqkcRX"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#limitation-of-r2",
+    "href": "slides/14-model-comparison.html#limitation-of-r2",
+    "title": "Model comparison",
+    "section": "Limitation of \\(R^2\\)",
+    "text": "Limitation of \\(R^2\\)\n\nWhen we add a predictor to a model:\n\nThe residual sum of squares (SSR) can only decrease (or stay the same)\nTherefore, \\(R^2\\) can only increase (or stay the same)"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#why-cant-we-soley-rely-on-r2",
+    "href": "slides/14-model-comparison.html#why-cant-we-soley-rely-on-r2",
+    "title": "Model comparison",
+    "section": "Why can’t we soley rely on \\(R^2\\)?",
+    "text": "Why can’t we soley rely on \\(R^2\\)?\n\nQuestionSubmit\n\n\n\n\nWhy can’t we rely solely on \\(R^2\\) for model comparison?\n\n🔗 https://forms.office.com/r/ZWQEhqkcRX"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#the-problem-with-using-only-r2",
+    "href": "slides/14-model-comparison.html#the-problem-with-using-only-r2",
+    "title": "Model comparison",
+    "section": "The problem with using only \\(R^2\\)",
+    "text": "The problem with using only \\(R^2\\)\nIf we choose models based only on \\(R^2\\):\n\nWe will always prefer models with more predictors\n\nEven if those predictors add little real value\n\nWe need a measure that balances model fit and model complexity"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#why-parsimony-matters",
+    "href": "slides/14-model-comparison.html#why-parsimony-matters",
+    "title": "Model comparison",
+    "section": "Why parsimony matters",
+    "text": "Why parsimony matters\nPotential issues with overly complex models:\n\nCan overfit the data\n\nMay not generalize well to new observations\n\nAre harder to interpret"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#training-vs.-testing-sets",
+    "href": "slides/14-model-comparison.html#training-vs.-testing-sets",
+    "title": "Model comparison",
+    "section": "Training vs. testing sets",
+    "text": "Training vs. testing sets\n\nThe training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.\nIt is not an independent piece of information; predicting the training set can only reflect what the model already knows.\nSuppose you give a class a test, then give them the answers, then provide the same test. The student scores on the second test do not accurately reflect what they know about the subject; these scores would probably be higher than their results on the first test.\nWe can reserve some data for a testing set that can be used to evaluate the model performance"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#limitation-of-r2-1",
+    "href": "slides/14-model-comparison.html#limitation-of-r2-1",
+    "title": "Model comparison",
+    "section": "Limitation of \\(R^2\\)",
+    "text": "Limitation of \\(R^2\\)\n\nIf we choose models based only on \\(R^2\\):\n\nWe will always prefer models with more predictors\n\nEven if those predictors add little real value\n\nWe need a measure that balances model fit and model complexity"
+  },
+  {
+    "objectID": "slides/14-model-comparison.html#model-comparison-and-evaluation",
+    "href": "slides/14-model-comparison.html#model-comparison-and-evaluation",
+    "title": "Model comparison",
+    "section": "Model comparison and evaluation",
+    "text": "Model comparison and evaluation\n\nAdjusted \\(R^2\\) can be used to compare models\n\\(R^2\\) describes how much variability in the response is explained by the predictors\nRMSE can be used to compare models and describe predictive performance"
   }
 ]

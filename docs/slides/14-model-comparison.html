@@ -10,7 +10,6 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <meta name="dcterms.date" content="2025-02-06">
   <title>STA 210 - Spring 2026 – Model comparison</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -207,7 +206,7 @@ Prof.&nbsp;Maria Tackett
 </div>
 </div>
 
-  <p class="date">2025-02-06</p>
+  <p class="date">Feb 06, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
@@ -308,12 +307,10 @@ Prof.&nbsp;Maria Tackett
 <section id="fit-and-summarize-model" class="slide level2 midi">
 <h2>Fit and summarize model</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>tip_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">fit</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age, <span class="at">data =</span> tips)</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="fu">tidy</span>(tip_fit) <span class="sc">|&gt;</span></span>
-<span id="cb4-6"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>tip_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age, <span class="at">data =</span> tips)</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="fu">tidy</span>(tip_fit) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -361,7 +358,7 @@ Prof.&nbsp;Maria Tackett
 <div class="fragment">
 <p><br></p>
 <div class="question">
-<p>Is this model useful for explaining variation in tips?</p>
+<p>Is this a useful model? How well does this model perform?</p>
 </div>
 </div>
 </section>
@@ -429,45 +426,56 @@ R^2 = \frac{SSM}{SST} = 1 - \frac{SSR}{SST} = 1 - \frac{686.44}{1913.11} = 0.641
 </center>
 </div>
 </section>
-<section id="r-squared-r2" class="slide level2">
-<h2>R-squared, <span class="math inline">\(R^2\)</span></h2>
+<section id="limitation-of-r2" class="slide level2">
+<h2>Limitation of <span class="math inline">\(R^2\)</span></h2>
+<p><br></p>
+<p>When we add a predictor to a model:</p>
 <ul>
-<li><p><span class="math inline">\(R^2\)</span> will always increase as we add more variables to the model (let’s see why)</p></li>
-<li><p>If we add enough variables, we can always achieve <span class="math inline">\(R^2=100\%\)</span></p></li>
-<li><p>If we only use <span class="math inline">\(R^2\)</span> to choose a best fit model, we will be prone to choose the model with the most predictor variables (assuming we’re comparing nested models)</p></li>
+<li>The residual sum of squares (SSR) can only decrease (or stay the same)</li>
+<li>Therefore, <span class="math inline">\(R^2\)</span> can only increase (or stay the same)</li>
 </ul>
+</section>
+<section id="why-cant-we-soley-rely-on-r2" class="slide level2">
+<h2>Why can’t we soley rely on <span class="math inline">\(R^2\)</span>?</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Question</a></li><li><a href="#tabset-1-2">Submit</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="midi">
+<div class="question">
+<p>Why can’t we rely solely on <span class="math inline">\(R^2\)</span> for model comparison?</p>
+</div>
+<p>🔗 <a href="https://forms.office.com/r/ZWQEhqkcRX" class="uri">https://forms.office.com/r/ZWQEhqkcRX</a></p>
+</div>
+</div>
+<div id="tabset-1-2">
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/ZWQEhqkcRX?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe></center>
+</div>
+</div>
+</div>
+</section>
+<section id="limitation-of-r2-1" class="slide level2">
+<h2>Limitation of <span class="math inline">\(R^2\)</span></h2>
+<p><br></p>
+<p>If we choose models based only on <span class="math inline">\(R^2\)</span>:</p>
+<ul>
+<li>We will always prefer models with more predictors<br>
+</li>
+<li>Even if those predictors add little real value</li>
+</ul>
+<p>We need a measure that balances model fit and model complexity</p>
 </section>
 <section id="adjusted-r2" class="slide level2">
 <h2>Adjusted <span class="math inline">\(R^2\)</span></h2>
-<ul>
-<li class="fragment"><strong>Adjusted</strong> <span class="math inline">\(R^2\)</span>: measure that includes a penalty for unnecessary predictor variables</li>
-<li class="fragment">Similar to <span class="math inline">\(R^2\)</span>, it is a measure of the amount of variation in the response that is explained by the regression model</li>
-<li class="fragment">Differs from <span class="math inline">\(R^2\)</span> by using the mean squares (sumsq/df) rather than sums of squares and therefore adjusting for the number of predictor variables</li>
-<li class="fragment">The penalty for added model complexity attempts to strike a balance between underfitting (too few predictors in the model) and overfitting (too many predictors in the model)</li>
-<li class="fragment">Goal: <strong>Parsimony</strong></li>
-</ul>
-</section>
-<section id="r2-and-adjusted-r2" class="slide level2">
-<h2><span class="math inline">\(R^2\)</span> and Adjusted <span class="math inline">\(R^2\)</span></h2>
-<p><span class="math display">\[R^2 = \frac{SSM}{SST} = 1 - \frac{SSR}{SST}\]</span></p>
-<p><br></p>
-<div class="fragment">
+<p>Adjusted <span class="math inline">\(R^2\)</span> penalizes for unncessary predictors</p>
 <p><span class="math display">\[Adj. R^2 = 1 - \frac{SSR/(n-p-1)}{SST/(n-1)}\]</span></p>
 <p>where</p>
 <ul>
 <li><p><span class="math inline">\(n\)</span> is the number of observations used to fit the model</p></li>
 <li><p><span class="math inline">\(p\)</span> is the number of terms (not including the intercept) in the model</p></li>
 </ul>
-</div>
 </section>
-<section id="using-r2-and-adjusted-r2" class="slide level2">
-<h2>Using <span class="math inline">\(R^2\)</span> and Adjusted <span class="math inline">\(R^2\)</span></h2>
-<ul>
-<li>Adjusted <span class="math inline">\(R^2\)</span> can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!</li>
-<li>Use <span class="math inline">\(R^2\)</span> when describing the relationship between the response and predictor variables</li>
-</ul>
-</section>
-<section id="comparing-models-with-adj.-r2" class="slide level2 smaller">
+<section id="comparing-models-with-adj.-r2" class="slide level2 midi">
 <h2>Comparing models with <span class="math inline">\(Adj. R^2\)</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -507,6 +515,14 @@ R^2 = \frac{SSM}{SST} = 1 - \frac{SSR}{SST} = 1 - \frac{686.44}{1913.11} = 0.641
 </ol>
 </div>
 </section>
+<section id="model-comparison-and-evaluation" class="slide level2">
+<h2>Model comparison and evaluation</h2>
+<ul>
+<li><p>Adjusted <span class="math inline">\(R^2\)</span> can be used to compare models</p></li>
+<li><p><span class="math inline">\(R^2\)</span> describes how much variability in the response is explained by the predictors</p></li>
+<li><p>RMSE can be used to compare models and describe predictive performance</p></li>
+</ul>
+</section>
 <section id="parsimony-and-occams-razor" class="slide level2 small">
 <h2>Parsimony and Occam’s razor</h2>
 <ul>
@@ -539,8 +555,24 @@ R^2 = \frac{SSM}{SST} = 1 - \frac{SSR}{SST} = 1 - \frac{686.44}{1913.11} = 0.641
 <p>Radford Neal - Bayesian Learning for Neural Networks<sup>1</sup></p>
 </blockquote>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>Suggested blog post: <a href="https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/">Occam</a> by Andrew Gelman</p></li></ol></aside></section>
-<section id="evaluating-models-training-vs.-testing-sets" class="slide level2 midi">
-<h2>Evaluating models: training vs.&nbsp;testing sets</h2>
+<section id="why-parsimony-matters" class="slide level2">
+<h2>Why parsimony matters</h2>
+<p>Potential issues with overly complex models:</p>
+<ul>
+<li>Can overfit the data<br>
+</li>
+<li>May not generalize well to new observations<br>
+</li>
+<li>Are harder to interpret</li>
+</ul>
+</section></section>
+<section>
+<section id="evaluating-models-with-training-and-testing-sets" class="title-slide slide level1 center">
+<h1>Evaluating models with training and testing sets</h1>
+
+</section>
+<section id="training-vs.-testing-sets" class="slide level2 midi">
+<h2>Training vs.&nbsp;testing sets</h2>
 <ul>
 <li class="fragment"><p>The training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.</p></li>
 <li class="fragment"><p>It is not an independent piece of information; predicting the training set can only reflect what the model already knows.</p></li>

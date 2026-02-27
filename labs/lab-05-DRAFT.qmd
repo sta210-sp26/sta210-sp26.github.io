@@ -183,7 +183,7 @@ Because there are multiple sports at every institution, we may be concerned the 
 
 Due to the large number of institutions, we will look at randomly selected subset of 20 institutions to evaluate this.
 
--   Take a random sample of 20 institutions. Use `set.seed(221)` to make your results reproducible.
+-   Take a random sample of 20 institutions. Use `set.seed(210)` to make your results reproducible.
 
 -   Plot the residuals versus fitted values, faceted by institution.
 

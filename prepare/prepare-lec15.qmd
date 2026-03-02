@@ -1,9 +1,9 @@
 ---
-title: "Prepare for Lecture 14: Model selection"
+title: "Prepare for Lecture 15: Cross validation"
 ---
 
 <br>
 
-📖 Read [Sections 10.1 - 10.4](https://intro-regression.github.io/10-model-eval.html)
+📖 Read [Section 10.5](https://intro-regression.github.io/10-model-eval.html#cross-validation)
 
 💻 Computing reference - [Section 10.6](https://intro-regression.github.io/10-model-eval.html#model-evaluation-and-selection-in-r)

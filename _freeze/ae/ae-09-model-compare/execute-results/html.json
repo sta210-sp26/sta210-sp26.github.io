@@ -1,0 +1,17 @@
+{
+  "hash": "7db13385661c6052f36e654cba498c9c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"AE 09: Model comparison\"\nsubtitle: \"Restuarant tips\"\ndate: \"March 3, 2026\"\neditor: visual\n---\n\n::: callout-important\nGo to the [course GitHub organization](https://github.com/sta210-sp26) and locate your `ae-09` repo to get started.\n:::\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\n```\n:::\n\n\n## Data\n\nWhich variables help us predict the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.\n\nThe variables we’ll focus on for this analysis are\n\n-   `Tip`: amount of the tip\n\n-   `Party`: number of people in the party\n\n-   `Meal`: Time of day (Lunch, Dinner, Late Night)\n\n-   `Age`: Age category of person paying the bill (Yadult, Middle, SenCit)\n\n-   `Day`: Day of the week (includes every day but Monday)\n\nView the data set to see the remaining variables.\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntips <- read_csv(\"data/tip-data.csv\")\n```\n:::\n\n\n## Exercise 1\n\nSplit the data into training (80%) and testing (20%) sets. Use seed `210`.\n\n## Exercise 2\n\nUse the training data to fit a model using `Party`, `Age`, and `Meal` to predict tips. Compute the $R^2$ and $Adj. R^2$ for this model.\n\n## Exercise 3\n\nNow fit a model predicting tips using `Party`, `Age`, and `Meal`, such that the effect of party can differ by `Meal`. Compute $R^2$ and $Adj. R^2$ for this model.\n\n## Exercise 4\n\n-   Which model do you choose - the model from Exercise 2 or Exercise 3? Why?\n\n-   Compute RMSE for the selected model.\n\n## Exercise 5\n\nNow let's use the testing data to assess the performance of the model selected in Exercise 4.\n\n-   Compute the predicted tips for the testing data. Add the predictions to the testing data set.\n\n-   Compute RMSE and $R^2$ for the testing data.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# add code here\n```\n:::\n\n\n## Exercise 6\n\n-   How do RMSE compare between the training and testing data?\n\n-   How does $R^2$ compare between the training and testing data?\n\n-   Is this what you expect? Why?\n\n## Exercise 7\n\nWhy can we use $R^2$ as an assessment of performance on the testing data even if we can't use it to compare models?\n\n# Wrapping up\n\n::: callout-important\nOnce you’ve completed the AE:\n\n-   Render the document to produce the PDF with all of your work from today’s class.\n\n-   Push all your work to your AE repo on GitHub. You’re done! 🎉\n:::\n",
+    "supporting": [
+      "ae-09-model-compare_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

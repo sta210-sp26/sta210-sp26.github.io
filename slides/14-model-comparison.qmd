@@ -1,7 +1,7 @@
 ---
 title: "Model comparison"
 author: "Prof. Maria Tackett"
-date: "2025-02-06"
+date: "03-03-2026"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
 logo: "../images/logo.png"
@@ -110,7 +110,7 @@ tips |>
 ```{r}
 #| echo: false
 ggplot(tips, aes(x = Tip)) +
-  geom_histogram(binwidth = 1) +
+  geom_histogram(binwidth = 1, fill = "steelblue", color = "black") +
   labs(title = "Distribution of tips")
 ```
 
@@ -271,15 +271,14 @@ Let's consider two models:
 
 ## Limitation of $R^2$
 
-<br> 
+<br>
 
 When we add a predictor to a model:
 
-- The residual sum of squares (SSR) can only decrease (or stay the same)
-- Therefore, $R^2$ can only increase (or stay the same)
+-   The residual sum of squares (SSR) can only decrease (or stay the same)
+-   Therefore, $R^2$ can only increase (or stay the same)
 
-
-## Why can't we soley rely on $R^2$? 
+## Why can't we soley rely on $R^2$?
 
 ::::: panel-tabset
 ## Question
@@ -301,12 +300,12 @@ Why can’t we rely solely on $R^2$ for model comparison?
 
 ## Limitation of $R^2$
 
-<br> 
+<br>
 
 If we choose models based only on $R^2$:
 
-- We will always prefer models with more predictors  
-- Even if those predictors add little real value  
+-   We will always prefer models with more predictors\
+-   Even if those predictors add little real value
 
 We need a measure that balances model fit and model complexity
 
@@ -321,7 +320,6 @@ where
 -   $n$ is the number of observations used to fit the model
 
 -   $p$ is the number of terms (not including the intercept) in the model
-
 
 ## Comparing models with $Adj. R^2$ {.midi}
 
@@ -358,13 +356,13 @@ glance(tip_fit_2) |>
 3.  Which model would we choose based on Adjusted $R^2$?
 :::
 
-## Model comparison and evaluation 
+## Model comparison and evaluation
 
--   Adjusted $R^2$ can be used to compare models 
+-   Adjusted $R^2$ can be used to compare models
 
 -   $R^2$ describes how much variability in the response is explained by the predictors
 
-- RMSE can be used to compare models and describe predictive performance
+-   RMSE can be used to compare models and describe predictive performance
 
 ## Parsimony and Occam's razor {.small}
 
@@ -404,13 +402,13 @@ glance(tip_fit_2) |>
 
 [^2]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
 
-## Why parsimony matters 
+## Why parsimony matters
 
-Potential issues with overly complex models: 
+Potential issues with overly complex models:
 
-- Can overfit the data  
-- May not generalize well to new observations  
-- Are harder to interpret  
+-   Can overfit the data\
+-   May not generalize well to new observations\
+-   Are harder to interpret
 
 # Evaluating models with training and testing sets
 
@@ -458,7 +456,7 @@ dim(tips_test)
 # Application exercise
 
 ::: appex
-📋
+📋 [sta210-sp26.github.io/ae/ae-09-model-compare.html](../ae/ae-09-model-compare.html)
 :::
 
 ## Recap

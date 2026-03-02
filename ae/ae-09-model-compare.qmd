@@ -1,12 +1,12 @@
 ---
-title: "AE 06: Model comparison"
+title: "AE 09: Model comparison"
 subtitle: "Restuarant tips"
-date: "February 6, 2025"
+date: "March 3, 2026"
 editor: visual
 ---
 
 ::: callout-important
-Render, commit, and push your responses to GitHub by the end of class.
+Go to the [course GitHub organization](https://github.com/sta210-sp26) and locate your `ae-09` repo to get started.
 :::
 
 ```{r}
@@ -45,7 +45,7 @@ tips <- read_csv("data/tip-data.csv")
 
 ## Exercise 1
 
-Split the data into training (80%) and testing (20%) sets. Use seed `2025`.
+Split the data into training (80%) and testing (20%) sets. Use seed `210`.
 
 ## Exercise 2
 
@@ -88,9 +88,12 @@ Now let's use the testing data to assess the performance of the model selected i
 
 Why can we use $R^2$ as an assessment of performance on the testing data even if we can't use it to compare models?
 
-## To submit the AE:
+# Wrapping up
 
 ::: callout-important
--   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your repo on GitHub. (You do not submit AEs on Gradescope).
+Once you’ve completed the AE:
+
+-   Render the document to produce the PDF with all of your work from today’s class.
+
+-   Push all your work to your AE repo on GitHub. You’re done! 🎉
 :::

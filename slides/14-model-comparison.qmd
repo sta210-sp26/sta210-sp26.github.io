@@ -223,6 +223,15 @@ $$
 -   The value of RMSE is more useful for comparing across models than evaluating a single model
 :::
 
+## RMSE in R
+
+Use the `rmse()` function from the **yardstick** package (part of **tidymodels**)
+
+```{r}
+tip_aug <- augment(tip_fit)
+rmse(tip_aug, truth = Tip, estimate = .fitted)
+```
+
 ## Analysis of variance (ANOVA)
 
 **Analysis of Variance (ANOVA)**: Technique to partition variability in Y by the sources of variability
@@ -313,7 +322,7 @@ We need a measure that balances model fit and model complexity
 
 ## Adjusted $R^2$
 
-Adjusted $R^2$ penalizes for unncessary predictors
+Adjusted $R^2$ penalizes for unnecessary predictors
 
 $$Adj. R^2 = 1 - \frac{SSR/(n-p-1)}{SST/(n-1)}$$
 

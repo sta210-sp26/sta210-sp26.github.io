@@ -1447,6 +1447,13 @@
     "text": "RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}} = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n}}\n\\]\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nThe value of RMSE is more useful for comparing across models than evaluating a single model"
   },
   {
+    "objectID": "slides/14-model-comparison.html#rmse-in-r",
+    "href": "slides/14-model-comparison.html#rmse-in-r",
+    "title": "Model comparison",
+    "section": "RMSE in R",
+    "text": "RMSE in R\nUse the rmse() function from the yardstick package (part of tidymodels)\n\ntip_aug &lt;- augment(tip_fit)\nrmse(tip_aug, truth = Tip, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        2.02"
+  },
+  {
     "objectID": "slides/14-model-comparison.html#analysis-of-variance-anova",
     "href": "slides/14-model-comparison.html#analysis-of-variance-anova",
     "title": "Model comparison",
@@ -1507,7 +1514,7 @@
     "href": "slides/14-model-comparison.html#adjusted-r2",
     "title": "Model comparison",
     "section": "Adjusted \\(R^2\\)",
-    "text": "Adjusted \\(R^2\\)\nAdjusted \\(R^2\\) penalizes for unncessary predictors\n\\[Adj. R^2 = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of terms (not including the intercept) in the model"
+    "text": "Adjusted \\(R^2\\)\nAdjusted \\(R^2\\) penalizes for unnecessary predictors\n\\[Adj. R^2 = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of terms (not including the intercept) in the model"
   },
   {
     "objectID": "slides/14-model-comparison.html#comparing-models-with-adj.-r2",
@@ -1671,6 +1678,13 @@
     "text": "RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}} = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n}}\n\\]\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nThe value of RMSE is more useful for comparing across models than evaluating a single model"
   },
   {
+    "objectID": "slides/14-model-comparison-notes.html#rmse-in-r",
+    "href": "slides/14-model-comparison-notes.html#rmse-in-r",
+    "title": "Model comparison",
+    "section": "RMSE in R",
+    "text": "RMSE in R\nUse the rmse() function from the yardstick package (part of tidymodels)\n\ntip_aug &lt;- augment(tip_fit)\nrmse(tip_aug, truth = Tip, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        2.02"
+  },
+  {
     "objectID": "slides/14-model-comparison-notes.html#analysis-of-variance-anova",
     "href": "slides/14-model-comparison-notes.html#analysis-of-variance-anova",
     "title": "Model comparison",
@@ -1731,7 +1745,7 @@
     "href": "slides/14-model-comparison-notes.html#adjusted-r2",
     "title": "Model comparison",
     "section": "Adjusted \\(R^2\\)",
-    "text": "Adjusted \\(R^2\\)\nAdjusted \\(R^2\\) penalizes for unncessary predictors\n\\[Adj. R^2 = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of terms (not including the intercept) in the model"
+    "text": "Adjusted \\(R^2\\)\nAdjusted \\(R^2\\) penalizes for unnecessary predictors\n\\[Adj. R^2 = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of terms (not including the intercept) in the model"
   },
   {
     "objectID": "slides/14-model-comparison-notes.html#comparing-models-with-adj.-r2",

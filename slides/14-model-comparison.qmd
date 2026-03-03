@@ -3,7 +3,7 @@ title: "Model comparison"
 author: "Prof. Maria Tackett"
 date: "03-03-2026"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
 logo: "../images/logo.png"
 format: 
   revealjs: 
@@ -46,6 +46,8 @@ knitr::opts_chunk$set(
 -   HW 03 due Tuesday, March 17 at 11:59pm
 
 -   Statistics experience due April 15
+
+-   Please provide mid-semester feedback by Friday: <https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA>
 
 ## Topics
 

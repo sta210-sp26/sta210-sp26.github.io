@@ -3,7 +3,7 @@ title: "Cross validation"
 author: "Prof. Maria Tackett"
 date: "2025-04-10"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Spring 2025](https://sta210-sp25.netlify.app)"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
 logo: "../images/logo.png"
 format: 
   revealjs: 
@@ -295,7 +295,7 @@ cv_metrics1 |>
 -   This was useful for illustrative purposes, but `v` is often 5 or 10; we generally prefer 10-fold cross-validation as a default
 :::
 
-## Example modeling workflow 
+## Example modeling workflow
 
 -   Exploratory data analysis
 
@@ -313,4 +313,4 @@ cv_metrics1 |>
 
 ## Data analysis workflow
 
-![Source: [*R for Data Science*](https://r4ds.hadley.nz/) with additions from *The Art of Statistics: How to Learn from Data*.](images/02/data-analysis-life-cycle.png){alt="Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data."}
+![Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data.](images/02/data-analysis-life-cycle.png)

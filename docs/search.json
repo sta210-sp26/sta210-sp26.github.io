@@ -1367,7 +1367,7 @@
     "href": "slides/14-model-comparison.html#announcements",
     "title": "Model comparison",
     "section": "Announcements",
-    "text": "Announcements\n\nLab 05 due Thursday at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15"
+    "text": "Announcements\n\nLab 05 due Thursday at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15\nPlease provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA"
   },
   {
     "objectID": "slides/14-model-comparison.html#topics",
@@ -1381,7 +1381,7 @@
     "href": "slides/14-model-comparison.html#computational-setup",
     "title": "Model comparison",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.4.1 ──\n✔ broom        1.0.10     ✔ rsample      1.3.1 \n✔ dials        1.4.2      ✔ tailor       0.1.0 \n✔ infer        1.0.9      ✔ tune         2.0.0 \n✔ modeldata    1.5.1      ✔ workflows    1.3.0 \n✔ parsnip      1.3.3      ✔ workflowsets 1.1.1 \n✔ recipes      1.3.1      ✔ yardstick    1.3.2 \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n\nAttaching package: 'kableExtra'\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
     "objectID": "slides/14-model-comparison.html#data-restaurant-tips",
@@ -1584,14 +1584,14 @@
     "href": "slides/14-model-comparison-notes.html",
     "title": "Model comparison",
     "section": "",
-    "text": "Lab 05 due Thursday at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15"
+    "text": "Lab 05 due Thursday at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15\nPlease provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA"
   },
   {
     "objectID": "slides/14-model-comparison-notes.html#announcements",
     "href": "slides/14-model-comparison-notes.html#announcements",
     "title": "Model comparison",
     "section": "",
-    "text": "Lab 05 due Thursday at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15"
+    "text": "Lab 05 due Thursday at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15\nPlease provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA"
   },
   {
     "objectID": "slides/14-model-comparison-notes.html#topics",
@@ -1605,7 +1605,7 @@
     "href": "slides/14-model-comparison-notes.html#computational-setup",
     "title": "Model comparison",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.4.1 ──\n✔ broom        1.0.10     ✔ rsample      1.3.1 \n✔ dials        1.4.2      ✔ tailor       0.1.0 \n✔ infer        1.0.9      ✔ tune         2.0.0 \n✔ modeldata    1.5.1      ✔ workflows    1.3.0 \n✔ parsnip      1.3.3      ✔ workflowsets 1.1.1 \n✔ recipes      1.3.1      ✔ yardstick    1.3.2 \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n\nAttaching package: 'kableExtra'\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
     "objectID": "slides/14-model-comparison-notes.html#data-restaurant-tips",

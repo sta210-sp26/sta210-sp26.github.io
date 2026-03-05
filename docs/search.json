@@ -8196,14 +8196,14 @@
     "href": "slides/15-cross-validation-notes.html",
     "title": "Cross validation",
     "section": "",
-    "text": "Exam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
+    "text": "Lab 05 due TODAY at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15\nPlease provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA\nExam 02 date proposed date change\n\nIn-class: Thursday, April 9\nTake-home: Thursday, April 9 - Saturday, April 11\nPlease email me by tomorrow if you have any concerns"
   },
   {
-    "objectID": "slides/15-cross-validation-notes.html#announcements---update",
-    "href": "slides/15-cross-validation-notes.html#announcements---update",
+    "objectID": "slides/15-cross-validation-notes.html#announcements",
+    "href": "slides/15-cross-validation-notes.html#announcements",
     "title": "Cross validation",
     "section": "",
-    "text": "Exam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
+    "text": "Lab 05 due TODAY at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15\nPlease provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA\nExam 02 date proposed date change\n\nIn-class: Thursday, April 9\nTake-home: Thursday, April 9 - Saturday, April 11\nPlease email me by tomorrow if you have any concerns"
   },
   {
     "objectID": "slides/15-cross-validation-notes.html#topics",
@@ -8325,6 +8325,13 @@
     "text": "Cross validation, steps 2 and 3\n\n\nUse v-1 partitions for analysis, and the remaining 1 partition for assessment\nRepeat v times, updating which partition is used for assessment each time"
   },
   {
+    "objectID": "slides/15-cross-validation-notes.html#cross-validation-tips-data",
+    "href": "slides/15-cross-validation-notes.html#cross-validation-tips-data",
+    "title": "Cross validation",
+    "section": "Cross validation: Tips data",
+    "text": "Cross validation: Tips data\n\nQuestionSubmit\n\n\n\n\nThere are 126 observations in the training data. How many observations are in a single assessment set?\n\n🔗 https://forms.office.com/r/n5wYDEKnFX"
+  },
+  {
     "objectID": "slides/15-cross-validation-notes.html#tips-fit-resamples",
     "href": "slides/15-cross-validation-notes.html#tips-fit-resamples",
     "title": "Cross validation",
@@ -8395,11 +8402,11 @@
     "text": "Next class\n☀️ Have a good spring break ☀️"
   },
   {
-    "objectID": "slides/15-cross-validation.html#announcements---update",
-    "href": "slides/15-cross-validation.html#announcements---update",
+    "objectID": "slides/15-cross-validation.html#announcements",
+    "href": "slides/15-cross-validation.html#announcements",
     "title": "Cross validation",
-    "section": "Announcements - UPDATE",
-    "text": "Announcements - UPDATE\n\nExam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 05 due TODAY at 11:59pm\nHW 03 due Tuesday, March 17 at 11:59pm\nStatistics experience due April 15\nPlease provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA\nExam 02 date proposed date change\n\nIn-class: Thursday, April 9\nTake-home: Thursday, April 9 - Saturday, April 11\nPlease email me by tomorrow if you have any concerns"
   },
   {
     "objectID": "slides/15-cross-validation.html#topics",
@@ -8519,6 +8526,13 @@
     "title": "Cross validation",
     "section": "Cross validation, steps 2 and 3",
     "text": "Cross validation, steps 2 and 3\n\nUse v-1 partitions for analysis, and the remaining 1 partition for assessment\nRepeat v times, updating which partition is used for assessment each time"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#cross-validation-tips-data",
+    "href": "slides/15-cross-validation.html#cross-validation-tips-data",
+    "title": "Cross validation",
+    "section": "Cross validation: Tips data",
+    "text": "Cross validation: Tips data\n\nQuestionSubmit\n\n\n\n\nThere are 126 observations in the training data. How many observations are in a single assessment set?\n\n🔗 https://forms.office.com/r/n5wYDEKnFX"
   },
   {
     "objectID": "slides/15-cross-validation.html#tips-fit-resamples",

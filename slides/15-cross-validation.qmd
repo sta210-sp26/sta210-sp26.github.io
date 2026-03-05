@@ -39,15 +39,23 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements - UPDATE 
+## Announcements  {.midi}
 
--   Exam 02 - April 17 (same format as Exam 01)
+-   Lab 05 due TODAY at 11:59pm
 
-    -   Lecture videos available
-
--   Next project milestone: Draft and peer review in April 21 lab
+-   HW 03 due Tuesday, March 17 at 11:59pm
 
 -   Statistics experience due April 15
+
+-   Please provide mid-semester feedback by Friday: <https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA>
+
+-   Exam 02 date proposed date change
+
+    -   In-class: Thursday, April 9
+
+    -   Take-home: Thursday, April 9 - Saturday, April 11
+
+    -   Please email me [by tomorrow]{.underline} if you have any concerns
 
 ## Topics
 
@@ -279,6 +287,28 @@ folds
 :::
 
 ![](images/15/three-CV-iter.svg){fig-align="center"}
+
+## Cross validation: Tips data
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: question
+There are 126 observations in the training data. How many observations are in a single **assessment** set?
+:::
+
+🔗 <https://forms.office.com/r/n5wYDEKnFX>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/n5wYDEKnFX?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+## 
 
 ## Tips: Fit resamples {.midi}
 

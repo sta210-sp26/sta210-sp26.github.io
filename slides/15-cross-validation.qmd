@@ -1,7 +1,7 @@
 ---
 title: "Cross validation"
 author: "Prof. Maria Tackett"
-date: "2025-04-10"
+date: "03-05-2026"
 date-format: "MMM DD, YYYY"
 footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
 logo: "../images/logo.png"

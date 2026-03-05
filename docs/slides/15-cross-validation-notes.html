@@ -402,11 +402,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#announcements---update" id="toc-announcements---update" class="nav-link active" data-scroll-target="#announcements---update">Announcements - UPDATE</a></li>
   <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#computational-setup" id="toc-computational-setup" class="nav-link" data-scroll-target="#computational-setup">Computational setup</a></li>
-  <li><a href="#data-sesame-street" id="toc-data-sesame-street" class="nav-link" data-scroll-target="#data-sesame-street">Data: Sesame Street</a></li>
+  <li><a href="#data-restaurant-tips" id="toc-data-restaurant-tips" class="nav-link" data-scroll-target="#data-restaurant-tips">Data: Restaurant tips</a>
+  <ul class="collapse">
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#response-vs.-predictors" id="toc-response-vs.-predictors" class="nav-link" data-scroll-target="#response-vs.-predictors">Response vs.&nbsp;predictors</a></li>
+  <li><a href="#training-vs.-testing-sets" id="toc-training-vs.-testing-sets" class="nav-link" data-scroll-target="#training-vs.-testing-sets">Training vs.&nbsp;testing sets</a></li>
+  <li><a href="#training-and-testing-sets" id="toc-training-and-testing-sets" class="nav-link" data-scroll-target="#training-and-testing-sets">Training and testing sets</a></li>
+  </ul></li>
   <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
   <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation">Cross validation</a>
   <ul class="collapse">
@@ -421,14 +426,16 @@ window.Quarto = {
   <li><a href="#cross-validation-step-1" id="toc-cross-validation-step-1" class="nav-link" data-scroll-target="#cross-validation-step-1">Cross validation, step 1</a></li>
   <li><a href="#tips-split-training-data" id="toc-tips-split-training-data" class="nav-link" data-scroll-target="#tips-split-training-data">Tips: Split training data</a></li>
   <li><a href="#cross-validation-steps-2-and-3" id="toc-cross-validation-steps-2-and-3" class="nav-link" data-scroll-target="#cross-validation-steps-2-and-3">Cross validation, steps 2 and 3</a></li>
-  <li><a href="#sesame-street-fit-resamples" id="toc-sesame-street-fit-resamples" class="nav-link" data-scroll-target="#sesame-street-fit-resamples">Sesame Street: Fit resamples</a></li>
+  <li><a href="#tips-fit-resamples" id="toc-tips-fit-resamples" class="nav-link" data-scroll-target="#tips-fit-resamples">Tips: Fit resamples</a></li>
   <li><a href="#cross-validation-now-what" id="toc-cross-validation-now-what" class="nav-link" data-scroll-target="#cross-validation-now-what">Cross validation, now what?</a></li>
   <li><a href="#collect-metrics-from-cv" id="toc-collect-metrics-from-cv" class="nav-link" data-scroll-target="#collect-metrics-from-cv">Collect metrics from CV</a></li>
   <li><a href="#deeper-look-into-results" id="toc-deeper-look-into-results" class="nav-link" data-scroll-target="#deeper-look-into-results">Deeper look into results</a></li>
   <li><a href="#better-presentation-of-results" id="toc-better-presentation-of-results" class="nav-link" data-scroll-target="#better-presentation-of-results">Better presentation of results</a></li>
   <li><a href="#cross-validation-in-practice" id="toc-cross-validation-in-practice" class="nav-link" data-scroll-target="#cross-validation-in-practice">Cross validation in practice</a></li>
-  <li><a href="#example-modeling-workflow" id="toc-example-modeling-workflow" class="nav-link" data-scroll-target="#example-modeling-workflow">Example modeling workflow</a></li>
+  <li><a href="#example-model-selection-workflow" id="toc-example-model-selection-workflow" class="nav-link" data-scroll-target="#example-model-selection-workflow">Example model selection workflow</a></li>
   <li><a href="#data-analysis-workflow" id="toc-data-analysis-workflow" class="nav-link" data-scroll-target="#data-analysis-workflow">Data analysis workflow</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="15-cross-validation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -467,8 +474,8 @@ window.Quarto = {
 </header>
 
 
-<section id="announcements" class="level2">
-<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<section id="announcements---update" class="level2">
+<h2 class="anchored" data-anchor-id="announcements---update">Announcements - UPDATE</h2>
 <ul>
 <li><p>Exam 02 - April 17 (same format as Exam 01)</p>
 <ul>
@@ -482,6 +489,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="topics">Topics</h2>
 <div class="nonincremental">
 <ul>
+<li>Training and testing sets</li>
 <li>Cross validation</li>
 </ul>
 </div>
@@ -500,34 +508,90 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="data-sesame-street" class="level2">
-<h2 class="anchored" data-anchor-id="data-sesame-street">Data: Sesame Street</h2>
-<p>Today’s data comes from <a href="https://files.eric.ed.gov/fulltext/ED122799.pdf">an experiment</a> by the Educational Testing Service to test the effectiveness of the children’s program <em>Sesame Street</em>. <em>Sesame Street</em> is an educational program designed to teach young children basic educational skills such as counting and the alphabet</p>
-<p>As part of the experiment, children were assigned to one of two groups: those who were encouraged to watch the program and those who were not.</p>
-<p>The show is only effective if children watch it, so we want to understand what effect the encouragement had on the frequency children watched the program.</p>
-</section>
+<section id="data-restaurant-tips" class="level1">
+<h1>Data: Restaurant tips</h1>
+<p>Which variables help us predict the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St.&nbsp;Olaf who worked at a local restaurant.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 169 × 4
+     Tip Party Meal   Age   
+   &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt; 
+ 1  2.99     1 Dinner Yadult
+ 2  2        1 Dinner Yadult
+ 3  5        1 Dinner SenCit
+ 4  4        3 Dinner Middle
+ 5 10.3      2 Dinner SenCit
+ 6  4.85     2 Dinner Middle
+ 7  5        4 Dinner Yadult
+ 8  4        3 Dinner Middle
+ 9  5        2 Dinner Middle
+10  1.58     1 Dinner SenCit
+# ℹ 159 more rows</code></pre>
+</div>
+</div>
 <section id="variables" class="level2">
 <h2 class="anchored" data-anchor-id="variables">Variables</h2>
-<p><strong>Response:</strong></p>
+<p><strong>Predictors</strong>:</p>
+<div class="nonincremental">
 <ul>
-<li><code>viewcat</code>
-<ul>
-<li>1: rarely watched show</li>
-<li>2: watched once or twice a week</li>
-<li>3: watched three to five times a week</li>
-<li>4: watched show on average more than five times a week</li>
-</ul></li>
+<li><code>Party</code>: Number of people in the party</li>
+<li><code>Meal</code>: Time of day (Lunch, Dinner, Late Night)</li>
+<li><code>Age</code>: Age category of person paying the bill (Yadult, Middle, SenCit)</li>
+<li><code>Payment</code>: Payment type (Cash, Credit, Credit/CashTip)</li>
 </ul>
-<p><strong>Predictors:</strong></p>
+</div>
+</section>
+<section id="response-vs.-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="response-vs.-predictors">Response vs.&nbsp;predictors</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="15-cross-validation_files/figure-revealjs/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="3600"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="training-vs.-testing-sets" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="training-vs.-testing-sets">Training vs.&nbsp;testing sets</h2>
 <ul>
-<li><code>age</code>: child’s age in months</li>
-<li><code>viewenc</code>: 1: encouraged to watch, 0: not encouraged</li>
+<li><p>The training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.</p></li>
+<li><p>It is not an independent piece of information; predicting the training set can only reflect what the model already knows.</p></li>
+<li><p>Suppose you give a class a test, then give them the answers, then provide the same test. The student scores on the second test do not accurately reflect what they know about the subject; these scores would probably be higher than their results on the first test.</p></li>
+<li><p>We can reserve some data for a testing set that can be used to evaluate the model performance</p></li>
 </ul>
+</section>
+<section id="training-and-testing-sets" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="training-and-testing-sets">Training and testing sets</h2>
+<p>Create training and testing sets using functions from the <strong>resample</strong> R package (part of <strong>tidymodels</strong>)</p>
+<p><strong>Step 1:</strong> Create an initial split:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tips_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(tips, <span class="at">prop =</span> <span class="fl">0.75</span>) <span class="co">#prop = 3/4 by default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Step 2:</strong> Save training data</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tips_train <span class="ot">&lt;-</span> <span class="fu">training</span>(tips_split)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tips_train)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 126  13</code></pre>
+</div>
+</div>
+<p><strong>Step 3:</strong> Save testing data</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tips_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(tips_split)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tips_test)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 43 13</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="application-exercise" class="level1">
 <h1>Application exercise</h1>
 <div class="appex">
-<p>📋 <a href="https://sta210-sp25.netlify.app/ae/ae-11-multinomial.html" class="uri">https://sta210-sp25.netlify.app/ae/ae-11-multinomial.html</a></p>
+<p>📋 <a href="../ae/ae-09-model-compare.html">sta210-sp26.github.io/ae/ae-09-model-compare.html</a></p>
 </div>
 </section>
 <section id="cross-validation" class="level1">
@@ -545,7 +609,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="resampling-for-model-assessment">Resampling for model assessment</h2>
 <p><strong>Resampling is only conducted on the</strong> <u><strong>training</strong></u> <strong>set</strong>. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:</p>
 <ul>
-<li>The model is fit with the <strong>analysis set</strong>. Model fit statistics such as <span class="math inline">\(R^2_{Adj}\)</span>, AIC, BIC, and AUC are calculated based on this fit.</li>
+<li>The model is fit with the <strong>analysis set</strong>. Model fit statistics such as Adj. <span class="math inline">\(R^2\)</span> and <span class="math inline">\(R^2\)</span> are computed based on this model fit.</li>
 <li>The model is evaluated with the <strong>assessment set</strong>.</li>
 </ul>
 </section>
@@ -553,7 +617,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="resampling-for-model-assessment-1">Resampling for model assessment</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/23/resampling.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="images/15/resampling.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p><br></p>
@@ -583,56 +647,52 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="to-get-started">To get started…</h2>
 <p><strong>Split data into training and test sets</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sesame_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(sesame)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sesame_train <span class="ot">&lt;-</span> <span class="fu">training</span>(sesame_split)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sesame_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(sesame_split)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tips_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(tips, <span class="at">prop =</span> <span class="fl">0.75</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tips_train <span class="ot">&lt;-</span> <span class="fu">training</span>(tips_split)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>tips_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(tips_split)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="to-get-started-1" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="to-get-started-1">To get started…</h2>
 <p><strong>Specify model</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sesame_spec <span class="ot">&lt;-</span> <span class="fu">multinom_reg</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tips_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <p>. . .</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sesame_spec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tips_spec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Multinomial Regression Model Specification (classification)
+<pre><code>Linear Regression Model Specification (regression)
 
-Computational engine: nnet </code></pre>
+Computational engine: lm </code></pre>
 </div>
 </div>
-<p><br></p>
-<p>. . .</p>
-<p><strong>Note:</strong> Use <code>linear_reg()</code> or <code>logistic_reg()</code> for linear or logistic models, respectively.</p>
 </section>
 <section id="to-get-started-2" class="level2">
 <h2 class="anchored" data-anchor-id="to-get-started-2">To get started…</h2>
 <p><strong>Create workflow</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sesame_wflow1 <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(sesame_spec) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(viewcat <span class="sc">~</span> ageCent <span class="sc">+</span> viewenc <span class="sc">+</span> site)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tips_wflow1 <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(tips_spec) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(Tip <span class="sc">~</span> Age <span class="sc">+</span> Party)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>. . .</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sesame_wflow1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tips_wflow1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
 Preprocessor: Formula
-Model: multinom_reg()
+Model: linear_reg()
 
 ── Preprocessor ────────────────────────────────────────────────────────────────
-viewcat ~ ageCent + viewenc + site
+Tip ~ Age + Party
 
 ── Model ───────────────────────────────────────────────────────────────────────
-Multinomial Regression Model Specification (classification)
+Linear Regression Model Specification (regression)
 
-Computational engine: nnet </code></pre>
+Computational engine: lm </code></pre>
 </div>
 </div>
 </section>
@@ -642,23 +702,23 @@ Computational engine: nnet </code></pre>
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/23/three-CV.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="images/15/three-CV.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </section>
 <section id="tips-split-training-data" class="level2">
 <h2 class="anchored" data-anchor-id="tips-split-training-data">Tips: Split training data</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(sesame_train, <span class="at">v =</span> <span class="dv">3</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>folds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(tips_train, <span class="at">v =</span> <span class="dv">3</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>folds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#  3-fold cross-validation 
 # A tibble: 3 × 2
-  splits           id   
-  &lt;list&gt;           &lt;chr&gt;
-1 &lt;split [120/60]&gt; Fold1
-2 &lt;split [120/60]&gt; Fold2
-3 &lt;split [120/60]&gt; Fold3</code></pre>
+  splits          id   
+  &lt;list&gt;          &lt;chr&gt;
+1 &lt;split [84/42]&gt; Fold1
+2 &lt;split [84/42]&gt; Fold2
+3 &lt;split [84/42]&gt; Fold3</code></pre>
 </div>
 </div>
 </section>
@@ -672,27 +732,26 @@ Computational engine: nnet </code></pre>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/23/three-CV-iter.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="images/15/three-CV-iter.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </section>
-<section id="sesame-street-fit-resamples" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="sesame-street-fit-resamples">Sesame Street: Fit resamples</h2>
+<section id="tips-fit-resamples" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="tips-fit-resamples">Tips: Fit resamples</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sesame_fit_rs1 <span class="ot">&lt;-</span> sesame_wflow1 <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> folds,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">metrics =</span> <span class="fu">metric_set</span>(accuracy, roc_auc))</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>sesame_fit_rs1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tips_fit_rs1 <span class="ot">&lt;-</span> tips_wflow1 <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> folds)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>tips_fit_rs1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Resampling results
 # 3-fold cross-validation 
 # A tibble: 3 × 4
-  splits           id    .metrics         .notes          
-  &lt;list&gt;           &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          
-1 &lt;split [120/60]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;
-2 &lt;split [120/60]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;
-3 &lt;split [120/60]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;</code></pre>
+  splits          id    .metrics         .notes          
+  &lt;list&gt;          &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          
+1 &lt;split [84/42]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;
+2 &lt;split [84/42]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;
+3 &lt;split [84/42]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -700,20 +759,20 @@ Computational engine: nnet </code></pre>
 <h2 class="anchored" data-anchor-id="cross-validation-now-what">Cross validation, now what?</h2>
 <ul>
 <li>We’ve fit a bunch of models</li>
-<li>Now it’s time to use them to collect metrics (e.g., AUC, ) on each model and use them to evaluate model fit and how it varies across folds</li>
+<li>Now it’s time to use them to collect metrics (e.g., RMSE, <span class="math inline">\(R^2\)</span> ) on each model and use them to evaluate model fit and how it varies across folds</li>
 </ul>
 </section>
 <section id="collect-metrics-from-cv" class="level2">
 <h2 class="anchored" data-anchor-id="collect-metrics-from-cv">Collect metrics from CV</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Produces summary across all CV</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(sesame_fit_rs1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Produces summary across all CV</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(tips_fit_rs1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
-  .metric  .estimator  mean     n std_err .config        
-  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          
-1 accuracy multiclass 0.344     3  0.0641 pre0_mod0_post0
-2 roc_auc  hand_till  0.624     3  0.0341 pre0_mod0_post0</code></pre>
+  .metric .estimator  mean     n std_err .config        
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          
+1 rmse    standard   2.14      3  0.195  pre0_mod0_post0
+2 rsq     standard   0.623     3  0.0470 pre0_mod0_post0</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -722,53 +781,53 @@ Computational engine: nnet </code></pre>
 <section id="deeper-look-into-results" class="level2">
 <h2 class="anchored" data-anchor-id="deeper-look-into-results">Deeper look into results</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cv_metrics1 <span class="ot">&lt;-</span> <span class="fu">collect_metrics</span>(sesame_fit_rs1, <span class="at">summarize =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cv_metrics1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cv_metrics1 <span class="ot">&lt;-</span> <span class="fu">collect_metrics</span>(tips_fit_rs1, <span class="at">summarize =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>cv_metrics1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
-  id    .metric  .estimator .estimate .config        
-  &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          
-1 Fold1 accuracy multiclass     0.4   pre0_mod0_post0
-2 Fold1 roc_auc  hand_till      0.644 pre0_mod0_post0
-3 Fold2 accuracy multiclass     0.217 pre0_mod0_post0
-4 Fold2 roc_auc  hand_till      0.557 pre0_mod0_post0
-5 Fold3 accuracy multiclass     0.417 pre0_mod0_post0
-6 Fold3 roc_auc  hand_till      0.670 pre0_mod0_post0</code></pre>
+  id    .metric .estimator .estimate .config        
+  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          
+1 Fold1 rmse    standard       1.92  pre0_mod0_post0
+2 Fold1 rsq     standard       0.713 pre0_mod0_post0
+3 Fold2 rmse    standard       2.52  pre0_mod0_post0
+4 Fold2 rsq     standard       0.554 pre0_mod0_post0
+5 Fold3 rmse    standard       1.97  pre0_mod0_post0
+6 Fold3 rsq     standard       0.603 pre0_mod0_post0</code></pre>
 </div>
 </div>
 </section>
 <section id="better-presentation-of-results" class="level2">
 <h2 class="anchored" data-anchor-id="better-presentation-of-results">Better presentation of results</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cv_metrics1 <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.estimate =</span> <span class="fu">round</span>(.estimate, <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> id, <span class="at">names_from =</span> .metric, <span class="at">values_from =</span> .estimate) <span class="sc">|&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Fold"</span>, <span class="st">"Accuracy"</span>, <span class="st">"AUC"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cv_metrics1 <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.estimate =</span> <span class="fu">round</span>(.estimate, <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> id, <span class="at">names_from =</span> .metric, <span class="at">values_from =</span> .estimate) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Fold"</span>, <span class="st">"RMSE"</span>, <span class="st">"R-sq"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Fold</th>
-<th style="text-align: right;">Accuracy</th>
-<th style="text-align: right;">AUC</th>
+<th style="text-align: right;">RMSE</th>
+<th style="text-align: right;">R-sq</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Fold1</td>
-<td style="text-align: right;">0.400</td>
-<td style="text-align: right;">0.644</td>
+<td style="text-align: right;">1.915</td>
+<td style="text-align: right;">0.713</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Fold2</td>
-<td style="text-align: right;">0.217</td>
-<td style="text-align: right;">0.557</td>
+<td style="text-align: right;">2.525</td>
+<td style="text-align: right;">0.554</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Fold3</td>
-<td style="text-align: right;">0.417</td>
-<td style="text-align: right;">0.670</td>
+<td style="text-align: right;">1.967</td>
+<td style="text-align: right;">0.603</td>
 </tr>
 </tbody>
 </table>
@@ -791,28 +850,52 @@ Computational engine: nnet </code></pre>
 </ul>
 </div>
 </section>
-<section id="example-modeling-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="example-modeling-workflow">Example modeling workflow</h2>
+<section id="example-model-selection-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-model-selection-workflow">Example model selection workflow</h2>
 <ul>
 <li><p>Exploratory data analysis</p></li>
 <li><p>Using training data…</p>
 <ul>
-<li><p>Fit and evaluate candidate model using cross validation</p></li>
+<li><p>Fit and evaluate candidate models using cross validation</p></li>
 <li><p>Select the best fit model</p></li>
 <li><p>Check model conditions and diagnostics</p></li>
 <li><p>Repeat as needed until you’ve landed on final model</p></li>
 </ul></li>
 <li><p>Evaluate the final model performance using the test set</p></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See <a href="https://intro-regression.github.io/10-model-eval.html#cross-validation-1">Section 10.5.2</a> for more detailed workflow</p>
+</div>
+</div>
 </section>
 <section id="data-analysis-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="data-analysis-workflow">Data analysis workflow</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/02/data-analysis-life-cycle.png" class="img-fluid figure-img"></p>
-<figcaption>Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data.</figcaption>
+<p><img src="images/01/data-science-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Introduction to Regression Analysis</figcaption>
 </figure>
 </div>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li>Training and testing sets</li>
+<li>Cross validation</li>
+</ul>
+</section>
+<section id="next-class" class="level2">
+<h2 class="anchored" data-anchor-id="next-class">Next class</h2>
+<p>☀️ Have a good spring break ☀️</p>
 
 
 </section>

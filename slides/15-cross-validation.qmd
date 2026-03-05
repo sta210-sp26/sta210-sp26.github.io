@@ -15,7 +15,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 23-cross-validation-notes.html
+    output-file: 15-cross-validation-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -39,7 +39,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements
+## Announcements - UPDATE 
 
 -   Exam 02 - April 17 (same format as Exam 01)
 
@@ -52,6 +52,7 @@ knitr::opts_chunk$set(
 ## Topics
 
 ::: nonincremental
+-   Training and testing sets
 -   Cross validation
 :::
 
@@ -71,33 +72,97 @@ library(kableExtra)
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 ```
 
-## Data: Sesame Street
+# Data: Restaurant tips
 
-Today's data comes from [an experiment](https://files.eric.ed.gov/fulltext/ED122799.pdf) by the Educational Testing Service to test the effectiveness of the children's program *Sesame Street*. *Sesame Street* is an educational program designed to teach young children basic educational skills such as counting and the alphabet
+Which variables help us predict the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.
 
-As part of the experiment, children were assigned to one of two groups: those who were encouraged to watch the program and those who were not.
+```{r}
+#| echo: false
+#| message: false
+tips <- read_csv(here::here("slides", "data/tip-data.csv")) |>
+ mutate(
+    Meal = fct_relevel(Meal, "Lunch", "Dinner", "Late Night"),
+    Age  = fct_relevel(Age, "Yadult", "Middle", "SenCit")
+  )
+```
 
-The show is only effective if children watch it, so we want to understand what effect the encouragement had on the frequency children watched the program.
+```{r}
+#| echo: false
+tips |>
+  select(Tip, Party, Meal, Age)
+```
 
 ## Variables
 
-**Response:**
+**Predictors**:
 
--   `viewcat`
-    -   1: rarely watched show
-    -   2: watched once or twice a week
-    -   3: watched three to five times a week
-    -   4: watched show on average more than five times a week
+::: nonincremental
+-   `Party`: Number of people in the party
+-   `Meal`: Time of day (Lunch, Dinner, Late Night)
+-   `Age`: Age category of person paying the bill (Yadult, Middle, SenCit)
+-   `Payment`: Payment type (Cash, Credit, Credit/CashTip)
+:::
 
-**Predictors:**
+## Response vs. predictors
 
--   `age`: child's age in months
--   `viewenc`: 1: encouraged to watch, 0: not encouraged
+```{r}
+#| echo: false
+#| fig.width: 12
+#| fig.height: 4
+
+p4 <- ggplot(tips, aes(x = Party, y = Tip)) +
+  geom_point(color = "#5B888C")
+
+p5 <- ggplot(tips, aes(x = Meal, y = Tip, fill = Meal)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_fill_viridis_d(end = 0.8)
+
+p6 <- ggplot(tips, aes(x = Age, y = Tip, fill = Age)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_fill_viridis_d(option = "E", end = 0.8)
+
+p4 + p5 + p6
+```
+
+## Training vs. testing sets {.midi}
+
+-   The training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.
+
+-   It is not an independent piece of information; predicting the training set can only reflect what the model already knows.
+
+-   Suppose you give a class a test, then give them the answers, then provide the same test. The student scores on the second test do not accurately reflect what they know about the subject; these scores would probably be higher than their results on the first test.
+
+-   We can reserve some data for a testing set that can be used to evaluate the model performance
+
+## Training and testing sets {.midi}
+
+Create training and testing sets using functions from the **resample** R package (part of **tidymodels**)
+
+**Step 1:** Create an initial split:
+
+```{r}
+set.seed(210)
+tips_split <- initial_split(tips, prop = 0.75) #prop = 3/4 by default
+```
+
+**Step 2:** Save training data
+
+```{r}
+tips_train <- training(tips_split)
+dim(tips_train)
+```
+
+**Step 3:** Save testing data
+
+```{r}
+tips_test <- testing(tips_split)
+dim(tips_test)
+```
 
 # Application exercise
 
 ::: appex
-📋 <https://sta210-sp25.netlify.app/ae/ae-11-multinomial.html>
+📋 [sta210-sp26.github.io/ae/ae-09-model-compare.html](../ae/ae-09-model-compare.html)
 :::
 
 # Cross validation
@@ -113,12 +178,12 @@ The show is only effective if children watch it, so we want to understand what e
 
 **Resampling is only conducted on the** <u>**training**</u> **set**. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:
 
--   The model is fit with the **analysis set**. Model fit statistics such as $R^2_{Adj}$, AIC, BIC, and AUC are calculated based on this fit.
+-   The model is fit with the **analysis set**. Model fit statistics such as Adj. $R^2$ and $R^2$ are computed based on this model fit.
 -   The model is evaluated with the **assessment set**.
 
 ## Resampling for model assessment
 
-![](images/23/resampling.svg){fig-align="center"}
+![](images/15/resampling.svg){fig-align="center"}
 
 <br>
 
@@ -143,34 +208,17 @@ More specifically, **v-fold cross validation** -- commonly used resampling techn
 
 Let's give an example where `v = 3`...
 
-```{r}
-#| echo: false
-
-sesame <- read_csv("https://bit.ly/sesame-street-data")
-
-# mean-center relevant continuous variables, make categorical variables factors
-sesame <- sesame |> 
-  mutate(viewcat = factor(viewcat), 
-         site = factor(site), 
-         prenumbCent = prenumb - mean(prenumb), 
-         preletCent = prelet - mean(prelet), 
-         ageCent = age - mean(age),
-         viewenc = factor(if_else(viewenc == 1, "1", "0"))
-  )
-
-```
-
 ## To get started...
 
 **Split data into training and test sets**
 
 ```{r}
 #| echo: true
-set.seed(345)
-
-sesame_split <- initial_split(sesame)
-sesame_train <- training(sesame_split)
-sesame_test <- testing(sesame_split)
+#| 
+set.seed(210)
+tips_split <- initial_split(tips, prop = 0.75)
+tips_train <- training(tips_split)
+tips_test <- testing(tips_split)
 ```
 
 ## To get started... {.midi}
@@ -179,7 +227,7 @@ sesame_test <- testing(sesame_split)
 
 ```{r}
 #| echo: true
-sesame_spec <- multinom_reg()
+tips_spec <- linear_reg()
 ```
 
 <br>
@@ -187,14 +235,8 @@ sesame_spec <- multinom_reg()
 . . .
 
 ```{r}
-sesame_spec
+tips_spec
 ```
-
-<br>
-
-. . .
-
-**Note:** Use `linear_reg()` or `logistic_reg()` for linear or logistic models, respectively.
 
 ## To get started...
 
@@ -202,15 +244,15 @@ sesame_spec
 
 ```{r}
 #| echo: true
-sesame_wflow1 <- workflow() |>
-  add_model(sesame_spec) |>
-  add_formula(viewcat ~ ageCent + viewenc + site)
+tips_wflow1 <- workflow() |>
+  add_model(tips_spec) |>
+  add_formula(Tip ~ Age + Party)
 ```
 
 . . .
 
 ```{r}
-sesame_wflow1
+tips_wflow1
 ```
 
 ## Cross validation, step 1
@@ -219,13 +261,13 @@ Randomly split your **training** **data** into 3 partitions:
 
 <br>
 
-![](images/23/three-CV.svg){fig-align="center"}
+![](images/15/three-CV.svg){fig-align="center"}
 
 ## Tips: Split training data
 
 ```{r}
 #| echo: true
-folds <- vfold_cv(sesame_train, v = 3)
+folds <- vfold_cv(tips_train, v = 3)
 folds
 ```
 
@@ -236,28 +278,27 @@ folds
 -   Repeat *v* times, updating which partition is used for assessment each time
 :::
 
-![](images/23/three-CV-iter.svg){fig-align="center"}
+![](images/15/three-CV-iter.svg){fig-align="center"}
 
-## Sesame Street: Fit resamples {.midi}
+## Tips: Fit resamples {.midi}
 
 ```{r}
-sesame_fit_rs1 <- sesame_wflow1 |>
-  fit_resamples(resamples = folds,
-               metrics = metric_set(accuracy, roc_auc))
+tips_fit_rs1 <- tips_wflow1 |>
+  fit_resamples(resamples = folds)
 
-sesame_fit_rs1
+tips_fit_rs1
 ```
 
 ## Cross validation, now what?
 
 -   We've fit a bunch of models
--   Now it's time to use them to collect metrics (e.g., AUC, ) on each model and use them to evaluate model fit and how it varies across folds
+-   Now it's time to use them to collect metrics (e.g., RMSE, $R^2$ ) on each model and use them to evaluate model fit and how it varies across folds
 
 ## Collect metrics from CV
 
 ```{r}
 # Produces summary across all CV
-collect_metrics(sesame_fit_rs1)
+collect_metrics(tips_fit_rs1)
 ```
 
 <br>
@@ -267,7 +308,7 @@ Note: These are calculated using the *assessment* data
 ## Deeper look into results
 
 ```{r}
-cv_metrics1 <- collect_metrics(sesame_fit_rs1, summarize = FALSE) 
+cv_metrics1 <- collect_metrics(tips_fit_rs1, summarize = FALSE) 
 
 cv_metrics1
 ```
@@ -278,7 +319,7 @@ cv_metrics1
 cv_metrics1 |>
   mutate(.estimate = round(.estimate, 3)) |>
   pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |>
-  kable(col.names = c("Fold", "Accuracy", "AUC"))
+  kable(col.names = c("Fold", "RMSE", "R-sq"))
 ```
 
 ## Cross validation in practice
@@ -295,13 +336,13 @@ cv_metrics1 |>
 -   This was useful for illustrative purposes, but `v` is often 5 or 10; we generally prefer 10-fold cross-validation as a default
 :::
 
-## Example modeling workflow
+## Example model selection workflow
 
 -   Exploratory data analysis
 
 -   Using training data...
 
-    -   Fit and evaluate candidate model using cross validation
+    -   Fit and evaluate candidate models using cross validation
 
     -   Select the best fit model
 
@@ -311,6 +352,19 @@ cv_metrics1 |>
 
 -   Evaluate the final model performance using the test set
 
+::: callout-tip
+See [Section 10.5.2](https://intro-regression.github.io/10-model-eval.html#cross-validation-1) for more detailed workflow
+:::
+
 ## Data analysis workflow
 
-![Source: R for Data Science with additions from The Art of Statistics: How to Learn from Data.](images/02/data-analysis-life-cycle.png)
+![Source: Introduction to Regression Analysis](images/01/data-science-workflow.png)
+
+## Recap
+
+-   Training and testing sets
+-   Cross validation
+
+## Next class
+
+☀️ Have a good spring break ☀️

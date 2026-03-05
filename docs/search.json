@@ -3264,7 +3264,7 @@
     "href": "index.html",
     "title": "STA 210 - Regression Analysis",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 210!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 12\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 13\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nJan 19\nNo lab: Martin Luther King Jr. Day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 20\nInference: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nInference: Permutation tests\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nJan 26\nLab 01: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 27\nInference: Mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due\n\n\n\nTh\nJan 29\nInference cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\n\n\n\nMultiple linear regression (MLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nM\nFeb 2\nLab 02: Inference using mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 3\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n6\nM\nFeb 9\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 10\nModel conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n7\nM\nFeb 16\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due at end of lab\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nNo lecture: Work on Exam 01 take-home\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nM\nFeb 23\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 24\nMulticollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n9\nM\nMar 2\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 3\nModel comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nCross validation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n10\nM\nMar 9\nNo Lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 10\nNo Lecture: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo Lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nM\nMar 16\nLab: Project EDA\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 17\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due\n\n\n\nTh\nMar 19\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject EDA due\n\n\n12\nM\nMar 23\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 24\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 26\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n13\nM\nMar 30\nLab: Project analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 31\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nTh\nApr 2\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject analysis due\n\n\n14\nM\nApr 6\nLab 07: Exam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due at the end of lab\n\n\n\nTu\nApr 7\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 9\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nApr 13\nProject: Presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 14\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nApr 20\nLab: Draft peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due at the end of lab\n\n\n\nTu\nApr 21\nProject meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\nExam period\nMo\nApr 27",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 210!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nJan 12\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 13\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nJan 19\nNo lab: Martin Luther King Jr. Day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 20\nInference: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nInference: Permutation tests\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nM\nJan 26\nLab 01: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nJan 27\nInference: Mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due\n\n\n\nTh\nJan 29\nInference cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\n\n\n\nMultiple linear regression (MLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nM\nFeb 2\nLab 02: Inference using mathematical models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 3\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n6\nM\nFeb 9\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 10\nModel conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n7\nM\nFeb 16\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due at end of lab\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nNo lecture: Work on Exam 01 take-home\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nM\nFeb 23\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nFeb 24\nMulticollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n9\nM\nMar 2\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 3\nModel comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nCross validation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n10\nM\nMar 9\nNo Lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 10\nNo Lecture: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo Lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nM\nMar 16\nLab: Project EDA\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 17\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due\n\n\n\nTh\nMar 19\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nM\nMar 23\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 24\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject EDA due\n\n\n\nTh\nMar 26\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n13\nM\nMar 30\nLab: Project analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nMar 31\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nTh\nApr 2\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject analysis due\n\n\n14\nM\nApr 6\nLab 07: Exam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due at the end of lab\n\n\n\nTu\nApr 7\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 9\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nApr 13\nProject: Presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTu\nApr 14\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nApr 20\nLab: Draft peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due at the end of lab\n\n\n\nTu\nApr 21\nProject meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\nExam period\nMo\nApr 27",
     "crumbs": [
       "Schedule"
     ]
@@ -8192,193 +8192,221 @@
     "text": "Next class\n\nTypes of predictors in multiple linear regression model\nComplete Lecture 08 prepare"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html",
-    "href": "slides/23-cross-validation-notes.html",
+    "objectID": "slides/15-cross-validation-notes.html",
+    "href": "slides/15-cross-validation-notes.html",
     "title": "Cross validation",
     "section": "",
     "text": "Exam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#announcements",
-    "href": "slides/23-cross-validation-notes.html#announcements",
+    "objectID": "slides/15-cross-validation-notes.html#announcements---update",
+    "href": "slides/15-cross-validation-notes.html#announcements---update",
     "title": "Cross validation",
     "section": "",
     "text": "Exam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#topics",
-    "href": "slides/23-cross-validation-notes.html#topics",
+    "objectID": "slides/15-cross-validation-notes.html#topics",
+    "href": "slides/15-cross-validation-notes.html#topics",
     "title": "Cross validation",
     "section": "Topics",
-    "text": "Topics\n\n\nCross validation"
+    "text": "Topics\n\n\nTraining and testing sets\nCross validation"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#computational-setup",
-    "href": "slides/23-cross-validation-notes.html#computational-setup",
+    "objectID": "slides/15-cross-validation-notes.html#computational-setup",
+    "href": "slides/15-cross-validation-notes.html#computational-setup",
     "title": "Cross validation",
     "section": "Computational setup",
     "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#data-sesame-street",
-    "href": "slides/23-cross-validation-notes.html#data-sesame-street",
-    "title": "Cross validation",
-    "section": "Data: Sesame Street",
-    "text": "Data: Sesame Street\nToday’s data comes from an experiment by the Educational Testing Service to test the effectiveness of the children’s program Sesame Street. Sesame Street is an educational program designed to teach young children basic educational skills such as counting and the alphabet\nAs part of the experiment, children were assigned to one of two groups: those who were encouraged to watch the program and those who were not.\nThe show is only effective if children watch it, so we want to understand what effect the encouragement had on the frequency children watched the program."
-  },
-  {
-    "objectID": "slides/23-cross-validation-notes.html#variables",
-    "href": "slides/23-cross-validation-notes.html#variables",
+    "objectID": "slides/15-cross-validation-notes.html#variables",
+    "href": "slides/15-cross-validation-notes.html#variables",
     "title": "Cross validation",
     "section": "Variables",
-    "text": "Variables\nResponse:\n\nviewcat\n\n1: rarely watched show\n2: watched once or twice a week\n3: watched three to five times a week\n4: watched show on average more than five times a week\n\n\nPredictors:\n\nage: child’s age in months\nviewenc: 1: encouraged to watch, 0: not encouraged"
+    "text": "Variables\nPredictors:\n\n\nParty: Number of people in the party\nMeal: Time of day (Lunch, Dinner, Late Night)\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\nPayment: Payment type (Cash, Credit, Credit/CashTip)"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#spending-our-data",
-    "href": "slides/23-cross-validation-notes.html#spending-our-data",
+    "objectID": "slides/15-cross-validation-notes.html#response-vs.-predictors",
+    "href": "slides/15-cross-validation-notes.html#response-vs.-predictors",
+    "title": "Cross validation",
+    "section": "Response vs. predictors",
+    "text": "Response vs. predictors"
+  },
+  {
+    "objectID": "slides/15-cross-validation-notes.html#training-vs.-testing-sets",
+    "href": "slides/15-cross-validation-notes.html#training-vs.-testing-sets",
+    "title": "Cross validation",
+    "section": "Training vs. testing sets",
+    "text": "Training vs. testing sets\n\nThe training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.\nIt is not an independent piece of information; predicting the training set can only reflect what the model already knows.\nSuppose you give a class a test, then give them the answers, then provide the same test. The student scores on the second test do not accurately reflect what they know about the subject; these scores would probably be higher than their results on the first test.\nWe can reserve some data for a testing set that can be used to evaluate the model performance"
+  },
+  {
+    "objectID": "slides/15-cross-validation-notes.html#training-and-testing-sets",
+    "href": "slides/15-cross-validation-notes.html#training-and-testing-sets",
+    "title": "Cross validation",
+    "section": "Training and testing sets",
+    "text": "Training and testing sets\nCreate training and testing sets using functions from the resample R package (part of tidymodels)\nStep 1: Create an initial split:\n\nset.seed(210)\ntips_split &lt;- initial_split(tips, prop = 0.75) #prop = 3/4 by default\n\nStep 2: Save training data\n\ntips_train &lt;- training(tips_split)\ndim(tips_train)\n\n[1] 126  13\n\n\nStep 3: Save testing data\n\ntips_test &lt;- testing(tips_split)\ndim(tips_test)\n\n[1] 43 13"
+  },
+  {
+    "objectID": "slides/15-cross-validation-notes.html#spending-our-data",
+    "href": "slides/15-cross-validation-notes.html#spending-our-data",
     "title": "Cross validation",
     "section": "Spending our data",
     "text": "Spending our data\n\nWe have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.\nHowever, we usually need to understand the effectiveness of the model before using the test set.\nTypically we can’t decide on which final model to take to the test set without making model assessments.\nRemedy: Resampling to make model assessments on training data in a way that can generalize to new data."
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#resampling-for-model-assessment",
-    "href": "slides/23-cross-validation-notes.html#resampling-for-model-assessment",
+    "objectID": "slides/15-cross-validation-notes.html#resampling-for-model-assessment",
+    "href": "slides/15-cross-validation-notes.html#resampling-for-model-assessment",
     "title": "Cross validation",
     "section": "Resampling for model assessment",
-    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set. Model fit statistics such as \\(R^2_{Adj}\\), AIC, BIC, and AUC are calculated based on this fit.\nThe model is evaluated with the assessment set."
+    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set. Model fit statistics such as Adj. \\(R^2\\) and \\(R^2\\) are computed based on this model fit.\nThe model is evaluated with the assessment set."
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#resampling-for-model-assessment-1",
-    "href": "slides/23-cross-validation-notes.html#resampling-for-model-assessment-1",
+    "objectID": "slides/15-cross-validation-notes.html#resampling-for-model-assessment-1",
+    "href": "slides/15-cross-validation-notes.html#resampling-for-model-assessment-1",
     "title": "Cross validation",
     "section": "Resampling for model assessment",
     "text": "Resampling for model assessment\n\n\n\n\n\n\nImage source: Kuhn and Silge. Tidy modeling with R."
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#analysis-and-assessment-sets",
-    "href": "slides/23-cross-validation-notes.html#analysis-and-assessment-sets",
+    "objectID": "slides/15-cross-validation-notes.html#analysis-and-assessment-sets",
+    "href": "slides/15-cross-validation-notes.html#analysis-and-assessment-sets",
     "title": "Cross validation",
     "section": "Analysis and assessment sets",
     "text": "Analysis and assessment sets\n\nAnalysis set is analogous to training set.\nAssessment set is analogous to test set.\nThe terms analysis and assessment avoids confusion with initial split of the data.\nThese data sets are mutually exclusive."
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#cross-validation-1",
-    "href": "slides/23-cross-validation-notes.html#cross-validation-1",
+    "objectID": "slides/15-cross-validation-notes.html#cross-validation-1",
+    "href": "slides/15-cross-validation-notes.html#cross-validation-1",
     "title": "Cross validation",
     "section": "Cross validation",
     "text": "Cross validation\nMore specifically, v-fold cross validation – commonly used resampling technique:\n\nRandomly split your training data into v partitions\nUse v-1 partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)\nRepeat v times, updating which partition is used for assessment each time\n\n. . .\nLet’s give an example where v = 3…"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#to-get-started",
-    "href": "slides/23-cross-validation-notes.html#to-get-started",
+    "objectID": "slides/15-cross-validation-notes.html#to-get-started",
+    "href": "slides/15-cross-validation-notes.html#to-get-started",
     "title": "Cross validation",
     "section": "To get started…",
-    "text": "To get started…\nSplit data into training and test sets\n\nset.seed(345)\n\nsesame_split &lt;- initial_split(sesame)\nsesame_train &lt;- training(sesame_split)\nsesame_test &lt;- testing(sesame_split)"
+    "text": "To get started…\nSplit data into training and test sets\n\nset.seed(210)\ntips_split &lt;- initial_split(tips, prop = 0.75)\ntips_train &lt;- training(tips_split)\ntips_test &lt;- testing(tips_split)"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#to-get-started-1",
-    "href": "slides/23-cross-validation-notes.html#to-get-started-1",
+    "objectID": "slides/15-cross-validation-notes.html#to-get-started-1",
+    "href": "slides/15-cross-validation-notes.html#to-get-started-1",
     "title": "Cross validation",
     "section": "To get started…",
-    "text": "To get started…\nSpecify model\n\nsesame_spec &lt;- multinom_reg()\n\n\n. . .\n\nsesame_spec\n\nMultinomial Regression Model Specification (classification)\n\nComputational engine: nnet \n\n\n\n. . .\nNote: Use linear_reg() or logistic_reg() for linear or logistic models, respectively."
+    "text": "To get started…\nSpecify model\n\ntips_spec &lt;- linear_reg()\n\n\n. . .\n\ntips_spec\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#to-get-started-2",
-    "href": "slides/23-cross-validation-notes.html#to-get-started-2",
+    "objectID": "slides/15-cross-validation-notes.html#to-get-started-2",
+    "href": "slides/15-cross-validation-notes.html#to-get-started-2",
     "title": "Cross validation",
     "section": "To get started…",
-    "text": "To get started…\nCreate workflow\n\nsesame_wflow1 &lt;- workflow() |&gt;\n  add_model(sesame_spec) |&gt;\n  add_formula(viewcat ~ ageCent + viewenc + site)\n\n. . .\n\nsesame_wflow1\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Formula\nModel: multinom_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\nviewcat ~ ageCent + viewenc + site\n\n── Model ───────────────────────────────────────────────────────────────────────\nMultinomial Regression Model Specification (classification)\n\nComputational engine: nnet"
+    "text": "To get started…\nCreate workflow\n\ntips_wflow1 &lt;- workflow() |&gt;\n  add_model(tips_spec) |&gt;\n  add_formula(Tip ~ Age + Party)\n\n. . .\n\ntips_wflow1\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Formula\nModel: linear_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\nTip ~ Age + Party\n\n── Model ───────────────────────────────────────────────────────────────────────\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#cross-validation-step-1",
-    "href": "slides/23-cross-validation-notes.html#cross-validation-step-1",
+    "objectID": "slides/15-cross-validation-notes.html#cross-validation-step-1",
+    "href": "slides/15-cross-validation-notes.html#cross-validation-step-1",
     "title": "Cross validation",
     "section": "Cross validation, step 1",
     "text": "Cross validation, step 1\nRandomly split your training data into 3 partitions:"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#tips-split-training-data",
-    "href": "slides/23-cross-validation-notes.html#tips-split-training-data",
+    "objectID": "slides/15-cross-validation-notes.html#tips-split-training-data",
+    "href": "slides/15-cross-validation-notes.html#tips-split-training-data",
     "title": "Cross validation",
     "section": "Tips: Split training data",
-    "text": "Tips: Split training data\n\nfolds &lt;- vfold_cv(sesame_train, v = 3)\nfolds\n\n#  3-fold cross-validation \n# A tibble: 3 × 2\n  splits           id   \n  &lt;list&gt;           &lt;chr&gt;\n1 &lt;split [120/60]&gt; Fold1\n2 &lt;split [120/60]&gt; Fold2\n3 &lt;split [120/60]&gt; Fold3"
+    "text": "Tips: Split training data\n\nfolds &lt;- vfold_cv(tips_train, v = 3)\nfolds\n\n#  3-fold cross-validation \n# A tibble: 3 × 2\n  splits          id   \n  &lt;list&gt;          &lt;chr&gt;\n1 &lt;split [84/42]&gt; Fold1\n2 &lt;split [84/42]&gt; Fold2\n3 &lt;split [84/42]&gt; Fold3"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#cross-validation-steps-2-and-3",
-    "href": "slides/23-cross-validation-notes.html#cross-validation-steps-2-and-3",
+    "objectID": "slides/15-cross-validation-notes.html#cross-validation-steps-2-and-3",
+    "href": "slides/15-cross-validation-notes.html#cross-validation-steps-2-and-3",
     "title": "Cross validation",
     "section": "Cross validation, steps 2 and 3",
     "text": "Cross validation, steps 2 and 3\n\n\nUse v-1 partitions for analysis, and the remaining 1 partition for assessment\nRepeat v times, updating which partition is used for assessment each time"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#sesame-street-fit-resamples",
-    "href": "slides/23-cross-validation-notes.html#sesame-street-fit-resamples",
+    "objectID": "slides/15-cross-validation-notes.html#tips-fit-resamples",
+    "href": "slides/15-cross-validation-notes.html#tips-fit-resamples",
     "title": "Cross validation",
-    "section": "Sesame Street: Fit resamples",
-    "text": "Sesame Street: Fit resamples\n\nsesame_fit_rs1 &lt;- sesame_wflow1 |&gt;\n  fit_resamples(resamples = folds,\n               metrics = metric_set(accuracy, roc_auc))\n\nsesame_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 4\n  splits           id    .metrics         .notes          \n  &lt;list&gt;           &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          \n1 &lt;split [120/60]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n2 &lt;split [120/60]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n3 &lt;split [120/60]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;"
+    "section": "Tips: Fit resamples",
+    "text": "Tips: Fit resamples\n\ntips_fit_rs1 &lt;- tips_wflow1 |&gt;\n  fit_resamples(resamples = folds)\n\ntips_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 4\n  splits          id    .metrics         .notes          \n  &lt;list&gt;          &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          \n1 &lt;split [84/42]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n2 &lt;split [84/42]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n3 &lt;split [84/42]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#cross-validation-now-what",
-    "href": "slides/23-cross-validation-notes.html#cross-validation-now-what",
+    "objectID": "slides/15-cross-validation-notes.html#cross-validation-now-what",
+    "href": "slides/15-cross-validation-notes.html#cross-validation-now-what",
     "title": "Cross validation",
     "section": "Cross validation, now what?",
-    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., AUC, ) on each model and use them to evaluate model fit and how it varies across folds"
+    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., RMSE, \\(R^2\\) ) on each model and use them to evaluate model fit and how it varies across folds"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#collect-metrics-from-cv",
-    "href": "slides/23-cross-validation-notes.html#collect-metrics-from-cv",
+    "objectID": "slides/15-cross-validation-notes.html#collect-metrics-from-cv",
+    "href": "slides/15-cross-validation-notes.html#collect-metrics-from-cv",
     "title": "Cross validation",
     "section": "Collect metrics from CV",
-    "text": "Collect metrics from CV\n\n# Produces summary across all CV\ncollect_metrics(sesame_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric  .estimator  mean     n std_err .config        \n  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 accuracy multiclass 0.344     3  0.0641 pre0_mod0_post0\n2 roc_auc  hand_till  0.624     3  0.0341 pre0_mod0_post0\n\n\n\nNote: These are calculated using the assessment data"
+    "text": "Collect metrics from CV\n\n# Produces summary across all CV\ncollect_metrics(tips_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config        \n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 rmse    standard   2.14      3  0.195  pre0_mod0_post0\n2 rsq     standard   0.623     3  0.0470 pre0_mod0_post0\n\n\n\nNote: These are calculated using the assessment data"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#deeper-look-into-results",
-    "href": "slides/23-cross-validation-notes.html#deeper-look-into-results",
+    "objectID": "slides/15-cross-validation-notes.html#deeper-look-into-results",
+    "href": "slides/15-cross-validation-notes.html#deeper-look-into-results",
     "title": "Cross validation",
     "section": "Deeper look into results",
-    "text": "Deeper look into results\n\ncv_metrics1 &lt;- collect_metrics(sesame_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric  .estimator .estimate .config        \n  &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          \n1 Fold1 accuracy multiclass     0.4   pre0_mod0_post0\n2 Fold1 roc_auc  hand_till      0.644 pre0_mod0_post0\n3 Fold2 accuracy multiclass     0.217 pre0_mod0_post0\n4 Fold2 roc_auc  hand_till      0.557 pre0_mod0_post0\n5 Fold3 accuracy multiclass     0.417 pre0_mod0_post0\n6 Fold3 roc_auc  hand_till      0.670 pre0_mod0_post0"
+    "text": "Deeper look into results\n\ncv_metrics1 &lt;- collect_metrics(tips_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric .estimator .estimate .config        \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          \n1 Fold1 rmse    standard       1.92  pre0_mod0_post0\n2 Fold1 rsq     standard       0.713 pre0_mod0_post0\n3 Fold2 rmse    standard       2.52  pre0_mod0_post0\n4 Fold2 rsq     standard       0.554 pre0_mod0_post0\n5 Fold3 rmse    standard       1.97  pre0_mod0_post0\n6 Fold3 rsq     standard       0.603 pre0_mod0_post0"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#better-presentation-of-results",
-    "href": "slides/23-cross-validation-notes.html#better-presentation-of-results",
+    "objectID": "slides/15-cross-validation-notes.html#better-presentation-of-results",
+    "href": "slides/15-cross-validation-notes.html#better-presentation-of-results",
     "title": "Cross validation",
     "section": "Better presentation of results",
-    "text": "Better presentation of results\n\ncv_metrics1 |&gt;\n  mutate(.estimate = round(.estimate, 3)) |&gt;\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |&gt;\n  kable(col.names = c(\"Fold\", \"Accuracy\", \"AUC\"))\n\n\n\n\nFold\nAccuracy\nAUC\n\n\n\n\nFold1\n0.400\n0.644\n\n\nFold2\n0.217\n0.557\n\n\nFold3\n0.417\n0.670"
+    "text": "Better presentation of results\n\ncv_metrics1 |&gt;\n  mutate(.estimate = round(.estimate, 3)) |&gt;\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |&gt;\n  kable(col.names = c(\"Fold\", \"RMSE\", \"R-sq\"))\n\n\n\n\nFold\nRMSE\nR-sq\n\n\n\n\nFold1\n1.915\n0.713\n\n\nFold2\n2.525\n0.554\n\n\nFold3\n1.967\n0.603"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#cross-validation-in-practice",
-    "href": "slides/23-cross-validation-notes.html#cross-validation-in-practice",
+    "objectID": "slides/15-cross-validation-notes.html#cross-validation-in-practice",
+    "href": "slides/15-cross-validation-notes.html#cross-validation-in-practice",
     "title": "Cross validation",
     "section": "Cross validation in practice",
     "text": "Cross validation in practice\n\n\nTo illustrate how CV works, we used v = 3:\n\n\nAnalysis sets are 2/3 of the training set\nEach assessment set is a distinct 1/3\nThe final resampling estimate of performance averages each of the 3 replicates\n\n\nThis was useful for illustrative purposes, but v is often 5 or 10; we generally prefer 10-fold cross-validation as a default"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#example-modeling-workflow",
-    "href": "slides/23-cross-validation-notes.html#example-modeling-workflow",
+    "objectID": "slides/15-cross-validation-notes.html#example-model-selection-workflow",
+    "href": "slides/15-cross-validation-notes.html#example-model-selection-workflow",
     "title": "Cross validation",
-    "section": "Example modeling workflow",
-    "text": "Example modeling workflow\n\nExploratory data analysis\nUsing training data…\n\nFit and evaluate candidate model using cross validation\nSelect the best fit model\nCheck model conditions and diagnostics\nRepeat as needed until you’ve landed on final model\n\nEvaluate the final model performance using the test set"
+    "section": "Example model selection workflow",
+    "text": "Example model selection workflow\n\nExploratory data analysis\nUsing training data…\n\nFit and evaluate candidate models using cross validation\nSelect the best fit model\nCheck model conditions and diagnostics\nRepeat as needed until you’ve landed on final model\n\nEvaluate the final model performance using the test set\n\n\n\n\n\n\n\nTip\n\n\n\nSee Section 10.5.2 for more detailed workflow"
   },
   {
-    "objectID": "slides/23-cross-validation-notes.html#data-analysis-workflow",
-    "href": "slides/23-cross-validation-notes.html#data-analysis-workflow",
+    "objectID": "slides/15-cross-validation-notes.html#data-analysis-workflow",
+    "href": "slides/15-cross-validation-notes.html#data-analysis-workflow",
     "title": "Cross validation",
     "section": "Data analysis workflow",
-    "text": "Data analysis workflow\n\n\n\nSource: R for Data Science with additions from The Art of Statistics: How to Learn from Data."
+    "text": "Data analysis workflow\n\n\n\nSource: Introduction to Regression Analysis"
   },
   {
-    "objectID": "slides/15-cross-validation.html#announcements",
-    "href": "slides/15-cross-validation.html#announcements",
+    "objectID": "slides/15-cross-validation-notes.html#recap",
+    "href": "slides/15-cross-validation-notes.html#recap",
     "title": "Cross validation",
-    "section": "Announcements",
-    "text": "Announcements\n\nExam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
+    "section": "Recap",
+    "text": "Recap\n\nTraining and testing sets\nCross validation"
+  },
+  {
+    "objectID": "slides/15-cross-validation-notes.html#next-class",
+    "href": "slides/15-cross-validation-notes.html#next-class",
+    "title": "Cross validation",
+    "section": "Next class",
+    "text": "Next class\n☀️ Have a good spring break ☀️"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#announcements---update",
+    "href": "slides/15-cross-validation.html#announcements---update",
+    "title": "Cross validation",
+    "section": "Announcements - UPDATE",
+    "text": "Announcements - UPDATE\n\nExam 02 - April 17 (same format as Exam 01)\n\nLecture videos available\n\nNext project milestone: Draft and peer review in April 21 lab\nStatistics experience due April 15"
   },
   {
     "objectID": "slides/15-cross-validation.html#topics",
     "href": "slides/15-cross-validation.html#topics",
     "title": "Cross validation",
     "section": "Topics",
-    "text": "Topics\n\nCross validation"
+    "text": "Topics\n\nTraining and testing sets\nCross validation"
   },
   {
     "objectID": "slides/15-cross-validation.html#computational-setup",
@@ -8388,18 +8416,32 @@
     "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
-    "objectID": "slides/15-cross-validation.html#data-sesame-street",
-    "href": "slides/15-cross-validation.html#data-sesame-street",
-    "title": "Cross validation",
-    "section": "Data: Sesame Street",
-    "text": "Data: Sesame Street\nToday’s data comes from an experiment by the Educational Testing Service to test the effectiveness of the children’s program Sesame Street. Sesame Street is an educational program designed to teach young children basic educational skills such as counting and the alphabet\nAs part of the experiment, children were assigned to one of two groups: those who were encouraged to watch the program and those who were not.\nThe show is only effective if children watch it, so we want to understand what effect the encouragement had on the frequency children watched the program."
-  },
-  {
     "objectID": "slides/15-cross-validation.html#variables",
     "href": "slides/15-cross-validation.html#variables",
     "title": "Cross validation",
     "section": "Variables",
-    "text": "Variables\nResponse:\n\nviewcat\n\n1: rarely watched show\n2: watched once or twice a week\n3: watched three to five times a week\n4: watched show on average more than five times a week\n\n\nPredictors:\n\nage: child’s age in months\nviewenc: 1: encouraged to watch, 0: not encouraged"
+    "text": "Variables\nPredictors:\n\nParty: Number of people in the party\nMeal: Time of day (Lunch, Dinner, Late Night)\nAge: Age category of person paying the bill (Yadult, Middle, SenCit)\nPayment: Payment type (Cash, Credit, Credit/CashTip)"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#response-vs.-predictors",
+    "href": "slides/15-cross-validation.html#response-vs.-predictors",
+    "title": "Cross validation",
+    "section": "Response vs. predictors",
+    "text": "Response vs. predictors"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#training-vs.-testing-sets",
+    "href": "slides/15-cross-validation.html#training-vs.-testing-sets",
+    "title": "Cross validation",
+    "section": "Training vs. testing sets",
+    "text": "Training vs. testing sets\n\nThe training set (i.e., the data used to fit the model) does not have the capacity to be a good arbiter of performance.\nIt is not an independent piece of information; predicting the training set can only reflect what the model already knows.\nSuppose you give a class a test, then give them the answers, then provide the same test. The student scores on the second test do not accurately reflect what they know about the subject; these scores would probably be higher than their results on the first test.\nWe can reserve some data for a testing set that can be used to evaluate the model performance"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#training-and-testing-sets",
+    "href": "slides/15-cross-validation.html#training-and-testing-sets",
+    "title": "Cross validation",
+    "section": "Training and testing sets",
+    "text": "Training and testing sets\nCreate training and testing sets using functions from the resample R package (part of tidymodels)\nStep 1: Create an initial split:\n\nset.seed(210)\ntips_split &lt;- initial_split(tips, prop = 0.75) #prop = 3/4 by default\n\nStep 2: Save training data\n\ntips_train &lt;- training(tips_split)\ndim(tips_train)\n\n[1] 126  13\n\n\nStep 3: Save testing data\n\ntips_test &lt;- testing(tips_split)\ndim(tips_test)\n\n[1] 43 13"
   },
   {
     "objectID": "slides/15-cross-validation.html#spending-our-data",
@@ -8413,7 +8455,7 @@
     "href": "slides/15-cross-validation.html#resampling-for-model-assessment",
     "title": "Cross validation",
     "section": "Resampling for model assessment",
-    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set. Model fit statistics such as \\(R^2_{Adj}\\), AIC, BIC, and AUC are calculated based on this fit.\nThe model is evaluated with the assessment set."
+    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set. Model fit statistics such as Adj. \\(R^2\\) and \\(R^2\\) are computed based on this model fit.\nThe model is evaluated with the assessment set."
   },
   {
     "objectID": "slides/15-cross-validation.html#resampling-for-model-assessment-1",
@@ -8441,21 +8483,21 @@
     "href": "slides/15-cross-validation.html#to-get-started",
     "title": "Cross validation",
     "section": "To get started…",
-    "text": "To get started…\nSplit data into training and test sets\n\nset.seed(345)\n\nsesame_split &lt;- initial_split(sesame)\nsesame_train &lt;- training(sesame_split)\nsesame_test &lt;- testing(sesame_split)"
+    "text": "To get started…\nSplit data into training and test sets\n\nset.seed(210)\ntips_split &lt;- initial_split(tips, prop = 0.75)\ntips_train &lt;- training(tips_split)\ntips_test &lt;- testing(tips_split)"
   },
   {
     "objectID": "slides/15-cross-validation.html#to-get-started-1",
     "href": "slides/15-cross-validation.html#to-get-started-1",
     "title": "Cross validation",
     "section": "To get started…",
-    "text": "To get started…\nSpecify model\n\nsesame_spec &lt;- multinom_reg()\n\n\n\n\nsesame_spec\n\nMultinomial Regression Model Specification (classification)\n\nComputational engine: nnet \n\n\n\n\n\nNote: Use linear_reg() or logistic_reg() for linear or logistic models, respectively."
+    "text": "To get started…\nSpecify model\n\ntips_spec &lt;- linear_reg()\n\n\n\n\ntips_spec\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
   },
   {
     "objectID": "slides/15-cross-validation.html#to-get-started-2",
     "href": "slides/15-cross-validation.html#to-get-started-2",
     "title": "Cross validation",
     "section": "To get started…",
-    "text": "To get started…\nCreate workflow\n\nsesame_wflow1 &lt;- workflow() |&gt;\n  add_model(sesame_spec) |&gt;\n  add_formula(viewcat ~ ageCent + viewenc + site)\n\n\n\nsesame_wflow1\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Formula\nModel: multinom_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\nviewcat ~ ageCent + viewenc + site\n\n── Model ───────────────────────────────────────────────────────────────────────\nMultinomial Regression Model Specification (classification)\n\nComputational engine: nnet"
+    "text": "To get started…\nCreate workflow\n\ntips_wflow1 &lt;- workflow() |&gt;\n  add_model(tips_spec) |&gt;\n  add_formula(Tip ~ Age + Party)\n\n\n\ntips_wflow1\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Formula\nModel: linear_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\nTip ~ Age + Party\n\n── Model ───────────────────────────────────────────────────────────────────────\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
   },
   {
     "objectID": "slides/15-cross-validation.html#cross-validation-step-1",
@@ -8469,7 +8511,7 @@
     "href": "slides/15-cross-validation.html#tips-split-training-data",
     "title": "Cross validation",
     "section": "Tips: Split training data",
-    "text": "Tips: Split training data\n\nfolds &lt;- vfold_cv(sesame_train, v = 3)\nfolds\n\n#  3-fold cross-validation \n# A tibble: 3 × 2\n  splits           id   \n  &lt;list&gt;           &lt;chr&gt;\n1 &lt;split [120/60]&gt; Fold1\n2 &lt;split [120/60]&gt; Fold2\n3 &lt;split [120/60]&gt; Fold3"
+    "text": "Tips: Split training data\n\nfolds &lt;- vfold_cv(tips_train, v = 3)\nfolds\n\n#  3-fold cross-validation \n# A tibble: 3 × 2\n  splits          id   \n  &lt;list&gt;          &lt;chr&gt;\n1 &lt;split [84/42]&gt; Fold1\n2 &lt;split [84/42]&gt; Fold2\n3 &lt;split [84/42]&gt; Fold3"
   },
   {
     "objectID": "slides/15-cross-validation.html#cross-validation-steps-2-and-3",
@@ -8479,39 +8521,39 @@
     "text": "Cross validation, steps 2 and 3\n\nUse v-1 partitions for analysis, and the remaining 1 partition for assessment\nRepeat v times, updating which partition is used for assessment each time"
   },
   {
-    "objectID": "slides/15-cross-validation.html#sesame-street-fit-resamples",
-    "href": "slides/15-cross-validation.html#sesame-street-fit-resamples",
+    "objectID": "slides/15-cross-validation.html#tips-fit-resamples",
+    "href": "slides/15-cross-validation.html#tips-fit-resamples",
     "title": "Cross validation",
-    "section": "Sesame Street: Fit resamples",
-    "text": "Sesame Street: Fit resamples\n\nsesame_fit_rs1 &lt;- sesame_wflow1 |&gt;\n  fit_resamples(resamples = folds,\n               metrics = metric_set(accuracy, roc_auc))\n\nsesame_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 4\n  splits           id    .metrics         .notes          \n  &lt;list&gt;           &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          \n1 &lt;split [120/60]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n2 &lt;split [120/60]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n3 &lt;split [120/60]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;"
+    "section": "Tips: Fit resamples",
+    "text": "Tips: Fit resamples\n\ntips_fit_rs1 &lt;- tips_wflow1 |&gt;\n  fit_resamples(resamples = folds)\n\ntips_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 4\n  splits          id    .metrics         .notes          \n  &lt;list&gt;          &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          \n1 &lt;split [84/42]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n2 &lt;split [84/42]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;\n3 &lt;split [84/42]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 4]&gt;"
   },
   {
     "objectID": "slides/15-cross-validation.html#cross-validation-now-what",
     "href": "slides/15-cross-validation.html#cross-validation-now-what",
     "title": "Cross validation",
     "section": "Cross validation, now what?",
-    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., AUC, ) on each model and use them to evaluate model fit and how it varies across folds"
+    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., RMSE, \\(R^2\\) ) on each model and use them to evaluate model fit and how it varies across folds"
   },
   {
     "objectID": "slides/15-cross-validation.html#collect-metrics-from-cv",
     "href": "slides/15-cross-validation.html#collect-metrics-from-cv",
     "title": "Cross validation",
     "section": "Collect metrics from CV",
-    "text": "Collect metrics from CV\n\n# Produces summary across all CV\ncollect_metrics(sesame_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric  .estimator  mean     n std_err .config        \n  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 accuracy multiclass 0.344     3  0.0641 pre0_mod0_post0\n2 roc_auc  hand_till  0.624     3  0.0341 pre0_mod0_post0\n\n\n\nNote: These are calculated using the assessment data"
+    "text": "Collect metrics from CV\n\n# Produces summary across all CV\ncollect_metrics(tips_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config        \n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 rmse    standard   2.14      3  0.195  pre0_mod0_post0\n2 rsq     standard   0.623     3  0.0470 pre0_mod0_post0\n\n\n\nNote: These are calculated using the assessment data"
   },
   {
     "objectID": "slides/15-cross-validation.html#deeper-look-into-results",
     "href": "slides/15-cross-validation.html#deeper-look-into-results",
     "title": "Cross validation",
     "section": "Deeper look into results",
-    "text": "Deeper look into results\n\ncv_metrics1 &lt;- collect_metrics(sesame_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric  .estimator .estimate .config        \n  &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          \n1 Fold1 accuracy multiclass     0.4   pre0_mod0_post0\n2 Fold1 roc_auc  hand_till      0.644 pre0_mod0_post0\n3 Fold2 accuracy multiclass     0.217 pre0_mod0_post0\n4 Fold2 roc_auc  hand_till      0.557 pre0_mod0_post0\n5 Fold3 accuracy multiclass     0.417 pre0_mod0_post0\n6 Fold3 roc_auc  hand_till      0.670 pre0_mod0_post0"
+    "text": "Deeper look into results\n\ncv_metrics1 &lt;- collect_metrics(tips_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric .estimator .estimate .config        \n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          \n1 Fold1 rmse    standard       1.92  pre0_mod0_post0\n2 Fold1 rsq     standard       0.713 pre0_mod0_post0\n3 Fold2 rmse    standard       2.52  pre0_mod0_post0\n4 Fold2 rsq     standard       0.554 pre0_mod0_post0\n5 Fold3 rmse    standard       1.97  pre0_mod0_post0\n6 Fold3 rsq     standard       0.603 pre0_mod0_post0"
   },
   {
     "objectID": "slides/15-cross-validation.html#better-presentation-of-results",
     "href": "slides/15-cross-validation.html#better-presentation-of-results",
     "title": "Cross validation",
     "section": "Better presentation of results",
-    "text": "Better presentation of results\n\ncv_metrics1 |&gt;\n  mutate(.estimate = round(.estimate, 3)) |&gt;\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |&gt;\n  kable(col.names = c(\"Fold\", \"Accuracy\", \"AUC\"))\n\n\n\n\nFold\nAccuracy\nAUC\n\n\n\n\nFold1\n0.400\n0.644\n\n\nFold2\n0.217\n0.557\n\n\nFold3\n0.417\n0.670"
+    "text": "Better presentation of results\n\ncv_metrics1 |&gt;\n  mutate(.estimate = round(.estimate, 3)) |&gt;\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |&gt;\n  kable(col.names = c(\"Fold\", \"RMSE\", \"R-sq\"))\n\n\n\n\nFold\nRMSE\nR-sq\n\n\n\n\nFold1\n1.915\n0.713\n\n\nFold2\n2.525\n0.554\n\n\nFold3\n1.967\n0.603"
   },
   {
     "objectID": "slides/15-cross-validation.html#cross-validation-in-practice",
@@ -8521,18 +8563,32 @@
     "text": "Cross validation in practice\n\nTo illustrate how CV works, we used v = 3:\n\nAnalysis sets are 2/3 of the training set\nEach assessment set is a distinct 1/3\nThe final resampling estimate of performance averages each of the 3 replicates\n\nThis was useful for illustrative purposes, but v is often 5 or 10; we generally prefer 10-fold cross-validation as a default"
   },
   {
-    "objectID": "slides/15-cross-validation.html#example-modeling-workflow",
-    "href": "slides/15-cross-validation.html#example-modeling-workflow",
+    "objectID": "slides/15-cross-validation.html#example-model-selection-workflow",
+    "href": "slides/15-cross-validation.html#example-model-selection-workflow",
     "title": "Cross validation",
-    "section": "Example modeling workflow",
-    "text": "Example modeling workflow\n\nExploratory data analysis\nUsing training data…\n\nFit and evaluate candidate model using cross validation\nSelect the best fit model\nCheck model conditions and diagnostics\nRepeat as needed until you’ve landed on final model\n\nEvaluate the final model performance using the test set"
+    "section": "Example model selection workflow",
+    "text": "Example model selection workflow\n\nExploratory data analysis\nUsing training data…\n\nFit and evaluate candidate models using cross validation\nSelect the best fit model\nCheck model conditions and diagnostics\nRepeat as needed until you’ve landed on final model\n\nEvaluate the final model performance using the test set\n\n\n\n\n\n\n\nTip\n\n\nSee Section 10.5.2 for more detailed workflow"
   },
   {
     "objectID": "slides/15-cross-validation.html#data-analysis-workflow",
     "href": "slides/15-cross-validation.html#data-analysis-workflow",
     "title": "Cross validation",
     "section": "Data analysis workflow",
-    "text": "Data analysis workflow\n\n\n\nSource: R for Data Science with additions from The Art of Statistics: How to Learn from Data."
+    "text": "Data analysis workflow\n\nSource: Introduction to Regression Analysis"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#recap",
+    "href": "slides/15-cross-validation.html#recap",
+    "title": "Cross validation",
+    "section": "Recap",
+    "text": "Recap\n\nTraining and testing sets\nCross validation"
+  },
+  {
+    "objectID": "slides/15-cross-validation.html#next-class",
+    "href": "slides/15-cross-validation.html#next-class",
+    "title": "Cross validation",
+    "section": "Next class",
+    "text": "Next class\n☀️ Have a good spring break ☀️"
   },
   {
     "objectID": "slides/05-sim-testing-notes.html",
@@ -9262,7 +9318,7 @@
     "href": "project.html",
     "title": "Final project",
     "section": "",
-    "text": "Project proposal due Thursday, February 26\nExploratory data analysis due Thursday, March 19\nDraft analysis due April 2\nPresentation + Presentation comments due Tuesday, April 14 and Thursday, April 16\nDraft report + Peer review due Monday, April 20 (draft due before lab)\nWritten report due Monday, April 27\nRepo organization due Monday, April 27",
+    "text": "Project proposal due Thursday, February 26\nExploratory data analysis due Tuesday, March 24\nDraft analysis due April 2\nPresentation + Presentation comments due Tuesday, April 14 and Thursday, April 16\nDraft report + Peer review due Monday, April 20 (draft due before lab)\nWritten report due Monday, April 27\nRepo organization due Monday, April 27",
     "crumbs": [
       "Project",
       "Instructions"
@@ -9273,7 +9329,7 @@
     "href": "project.html#project-milestones",
     "title": "Final project",
     "section": "",
-    "text": "Project proposal due Thursday, February 26\nExploratory data analysis due Thursday, March 19\nDraft analysis due April 2\nPresentation + Presentation comments due Tuesday, April 14 and Thursday, April 16\nDraft report + Peer review due Monday, April 20 (draft due before lab)\nWritten report due Monday, April 27\nRepo organization due Monday, April 27",
+    "text": "Project proposal due Thursday, February 26\nExploratory data analysis due Tuesday, March 24\nDraft analysis due April 2\nPresentation + Presentation comments due Tuesday, April 14 and Thursday, April 16\nDraft report + Peer review due Monday, April 20 (draft due before lab)\nWritten report due Monday, April 27\nRepo organization due Monday, April 27",
     "crumbs": [
       "Project",
       "Instructions"
@@ -9306,7 +9362,7 @@
     "href": "project.html#exploratory-data-analysis",
     "title": "Final project",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n[To be posted.]",
+    "text": "Exploratory data analysis\n\n\n\n\n\n\nImportantSubmission\n\n\n\nWrite your draft introduction and exploratory data analysis in the written-report.qmd file in your team’s GitHub repo. Push the .qmd and rendered .pdf documents to GitHub by Tuesday, March 24 at 11:59pm.\n\n\nThe purpose of this milestone is to begin exploring the data and get early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.\nBelow is a brief description of the sections to include in this step:\n\nIntroduction\nThis section includes an introduction to the project motivation, background, data, and research question. Additionally, comment on any known limitations, missingness, or measurement concerns that may impact the interpretation of your analysis and results.\n\n\n\n\n\n\nTip\n\n\n\nReuse and iterate on the work from the previous milestones.\n\n\n\n\nExploratory data analysis\nThis section includes the following:\n\nDescription of the data set and key variables.\nExploratory data analysis of the response variable and key predictor variables. This includes visualizations, summary statistics, and narrative. Focus on 4 - 6 key predictors that are most relevant to your research question. You may explore additional variables, as appropriate, but prioritize depth over breadth.\n\nUnivariate EDA of the response and key predictor variables\nBivariate EDA of the response and key predictor variables\nVisualizations exploring at least one potential interaction effect\n\n\nFor each visualization and/or set of summary statistics, briefly describe what you learn about the distribution of the variable or relationship between variables. Additionally, comment on how the observations from the EDA may inform your modeling decisions (e.g., use of transformations, quadratic effects, interactions effects, etc.)\n\n\nGrading\nThe anticipated length with code, warnings, and messages suppressed in the rendered pdf is about 5 - 7 pages. It is OK to be over this page limit at this stage in the project.\n\n\n\n\n\n\nTip\n\n\n\nInclude the code below in the YAML to suppress code, messages, and warnings in the rendered pdf.\nexecute:\n  echo: false\n  message: false\n  warning: false\n\n\nThe exploratory data analysis is worth 10 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from the proposal. Points will be assigned based on a holistic review of the exploratory data analysis.\n\nExcellent (8- 10 points) : All required elements are completed and are accurate. There is a thorough exploration of the data as described above, and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.\nStrong (6 - 7 points): Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Minor gaps or areas needing clarification, but the analysis is sound overall and will be ready for modeling with minor revision.\nSatisfactory (4 -5 points): Requirements partially met, but there are some elements that are incomplete and/or inaccurate. This may include multiple gaps in the analysis, unclear interpretations, or limited connection between EDA and modeling decisions. Major revision is required before team is ready for modeling.\nNeeds Improvement (3 points or fewer): Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.",
     "crumbs": [
       "Project",
       "Instructions"

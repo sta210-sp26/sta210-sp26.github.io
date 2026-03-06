@@ -142,7 +142,7 @@ The proposal is worth 10 points and will be graded based on accurately and compr
 
 -   **Needs Improvement (4 - 5 pts):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
 
-## Exploratory data analysis
+## Exploratory data analysis {#eda}
 
 ::: callout-important
 ## Submission

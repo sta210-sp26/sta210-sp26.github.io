@@ -8,7 +8,7 @@ title: Final project
 
 [Exploratory data analysis](#eda) due Tuesday, March 24
 
-[Draft analysis] due April 2
+[Draft analysis ] due April 2
 
 [Presentation](#presentation) + [Presentation comments](#presentation-comments) due Tuesday, April 14 and Thursday, April 16
 
@@ -201,27 +201,170 @@ The exploratory data analysis is worth 10 points and will be graded based on acc
 
 -   **Needs Improvement (3 points or fewer):** Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
 
-## Draft analysis
+## Draft analysis 
 
 ## Presentation {#presentation}
 
-\[To be posted.\]
+::: callout-important
+## Submission
+
+Presentations will take place during lecture on April 14 and April 16. The slides must be submitted by the beginning of lecture on April 14. We will use the classroom computer for presentations.
+
+The slides may be submitted in one of the following ways:
+
+-   Put a PDF of the slides or Quarto slides in the `presentation` folder in your team's GitHub repo.
+
+-   Put the URL to your slides in the `README` of the `presentation` folder. If you share the URL, please make sure permissions are set so Prof. Tackett can view the slides.
+
+**There is no make up work for the presentation.**
+:::
+
+You will do an in-person presentation that summarizes and showcases the work you've done on the project. It  will also be an opportunity to receive feedback on your project that could be incorporated in the final written report.  Through the presentation, you will introduce the subject matter and research question, showcase key results from the exploratory data analysis and modeling, interpret key predictors, and present initial conclusions from the analysis. The presentation should be supported by slides that serve as a brief visual aid to the presentation. The presentation and slides will be graded for content accuracy and clarity.
+
+You can create your slides with any software you like (e.g., Keynote, PowerPoint, Google Slides, etc.). You can also use Quarto to make your slides! While we will not cover making slides with Quarto in class, the teaching team can help you during office hours. It's no different than writing other documents with Quarto, so the learning curve will not be steep! You can learn more about making slides in Quarto here: <https://quarto.org/docs/presentations/revealjs/>
+
+The presentation is expected to be between 4 and 5 minutes. It may [**not exceed 5 minutes**]{.underline}, to ensure everyone has the opportunity to present.
+
+### Slides
+
+Use no more than 6 content slides + 1 title slide to ensure you have enough time to discuss each slide. Here is a <u>suggested</u> outline as you think through the slides; you do <u>not</u> have to use this exact format for the 6 slides.
+
+-   Title Slide
+
+-   Slide 1: Introduce the subject, motivation, and research question
+
+-   Slide 2: Introduce the data set
+
+-   Slide 3 - 4: Highlights from the EDA (include EDA on the response variable and focus on the most important patterns or relationships that may motivate your modeling approach)
+
+-   Slide 5: Final model and key predictors
+
+-   Slide 6: Conclusions drawn from model
+
+### Grading
+
+The presentation is worth 15 points. It will be graded based on the following:
+
+-   **Content:** The team told a unified story that clearly introduced the subject matter, research question, and exploration of the data.
+
+-   **Slides:** The presentation slides were organized, included clear and informative visualizations, and were easily readable.
+
+-   **Presentation:** The team's communication style was clear and professional. The team divided the time well and stayed within the time limit, with each team member making a meaningful contribution to the presentation.
+
+80% of the presentation grade will be the average of the teaching team scores, and 20% will be the average of the peer scores.
 
 ## Presentation comments {#presentation-comments}
 
-\[To be posted.\]
+::: callout-important
+## Submission
+
+Presentation comments must be submitted through the feedback form by the end of the lecture. 
+
+See the Canvas announcement the day before presentations for your feedback assignments and link to the feedback form.
+
+**There is no make up work for the presentation comments.**
+:::
+
+You will provide feedback on two presentations on the day you are not presenting. There will be a few minutes between each presentation to submit scores and comments.
+
+
+
+### Grading
+
+The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab. This portion of the project will be assessed individually.
 
 ## Draft report {#draft-report}
 
-\[To be posted.\]
+::: callout-important
+## Submission
 
-## Peer review
+Write your draft report in the `written-report.qmd` file in your team's GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub **before the start of your lab section on** **April 20**.
+:::
 
-\[To be posted.\]
+The purpose of the draft and peer review is to give you an opportunity to receive feedback on your written report before the final submission.  
+
+The draft report will include all required sections of the final written report. There is no page limit for the draft, but keep in mind that the final written report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed. The appendix does **not** count towards the 10-page limit. 
+
+### Introduction
+
+This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
+
+### Methodology
+
+This section describes your modeling approach and the process used to select the final model. Explain the reasoning for the type of model you're fitting, the predictor variables considered for the model, including any interactions. Additionally, show how you arrived at the model you are currently considering as the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.
+
+This section should focus on the modeling process rather than the numerical results.
+
+### Results
+
+In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.
+
+This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research question, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
+
+### Discussion 
+
+This section is a summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Connect the conclusions drawn from your analysis to previous research, and discuss how they align or differ. In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved. Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. Lastly, this section will include ideas for future work.
+
+
+### Grading
+
+The draft will be graded based on whether there is demonstration of a reasonable and complete attempt at each section described above in `written-report.qmd` and the rendered PDF file in your GitHub repo by the deadline.
+
+## Peer review {#peer-review}
+
+::: callout-important
+## Submission
+
+Write the peer review in the `Peer Review` issue in your assigned GitHub repos by **April 21 at 11:59pm.**
+:::
+
+Critically reviewing others' work is a crucial part of the scientific process, and STA 210 is no exception. Everyone will be assigned two other projects to review. Everyone should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, you will have the opportunity to review and provide quality feedback on two other projects. 
+
+During the peer review process, you will be provided read-only access to the assigned GitHub repos. Provide your review in the form of a GitHub issue to the GitHub repos using the provided peer review issue template. 
+
+#### Steps for peer review
+
+::: callout-important
+## Peer review assignments
+
+Go to the Canvas announcement to see which projects you are reviewing. You'll spend about 30 minutes reviewing each project.
+:::
+
+-   When you get to lab, you should have access to the GitHub repos for the projects you're reviewing. In GitHub, search the repositories for `project`, and you should see the repos for the projects you're reviewing. You will be able to read the files in the repo and post issues, but you cannot push changes to the repo. You will have access to the repo until the deadline for the peer review.
+
+-   Your feedback should be specific and constructive. Avoid brief comments such as “looks good.” Instead, explain what is effective and suggest concrete improvements where appropriate.
+
+-   For each proejct you're reviewing:
+
+    -   Open  the repo, read the project draft, and browse the rest of the repo.
+
+    -   Go to the **Issues** tab in that repo, click on **New issue**, and click on **Get started** for the Peer Review issue. Write your responses to the prompts in the issue. You will answer the following questions:
+
+        -   Describe the goal of the project.
+
+        -   Describe the data set used in the project. What are the observations in the data? What is the source of the data? How were the data originally collected?
+
+        -   Consider the exploratory data analysis (EDA). Describe one aspect of the EDA that is effective in helping you understand the data. Provide constructive feedback on how the team might improve the EDA.
+
+        -   Describe the statistical methods, analysis approach, and discussion of model assumptions, diagnostics, model fit.
+
+        -   Provide constructive feedback on how the team might improve their analysis. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but also feel free to comment on aspects beyond the modeling.
+
+        -   Provide constructive feedback on the interpretations and initial conclusions. What is most effective in the presentation of the results? What additional detail can the team provide to make the results and conclusions easier for the reader to understand?
+
+        -   What aspect of this project are you most interested in and think would be interesting to highlight more (or include) in the written report?
+
+        -   Provide constructive feedback on any issues with file and/or code organization.
+
+        -   (Optional) Any further comments or feedback?
+
+### Grading
+
+The peer review will be graded based on the extent to which it comprehensively and constructively addresses the components on the peer review form.
 
 ## Written report {#written-report}
 
-\[To be posted.\]
+[To be posted]
 
 <!--# add reproducibility here-->
 

@@ -1,0 +1,7 @@
+---
+title: "Prepare for Lecture 19: LR - Model selection"
+---
+
+<br>
+
+📖 Read [Section 10.5](https://intro-regression.github.io/10-model-eval.html#cross-validation)

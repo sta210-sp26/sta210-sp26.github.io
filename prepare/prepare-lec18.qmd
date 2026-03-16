@@ -1,7 +1,9 @@
 ---
-title: "Prepare for Lecture 18: Logistic regression - Prediction"
+title: "Prepare for Lecture 18: LR - Inference"
 ---
 
 <br>
 
-📖 [Classification](https://developers.google.com/machine-learning/crash-course/classification) module in Google [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/linear-regression)
+📖 Read [Section 11.5.2](https://intro-regression.github.io/11-logistic.html#sec-logistic-inf-theory)
+
+📖 Read [Section 11.6](https://intro-regression.github.io/11-logistic.html#sec-logistic-conditions)

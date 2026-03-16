@@ -8,7 +8,7 @@ title: Final project
 
 [Exploratory data analysis](#eda) due Tuesday, March 24
 
-[Draft analysis ] due April 2
+[Prelminary analysis](#prelim-analysis) due April 2
 
 [Presentation](#presentation) + [Presentation comments](#presentation-comments) due Tuesday, April 14 and Thursday, April 16
 
@@ -136,18 +136,18 @@ The proposal is worth 10 points and will be graded based on accurately and compr
 
 -   **Excellent (10 pts):** All required elements are completed and are accurate. The data set meets the requirements (or the student has otherwise discussed the data with Professor Tackett) and the data do not pose obvious violations to the modeling assumptions. There is a thoughtful and comprehensive description of the data, any data processing, and exploration of the response variable as described above. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
 
--   **Strong (8 - 9 pts):** Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.
+-   **Strong (8 - 9 pts):** Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before student is ready for modeling.
 
--   **Satisfactory (6 - 7 pts):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.
+-   **Satisfactory (6 - 7 pts):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before student is ready for modeling.
 
--   **Needs Improvement (4 - 5 pts):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
+-   **Needs Improvement (4 - 5 pts):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before student is ready for modeling.
 
 ## Exploratory data analysis {#eda}
 
 ::: callout-important
 ## Submission
 
-Write your draft introduction and exploratory data analysis in the `written-report.qmd` file in your team's GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **Tuesday, March 24** **at 11:59pm.**
+Write your draft introduction and exploratory data analysis in the `written-report.qmd` file in your GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **Tuesday, March 24** **at 11:59pm.**
 :::
 
 The purpose of this milestone is to begin exploring the data and get early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.
@@ -193,15 +193,45 @@ execute:
 
 The exploratory data analysis is worth 10 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from the proposal. Points will be assigned based on a holistic review of the exploratory data analysis.
 
--   **Excellent (8- 10 points) :** All required elements are completed and are accurate. There is a thorough exploration of the data as described above, and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
+-   **Excellent (8- 10 points) :** All required elements are completed and are accurate. There is a thorough exploration of the data as described above, and the student has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
 
 -   **Strong (6 - 7 points):** Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Minor gaps or areas needing clarification, but the analysis is sound overall and will be ready for modeling with minor revision.
 
--   **Satisfactory (4 -5 points):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. This may include multiple gaps in the analysis, unclear interpretations, or limited connection between EDA and modeling decisions. Major revision is required before team is ready for modeling.
+-   **Satisfactory (4 -5 points):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. This may include multiple gaps in the analysis, unclear interpretations, or limited connection between EDA and modeling decisions. Major revision is required before the student is ready for modeling.
 
--   **Needs Improvement (3 points or fewer):** Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
+-   **Needs Improvement (3 points or fewer):** Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before the student is ready for modeling.
 
-## Draft analysis 
+## Preliminary analysis {#prelim-analysis}
+
+::: callout-important
+## Submission
+
+Write your draft analysis in the `written-report.qmd` file in your GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **April 2 at 11:59pm**.
+:::
+
+The purpose of the draft analysis is to get early feedback on your modeling approach. Therefore, this project milestone focuses on the eventual Methods and Results sections of the final report. 
+
+### Introduction
+
+This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
+
+**This section is not the primary focus of the draft analysis, but you are encouraged to continue revising the introduction based on the feedback from the exploratory data analysis milestone.**
+
+### Methodology
+
+This section describes your modeling approach and the process used to select the final model. Explain the reasoning for the type of model you're fitting, the predictor variables considered for the model, including any interactions. Additionally, show how you arrived at the model you are currently considering as the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.
+
+This section should focus on the modeling process rather than the numerical results.
+
+### Results
+
+In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.
+
+This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research question, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
+
+### Grading 
+
+The draft analysis is worth 10 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from previous milestones.
 
 ## Presentation {#presentation}
 
@@ -212,14 +242,14 @@ Presentations will take place during lecture on April 14 and April 16. The slide
 
 The slides may be submitted in one of the following ways:
 
--   Put a PDF of the slides or Quarto slides in the `presentation` folder in your team's GitHub repo.
+-   Put a PDF of the slides or Quarto slides in the `presentation` folder in your GitHub repo.
 
 -   Put the URL to your slides in the `README` of the `presentation` folder. If you share the URL, please make sure permissions are set so Prof. Tackett can view the slides.
 
 **There is no make up work for the presentation.**
 :::
 
-You will do an in-person presentation that summarizes and showcases the work you've done on the project. It  will also be an opportunity to receive feedback on your project that could be incorporated in the final written report.  Through the presentation, you will introduce the subject matter and research question, showcase key results from the exploratory data analysis and modeling, interpret key predictors, and present initial conclusions from the analysis. The presentation should be supported by slides that serve as a brief visual aid to the presentation. The presentation and slides will be graded for content accuracy and clarity.
+You will do an in-person presentation that summarizes and showcases the work you've done on the project. It  will also be an opportunity to receive feedback on your project that can be incorporated in the final written report. Through the presentation, you will introduce the subject matter and research question, showcase key results from the exploratory data analysis and modeling, interpret key predictors, and present initial conclusions from the analysis. The presentation should be supported by slides that serve as a brief visual aid to the presentation. The presentation and slides will be graded for content accuracy and clarity.
 
 You can create your slides with any software you like (e.g., Keynote, PowerPoint, Google Slides, etc.). You can also use Quarto to make your slides! While we will not cover making slides with Quarto in class, the teaching team can help you during office hours. It's no different than writing other documents with Quarto, so the learning curve will not be steep! You can learn more about making slides in Quarto here: <https://quarto.org/docs/presentations/revealjs/>
 
@@ -245,11 +275,11 @@ Use no more than 6 content slides + 1 title slide to ensure you have enough time
 
 The presentation is worth 15 points. It will be graded based on the following:
 
--   **Content:** The team told a unified story that clearly introduced the subject matter, research question, and exploration of the data.
+-   **Content:** The student told a unified story that clearly introduced the subject matter, research question, and exploration of the data.
 
 -   **Slides:** The presentation slides were organized, included clear and informative visualizations, and were easily readable.
 
--   **Presentation:** The team's communication style was clear and professional. The team divided the time well and stayed within the time limit, with each team member making a meaningful contribution to the presentation.
+-   **Presentation:** The student's communication style was clear and professional, and the presentation stayed within the time limit.
 
 80% of the presentation grade will be the average of the teaching team scores, and 20% will be the average of the peer scores.
 
@@ -271,14 +301,14 @@ You will provide feedback on two presentations on the day you are not presenting
 
 ### Grading
 
-The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab. This portion of the project will be assessed individually.
+The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned presentations by the end of the lecture. 
 
 ## Draft report {#draft-report}
 
 ::: callout-important
 ## Submission
 
-Write your draft report in the `written-report.qmd` file in your team's GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub **before the start of your lab section on** **April 20**.
+Write your draft report in the `written-report.qmd` file in your GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub **before the start of your lab section on** **April 20**.
 :::
 
 The purpose of the draft and peer review is to give you an opportunity to receive feedback on your written report before the final submission.  
@@ -334,7 +364,7 @@ Go to the Canvas announcement to see which projects you are reviewing. You'll sp
 
 -   Your feedback should be specific and constructive. Avoid brief comments such as “looks good.” Instead, explain what is effective and suggest concrete improvements where appropriate.
 
--   For each proejct you're reviewing:
+-   For each project you're reviewing:
 
     -   Open  the repo, read the project draft, and browse the rest of the repo.
 
@@ -344,13 +374,13 @@ Go to the Canvas announcement to see which projects you are reviewing. You'll sp
 
         -   Describe the data set used in the project. What are the observations in the data? What is the source of the data? How were the data originally collected?
 
-        -   Consider the exploratory data analysis (EDA). Describe one aspect of the EDA that is effective in helping you understand the data. Provide constructive feedback on how the team might improve the EDA.
+        -   Consider the exploratory data analysis (EDA). Describe one aspect of the EDA that is effective in helping you understand the data. Provide constructive feedback on how the student might improve the EDA.
 
         -   Describe the statistical methods, analysis approach, and discussion of model assumptions, diagnostics, model fit.
 
-        -   Provide constructive feedback on how the team might improve their analysis. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but also feel free to comment on aspects beyond the modeling.
+        -   Provide constructive feedback on how the student might improve their analysis. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but also feel free to comment on aspects beyond the modeling.
 
-        -   Provide constructive feedback on the interpretations and initial conclusions. What is most effective in the presentation of the results? What additional detail can the team provide to make the results and conclusions easier for the reader to understand?
+        -   Provide constructive feedback on the interpretations and initial conclusions. What is most effective in the presentation of the results? What additional detail can the student provide to make the results and conclusions easier for the reader to understand?
 
         -   What aspect of this project are you most interested in and think would be interesting to highlight more (or include) in the written report?
 
@@ -364,7 +394,65 @@ The peer review will be graded based on the extent to which it comprehensively a
 
 ## Written report {#written-report}
 
-[To be posted]
+::: callout-important
+The written report must be completed in the `written-report.qmd` file and must be reproducible. Make sure all code, warnings, and messages are suppressed in the final written report. The report in `written-report.qmd` and the rendered PDF should be pushed to the GitHub repo by **April 27 at 11:59pm.**
+:::
+
+Below are general details about the final written report.
+
+-   The rendered PDF must match exactly what is produced when rendering `written-report.qmd` in your GitHub repo. 
+
+- **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address the analysis and clearly communicate your findings.
+
+-   Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
+
+-   You are welcome to include an appendix with additional work at the end of the written report document, as needed; however, grading will overwhelmingly be based on the content in the main body of the report. You should assume the reader will not see the material in the appendix unless prompted to view it in the main body of the report. The appendix should be neatly formatted and easy for the reader to navigate. The appendix does [**not**]{.underline} count towards the 10-page limit.
+
+The mandatory components of the written report are below. You are free to add additional sections as necessary. 
+
+### Introduction 
+
+This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
+
+#### Grading criteria
+
+The research question and motivation are clearly stated in the introduction, including citations for the data source and any external research. The data are clearly described, including a description of how the data were originally collected and a concise definition of the variables relevant to understanding the report. The data cleaning process is clearly described, including any decisions made in the process (e.g., creating new variables, removing observations, etc.) The exploratory data analysis helps the reader better understand the observations in the data along with interesting and relevant relationships between the variables. It incorporates appropriate visualizations and summary statistics.
+
+### Methodology
+
+This section describes your modeling approach and the process used to select the final model. Explain the reasoning for the type of model you're fitting, the predictor variables considered for the model, including any interactions. Additionally, show how you arrived at the model you are currently considering as the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.
+
+This section should focus on the modeling process rather than the numerical results.
+
+#### Grading criteria
+
+The analysis steps are appropriate for the data and research question. A thorough and careful approach was used to select the variables in the final model; the approach is clearly described in the report. The model selection process took into account potential interaction effects and addressed any violations of model assumptions. If violations of model assumptions are still present, there was a reasonable attempt to address the violations based on the course content.
+
+### Results
+
+In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.
+
+This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research question, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
+
+#### Grading criteria
+
+The model fit is clearly assessed, and interesting findings from the model are clearly described. The model conditions and diagnostics are thoroughly and accurately assessed for the final model, if not previously discussed in the methodology. Interpretations of model coefficients are used to support the key findings and conclusions, rather than merely listing the interpretation of every model coefficient. If the primary modeling objective is prediction, the model's predictive power is thoroughly assessed.
+
+### Discussion 
+
+This section is a summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Connect the conclusions drawn from your analysis to previous research, and discuss how they align or differ. In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved. Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. Lastly, this section will include ideas for future work.
+
+#### Grading criteria
+
+Overall conclusions from analysis are clearly described, and the model results are put into the larger context of the subject matter and original research question. There is thoughtful consideration of potential limitations of the data and/or analysis, and ideas for future work are clearly described.
+
+### Organization + formatting
+
+This is an assessment of the overall presentation and formatting of the written report.
+
+#### Grading criteria
+
+The report is neatly written and organized with clear section headers. Figures have informative labels, are appropriately sized, and are easy to read. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
 
 <!--# add reproducibility here-->
 
@@ -374,7 +462,7 @@ All written work (with exception of presentation slides) should be reproducible,
 
 The GitHub repo should have the following structure:
 
--   `README`: Project title and team name
+-   `README`: Project title and name(s)
 
     -   Optional: Short project summary
 
@@ -396,7 +484,7 @@ The GitHub repo should have the following structure:
 
 -   Any other files should be neatly organized into clearly labeled folders.
 
-Update the README of the project repo with your project title and team members' names.
+Update the README of the project repo with your project title and name(s).
 
 Points for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo. The repo should be neatly organized as described above, there should be no extraneous files, all text in the `README` should be easily readable.
 
@@ -414,30 +502,6 @@ The grade breakdown is as follows:
 | Draft report + peer review | 10 pts  |
 | Written report             | 40 pts  |
 | Repo organization          | 3 pts   |
-
-### Grading summary
-
-Grading of the project will take into account the following:
-
--   Content - What is the quality of research and/or policy question and relevancy of data to those questions?
-
--   Correctness - Are statistical procedures carried out and explained correctly?
-
--   Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
-
--   Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
-
--   A general breakdown of scoring is as follows:
-
-    -   90%-100%: Outstanding effort. Team understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.
-
-    -   80%-89%: Good effort. Team understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.
-
-    -   70%-79%: Passing effort. Team has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.
-
-    -   60%-69%: Struggling effort. Team is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.
-
-    -   Below 60%\*: Team is not making a sufficient effort.
 
 ## Late work policy
 

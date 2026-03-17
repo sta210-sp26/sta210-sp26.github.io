@@ -32,7 +32,7 @@ This data comes from the 2023 [Pew Research Center's American Trends Panel](http
 
 A more complete analysis on this topic can be found in the Pew Research Center article [*Growing public concern about the role of artificial intelligence in daily life*](https://www.pewresearch.org/short-reads/2023/08/28/growing-public-concern-about-the-role-of-artificial-intelligence-in-daily-life/) by Alec Tyson and Emma Kikuchi.
 
-**The goal of this analysis is to understand the relationship between how much an respondent has heard about artificial intelligence (AI) and how concerned they are about increased use of AI in daily life.**
+**The goal of this analysis is to understand the relationship between age and concern about the increased use of AI in daily life.**
 
 You will use the following variables:
 
@@ -56,7 +56,8 @@ pew_data <- pew_data |>
          age_cat = case_when(F_AGECAT == 1 ~ "18-29",
                              F_AGECAT == 2 ~ "30-49",
                              F_AGECAT == 3 ~ "50-64",
-                             F_AGECAT == 4 ~ "65+"
+                             F_AGECAT == 4 ~ "65+", 
+                             TRUE ~ "Refused"
 ))
 
 # Make factors and  relevel 
@@ -67,9 +68,9 @@ pew_data <- pew_data |>
 
 ## Exercise 1
 
--   Manually compute the probability an 18-29 year-old respondent is concerned about AI.
+-   Compute the probability an 18-29 year-old respondent is concerned about AI.
 
--   Manually compute the **odds** an 18-29 year-old respondent is concerned about AI.
+-   Compute the **odds** an 18-29 year-old respondent is concerned about AI.
 
 ## Exercise 2
 

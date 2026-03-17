@@ -709,7 +709,7 @@
     "href": "slides/16-logistic-regression.html#mid-semester-feedback",
     "title": "Logistic regression",
     "section": "Mid-semester feedback",
-    "text": "Mid-semester feedback"
+    "text": "Mid-semester feedback\n\nWhat’s helping your learning:\n\nAttending lecture\nHands-on exercises\nWorking through exercises individually and/or with others\n\nWhat you want more of / want to keep doing to help your learning:\n\nUnderstand underlying concepts\nReview exercises during lectures/labs\nOptions regarding group / individual work in labs"
   },
   {
     "objectID": "slides/16-logistic-regression.html#topics",
@@ -821,7 +821,7 @@
     "href": "slides/16-logistic-regression.html#data-prep",
     "title": "Logistic regression",
     "section": "Data prep",
-    "text": "Data prep\n\n# change variable names and recode categories\npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = if_else(CNCEXC_W132 == 2, 1, 0),\n         age_cat = case_when(F_AGECAT == 1 ~ \"18-29\",\n                             F_AGECAT == 2 ~ \"30-49\",\n                             F_AGECAT == 3 ~ \"50-64\",\n                             F_AGECAT == 4 ~ \"65+\"\n))\n\n# Make factors and  relevel \npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = factor(ai_concern),\n         age_cat = factor(age_cat))"
+    "text": "Data prep\n\n# change variable names and recode categories\npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = if_else(CNCEXC_W132 == 2, 1, 0),\n         age_cat = case_when(F_AGECAT == 1 ~ \"18-29\",\n                             F_AGECAT == 2 ~ \"30-49\",\n                             F_AGECAT == 3 ~ \"50-64\",\n                             F_AGECAT == 4 ~ \"65+\",\n                             TRUE ~ \"Refused\"\n))\n\n# Make factors and  relevel \npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = factor(ai_concern),\n         age_cat = factor(age_cat))"
   },
   {
     "objectID": "slides/16-logistic-regression.html#univariate-eda",
@@ -856,42 +856,42 @@
     "href": "slides/16-logistic-regression.html#concern-about-ai-vs.-age",
     "title": "Logistic regression",
     "section": "Concern about AI vs. age",
-    "text": "Concern about AI vs. age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28"
+    "text": "Concern about AI vs. age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28"
   },
   {
     "objectID": "slides/16-logistic-regression.html#compare-the-odds-for-two-groups",
     "href": "slides/16-logistic-regression.html#compare-the-odds-for-two-groups",
     "title": "Logistic regression",
     "section": "Compare the odds for two groups",
-    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\n\nWe want to compare concern about increased use of AI in daily life between individuals who are 18-29 years old to those who are 65+ years old"
+    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\n\nWe want to compare concern about increased use of AI in daily life between individuals who are 18-29 years old to those who are 65+ years old"
   },
   {
     "objectID": "slides/16-logistic-regression.html#compare-the-odds-for-two-groups-1",
     "href": "slides/16-logistic-regression.html#compare-the-odds-for-two-groups-1",
     "title": "Logistic regression",
     "section": "Compare the odds for two groups",
-    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\nWe’ll use the odds to compare the two groups\n\\[\n\\text{odds} = \\frac{P(\\text{success})}{P(\\text{failure})} = \\frac{\\text{# of successes}}{\\text{# of failures}}\n\\]"
+    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\nWe’ll use the odds to compare the two groups\n\\[\n\\text{odds} = \\frac{P(\\text{success})}{P(\\text{failure})} = \\frac{\\text{# of successes}}{\\text{# of failures}}\n\\]"
   },
   {
     "objectID": "slides/16-logistic-regression.html#compare-the-odds-for-two-groups-2",
     "href": "slides/16-logistic-regression.html#compare-the-odds-for-two-groups-2",
     "title": "Logistic regression",
     "section": "Compare the odds for two groups",
-    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\n\nOdds of being concerned with increased use of AI in daily life for 18-29 year olds: \\(\\frac{416}{550} = 0.756\\)\nOdds of being concerned with increased use of AI in daily life for those who are 65+ years old: \\(\\frac{2013}{1376} = 1.463\\)\nBased on this, we see that individuals 65+ years old are more likely to be concerned about the increased use of AI in daily life than 18-29 year olds."
+    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\n\nOdds of being concerned with increased use of AI in daily life for 18-29 year olds: \\(\\frac{416}{550} = 0.756\\)\nOdds of being concerned with increased use of AI in daily life for those who are 65+ years old: \\(\\frac{2013}{1376} = 1.463\\)\nBased on this, we see that individuals 65+ years old are more likely to be concerned about the increased use of AI in daily life than 18-29 year olds."
   },
   {
     "objectID": "slides/16-logistic-regression.html#odds-ratio-or",
     "href": "slides/16-logistic-regression.html#odds-ratio-or",
     "title": "Logistic regression",
     "section": "Odds ratio (OR)",
-    "text": "Odds ratio (OR)\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\nLet’s summarize the relationship between the two groups. To do so, we’ll use the odds ratio (OR).\n\\[\nOR = \\frac{\\text{odds}_1}{\\text{odds}_2}\n\\]"
+    "text": "Odds ratio (OR)\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\nLet’s summarize the relationship between the two groups. To do so, we’ll use the odds ratio (OR).\n\\[\nOR = \\frac{\\text{odds}_1}{\\text{odds}_2}\n\\]"
   },
   {
     "objectID": "slides/16-logistic-regression.html#or-ai-concern-by-age",
     "href": "slides/16-logistic-regression.html#or-ai-concern-by-age",
     "title": "Logistic regression",
     "section": "OR: AI concern by age",
-    "text": "OR: AI concern by age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\n\\[OR = \\frac{\\text{odds}_{18-29}}{\\text{odds}_{65+}} = \\frac{0.756}{1.463} = \\mathbf{0.517}\\]\n\nThe odds an 18-29 year old is concerned about increased use of AI in daily life are 0.517 times the odds a 65+ year old is concerned."
+    "text": "OR: AI concern by age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\n\\[OR = \\frac{\\text{odds}_{18-29}}{\\text{odds}_{65+}} = \\frac{0.756}{1.463} = \\mathbf{0.517}\\]\n\nThe odds an 18-29 year old is concerned about increased use of AI in daily life are 0.517 times the odds a 65+ year old is concerned."
   },
   {
     "objectID": "slides/16-logistic-regression.html#more-natural-interpretation",
@@ -905,28 +905,28 @@
     "href": "slides/16-logistic-regression.html#code-to-make-table",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern)\n\n# A tibble: 10 × 3\n   age_cat ai_concern     n\n   &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;\n 1 18-29   0            550\n 2 18-29   1            416\n 3 30-49   0           1898\n 4 30-49   1           1681\n 5 50-64   0           1398\n 6 50-64   1           1818\n 7 65+     0           1376\n 8 65+     1           2013\n 9 &lt;NA&gt;    0             23\n10 &lt;NA&gt;    1             28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern)\n\n# A tibble: 10 × 3\n   age_cat ai_concern     n\n   &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;\n 1 18-29   0            550\n 2 18-29   1            416\n 3 30-49   0           1898\n 4 30-49   1           1681\n 5 50-64   0           1398\n 6 50-64   1           1818\n 7 65+     0           1376\n 8 65+     1           2013\n 9 Refused 0             23\n10 Refused 1             28"
   },
   {
     "objectID": "slides/16-logistic-regression.html#code-to-make-table-1",
     "href": "slides/16-logistic-regression.html#code-to-make-table-1",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n)\n\n# A tibble: 5 × 3\n  age_cat   `0`   `1`\n  &lt;fct&gt;   &lt;int&gt; &lt;int&gt;\n1 18-29     550   416\n2 30-49    1898  1681\n3 50-64    1398  1818\n4 65+      1376  2013\n5 &lt;NA&gt;       23    28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n)\n\n# A tibble: 5 × 3\n  age_cat   `0`   `1`\n  &lt;fct&gt;   &lt;int&gt; &lt;int&gt;\n1 18-29     550   416\n2 30-49    1898  1681\n3 50-64    1398  1818\n4 65+      1376  2013\n5 Refused    23    28"
   },
   {
     "objectID": "slides/16-logistic-regression.html#code-to-make-table-2",
     "href": "slides/16-logistic-regression.html#code-to-make-table-2",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable()\n\n\n\n\nage_cat\n0\n1\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable()\n\n\n\n\nage_cat\n0\n1\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28"
   },
   {
     "objectID": "slides/16-logistic-regression.html#code-to-make-table-3",
     "href": "slides/16-logistic-regression.html#code-to-make-table-3",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable(col.names = c(\"Age\", \"Not concerned\", \"Concerned\"))\n\n\n\n\nAge\nNot concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable(col.names = c(\"Age\", \"Not concerned\", \"Concerned\"))\n\n\n\n\nAge\nNot concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28"
   },
   {
     "objectID": "slides/16-logistic-regression.html#logistic-regression-model",
@@ -940,14 +940,14 @@
     "href": "slides/16-logistic-regression.html#concerned-about-ai-model",
     "title": "Logistic regression",
     "section": "Concerned about AI model",
-    "text": "Concerned about AI model\nFit logistic regression models using glm() with the argument family = \"binomial\".\n\nai_concern_model &lt;- glm(ai_concern  ~ age_cat, data = pew_data, \n                        family = \"binomial\")\n\ntidy(ai_concern_model) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000"
+    "text": "Concerned about AI model\nFit logistic regression models using glm() with the argument family = \"binomial\".\n\nai_concern_model &lt;- glm(ai_concern  ~ age_cat, data = pew_data, \n                        family = \"binomial\")\n\ntidy(ai_concern_model) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000\n\n\nage_catRefused\n0.476\n0.289\n1.648\n0.099"
   },
   {
     "objectID": "slides/16-logistic-regression.html#from-log-odds-to-odds",
     "href": "slides/16-logistic-regression.html#from-log-odds-to-odds",
     "title": "Logistic regression",
     "section": "From log odds to odds",
-    "text": "From log odds to odds\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000\n\n\n\n\n\n\n\nHow do we write this model in terms of the odds of being concerned about increase use of AI in daily life?\nInterpret the coefficient of 50-64 in terms of the odds of being concerned about increase use of AI in daily life."
+    "text": "From log odds to odds\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000\n\n\nage_catRefused\n0.476\n0.289\n1.648\n0.099\n\n\n\n\n\n\n\nHow do we write this model in terms of the odds of being concerned about increase use of AI in daily life?\nInterpret the coefficient of 50-64 in terms of the odds of being concerned about increase use of AI in daily life."
   },
   {
     "objectID": "slides/16-logistic-regression.html#recap",
@@ -975,7 +975,7 @@
     "href": "slides/16-logistic-regression-notes.html#mid-semester-feedback",
     "title": "Logistic regression",
     "section": "Mid-semester feedback",
-    "text": "Mid-semester feedback"
+    "text": "Mid-semester feedback\n\nWhat’s helping your learning:\n\nAttending lecture\nHands-on exercises\nWorking through exercises individually and/or with others\n\nWhat you want more of / want to keep doing to help your learning:\n\nUnderstand underlying concepts\nReview exercises during lectures/labs\nOptions regarding group / individual work in labs"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#topics",
@@ -1087,7 +1087,7 @@
     "href": "slides/16-logistic-regression-notes.html#data-prep",
     "title": "Logistic regression",
     "section": "Data prep",
-    "text": "Data prep\n\n# change variable names and recode categories\npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = if_else(CNCEXC_W132 == 2, 1, 0),\n         age_cat = case_when(F_AGECAT == 1 ~ \"18-29\",\n                             F_AGECAT == 2 ~ \"30-49\",\n                             F_AGECAT == 3 ~ \"50-64\",\n                             F_AGECAT == 4 ~ \"65+\"\n))\n\n# Make factors and  relevel \npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = factor(ai_concern),\n         age_cat = factor(age_cat))"
+    "text": "Data prep\n\n# change variable names and recode categories\npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = if_else(CNCEXC_W132 == 2, 1, 0),\n         age_cat = case_when(F_AGECAT == 1 ~ \"18-29\",\n                             F_AGECAT == 2 ~ \"30-49\",\n                             F_AGECAT == 3 ~ \"50-64\",\n                             F_AGECAT == 4 ~ \"65+\",\n                             TRUE ~ \"Refused\"\n))\n\n# Make factors and  relevel \npew_data &lt;- pew_data |&gt;\n  mutate(ai_concern = factor(ai_concern),\n         age_cat = factor(age_cat))"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#univariate-eda",
@@ -1122,42 +1122,42 @@
     "href": "slides/16-logistic-regression-notes.html#concern-about-ai-vs.-age",
     "title": "Logistic regression",
     "section": "Concern about AI vs. age",
-    "text": "Concern about AI vs. age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28"
+    "text": "Concern about AI vs. age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#compare-the-odds-for-two-groups",
     "href": "slides/16-logistic-regression-notes.html#compare-the-odds-for-two-groups",
     "title": "Logistic regression",
     "section": "Compare the odds for two groups",
-    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\n. . .\nWe want to compare concern about increased use of AI in daily life between individuals who are 18-29 years old to those who are 65+ years old"
+    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\n. . .\nWe want to compare concern about increased use of AI in daily life between individuals who are 18-29 years old to those who are 65+ years old"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#compare-the-odds-for-two-groups-1",
     "href": "slides/16-logistic-regression-notes.html#compare-the-odds-for-two-groups-1",
     "title": "Logistic regression",
     "section": "Compare the odds for two groups",
-    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\nWe’ll use the odds to compare the two groups\n\\[\n\\text{odds} = \\frac{P(\\text{success})}{P(\\text{failure})} = \\frac{\\text{# of successes}}{\\text{# of failures}}\n\\]"
+    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\nWe’ll use the odds to compare the two groups\n\\[\n\\text{odds} = \\frac{P(\\text{success})}{P(\\text{failure})} = \\frac{\\text{# of successes}}{\\text{# of failures}}\n\\]"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#compare-the-odds-for-two-groups-2",
     "href": "slides/16-logistic-regression-notes.html#compare-the-odds-for-two-groups-2",
     "title": "Logistic regression",
     "section": "Compare the odds for two groups",
-    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\n\n\nOdds of being concerned with increased use of AI in daily life for 18-29 year olds: \\(\\frac{416}{550} = 0.756\\)\nOdds of being concerned with increased use of AI in daily life for those who are 65+ years old: \\(\\frac{2013}{1376} = 1.463\\)\nBased on this, we see that individuals 65+ years old are more likely to be concerned about the increased use of AI in daily life than 18-29 year olds."
+    "text": "Compare the odds for two groups\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\n\n\nOdds of being concerned with increased use of AI in daily life for 18-29 year olds: \\(\\frac{416}{550} = 0.756\\)\nOdds of being concerned with increased use of AI in daily life for those who are 65+ years old: \\(\\frac{2013}{1376} = 1.463\\)\nBased on this, we see that individuals 65+ years old are more likely to be concerned about the increased use of AI in daily life than 18-29 year olds."
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#odds-ratio-or",
     "href": "slides/16-logistic-regression-notes.html#odds-ratio-or",
     "title": "Logistic regression",
     "section": "Odds ratio (OR)",
-    "text": "Odds ratio (OR)\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\nLet’s summarize the relationship between the two groups. To do so, we’ll use the odds ratio (OR).\n\\[\nOR = \\frac{\\text{odds}_1}{\\text{odds}_2}\n\\]"
+    "text": "Odds ratio (OR)\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\nLet’s summarize the relationship between the two groups. To do so, we’ll use the odds ratio (OR).\n\\[\nOR = \\frac{\\text{odds}_1}{\\text{odds}_2}\n\\]"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#or-ai-concern-by-age",
     "href": "slides/16-logistic-regression-notes.html#or-ai-concern-by-age",
     "title": "Logistic regression",
     "section": "OR: AI concern by age",
-    "text": "OR: AI concern by age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28\n\n\n\n\n\n\\[OR = \\frac{\\text{odds}_{18-29}}{\\text{odds}_{65+}} = \\frac{0.756}{1.463} = \\mathbf{0.517}\\]\n. . .\nThe odds an 18-29 year old is concerned about increased use of AI in daily life are 0.517 times the odds a 65+ year old is concerned."
+    "text": "OR: AI concern by age\n\n\n\n\n\nAge\nNot Concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28\n\n\n\n\n\n\\[OR = \\frac{\\text{odds}_{18-29}}{\\text{odds}_{65+}} = \\frac{0.756}{1.463} = \\mathbf{0.517}\\]\n. . .\nThe odds an 18-29 year old is concerned about increased use of AI in daily life are 0.517 times the odds a 65+ year old is concerned."
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#more-natural-interpretation",
@@ -1171,28 +1171,28 @@
     "href": "slides/16-logistic-regression-notes.html#code-to-make-table",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern)\n\n# A tibble: 10 × 3\n   age_cat ai_concern     n\n   &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;\n 1 18-29   0            550\n 2 18-29   1            416\n 3 30-49   0           1898\n 4 30-49   1           1681\n 5 50-64   0           1398\n 6 50-64   1           1818\n 7 65+     0           1376\n 8 65+     1           2013\n 9 &lt;NA&gt;    0             23\n10 &lt;NA&gt;    1             28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern)\n\n# A tibble: 10 × 3\n   age_cat ai_concern     n\n   &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;\n 1 18-29   0            550\n 2 18-29   1            416\n 3 30-49   0           1898\n 4 30-49   1           1681\n 5 50-64   0           1398\n 6 50-64   1           1818\n 7 65+     0           1376\n 8 65+     1           2013\n 9 Refused 0             23\n10 Refused 1             28"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#code-to-make-table-1",
     "href": "slides/16-logistic-regression-notes.html#code-to-make-table-1",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n)\n\n# A tibble: 5 × 3\n  age_cat   `0`   `1`\n  &lt;fct&gt;   &lt;int&gt; &lt;int&gt;\n1 18-29     550   416\n2 30-49    1898  1681\n3 50-64    1398  1818\n4 65+      1376  2013\n5 &lt;NA&gt;       23    28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n)\n\n# A tibble: 5 × 3\n  age_cat   `0`   `1`\n  &lt;fct&gt;   &lt;int&gt; &lt;int&gt;\n1 18-29     550   416\n2 30-49    1898  1681\n3 50-64    1398  1818\n4 65+      1376  2013\n5 Refused    23    28"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#code-to-make-table-2",
     "href": "slides/16-logistic-regression-notes.html#code-to-make-table-2",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable()\n\n\n\n\nage_cat\n0\n1\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable()\n\n\n\n\nage_cat\n0\n1\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#code-to-make-table-3",
     "href": "slides/16-logistic-regression-notes.html#code-to-make-table-3",
     "title": "Logistic regression",
     "section": "Code to make table",
-    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable(col.names = c(\"Age\", \"Not concerned\", \"Concerned\"))\n\n\n\n\nAge\nNot concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nNA\n23\n28"
+    "text": "Code to make table\n\npew_data |&gt;\n  count(age_cat, ai_concern) |&gt;\n  pivot_wider(names_from = ai_concern, values_from = n) |&gt;\n  kable(col.names = c(\"Age\", \"Not concerned\", \"Concerned\"))\n\n\n\n\nAge\nNot concerned\nConcerned\n\n\n\n\n18-29\n550\n416\n\n\n30-49\n1898\n1681\n\n\n50-64\n1398\n1818\n\n\n65+\n1376\n2013\n\n\nRefused\n23\n28"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#logistic-regression-model",
@@ -1206,14 +1206,14 @@
     "href": "slides/16-logistic-regression-notes.html#concerned-about-ai-model",
     "title": "Logistic regression",
     "section": "Concerned about AI model",
-    "text": "Concerned about AI model\nFit logistic regression models using glm() with the argument family = \"binomial\".\n\nai_concern_model &lt;- glm(ai_concern  ~ age_cat, data = pew_data, \n                        family = \"binomial\")\n\ntidy(ai_concern_model) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000"
+    "text": "Concerned about AI model\nFit logistic regression models using glm() with the argument family = \"binomial\".\n\nai_concern_model &lt;- glm(ai_concern  ~ age_cat, data = pew_data, \n                        family = \"binomial\")\n\ntidy(ai_concern_model) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000\n\n\nage_catRefused\n0.476\n0.289\n1.648\n0.099"
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#from-log-odds-to-odds",
     "href": "slides/16-logistic-regression-notes.html#from-log-odds-to-odds",
     "title": "Logistic regression",
     "section": "From log odds to odds",
-    "text": "From log odds to odds\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000\n\n\n\n\n\n\n\nHow do we write this model in terms of the odds of being concerned about increase use of AI in daily life?\nInterpret the coefficient of 50-64 in terms of the odds of being concerned about increase use of AI in daily life."
+    "text": "From log odds to odds\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.279\n0.065\n-4.297\n0.000\n\n\nage_cat30-49\n0.158\n0.073\n2.159\n0.031\n\n\nage_cat50-64\n0.542\n0.074\n7.316\n0.000\n\n\nage_cat65+\n0.660\n0.074\n8.939\n0.000\n\n\nage_catRefused\n0.476\n0.289\n1.648\n0.099\n\n\n\n\n\n\n\nHow do we write this model in terms of the odds of being concerned about increase use of AI in daily life?\nInterpret the coefficient of 50-64 in terms of the odds of being concerned about increase use of AI in daily life."
   },
   {
     "objectID": "slides/16-logistic-regression-notes.html#recap",
@@ -6213,7 +6213,7 @@
     "href": "ae/ae-10-logistic.html#exercise-1",
     "title": "AE 10: Logistic regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\n\nManually compute the probability an 18-29 year-old respondent is concerned about AI.\nManually compute the odds an 18-29 year-old respondent is concerned about AI."
+    "text": "Exercise 1\n\nCompute the probability an 18-29 year-old respondent is concerned about AI.\nCompute the odds an 18-29 year-old respondent is concerned about AI."
   },
   {
     "objectID": "ae/ae-10-logistic.html#exercise-2",

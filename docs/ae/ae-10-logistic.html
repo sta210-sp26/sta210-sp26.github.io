@@ -435,7 +435,7 @@ Important
 <h1>Introduction</h1>
 <p>This data comes from the 2023 <a href="https://www.pewresearch.org/the-american-trends-panel/">Pew Research Center’s American Trends Panel</a>. The survey aims to capture public opinion about a variety of topics including politics, religion, and technology, among others. We will use data from 11201 respondents in Wave 132 of the survey conducted July 31 - August 6, 2023.</p>
 <p>A more complete analysis on this topic can be found in the Pew Research Center article <a href="https://www.pewresearch.org/short-reads/2023/08/28/growing-public-concern-about-the-role-of-artificial-intelligence-in-daily-life/"><em>Growing public concern about the role of artificial intelligence in daily life</em></a> by Alec Tyson and Emma Kikuchi.</p>
-<p><strong>The goal of this analysis is to understand the relationship between how much an respondent has heard about artificial intelligence (AI) and how concerned they are about increased use of AI in daily life.</strong></p>
+<p><strong>The goal of this analysis is to understand the relationship between age and concern about the increased use of AI in daily life.</strong></p>
 <p>You will use the following variables:</p>
 <ul>
 <li><p><code>ai_concern</code>: Whether a respondent said they are “more concerned than excited” about in the increased use of AI in daily life (1: yes, 0: no)</p></li>
@@ -454,19 +454,20 @@ Important
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">case_when</span>(F_AGECAT <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"18-29"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"30-49"</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"50-64"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"65+"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Make factors and  relevel </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>pew_data <span class="ot">&lt;-</span> pew_data <span class="sc">|&gt;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ai_concern =</span> <span class="fu">factor</span>(ai_concern),</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">factor</span>(age_cat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"65+"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Refused"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Make factors and  relevel </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>pew_data <span class="ot">&lt;-</span> pew_data <span class="sc">|&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ai_concern =</span> <span class="fu">factor</span>(ai_concern),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">factor</span>(age_cat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <ul>
-<li><p>Manually compute the probability an 18-29 year-old respondent is concerned about AI.</p></li>
-<li><p>Manually compute the <strong>odds</strong> an 18-29 year-old respondent is concerned about AI.</p></li>
+<li><p>Compute the probability an 18-29 year-old respondent is concerned about AI.</p></li>
+<li><p>Compute the <strong>odds</strong> an 18-29 year-old respondent is concerned about AI.</p></li>
 </ul>
 </section>
 <section id="exercise-2" class="level2">

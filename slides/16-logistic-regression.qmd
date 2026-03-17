@@ -53,6 +53,18 @@ library(countdown)
 
 ## Mid-semester feedback
 
+-   What's helping your learning:
+
+    -   Attending lecture
+    -   Hands-on exercises
+    -   Working through exercises individually and/or with others
+
+-   What you want more of / want to keep doing to help your learning:
+
+    -   Understand underlying concepts
+    -   Review exercises during lectures/labs
+    -   Options regarding group / individual work in labs
+
 ## Topics
 
 -   Logistic regression for binary response variable
@@ -281,7 +293,8 @@ pew_data <- pew_data |>
          age_cat = case_when(F_AGECAT == 1 ~ "18-29",
                              F_AGECAT == 2 ~ "30-49",
                              F_AGECAT == 3 ~ "50-64",
-                             F_AGECAT == 4 ~ "65+"
+                             F_AGECAT == 4 ~ "65+",
+                             TRUE ~ "Refused"
 ))
 
 # Make factors and  relevel 

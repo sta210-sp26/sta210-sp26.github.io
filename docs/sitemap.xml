@@ -25,24 +25,36 @@
     <lastmod>2026-02-26T21:43:08.992Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/08-predictor-types.html</loc>
-    <lastmod>2026-02-03T18:59:06.249Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/16-logistic-regression.html</loc>
+    <lastmod>2026-03-17T02:23:19.807Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/08-predictor-types-notes.html</loc>
-    <lastmod>2026-02-03T18:59:06.249Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/16-logistic-regression-notes.html</loc>
+    <lastmod>2026-03-17T02:23:19.807Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/11-exam-01-review.html</loc>
-    <lastmod>2026-02-24T02:36:54.598Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/07-mlr.html</loc>
+    <lastmod>2026-01-29T21:48:29.848Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/11-exam-01-review-notes.html</loc>
-    <lastmod>2026-02-24T02:36:54.598Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/07-mlr-notes.html</loc>
+    <lastmod>2026-01-29T21:48:29.848Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/lab-project-proposal.html</loc>
-    <lastmod>2026-02-23T16:52:41.075Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/10-conditions-diagnostics.html</loc>
+    <lastmod>2026-02-11T15:56:14.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-sp26.github.io/slides/10-conditions-diagnostics-notes.html</loc>
+    <lastmod>2026-02-11T15:56:14.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-sp26.github.io/slides/12-multicollinearity.html</loc>
+    <lastmod>2026-02-24T19:35:06.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-sp26.github.io/slides/12-multicollinearity-notes.html</loc>
+    <lastmod>2026-02-24T19:35:06.138Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-sp26.github.io/slides/14-model-comparison.html</loc>
@@ -101,8 +113,8 @@
     <lastmod>2025-03-20T01:18:36.000Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/ae/ae-10-logistic-compare.html</loc>
-    <lastmod>2025-03-26T19:50:02.000Z</lastmod>
+    <loc>https://sta210-sp26.github.io/ae/ae-10-logistic.html</loc>
+    <lastmod>2026-03-17T02:19:21.588Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-sp26.github.io/ae/ae-05-sim-testing.html</loc>
@@ -309,8 +321,8 @@
     <lastmod>2026-01-15T18:30:31.039Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/ae/ae-09-prob-odds.html</loc>
-    <lastmod>2025-03-20T01:18:36.000Z</lastmod>
+    <loc>https://sta210-sp26.github.io/ae/ae-10-logistic-compare.html</loc>
+    <lastmod>2025-03-26T19:50:02.000Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-sp26.github.io/support.html</loc>
@@ -365,36 +377,40 @@
     <lastmod>2026-01-28T16:28:25.510Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/12-multicollinearity-notes.html</loc>
-    <lastmod>2026-02-24T19:35:06.138Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/17-logistic-regression-notes.html</loc>
+    <lastmod>2025-03-25T01:16:09.000Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/12-multicollinearity.html</loc>
-    <lastmod>2026-02-24T19:35:06.138Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/17-logistic-regression.html</loc>
+    <lastmod>2025-03-25T01:16:09.000Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/10-conditions-diagnostics-notes.html</loc>
-    <lastmod>2026-02-11T15:56:14.053Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/lab-project-proposal.html</loc>
+    <lastmod>2026-02-23T16:52:41.075Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/10-conditions-diagnostics.html</loc>
-    <lastmod>2026-02-11T15:56:14.053Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/11-exam-01-review-notes.html</loc>
+    <lastmod>2026-02-24T02:36:54.598Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/07-mlr-notes.html</loc>
-    <lastmod>2026-01-29T21:48:29.848Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/11-exam-01-review.html</loc>
+    <lastmod>2026-02-24T02:36:54.598Z</lastmod>
   </url>
   <url>
-    <loc>https://sta210-sp26.github.io/slides/07-mlr.html</loc>
-    <lastmod>2026-01-29T21:48:29.848Z</lastmod>
+    <loc>https://sta210-sp26.github.io/slides/08-predictor-types-notes.html</loc>
+    <lastmod>2026-02-03T18:59:06.249Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-sp26.github.io/slides/08-predictor-types.html</loc>
+    <lastmod>2026-02-03T18:59:06.249Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-sp26.github.io/slides/15-cross-validation-notes.html</loc>
-    <lastmod>2026-03-05T19:47:35.401Z</lastmod>
+    <lastmod>2026-03-17T02:23:33.373Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-sp26.github.io/slides/15-cross-validation.html</loc>
-    <lastmod>2026-03-05T19:47:35.401Z</lastmod>
+    <lastmod>2026-03-17T02:23:33.373Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-sp26.github.io/slides/05-sim-testing-notes.html</loc>

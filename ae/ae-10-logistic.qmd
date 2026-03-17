@@ -1,0 +1,111 @@
+---
+title: "AE 10: Logistic regression"
+date: "March 17, 2026"
+editor: visual
+execute:
+  warning: false
+  message: fase
+---
+
+::: callout-important
+Go to the [course GitHub organization](github.com/sta210-sp26) and locate your `ae-10` repo to get started.
+:::
+
+```{r}
+#| label: load-packages
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(knitr)
+library(tidymodels)
+```
+
+# Introduction
+
+```{r}
+#| echo: false
+pew_data <- read_csv("data/pew-atp-w132.csv")
+```
+
+This data comes from the 2023 [Pew Research Center's American Trends Panel](https://www.pewresearch.org/the-american-trends-panel/). The survey aims to capture public opinion about a variety of topics including politics, religion, and technology, among others. We will use data from 11201 respondents in Wave 132 of the survey conducted July 31 - August 6, 2023.
+
+A more complete analysis on this topic can be found in the Pew Research Center article [*Growing public concern about the role of artificial intelligence in daily life*](https://www.pewresearch.org/short-reads/2023/08/28/growing-public-concern-about-the-role-of-artificial-intelligence-in-daily-life/) by Alec Tyson and Emma Kikuchi.
+
+**The goal of this analysis is to understand the relationship between how much an respondent has heard about artificial intelligence (AI) and how concerned they are about increased use of AI in daily life.**
+
+You will use the following variables:
+
+-   `ai_heard` : Response to the question "How much have you heard or read about AI?"
+    -   A lot
+    -   A little
+    -   Nothing at all
+    -   Refused
+-   `ai_concern`: Whether a respondent said they are "more concerned than excited" about in the increased use of AI in daily life (1: yes, 0: no)
+
+```{r}
+#| label: load-prep-data
+#| message: false
+#| warning: false
+
+pew_data <- pew_data |>
+  mutate(ai_concern = if_else(CNCEXC_W132 == 2, 1, 0),
+         ai_heard = case_when(AI_HEARD_W132 == 1 ~ "A lot",
+                              AI_HEARD_W132 == 2 ~ "A little",
+                              AI_HEARD_W132 == 3 ~ "Nothing at all",
+                              TRUE ~ "Refused"
+                              ))
+
+# Make factors and  relevel 
+pew_data <- pew_data |>
+  mutate(ai_concern = factor(ai_concern),
+         ai_heard = factor(ai_heard, levels = c("A lot", "A little",
+                                                "Nothing at all", "Refused"))
+  )
+```
+
+## Exercise 1
+
+-   Manually compute the probability an 18-29 year old respondent is concerned about AI.
+
+-   Manually compute the odds an 18-29 year old respondent is concerned about AI.
+
+## Exercise 2
+
+-   Compute the odds a 50-64 year old respondent is concerned about AI.
+
+-    How do the odds a 50-64 year old respondent is concerned about AI compare to the odds an 18-29 year old is concerned? This is the odds ratio.
+
+## Exercise 3
+
+Fit the logistic regression model using `age_cat` to predict the odds an individual is concerned about AI. Neatly display the model.
+
+## Exercise 4
+
+Use the model from the previous exercise to
+
+-   What is the baseline level of `age_cat`?
+
+-   Interpret the coefficient of `age_cat50-64` in terms of the log odds of being concerned about AI.
+
+## Exercise 5
+
+-   The model in Exercise 3 is in terms of the log odds. Describe how we can write the model in terms of the odds of being concerned about AI.
+
+::: callout-tip
+Recall the process we used for models with a log-transformed response variable.
+:::
+
+-   Interpret the coefficient of `age_cat50-64` in terms of the **odds** of being concerned about AI.
+
+-   How does this interpretation compare to Exercise 2? What does this tell you about the coefficients in the logistic regression model?
+
+# Wrapping up
+
+::: callout-important
+Once you’ve completed the AE:
+
+-   Render the document to produce the PDF with all of your work from today’s class.
+
+-   Push all your work to your AE repo on GitHub. You’re done! 🎉
+:::

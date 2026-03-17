@@ -39,7 +39,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements  {.midi}
+## Announcements {.midi}
 
 -   Lab 05 due TODAY at 11:59pm
 
@@ -307,8 +307,6 @@ There are 126 observations in the training data. How many observations are in a 
 <center><iframe width="640px" height="480px" src="https://forms.office.com/r/n5wYDEKnFX?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
 ```
 :::::
-
-## 
 
 ## Tips: Fit resamples {.midi}
 

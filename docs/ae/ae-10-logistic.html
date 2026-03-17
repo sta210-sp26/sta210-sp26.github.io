@@ -438,48 +438,47 @@ Important
 <p><strong>The goal of this analysis is to understand the relationship between how much an respondent has heard about artificial intelligence (AI) and how concerned they are about increased use of AI in daily life.</strong></p>
 <p>You will use the following variables:</p>
 <ul>
-<li><code>ai_heard</code> : Response to the question “How much have you heard or read about AI?”
+<li><p><code>ai_concern</code>: Whether a respondent said they are “more concerned than excited” about in the increased use of AI in daily life (1: yes, 0: no)</p></li>
+<li><p><code>age_cat</code>: Age category</p>
 <ul>
-<li>A lot</li>
-<li>A little</li>
-<li>Nothing at all</li>
+<li>18-29</li>
+<li>30-49</li>
+<li>50-64</li>
+<li>65+</li>
 <li>Refused</li>
 </ul></li>
-<li><code>ai_concern</code>: Whether a respondent said they are “more concerned than excited” about in the increased use of AI in daily life (1: yes, 0: no)</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pew_data <span class="ot">&lt;-</span> pew_data <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ai_concern =</span> <span class="fu">if_else</span>(CNCEXC_W132 <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">ai_heard =</span> <span class="fu">case_when</span>(AI_HEARD_W132 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"A lot"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                              AI_HEARD_W132 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"A little"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                              AI_HEARD_W132 <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Nothing at all"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                              <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Refused"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                              ))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">case_when</span>(F_AGECAT <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"18-29"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"30-49"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"50-64"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"65+"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Make factors and  relevel </span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>pew_data <span class="ot">&lt;-</span> pew_data <span class="sc">|&gt;</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ai_concern =</span> <span class="fu">factor</span>(ai_concern),</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">ai_heard =</span> <span class="fu">factor</span>(ai_heard, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A lot"</span>, <span class="st">"A little"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">"Nothing at all"</span>, <span class="st">"Refused"</span>))</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">factor</span>(age_cat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <ul>
-<li><p>Manually compute the probability an 18-29 year old respondent is concerned about AI.</p></li>
-<li><p>Manually compute the odds an 18-29 year old respondent is concerned about AI.</p></li>
+<li><p>Manually compute the probability an 18-29 year-old respondent is concerned about AI.</p></li>
+<li><p>Manually compute the <strong>odds</strong> an 18-29 year-old respondent is concerned about AI.</p></li>
 </ul>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <ul>
-<li><p>Compute the odds a 50-64 year old respondent is concerned about AI.</p></li>
-<li><p>How do the odds a 50-64 year old respondent is concerned about AI compare to the odds an 18-29 year old is concerned? This is the odds ratio.</p></li>
+<li><p>Compute the <strong>odds</strong> a 50-64 year-old respondent is concerned about AI.</p></li>
+<li><p>How do the odds a 50-64 year-old respondent is concerned about AI compare to the odds an 18-29 year-old respondent is concerned? This is the odds ratio.</p></li>
 </ul>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Fit the logistic regression model using <code>age_cat</code> to predict the odds an individual is concerned about AI. Neatly display the model.</p>
+<p>Fit the logistic regression model using <code>age_cat</code> to predict the log odds an individual is concerned about AI. Neatly display the model.</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
@@ -492,7 +491,7 @@ Important
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <ul>
-<li>The model in Exercise 3 is in terms of the log odds. Describe how we can write the model in terms of the odds of being concerned about AI.</li>
+<li>The model in Exercise 3 is in terms of the log odds. Describe how we can write the model in terms of the <strong>odds</strong> an individual is concerned about AI.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">

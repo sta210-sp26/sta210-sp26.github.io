@@ -447,7 +447,7 @@ window.Quarto = {
   <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a>
   <ul class="collapse">
   <li><a href="#logistic-regression-model" id="toc-logistic-regression-model" class="nav-link" data-scroll-target="#logistic-regression-model">Logistic regression model</a></li>
-  <li><a href="#concern-with-ai-model" id="toc-concern-with-ai-model" class="nav-link" data-scroll-target="#concern-with-ai-model">Concern with AI model</a></li>
+  <li><a href="#concerned-about-ai-model" id="toc-concerned-about-ai-model" class="nav-link" data-scroll-target="#concerned-about-ai-model">Concerned about AI model</a></li>
   </ul></li>
   <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
   <ul class="collapse">
@@ -537,12 +537,12 @@ window.Quarto = {
 <p>. . .</p>
 <p><strong>Categorical outcome variable</strong>:</p>
 <ul>
-<li>Indicator of being high risk of getting coronary heart disease in the next 10 years</li>
-<li><strong>Model</strong>: Probability an adult is high risk of heart disease in the next 10 years given their age, total cholesterol, etc.</li>
+<li><p>Indicator of being high risk of getting coronary heart disease in the next 10 years</p></li>
+<li><p><strong>Model</strong>: Probability an adult is high risk of heart disease in the next 10 years given their age, total cholesterol, etc.</p></li>
 </ul>
 </section>
-<section id="do-teenagers-get-7-hours-of-sleep" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="do-teenagers-get-7-hours-of-sleep">Do teenagers get 7+ hours of sleep?</h2>
+<section id="do-teenagers-get-7-hours-of-sleep" class="level2">
+<h2 class="anchored" data-anchor-id="do-teenagers-get-7-hours-of-sleep">Do teenagers get 7+ hours of sleep?</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Students in grades 9 - 12 were surveyed about health risk behaviors including whether they usually get 7 or more hours of sleep.</p>
@@ -717,7 +717,7 @@ window.Quarto = {
 <h2 class="midi anchored" data-anchor-id="data-concern-about-rising-ai">Data: Concern about rising AI</h2>
 <p>This data comes from the 2023 <a href="https://www.pewresearch.org/the-american-trends-panel/">Pew Research Center’s American Trends Panel</a>. The survey aims to capture public opinion about a variety of topics including politics, religion, and technology, among others. We will use data from 11201 respondents in Wave 132 of the survey conducted July 31 - August 6, 2023.</p>
 <p><br></p>
-<p><strong>The goal of this analysis is to understand the relationship between age, how much someone has heard about artificial intelligence (AI), and concern about the increased use of AI in daily life.</strong></p>
+<p><strong>The goal of this analysis is to understand the relationship between age and concern about the increased use of AI in daily life.</strong></p>
 <p><br></p>
 <p>A more complete analysis on this topic can be found in the Pew Research Center article <a href="https://www.pewresearch.org/short-reads/2023/08/28/growing-public-concern-about-the-role-of-artificial-intelligence-in-daily-life/"><em>Growing public concern about the role of artificial intelligence in daily life</em></a> by Alec Tyson and Emma Kikuchi.</p>
 </section>
@@ -736,13 +736,6 @@ window.Quarto = {
 <section id="variables-1" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="variables-1">Variables</h2>
 <ul>
-<li><p><code>ai_heard</code> : Response to the question “How much have you heard or read about AI?”</p>
-<ul>
-<li>A lot</li>
-<li>A little</li>
-<li>Nothing at all</li>
-<li>Refused</li>
-</ul></li>
 <li><p><code>age_cat</code>: Age category</p>
 <ul>
 <li>18-29</li>
@@ -762,20 +755,13 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">case_when</span>(F_AGECAT <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"18-29"</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"30-49"</span>,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"50-64"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"65+"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Refused"</span>), </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">ai_heard =</span> <span class="fu">case_when</span>(AI_HEARD_W132 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"A lot"</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                              AI_HEARD_W132 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"A little"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                              AI_HEARD_W132 <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Nothing at all"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                              <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Refused"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                              ))</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Make factors and  relevel </span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>pew_data <span class="ot">&lt;-</span> pew_data <span class="sc">|&gt;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ai_concern =</span> <span class="fu">factor</span>(ai_concern),</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">factor</span>(age_cat), </span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">ai_heard =</span> <span class="fu">factor</span>(ai_heard, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A lot"</span>, <span class="st">"A little"</span>, <span class="st">"Nothing at all"</span>, <span class="st">"Refused"</span>))</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                             F_AGECAT <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"65+"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Make factors and  relevel </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>pew_data <span class="ot">&lt;-</span> pew_data <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ai_concern =</span> <span class="fu">factor</span>(ai_concern),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cat =</span> <span class="fu">factor</span>(age_cat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="univariate-eda" class="level2">
@@ -873,7 +859,7 @@ window.Quarto = {
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -916,7 +902,7 @@ window.Quarto = {
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -961,7 +947,7 @@ window.Quarto = {
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -1008,7 +994,7 @@ window.Quarto = {
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -1058,7 +1044,7 @@ window.Quarto = {
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -1105,7 +1091,7 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -1141,8 +1127,8 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
  6 50-64   1           1818
  7 65+     0           1376
  8 65+     1           2013
- 9 Refused 0             23
-10 Refused 1             28</code></pre>
+ 9 &lt;NA&gt;    0             23
+10 &lt;NA&gt;    1             28</code></pre>
 </div>
 </div>
 </section>
@@ -1160,7 +1146,7 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 2 30-49    1898  1681
 3 50-64    1398  1818
 4 65+      1376  2013
-5 Refused    23    28</code></pre>
+5 &lt;NA&gt;       23    28</code></pre>
 </div>
 </div>
 </section>
@@ -1202,7 +1188,7 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -1249,7 +1235,7 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <td style="text-align: right;">2013</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Refused</td>
+<td style="text-align: left;">NA</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">28</td>
 </tr>
@@ -1273,8 +1259,8 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <p>Why is there no error term in the population-level model?</p>
 </div>
 </section>
-<section id="concern-with-ai-model" class="level2">
-<h2 class="anchored" data-anchor-id="concern-with-ai-model">Concern with AI model</h2>
+<section id="concerned-about-ai-model" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="concerned-about-ai-model">Concerned about AI model</h2>
 <p>Fit logistic regression models using <code>glm()</code> with the argument <code>family = "binomial"</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ai_concern_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(ai_concern  <span class="sc">~</span> age_cat, <span class="at">data =</span> pew_data, </span>
@@ -1321,13 +1307,6 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <td style="text-align: right;">8.939</td>
 <td style="text-align: right;">0.000</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">age_catRefused</td>
-<td style="text-align: right;">0.476</td>
-<td style="text-align: right;">0.289</td>
-<td style="text-align: right;">1.648</td>
-<td style="text-align: right;">0.099</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1339,8 +1318,8 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <div class="appex">
 <p>📋 <a href="../ae/ae-10-logistic.html">sta210-sp26.github.io/ae/ae-10-logistic.html</a></p>
 </div>
-<section id="from-log-odds-to-odds" class="level2">
-<h2 class="anchored" data-anchor-id="from-log-odds-to-odds">From log odds to odds</h2>
+<section id="from-log-odds-to-odds" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="from-log-odds-to-odds">From log odds to odds</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -1382,22 +1361,14 @@ OR = \frac{\text{odds}_1}{\text{odds}_2}
 <td style="text-align: right;">8.939</td>
 <td style="text-align: right;">0.000</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">age_catRefused</td>
-<td style="text-align: right;">0.476</td>
-<td style="text-align: right;">0.289</td>
-<td style="text-align: right;">1.648</td>
-<td style="text-align: right;">0.099</td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="question">
 <ul>
-<li><p>How do we write this model in terms of the <strong>odds</strong> of being comfortable with driverless cars?</p></li>
-<li><p>Interpret the coefficient of <code>Agree</code> in terms of the <strong>odds</strong> of being comfortable with driverless cars.</p></li>
-<li><p>Describe the interpretation between the coefficients the odds ratio.</p></li>
+<li><p>How do we write this model in terms of the <strong>odds</strong> of being concerned about increase use of AI in daily life?</p></li>
+<li><p>Interpret the coefficient of <code>50-64</code> in terms of the <strong>odds</strong> of being concerned about increase use of AI in daily life.</p></li>
 </ul>
 </div>
 </section>

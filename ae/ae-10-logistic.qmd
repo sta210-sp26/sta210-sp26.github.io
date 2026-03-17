@@ -36,12 +36,15 @@ A more complete analysis on this topic can be found in the Pew Research Center a
 
 You will use the following variables:
 
--   `ai_heard` : Response to the question "How much have you heard or read about AI?"
-    -   A lot
-    -   A little
-    -   Nothing at all
-    -   Refused
 -   `ai_concern`: Whether a respondent said they are "more concerned than excited" about in the increased use of AI in daily life (1: yes, 0: no)
+
+-   `age_cat`: Age category
+
+    -   18-29
+    -   30-49
+    -   50-64
+    -   65+
+    -   Refused
 
 ```{r}
 #| label: load-prep-data
@@ -50,35 +53,33 @@ You will use the following variables:
 
 pew_data <- pew_data |>
   mutate(ai_concern = if_else(CNCEXC_W132 == 2, 1, 0),
-         ai_heard = case_when(AI_HEARD_W132 == 1 ~ "A lot",
-                              AI_HEARD_W132 == 2 ~ "A little",
-                              AI_HEARD_W132 == 3 ~ "Nothing at all",
-                              TRUE ~ "Refused"
-                              ))
+         age_cat = case_when(F_AGECAT == 1 ~ "18-29",
+                             F_AGECAT == 2 ~ "30-49",
+                             F_AGECAT == 3 ~ "50-64",
+                             F_AGECAT == 4 ~ "65+"
+))
 
 # Make factors and  relevel 
 pew_data <- pew_data |>
   mutate(ai_concern = factor(ai_concern),
-         ai_heard = factor(ai_heard, levels = c("A lot", "A little",
-                                                "Nothing at all", "Refused"))
-  )
+         age_cat = factor(age_cat))
 ```
 
 ## Exercise 1
 
--   Manually compute the probability an 18-29 year old respondent is concerned about AI.
+-   Manually compute the probability an 18-29 year-old respondent is concerned about AI.
 
--   Manually compute the odds an 18-29 year old respondent is concerned about AI.
+-   Manually compute the **odds** an 18-29 year-old respondent is concerned about AI.
 
 ## Exercise 2
 
--   Compute the odds a 50-64 year old respondent is concerned about AI.
+-   Compute the **odds** a 50-64 year-old respondent is concerned about AI.
 
--    How do the odds a 50-64 year old respondent is concerned about AI compare to the odds an 18-29 year old is concerned? This is the odds ratio.
+-   How do the odds a 50-64 year-old respondent is concerned about AI compare to the odds an 18-29 year-old respondent is concerned? This is the odds ratio.
 
 ## Exercise 3
 
-Fit the logistic regression model using `age_cat` to predict the odds an individual is concerned about AI. Neatly display the model.
+Fit the logistic regression model using `age_cat` to predict the log odds an individual is concerned about AI. Neatly display the model.
 
 ## Exercise 4
 
@@ -90,7 +91,7 @@ Use the model from the previous exercise to
 
 ## Exercise 5
 
--   The model in Exercise 3 is in terms of the log odds. Describe how we can write the model in terms of the odds of being concerned about AI.
+-   The model in Exercise 3 is in terms of the log odds. Describe how we can write the model in terms of the **odds** an individual is concerned about AI.
 
 ::: callout-tip
 Recall the process we used for models with a log-transformed response variable.

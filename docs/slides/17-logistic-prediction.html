@@ -467,7 +467,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['tidymodels', 'tidyverse'];
+  globalThis.qwebrInstallRPackagesList = ['tidyverse', 'broom', 'yardstick'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -489,7 +489,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"heart_disease <- read_csv(\"data/framingham.csv\") |>\n  select(age, totChol, TenYearCHD, currentSmoker) |>\n  drop_na() |>\n  mutate(high_risk = as_factor(TenYearCHD), \n         currentSmoker = as_factor(currentSmoker))\n\nheart_disease_fit <- glm(high_risk ~ age + totChol + currentSmoker, \n              data = heart_disease, family = \"binomial\")","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"threshold <- 0.5\n\nheart_disease_aug <- heart_disease_aug |>\n  mutate(pred_class = factor(if_else(.fitted > threshold, 1, 0)))\n\nheart_disease_aug |>\n  conf_mat(high_risk, pred_class) |>\n  autoplot(heart_conf_mat, type = \"heatmap\") ","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"url <- \"https://sta210-sp26.github.io/slides/data/framingham.csv\"\ndownload.file(url, \"framingham.csv\")\n\nheart_disease <- read_csv(\"framingham.csv\") |>\n  select(age, totChol, TenYearCHD, currentSmoker) |>\n  drop_na() |>\n  mutate(high_risk = as_factor(TenYearCHD), \n         currentSmoker = as_factor(currentSmoker))\n\nheart_disease_fit <- glm(high_risk ~ age + totChol + currentSmoker, \n              data = heart_disease, family = \"binomial\")","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"threshold <- 0.5\n\nheart_disease_aug <- augment(heart_disease_fit, type.predict = \"response\") |>\n  mutate(pred_class = factor(if_else(.fitted > threshold, 1, 0)))\n\nheart_disease_aug |>\n  conf_mat(high_risk, pred_class) ","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script>
   <script type="module">
@@ -2046,11 +2046,6 @@ Prof.&nbsp;Maria Tackett
 
   <p class="date">Mar 19, 2026</p>
 </section>
-<section class="slide level2">
-
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
 <section id="announcements" class="slide level2 midi">
 <h2>Announcements</h2>
 <ul>
@@ -2939,6 +2934,8 @@ Prediction    0    1
 </section>
 <section id="changing-threshold" class="slide level2">
 <h2>Changing threshold</h2>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><br></p>
@@ -2953,11 +2950,11 @@ Prediction    0    1
 </section>
 <section id="truefalse-positivenegative" class="slide level2 midi">
 <h2>True/false positive/negative</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 58%">
+<col style="width: 24%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2987,11 +2984,11 @@ Prediction    0    1
 </section>
 <section id="false-negative-rate" class="slide level2 midi">
 <h2>False negative rate</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 56%">
+<col style="width: 22%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3023,11 +3020,11 @@ Prediction    0    1
 </section>
 <section id="false-positive-rate" class="slide level2 midi">
 <h2>False positive rate</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 56%">
+<col style="width: 22%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3059,11 +3056,11 @@ Prediction    0    1
 </section>
 <section id="sensitivity" class="slide level2 midi">
 <h2>Sensitivity</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 56%">
+<col style="width: 22%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3096,11 +3093,11 @@ Prediction    0    1
 </section>
 <section id="specificity" class="slide level2 midi">
 <h2>Specificity</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 56%">
+<col style="width: 22%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">

@@ -9879,11 +9879,18 @@
     "text": "References\n\n\n\n\nZarulli, Virginia, Elizaveta Sopina, Veronica Toffolutti, and Adam Lenart. 2021. “Health Care System Efficiency and Life Expectancy: A 140-Country Study.” Edited by Srinivas Goli. PLOS ONE 16 (7): e0253450. https://doi.org/10.1371/journal.pone.0253450."
   },
   {
+    "objectID": "slides/17-logistic-prediction-notes.html",
+    "href": "slides/17-logistic-prediction-notes.html",
+    "title": "Logistic regression",
+    "section": "",
+    "text": "Project EDA due March 24 at 11:59pm (on GitHub)\nStatistics experience due April 15\n\nSubmit questions by the end of the day. Form at the end of today’s notes."
+  },
+  {
     "objectID": "slides/17-logistic-prediction-notes.html#announcements",
     "href": "slides/17-logistic-prediction-notes.html#announcements",
     "title": "Logistic regression",
-    "section": "Announcements",
-    "text": "Announcements\n\nProject EDA due March 24 at 11:59pm (on GitHub)\nStatistics experience due April 15\n\nSubmit questions by the end of the day. Form at the end of today’s notes."
+    "section": "",
+    "text": "Project EDA due March 24 at 11:59pm (on GitHub)\nStatistics experience due April 15\n\nSubmit questions by the end of the day. Form at the end of today’s notes."
   },
   {
     "objectID": "slides/17-logistic-prediction-notes.html#topics",
@@ -10149,7 +10156,7 @@
     "href": "slides/17-logistic-prediction-notes.html#changing-threshold",
     "title": "Logistic regression",
     "section": "Changing threshold",
-    "text": "Changing threshold\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nWhat is the limitation of using a single confusion matrix to assess the model performance?"
+    "text": "Changing threshold\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nWhat is the limitation of using a single confusion matrix to assess the model performance?"
   },
   {
     "objectID": "slides/17-logistic-prediction-notes.html#truefalse-positivenegative",
@@ -10534,7 +10541,7 @@
     "href": "slides/17-logistic-prediction.html#changing-threshold",
     "title": "Logistic regression",
     "section": "Changing threshold",
-    "text": "Changing threshold\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nWhat is the limitation of using a single confusion matrix to assess the model performance?"
+    "text": "Changing threshold\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nWhat is the limitation of using a single confusion matrix to assess the model performance?"
   },
   {
     "objectID": "slides/17-logistic-prediction.html#truefalse-positivenegative",

@@ -18,7 +18,7 @@ format:
   html: 
     output-file: 17-logistic-prediction-notes.html
     resources: 
-      - "data/framingham.csv"
+      - "framingham.csv"
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -33,7 +33,7 @@ bibliography: references.bib
 filters: 
   - webr
 webr:
-  packages: ['tidymodels', 'tidyverse']
+  packages: ['tidyverse', 'broom', 'yardstick'] 
 ---
 
 ```{r}
@@ -46,19 +46,6 @@ knitr::opts_chunk$set(
 )
 
 library(countdown)
-```
-
-```{webr-r}
-#| context: setup
-
-heart_disease <- read_csv("data/framingham.csv") |>
-  select(age, totChol, TenYearCHD, currentSmoker) |>
-  drop_na() |>
-  mutate(high_risk = as_factor(TenYearCHD), 
-         currentSmoker = as_factor(currentSmoker))
-
-heart_disease_fit <- glm(high_risk ~ age + totChol + currentSmoker, 
-              data = heart_disease, family = "binomial")
 ```
 
 ## Announcements {.midi}
@@ -666,14 +653,29 @@ Accuracy is 0.848 and the misclassification rate is 0.152.
 ## Changing threshold
 
 ```{webr-r}
+#| context: setup
+
+url <- "https://sta210-sp26.github.io/slides/data/framingham.csv"
+download.file(url, "framingham.csv")
+
+heart_disease <- read_csv("framingham.csv") |>
+  select(age, totChol, TenYearCHD, currentSmoker) |>
+  drop_na() |>
+  mutate(high_risk = as_factor(TenYearCHD), 
+         currentSmoker = as_factor(currentSmoker))
+
+heart_disease_fit <- glm(high_risk ~ age + totChol + currentSmoker, 
+              data = heart_disease, family = "binomial")
+```
+
+```{webr-r}
 threshold <- 0.5
 
-heart_disease_aug <- heart_disease_aug |>
+heart_disease_aug <- augment(heart_disease_fit, type.predict = "response") |>
   mutate(pred_class = factor(if_else(.fitted > threshold, 1, 0)))
 
 heart_disease_aug |>
-  conf_mat(high_risk, pred_class) |>
-  autoplot(heart_conf_mat, type = "heatmap") 
+  conf_mat(high_risk, pred_class) 
 ```
 
 <br>
@@ -686,10 +688,13 @@ What is the limitation of using a single confusion matrix to assess the model pe
 
 ## True/false positive/negative {.midi}
 
-|   | <u>Not</u> high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
-|----|----|----|
-| **Classified** <u>**not**</u> **high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
-| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
++-----------------------------------------------------------------------------------+----------------------------------+-----------------------+
+|                                                                                   | <u>Not</u> high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
++===================================================================================+==================================+=======================+
+| **Classified** <u>**not**</u> **high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN)               | False negative (FN)   |
++-----------------------------------------------------------------------------------+----------------------------------+-----------------------+
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$                       | False positive (FP)              | True positive (TP)    |
++-----------------------------------------------------------------------------------+----------------------------------+-----------------------+
 
 <br>
 
@@ -699,10 +704,13 @@ What is the limitation of using a single confusion matrix to assess the model pe
 
 ## False negative rate {.midi}
 
-|   | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
-|----|----|----|
-| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
-| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+|                                                                    | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
++====================================================================+===========================+=======================+
+| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN)        | False negative (FN)   |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$        | False positive (FP)       | True positive (TP)    |
++--------------------------------------------------------------------+---------------------------+-----------------------+
 
 <br>
 
@@ -714,10 +722,13 @@ What is the limitation of using a single confusion matrix to assess the model pe
 
 ## False positive rate {.midi}
 
-|   | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
-|----|----|----|
-| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
-| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+|                                                                    | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
++====================================================================+===========================+=======================+
+| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN)        | False negative (FN)   |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$        | False positive (FP)       | True positive (TP)    |
++--------------------------------------------------------------------+---------------------------+-----------------------+
 
 <br>
 
@@ -729,10 +740,13 @@ What is the limitation of using a single confusion matrix to assess the model pe
 
 ## Sensitivity {.midi}
 
-|   | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
-|----|----|----|
-| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
-| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+|                                                                    | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
++====================================================================+===========================+=======================+
+| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN)        | False negative (FN)   |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$        | False positive (FP)       | True positive (TP)    |
++--------------------------------------------------------------------+---------------------------+-----------------------+
 
 <br>
 
@@ -746,10 +760,13 @@ What is the limitation of using a single confusion matrix to assess the model pe
 
 ## Specificity {.midi}
 
-|   | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
-|----|----|----|
-| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
-| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+|                                                                    | Not high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
++====================================================================+===========================+=======================+
+| **Classified not high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN)        | False negative (FN)   |
++--------------------------------------------------------------------+---------------------------+-----------------------+
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$        | False positive (FP)       | True positive (TP)    |
++--------------------------------------------------------------------+---------------------------+-----------------------+
 
 <br>
 

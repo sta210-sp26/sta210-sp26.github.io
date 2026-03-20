@@ -1,0 +1,51 @@
+---
+title: "Lab 06"
+subtitle: "Logistic regression"
+date: "03-23-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Review
+
+A hospital is the use of a logistic regrssion model for detecting a disease. Below are the truth and predicted classifications for 200 patients.
+
+|   | **Actual disease Present** | **Actual disease Absent** |
+|----|----|----|
+| **Classified as disease present** | 50 | 20 |
+| **Classified as disease absent** | 10 | 120 |
+
+::: question
+-   What does sensitivity mean in the context of this analysis? Compute this value.
+
+-   What does specificity mean in the context of this analysis? Compute this value.
+
+-   Mean in the context of this analysis? Compute this value.
+:::
+
+## Today's lab
+
+This lab focuses on using logistic regression to classify rice varieties based on data derived from images
+
+🔗 [sta210-sp26.github.io/labs/lab-06.html](https://sta210-sp26.github.io/labs/lab-06.html)

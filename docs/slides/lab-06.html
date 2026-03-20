@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <title>STA 210 - Spring 2026 – Lab 05</title>
+  <title>STA 210 - Spring 2026 – Lab 06</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -129,39 +129,50 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lab 05</h1>
-  <p class="subtitle">Expanding multiple linear regression</p>
+  <h1 class="title">Lab 06</h1>
+  <p class="subtitle">Logistic regression</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Mar 02, 2026</p>
+  <p class="date">Mar 23, 2026</p>
 </section>
-<section id="goals" class="slide level2">
-<h2>Goals</h2>
+<section id="review" class="slide level2">
+<h2>Review</h2>
+<p>A hospital is the use of a logistic regrssion model for detecting a disease. Below are the truth and predicted classifications for 200 patients.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Actual disease Present</strong></th>
+<th><strong>Actual disease Absent</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Classified as disease present</strong></td>
+<td>50</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td><strong>Classified as disease absent</strong></td>
+<td>10</td>
+<td>120</td>
+</tr>
+</tbody>
+</table>
+<div class="question">
 <ul>
-<li><p>Mid-semester survey</p></li>
-<li><p>Lab 05: Expanding multiple linear regression</p></li>
+<li><p>What does sensitivity mean in the context of this analysis? Compute this value.</p></li>
+<li><p>What does specificity mean in the context of this analysis? Compute this value.</p></li>
+<li><p>Mean in the context of this analysis? Compute this value.</p></li>
 </ul>
-</section>
-<section id="mid-semester-feedback" class="slide level2">
-<h2>Mid-semester feedback</h2>
-<ul>
-<li><p><strong>Purpose</strong>: To give the teaching team feedback on what is working well (or not as well) in helping you learn the course content</p></li>
-<li><p>The feedback is <strong>anonymous</strong></p></li>
-<li><p>Please take a few minutes to fill it out during lab today</p></li>
-</ul>
-<p><strong>The teaching team appreciates your feedback!</strong></p>
-<p>🔗 <a href="https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA" class="uri">https://duke.qualtrics.com/jfe/form/SV_3lvkRQbz7PMuJVA</a></p>
+</div>
 </section>
 <section id="todays-lab" class="slide level2">
 <h2>Today’s lab</h2>
-<p>This lab focuses on</p>
-<ul>
-<li><p>modeling complex data using variable transformations, categorical predictors and interactions, and various model specifications.</p></li>
-<li><p>evaluating model diagnostics and conditions.</p></li>
-</ul>
-<p>🔗 <a href="https://sta210-sp26.github.io/labs/lab-05.html">sta210-sp26.github.io/labs/lab-05.html</a></p>
+<p>This lab focuses on using logistic regression to classify rice varieties based on data derived from images</p>
+<p>🔗 <a href="https://sta210-sp26.github.io/labs/lab-06.html">sta210-sp26.github.io/labs/lab-06.html</a></p>
 
 
 </section>

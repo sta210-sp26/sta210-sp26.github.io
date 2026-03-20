@@ -39,7 +39,7 @@ By the end of the lab you will be able to…
 
 -   [Click here](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/IQDf5MLPq5jTR4scjbgUMVNmAcur2Dmn7w0TAXt4oL4kGB0?e=Q9grcE) to see your team for this week's lab.
 
--   Go to the [sta210-sp26](https://www.github.com/sta210-sp26) organization on GitHub. Click on the repo with the prefix **lab-04-**. It contains the starter documents you need to complete the lab.
+-   Go to the [sta210-sp26](https://www.github.com/sta210-sp26) organization on GitHub. Click on the repo with the prefix **lab-05-**. It contains the starter documents you need to complete the lab.
 
 -   Clone the repo and start a new project in RStudio. See the [Lab 00 instructions](lab-00.qmd) for details on cloning a repo, starting a new project in R, and configuring git.
 

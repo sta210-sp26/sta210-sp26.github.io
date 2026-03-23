@@ -27,9 +27,9 @@ knitr:
 bibliography: references.bib
 ---
 
-## Review
+## Review {.midi}
 
-A hospital is the use of a logistic regrssion model for detecting a disease. Below are the truth and predicted classifications for 200 patients.
+A hospital is evaluating the use of a logistic regression model for detecting a disease. Below are the truth and predicted classifications for 200 patients.
 
 |   | **Actual disease Present** | **Actual disease Absent** |
 |----|----|----|
@@ -37,12 +37,22 @@ A hospital is the use of a logistic regrssion model for detecting a disease. Bel
 | **Classified as disease absent** | 10 | 120 |
 
 ::: question
--   What does sensitivity mean in the context of this analysis? Compute this value.
+-   Compute sensitivity and interpret it in the context of the analysis.
 
--   What does specificity mean in the context of this analysis? Compute this value.
+-   Compute specificity and interpret it in the context of the analysis.
 
--   Mean in the context of this analysis? Compute this value.
+-   Compute the false positive rate and interpret it in the context of the analysis.
 :::
+
+## Options on how to work on lab
+
+-   Individually
+
+-   Work with 1 - 2 other students but everyone submits their own lab assignment
+
+-   Collaborate with 1 - 2 other students using a single GitHub repo and submit a single lab assignment (include all names)
+
+    -   We can help you add all students to a single repo
 
 ## Today's lab
 

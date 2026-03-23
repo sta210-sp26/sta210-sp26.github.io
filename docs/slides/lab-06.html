@@ -137,9 +137,9 @@
 
   <p class="date">Mar 23, 2026</p>
 </section>
-<section id="review" class="slide level2">
+<section id="review" class="slide level2 midi">
 <h2>Review</h2>
-<p>A hospital is the use of a logistic regrssion model for detecting a disease. Below are the truth and predicted classifications for 200 patients.</p>
+<p>A hospital is evaluating the use of a logistic regression model for detecting a disease. Below are the truth and predicted classifications for 200 patients.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -163,11 +163,22 @@
 </table>
 <div class="question">
 <ul>
-<li><p>What does sensitivity mean in the context of this analysis? Compute this value.</p></li>
-<li><p>What does specificity mean in the context of this analysis? Compute this value.</p></li>
-<li><p>Mean in the context of this analysis? Compute this value.</p></li>
+<li><p>Compute sensitivity and interpret it in the context of the analysis.</p></li>
+<li><p>Compute specificity and interpret it in the context of the analysis.</p></li>
+<li><p>Compute the false positive rate and interpret it in the context of the analysis.</p></li>
 </ul>
 </div>
+</section>
+<section id="options-on-how-to-work-on-lab" class="slide level2">
+<h2>Options on how to work on lab</h2>
+<ul>
+<li><p>Individually</p></li>
+<li><p>Work with 1 - 2 other students but everyone submits their own lab assignment</p></li>
+<li><p>Collaborate with 1 - 2 other students using a single GitHub repo and submit a single lab assignment (include all names)</p>
+<ul>
+<li>We can help you add all students to a single repo</li>
+</ul></li>
+</ul>
 </section>
 <section id="todays-lab" class="slide level2">
 <h2>Today’s lab</h2>
@@ -394,44 +405,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

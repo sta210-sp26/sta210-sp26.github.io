@@ -1,0 +1,578 @@
+---
+title: "Logistic regression"
+subtitle: "Inference"
+author: "Prof. Maria Tackett"
+date: "03-24-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 18-logistic-inference-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Announcements
+
+-   Project EDA due TODAY at 11:59pm (on GitHub)
+
+-   HW 04 due March 21 at 11:59pm
+
+    -   Released after class
+
+-   Statistics experience due April 15
+
+-   SSMU Data Mini #3 - April 4
+
+    -   See Ed Discussion for full announcement
+
+## Topics
+
+-   Model assessment using ROC curve and AUC
+
+-   Estimating coefficients for logistic regression model
+
+-   Inference for a single model coefficient
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(openintro)
+library(knitr)
+library(kableExtra)  # for table embellishments
+library(patchwork)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+```
+
+## Data: Risk of coronary heart disease
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts.
+
+-   `high_risk`: 1 = High risk of having heart disease in next 10 years, 0 = Not high risk of having heart disease in next 10 years
+
+-   `age`: Age at exam time (in years)
+
+-   `totChol`: Total cholesterol (in mg/dL)
+
+-   `currentSmoker`: 0 = nonsmoker; 1 = smoker
+
+**The goal is to use logistic regression to identify patients who are high risk of heart disease.**
+
+## Univariate EDA
+
+```{r}
+#| echo: false
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(age, totChol, TenYearCHD, currentSmoker) |>
+  drop_na() |>
+  mutate(high_risk = as_factor(TenYearCHD), 
+         currentSmoker = as_factor(currentSmoker))
+```
+
+```{r}
+#| echo: false
+
+p1 <- ggplot(data = heart_disease, aes(x = high_risk)) + 
+  geom_bar(fill = "darkcyan", color = 'black') + 
+  labs(x = "High risk")
+
+p2 <- ggplot(data = heart_disease, aes(x = age)) + 
+  geom_histogram(fill = "darkcyan",color = 'black', binwidth = 2) + 
+  labs(x = "Age")
+p3 <- ggplot(data = heart_disease, aes(x = totChol)) + 
+  geom_histogram(fill = "darkcyan", color = 'black') + 
+  labs(x = "Total Cholesterol")
+
+p4 <- ggplot(data = heart_disease, aes(x = currentSmoker)) + 
+  geom_bar(fill = "darkcyan", color = 'black') + 
+  labs(x = "Current smoker")
+
+(p1 + p2) / (p3 + p4)
+```
+
+## Bivariate EDA
+
+```{r}
+#| echo: false
+
+p5 <- ggplot(data = heart_disease, aes(x = high_risk, y = age)) + 
+  geom_boxplot(fill = "darkcyan") +
+  labs(x = "High risk",
+       y = "Age") + 
+  coord_flip()
+
+p6 <- ggplot(data = heart_disease, aes(x = currentSmoker, fill = high_risk)) + 
+  geom_bar(position = "fill", color = "black") +
+  labs(x = "Current smoker", 
+       fill = "High risk") + 
+  theme(legend.position = "bottom") +
+  scale_fill_brewer(palette = "Dark2")
+
+p7 <- ggplot(data = heart_disease, aes(x = high_risk, y = totChol)) + 
+  geom_boxplot(fill = "steelblue") +
+  labs(x = "High risk",
+       y = "Total cholesterol") + 
+  coord_flip()
+
+p6 + (p5 / p7) 
+
+```
+
+## Risk of coronary heart disease
+
+```{r}
+#| echo: true
+
+heart_disease_fit <- glm(high_risk ~ age + totChol + currentSmoker, 
+              data = heart_disease, family = "binomial")
+```
+
+```{r}
+#| echo: false
+
+tidy(heart_disease_fit) |> 
+  kable(digits = 3)
+```
+
+# ROC curve and AUC
+
+## Prediction and classification
+
+::: incremental
+-   We are often interested in using the model to classify observations, i.e., predict whether a given observation will have a 1 or 0 response
+
+-   For each observation
+
+    -   Use the logistic regression model to calculate the predicted log-odds the response for the $i^{th}$ observation is 1
+    -   Use the log-odds to calculate the predicted probability the $i^{th}$ observation is 1
+    -   Then, use the predicted probability to classify the observation as having a 1 or 0 response using some predefined threshold
+:::
+
+## Confusion matrix
+
+A **confusion matrix** is a $2 \times 2$ table that compares the predicted and actual classes for a given threshold. We can produce this matrix using the `conf_mat()` function in the **yardstick** package (part of tidymodels).
+
+<br>
+
+```{r}
+#| echo: false
+
+heart_disease_aug <- augment(heart_disease_fit, type.predict = "response")
+
+heart_disease_aug <- heart_disease_aug |>
+  mutate(pred_class = factor(if_else(.fitted > 0.5, 1, 0)))
+
+heart_conf_mat <- heart_disease_aug |>
+  conf_mat(high_risk, pred_class)
+
+autoplot(heart_conf_mat, type = "heatmap") 
+```
+
+## True/false positive/negative {.midi}
+
+|   | <u>Not</u> high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
+|------------------------|------------------------|------------------------|
+| **Classified** <u>**not**</u> **high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) |  |
+
+## Sensitivity and specificity
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: question
+1.  How do we set the threshold if the primary goal is high sensitivity?
+
+2.  How do we set the threshold if the primary goal is high specificity?
+:::
+
+🔗 <https://forms.office.com/r/ysNdXsj5cW>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/ysNdXsj5cW?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+## ROC Curve {.midi}
+
+So far the model assessment has depended on the model and selected threshold. The **receiver operating characteristic (ROC) curve** allows us to assess the model performance across a range of thresholds.
+
+. . .
+
+::::: columns
+::: {.column width="65%"}
+```{r}
+#| echo: false
+
+# calculate sensitivity and specificity at each threshold
+roc_curve_data <- heart_disease_aug |>
+  roc_curve(high_risk, .fitted, 
+            event_level = "second") 
+
+# plot roc curve
+autoplot(roc_curve_data)
+```
+:::
+
+::: {.column width="35%"}
+-   x-axis: 1 - Specificity (False positive rate)
+
+-   y-axis: Sensitivity (True positive rate)
+
+Which corner of the plot indicates the best model performance?
+:::
+:::::
+
+## ROC curve
+
+```{r}
+#| echo: false
+#| out-width: 100%
+
+heart_disease_aug |>
+  roc_curve(high_risk, .fitted, 
+            event_level = "second")  |>
+  autoplot() +
+  annotate("point", x = 0, y = 1, color = "#5B888C") +
+  annotate("point", x = 0, y = 1, color = "#5B888C", size = 3, shape = "circle open") +
+  annotate(
+    "label", x = 0.02, y = 0.99, label = "All high risk classified as high risk,\nall not high risk classified as not high risk", hjust = 0, color = "#5B888C", fontface = "bold", vjust = 1, fill = "white"
+  ) +
+  annotate("point", x = 1, y = 0, color = "#8F2D56") +
+  annotate("point", x = 1, y = 0, color = "#8F2D56", size = 3, shape = "circle open") +
+  annotate(
+    "label", x = 0.98, y = 0.01, label = "All high risk classified as not high risk,\nall not high risk classified as high risk", hjust = 1, color = "#8F2D56", fontface = "bold", vjust = 0, fill = "white"
+  ) +
+  annotate(
+    "segment", color = "#5b708c", x = 0, y = 0, xend = 1, yend = 1, size = 2, alpha = 0.6
+  ) +
+  annotate(
+    "label", x = 0.58, y = 0.5, label = "True positive rate\n= false positive rate", hjust = 0, color = "#5b708c", fontface = "bold", fill = "white"
+  )
+```
+
+## ROC curve in R {.midi}
+
+```{r}
+#| echo: true
+#| eval: false
+
+
+# calculate sensitivity and specificity at each threshold
+roc_curve_data <- heart_disease_aug |>
+  roc_curve(high_risk, .fitted, 
+            event_level = "second") 
+
+# plot roc curve
+autoplot(roc_curve_data)
+```
+
+## ROC curve in R
+
+::::: columns
+::: {.column width="40%"}
+Randomly selected observations from `roc_data`
+
+```{r}
+#| echo: false
+
+set.seed(210)
+
+roc_curve_data |>
+  sample_n(20)
+
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+
+autoplot(roc_curve_data)
+```
+:::
+:::::
+
+## Area under the curve
+
+The **area under the curve (AUC)** can be used to assess how well the logistic model fits the data
+
+-   AUC=0.5: model is a very bad fit (no better than a coin flip)
+
+-   AUC close to 1: model is a good fit
+
+. . .
+
+```{r}
+#| echo: true
+heart_disease_aug |>
+  roc_auc(high_risk, .fitted,
+    event_level = "second"
+  )
+```
+
+# Estimating coefficients
+
+## Statistical model {.midi}
+
+The form of the statistical model for logistic regression is
+
+$$
+\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + \dots + \beta_px_{ip}
+$$
+
+where $\pi_i$ is the probability $y_i = 1$.
+
+## Distribution of $Y$
+
+The response variable $Y$ follows a Bernoulli distribution, $\text{Bernoulli}(\pi)$ (similarly we can think of $n$ observed $Y$'s as generated from a Binomial distribution, $\text{Binomial}(n,\pi)$)
+
+. . .
+
+For an individual observation,
+
+$$
+p(y_i | x_{i1}, \ldots, x_{ip}, \beta_0, \beta_1, \ldots, \beta_p) = \pi_i^{y_i}(1 - \pi_i)^{1- y_i}
+$$
+
+## Likelihood function
+
+The likelihood function is the joint density of $y_1, \ldots, y_n$ for unknown coefficients $\beta_0, \ldots, \beta_p$
+
+$$
+\begin{aligned}
+L &= \prod_{i=1}^{n}
+p(y_i | x_{i1}, \ldots, x_{ip}, \beta_0, \beta_1, \ldots, \beta_p) \\[8pt]
+& = \prod_{i=1}^{n}
+\pi_i^{y_i}(1 - \pi_i)^{1- y_i}
+\end{aligned}
+$$
+
+. . .
+
+The estimated coefficients are the combination of $\hat{\beta}_0, \hat{\beta}_1, \ldots, \hat{\beta}_p$ that maximize the likelihood $L$. They are the **maximum likelihood estimates**.
+
+## Estimating coefficients {.midi}
+
+We use the log-likelihood function to find the maximum likelihood estimates
+
+$$
+\log L = \sum\limits_{i=1}^n[y_i \log(\hat{\pi}_i) + (1 - y_i)\log(1 - \hat{\pi}_i)]
+$$
+
+where
+
+$\hat{\pi} = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}$
+
+## Iterative model fitting in R
+
+```{r}
+#| include: false
+
+trace(glm.fit, quote(cat <- function(...) {
+  base::cat(...)
+  if (...length() >= 3 && identical(..3, " Iterations - ")) print(coefold)
+}))
+```
+
+```{r}
+high_risk_fit_full <- glm(high_risk ~ age + currentSmoker,
+                          data = heart_disease, family = "binomial", 
+                          # print each iteration
+                        control = glm.control(trace = TRUE))
+
+#stop printing for future models
+untrace(glm.fit)
+```
+
+# Inference for coefficients
+
+## Inference for coefficients
+
+There are two approaches for testing coefficients in logistic regression
+
+-   **(Wald) hypothesis test.** Use to test
+
+    -   a single coefficient (when $n$ is large)
+
+<!-- -->
+
+-   **Drop-in-deviance test**. Use to test...
+
+    -   a single coefficient
+    -   a categorical predictor with 3+ levels
+    -   a group of predictor variables
+
+## Hypothesis test for $\beta_j$
+
+**Hypotheses:** $H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0$, given the other variables in the model
+
+. . .
+
+**(Wald) Test Statistic:** $$z = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)}$$
+
+. . .
+
+**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
+
+## Confidence interval for $\beta_j$
+
+We can calculate the **C% confidence interval** for $\beta_j$ as the following:
+
+$$
+\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}
+$$
+
+where $z^*$ is calculated from the $N(0,1)$ distribution
+
+. . .
+
+::: callout-note
+This is an interval for the change in the log-odds for every one unit increase in $x_j$
+:::
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_j$.
+
+$$
+\exp\{\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}\}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^*\times SE_{\hat{\beta}_j}\}$ to $\exp\{\hat{\beta}_j + z^* \times SE_{\hat{\beta}_j}\}$, holding all else constant.
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| label: risk-model-age-highlight
+#| code-fold: true
+
+high_risk_fit <- glm(high_risk ~ age +  currentSmoker,
+                          data = heart_disease, family = "binomial",
+                     control = glm.control(trace = FALSE))
+
+tidy(high_risk_fit, conf.int = TRUE) |> 
+  kable(digits = 5) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+. . .
+
+**Hypotheses:**
+
+$$
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
+$$, given current smoking status is in the model
+
+## Coefficient for `age`    {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Test statistic:**
+
+$$z = \frac{0.08360 - 0}{0.00556} = 15.04
+$$
+
+## Coefficient for `age`  {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**P-value:**
+
+$$
+P(|Z| > |15.04|) \approx 0
+$$
+
+. . .
+
+```{r}
+2 * pnorm(15.04,lower.tail = FALSE)
+```
+
+## Coefficient for `age`  {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Conclusion:**
+
+The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for smoking status.
+
+## CI for `age`
+
+```{r}
+#| echo: false
+
+tidy(high_risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+::: question
+Interpret the 95% confidence interval for `age` in terms of the **odds** of being high risk for heart disease.
+:::
+
+## Recap
+
+-   Model assessment using ROC curve and AUC
+
+-   Estimating coefficients for logistic regression model
+
+-   Inference for a single model coefficient
+
+## Next class
+
+-   Model selection for logistic regression
+
+-   Complete [Lecture 19 prepare](../prepare/prepare-lec19.hthml)

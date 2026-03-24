@@ -813,10 +813,15 @@ window.Quarto = {
 \log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + \dots + \beta_px_{ip}
 \]</span></p>
 <p>where <span class="math inline">\(\pi_i\)</span> is the probability <span class="math inline">\(y_i = 1\)</span>.</p>
+<p><br></p>
+<p>. . .</p>
+<p>The response variable <span class="math inline">\(Y\)</span> follows a Bernoulli distribution, <span class="math inline">\(\text{Bernoulli}(\pi)\)</span> , so <span class="math inline">\(E(y_i|x_{i1}, \ldots, x_{ip}) = \pi_i\)</span></p>
+<p><br></p>
+<p>The logit, <span class="math inline">\(\log\Big(\frac{\pi_i}{1-\pi_i}\Big)\)</span>, is called a <strong>link function</strong>, because it links the expected value to the predictors</p>
 </section>
 <section id="distribution-of-y" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-y">Distribution of <span class="math inline">\(Y\)</span></h2>
-<p>The response variable <span class="math inline">\(Y\)</span> follows a Bernoulli distribution, <span class="math inline">\(\text{Bernoulli}(\pi)\)</span> (similarly we can think of <span class="math inline">\(n\)</span> observed <span class="math inline">\(Y\)</span>’s as generated from a Binomial distribution, <span class="math inline">\(\text{Binomial}(n,\pi)\)</span>)</p>
+<p>The response variable <span class="math inline">\(Y\)</span> follows a Bernoulli distribution, <span class="math inline">\(\text{Bernoulli}(\pi)\)</span></p>
 <p>. . .</p>
 <p>For an individual observation,</p>
 <p><span class="math display">\[

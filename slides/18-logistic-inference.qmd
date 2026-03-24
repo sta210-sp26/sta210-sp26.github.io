@@ -364,9 +364,19 @@ $$
 
 where $\pi_i$ is the probability $y_i = 1$.
 
+<br>
+
+. . .
+
+The response variable $Y$ follows a Bernoulli distribution, $\text{Bernoulli}(\pi)$ , so $E(y_i|x_{i1}, \ldots, x_{ip}) = \pi_i$
+
+<br>
+
+The logit, $\log\Big(\frac{\pi_i}{1-\pi_i}\Big)$, is called a **link function**, because it links the expected value to the predictors
+
 ## Distribution of $Y$
 
-The response variable $Y$ follows a Bernoulli distribution, $\text{Bernoulli}(\pi)$ (similarly we can think of $n$ observed $Y$'s as generated from a Binomial distribution, $\text{Binomial}(n,\pi)$)
+The response variable $Y$ follows a Bernoulli distribution, $\text{Bernoulli}(\pi)$
 
 . . .
 

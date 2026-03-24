@@ -9247,14 +9247,14 @@
     "href": "slides/18-logistic-inference-notes.html#statistical-model",
     "title": "Logistic regression",
     "section": "Statistical model",
-    "text": "Statistical model\nThe form of the statistical model for logistic regression is\n\\[\n\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big) = \\beta_0 + \\beta_1x_{i1} + \\beta_2x_{i2} + \\dots + \\beta_px_{ip}\n\\]\nwhere \\(\\pi_i\\) is the probability \\(y_i = 1\\)."
+    "text": "Statistical model\nThe form of the statistical model for logistic regression is\n\\[\n\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big) = \\beta_0 + \\beta_1x_{i1} + \\beta_2x_{i2} + \\dots + \\beta_px_{ip}\n\\]\nwhere \\(\\pi_i\\) is the probability \\(y_i = 1\\).\n\n. . .\nThe response variable \\(Y\\) follows a Bernoulli distribution, \\(\\text{Bernoulli}(\\pi)\\) , so \\(E(y_i|x_{i1}, \\ldots, x_{ip}) = \\pi_i\\)\n\nThe logit, \\(\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big)\\), is called a link function, because it links the expected value to the predictors"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#distribution-of-y",
     "href": "slides/18-logistic-inference-notes.html#distribution-of-y",
     "title": "Logistic regression",
     "section": "Distribution of \\(Y\\)",
-    "text": "Distribution of \\(Y\\)\nThe response variable \\(Y\\) follows a Bernoulli distribution, \\(\\text{Bernoulli}(\\pi)\\) (similarly we can think of \\(n\\) observed \\(Y\\)’s as generated from a Binomial distribution, \\(\\text{Binomial}(n,\\pi)\\))\n. . .\nFor an individual observation,\n\\[\np(y_i | x_{i1}, \\ldots, x_{ip}, \\beta_0, \\beta_1, \\ldots, \\beta_p) = \\pi_i^{y_i}(1 - \\pi_i)^{1- y_i}\n\\]"
+    "text": "Distribution of \\(Y\\)\nThe response variable \\(Y\\) follows a Bernoulli distribution, \\(\\text{Bernoulli}(\\pi)\\)\n. . .\nFor an individual observation,\n\\[\np(y_i | x_{i1}, \\ldots, x_{ip}, \\beta_0, \\beta_1, \\ldots, \\beta_p) = \\pi_i^{y_i}(1 - \\pi_i)^{1- y_i}\n\\]"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#likelihood-function",
@@ -9471,14 +9471,14 @@
     "href": "slides/18-logistic-inference.html#statistical-model",
     "title": "Logistic regression",
     "section": "Statistical model",
-    "text": "Statistical model\nThe form of the statistical model for logistic regression is\n\\[\n\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big) = \\beta_0 + \\beta_1x_{i1} + \\beta_2x_{i2} + \\dots + \\beta_px_{ip}\n\\]\nwhere \\(\\pi_i\\) is the probability \\(y_i = 1\\)."
+    "text": "Statistical model\nThe form of the statistical model for logistic regression is\n\\[\n\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big) = \\beta_0 + \\beta_1x_{i1} + \\beta_2x_{i2} + \\dots + \\beta_px_{ip}\n\\]\nwhere \\(\\pi_i\\) is the probability \\(y_i = 1\\).\n\n\nThe response variable \\(Y\\) follows a Bernoulli distribution, \\(\\text{Bernoulli}(\\pi)\\) , so \\(E(y_i|x_{i1}, \\ldots, x_{ip}) = \\pi_i\\)\n\nThe logit, \\(\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big)\\), is called a link function, because it links the expected value to the predictors"
   },
   {
     "objectID": "slides/18-logistic-inference.html#distribution-of-y",
     "href": "slides/18-logistic-inference.html#distribution-of-y",
     "title": "Logistic regression",
     "section": "Distribution of \\(Y\\)",
-    "text": "Distribution of \\(Y\\)\nThe response variable \\(Y\\) follows a Bernoulli distribution, \\(\\text{Bernoulli}(\\pi)\\) (similarly we can think of \\(n\\) observed \\(Y\\)’s as generated from a Binomial distribution, \\(\\text{Binomial}(n,\\pi)\\))\n\nFor an individual observation,\n\\[\np(y_i | x_{i1}, \\ldots, x_{ip}, \\beta_0, \\beta_1, \\ldots, \\beta_p) = \\pi_i^{y_i}(1 - \\pi_i)^{1- y_i}\n\\]"
+    "text": "Distribution of \\(Y\\)\nThe response variable \\(Y\\) follows a Bernoulli distribution, \\(\\text{Bernoulli}(\\pi)\\)\n\nFor an individual observation,\n\\[\np(y_i | x_{i1}, \\ldots, x_{ip}, \\beta_0, \\beta_1, \\ldots, \\beta_p) = \\pi_i^{y_i}(1 - \\pi_i)^{1- y_i}\n\\]"
   },
   {
     "objectID": "slides/18-logistic-inference.html#likelihood-function",

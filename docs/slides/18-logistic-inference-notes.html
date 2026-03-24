@@ -435,12 +435,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#inference-for-coefficients-1" id="toc-inference-for-coefficients-1" class="nav-link" data-scroll-target="#inference-for-coefficients-1">Inference for coefficients</a></li>
   <li><a href="#hypothesis-test-for-beta_j" id="toc-hypothesis-test-for-beta_j" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j">Hypothesis test for <span class="math inline">\(\beta_j\)</span></a></li>
-  <li><a href="#confidence-interval-for-beta_j" id="toc-confidence-interval-for-beta_j" class="nav-link" data-scroll-target="#confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></a></li>
-  <li><a href="#interpretation-in-terms-of-the-odds" id="toc-interpretation-in-terms-of-the-odds" class="nav-link" data-scroll-target="#interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</a></li>
   <li><a href="#coefficient-for-age" id="toc-coefficient-for-age" class="nav-link" data-scroll-target="#coefficient-for-age">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-1" id="toc-coefficient-for-age-1" class="nav-link" data-scroll-target="#coefficient-for-age-1">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-2" id="toc-coefficient-for-age-2" class="nav-link" data-scroll-target="#coefficient-for-age-2">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-3" id="toc-coefficient-for-age-3" class="nav-link" data-scroll-target="#coefficient-for-age-3">Coefficient for <code>age</code></a></li>
+  <li><a href="#confidence-interval-for-beta_j" id="toc-confidence-interval-for-beta_j" class="nav-link" data-scroll-target="#confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></a></li>
+  <li><a href="#interpretation-in-terms-of-the-odds" id="toc-interpretation-in-terms-of-the-odds" class="nav-link" data-scroll-target="#interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</a></li>
   <li><a href="#ci-for-age" id="toc-ci-for-age" class="nav-link" data-scroll-target="#ci-for-age">CI for <code>age</code></a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
@@ -487,14 +487,14 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
 <li><p>Project EDA due TODAY at 11:59pm (on GitHub)</p></li>
-<li><p>HW 04 due March 21 at 11:59pm</p>
+<li><p>HW 04 due March 31 at 11:59pm</p>
 <ul>
 <li>Released after class</li>
 </ul></li>
 <li><p>Statistics experience due April 15</p></li>
 <li><p>SSMU Data Mini #3 - April 4</p>
 <ul>
-<li>See Ed Discussion for full announcement</li>
+<li>See <a href="https://edstem.org/us/courses/91299/discussion/7847547">Ed Discussion</a> for full announcement</li>
 </ul></li>
 </ul>
 </section>
@@ -610,8 +610,8 @@ window.Quarto = {
 </section>
 <section id="roc-curve-and-auc" class="level1">
 <h1>ROC curve and AUC</h1>
-<section id="prediction-and-classification" class="level2">
-<h2 class="anchored" data-anchor-id="prediction-and-classification">Prediction and classification</h2>
+<section id="prediction-and-classification" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="prediction-and-classification">Prediction and classification</h2>
 <div class="incremental">
 <ul class="incremental">
 <li><p>We are often interested in using the model to classify observations, i.e., predict whether a given observation will have a 1 or 0 response</p></li>
@@ -662,7 +662,7 @@ window.Quarto = {
 <tr class="even">
 <td><strong>Classified high risk</strong> <span class="math inline">\((\hat{\pi}_i &gt; \text{threshold})\)</span></td>
 <td>False positive (FP)</td>
-<td></td>
+<td>True positive (TP)</td>
 </tr>
 </tbody>
 </table>
@@ -676,8 +676,8 @@ window.Quarto = {
 <div class="midi">
 <div class="question">
 <ol type="1">
-<li><p>How do we set the threshold if the primary goal is high sensitivity?</p></li>
-<li><p>How do we set the threshold if the primary goal is high specificity?</p></li>
+<li><p>How do we set the threshold if the primary goal is high <strong>sensitivity</strong>?</p></li>
+<li><p>How do we set the threshold if the primary goal is high <strong>specificity</strong>?</p></li>
 </ol>
 </div>
 <p>🔗 <a href="https://forms.office.com/r/ysNdXsj5cW" class="uri">https://forms.office.com/r/ysNdXsj5cW</a></p>
@@ -844,7 +844,7 @@ p(y_i | x_{i1}, \ldots, x_{ip}, \beta_0, \beta_1, \ldots, \beta_p) \\[8pt]
 \log L = \sum\limits_{i=1}^n[y_i \log(\hat{\pi}_i) + (1 - y_i)\log(1 - \hat{\pi}_i)]
 \]</span></p>
 <p>where</p>
-<p><span class="math inline">\(\hat{\pi} = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}\)</span></p>
+<p><span class="math inline">\(\hat{\pi}_i = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1x_{i1} + \dots + \hat{\beta}_px_{ip}\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1x_{i1} + \dots + \hat{\beta}_px_{ip}\}}\)</span></p>
 </section>
 <section id="iterative-model-fitting-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="iterative-model-fitting-in-r">Iterative model fitting in R</h2>
@@ -877,14 +877,11 @@ Deviance = 3315.711 Iterations - 5
 <h2 class="anchored" data-anchor-id="inference-for-coefficients-1">Inference for coefficients</h2>
 <p>There are two approaches for testing coefficients in logistic regression</p>
 <ul>
-<li><p><strong>(Wald) hypothesis test.</strong> Use to test</p>
+<li><p><strong>(Wald) hypothesis test:</strong> Use to test</p>
 <ul>
 <li>a single coefficient (when <span class="math inline">\(n\)</span> is large)</li>
 </ul></li>
-</ul>
-<!-- -->
-<ul>
-<li><p><strong>Drop-in-deviance test</strong>. Use to test…</p>
+<li><p><strong>Drop-in-deviance test</strong>: Use to test…</p>
 <ul>
 <li>a single coefficient</li>
 <li>a categorical predictor with 3+ levels</li>
@@ -899,37 +896,6 @@ Deviance = 3315.711 Iterations - 5
 <p><strong>(Wald) Test Statistic:</strong> <span class="math display">\[z = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)}\]</span></p>
 <p>. . .</p>
 <p><strong>P-value:</strong> <span class="math inline">\(P(|Z| &gt; |z|)\)</span>, where <span class="math inline">\(Z \sim N(0, 1)\)</span>, the Standard Normal distribution</p>
-</section>
-<section id="confidence-interval-for-beta_j" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
-<p>We can calculate the <strong>C% confidence interval</strong> for <span class="math inline">\(\beta_j\)</span> as the following:</p>
-<p><span class="math display">\[
-\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}
-\]</span></p>
-<p>where <span class="math inline">\(z^*\)</span> is calculated from the <span class="math inline">\(N(0,1)\)</span> distribution</p>
-<p>. . .</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is an interval for the change in the log-odds for every one unit increase in <span class="math inline">\(x_j\)</span></p>
-</div>
-</div>
-</section>
-<section id="interpretation-in-terms-of-the-odds" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</h2>
-<p>The change in <strong>odds</strong> for every one unit increase in <span class="math inline">\(x_j\)</span>.</p>
-<p><span class="math display">\[
-\exp\{\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}\}
-\]</span></p>
-<p>. . .</p>
-<p><strong>Interpretation:</strong> We are <span class="math inline">\(C\%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, the odds multiply by a factor of <span class="math inline">\(\exp\{\hat{\beta}_j - z^*\times SE_{\hat{\beta}_j}\}\)</span> to <span class="math inline">\(\exp\{\hat{\beta}_j + z^* \times SE_{\hat{\beta}_j}\}\)</span>, holding all else constant.</p>
 </section>
 <section id="coefficient-for-age" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="coefficient-for-age">Coefficient for <code>age</code></h2>
@@ -1158,6 +1124,44 @@ P(|Z| &gt; |15.04|) \approx 0
 <p><strong>Conclusion:</strong></p>
 <p>The p-value is very small, so we reject <span class="math inline">\(H_0\)</span>. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for smoking status.</p>
 </section>
+<section id="confidence-interval-for-beta_j" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
+<p>We compute the <strong>C% confidence interval</strong> for <span class="math inline">\(\beta_j\)</span> as the following:</p>
+<p><span class="math display">\[
+\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}
+\]</span></p>
+<p>where <span class="math inline">\(z^*\)</span> is the critical value from the <span class="math inline">\(N(0,1)\)</span> distribution</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># z* for 95% confidence interval </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.959964</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is an interval for the change in the log-odds for every one unit increase in <span class="math inline">\(x_j\)</span></p>
+</div>
+</div>
+</section>
+<section id="interpretation-in-terms-of-the-odds" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</h2>
+<p>The change in <strong>odds</strong> for every one unit increase in <span class="math inline">\(x_j\)</span>.</p>
+<p><span class="math display">\[
+\exp\{\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}\}
+\]</span></p>
+<p>. . .</p>
+<p><strong>Interpretation:</strong> We are <span class="math inline">\(C\%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, the odds multiply by a factor of <span class="math inline">\(\exp\{\hat{\beta}_j - z^*\times SE_{\hat{\beta}_j}\}\)</span> to <span class="math inline">\(\exp\{\hat{\beta}_j + z^* \times SE_{\hat{\beta}_j}\}\)</span>, holding all else constant.</p>
+</section>
 <section id="ci-for-age" class="level2">
 <h2 class="anchored" data-anchor-id="ci-for-age">CI for <code>age</code></h2>
 <div class="cell" data-layout-align="center">
@@ -1206,6 +1210,7 @@ P(|Z| &gt; |15.04|) \approx 0
 </table>
 </div>
 </div>
+<p><br></p>
 <div class="question">
 <p>Interpret the 95% confidence interval for <code>age</code> in terms of the <strong>odds</strong> of being high risk for heart disease.</p>
 </div>

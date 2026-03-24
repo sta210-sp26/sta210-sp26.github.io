@@ -9128,14 +9128,14 @@
     "href": "slides/18-logistic-inference-notes.html",
     "title": "Logistic regression",
     "section": "",
-    "text": "Project EDA due TODAY at 11:59pm (on GitHub)\nHW 04 due March 21 at 11:59pm\n\nReleased after class\n\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
+    "text": "Project EDA due TODAY at 11:59pm (on GitHub)\nHW 04 due March 31 at 11:59pm\n\nReleased after class\n\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#announcements",
     "href": "slides/18-logistic-inference-notes.html#announcements",
     "title": "Logistic regression",
     "section": "",
-    "text": "Project EDA due TODAY at 11:59pm (on GitHub)\nHW 04 due March 21 at 11:59pm\n\nReleased after class\n\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
+    "text": "Project EDA due TODAY at 11:59pm (on GitHub)\nHW 04 due March 31 at 11:59pm\n\nReleased after class\n\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#topics",
@@ -9198,7 +9198,7 @@
     "href": "slides/18-logistic-inference-notes.html#truefalse-positivenegative",
     "title": "Logistic regression",
     "section": "True/false positive/negative",
-    "text": "True/false positive/negative\n\n\n\n\n\n\n\n\n\nNot high risk \\((y_i = 0)\\)\nHigh risk \\((y_i = 1)\\)\n\n\n\n\nClassified not high risk \\((\\hat{\\pi}_i \\leq \\text{threshold})\\)\nTrue negative (TN)\nFalse negative (FN)\n\n\nClassified high risk \\((\\hat{\\pi}_i &gt; \\text{threshold})\\)\nFalse positive (FP)"
+    "text": "True/false positive/negative\n\n\n\n\n\n\n\n\n\nNot high risk \\((y_i = 0)\\)\nHigh risk \\((y_i = 1)\\)\n\n\n\n\nClassified not high risk \\((\\hat{\\pi}_i \\leq \\text{threshold})\\)\nTrue negative (TN)\nFalse negative (FN)\n\n\nClassified high risk \\((\\hat{\\pi}_i &gt; \\text{threshold})\\)\nFalse positive (FP)\nTrue positive (TP)"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#sensitivity-and-specificity",
@@ -9268,7 +9268,7 @@
     "href": "slides/18-logistic-inference-notes.html#estimating-coefficients-1",
     "title": "Logistic regression",
     "section": "Estimating coefficients",
-    "text": "Estimating coefficients\nWe use the log-likelihood function to find the maximum likelihood estimates\n\\[\n\\log L = \\sum\\limits_{i=1}^n[y_i \\log(\\hat{\\pi}_i) + (1 - y_i)\\log(1 - \\hat{\\pi}_i)]\n\\]\nwhere\n\\(\\hat{\\pi} = \\frac{\\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1X_1 + \\dots + \\hat{\\beta}_pX_p\\}}{1 + \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1X_1 + \\dots + \\hat{\\beta}_pX_p\\}}\\)"
+    "text": "Estimating coefficients\nWe use the log-likelihood function to find the maximum likelihood estimates\n\\[\n\\log L = \\sum\\limits_{i=1}^n[y_i \\log(\\hat{\\pi}_i) + (1 - y_i)\\log(1 - \\hat{\\pi}_i)]\n\\]\nwhere\n\\(\\hat{\\pi}_i = \\frac{\\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\dots + \\hat{\\beta}_px_{ip}\\}}{1 + \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\dots + \\hat{\\beta}_px_{ip}\\}}\\)"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#iterative-model-fitting-in-r",
@@ -9282,7 +9282,7 @@
     "href": "slides/18-logistic-inference-notes.html#inference-for-coefficients-1",
     "title": "Logistic regression",
     "section": "Inference for coefficients",
-    "text": "Inference for coefficients\nThere are two approaches for testing coefficients in logistic regression\n\n(Wald) hypothesis test. Use to test\n\na single coefficient (when \\(n\\) is large)\n\n\n\n\nDrop-in-deviance test. Use to test…\n\na single coefficient\na categorical predictor with 3+ levels\na group of predictor variables"
+    "text": "Inference for coefficients\nThere are two approaches for testing coefficients in logistic regression\n\n(Wald) hypothesis test: Use to test\n\na single coefficient (when \\(n\\) is large)\n\nDrop-in-deviance test: Use to test…\n\na single coefficient\na categorical predictor with 3+ levels\na group of predictor variables"
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#hypothesis-test-for-beta_j",
@@ -9290,20 +9290,6 @@
     "title": "Logistic regression",
     "section": "Hypothesis test for \\(\\beta_j\\)",
     "text": "Hypothesis test for \\(\\beta_j\\)\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n. . .\n(Wald) Test Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)}\\]\n. . .\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
-  },
-  {
-    "objectID": "slides/18-logistic-inference-notes.html#confidence-interval-for-beta_j",
-    "href": "slides/18-logistic-inference-notes.html#confidence-interval-for-beta_j",
-    "title": "Logistic regression",
-    "section": "Confidence interval for \\(\\beta_j\\)",
-    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n. . .\n\n\n\n\n\n\nNote\n\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
-  },
-  {
-    "objectID": "slides/18-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
-    "href": "slides/18-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
-    "title": "Logistic regression",
-    "section": "Interpretation in terms of the odds",
-    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\\}\n\\]\n. . .\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^*\\times SE_{\\hat{\\beta}_j}\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE_{\\hat{\\beta}_j}\\}\\), holding all else constant."
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#coefficient-for-age",
@@ -9334,11 +9320,25 @@
     "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.25511\n0.31504\n-19.85519\n0\n-6.88001\n-5.64472\n\n\nage\n0.08360\n0.00556\n15.04622\n0\n0.07279\n0.09458\n\n\ncurrentSmoker1\n0.45270\n0.09227\n4.90642\n0\n0.27230\n0.63410\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for smoking status."
   },
   {
+    "objectID": "slides/18-logistic-inference-notes.html#confidence-interval-for-beta_j",
+    "href": "slides/18-logistic-inference-notes.html#confidence-interval-for-beta_j",
+    "title": "Logistic regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe compute the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\n\\]\nwhere \\(z^*\\) is the critical value from the \\(N(0,1)\\) distribution\n\n# z* for 95% confidence interval \nqnorm(0.975, mean = 0, sd = 1) \n\n[1] 1.959964\n\n\n. . .\n\n\n\n\n\n\nNote\n\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/18-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/18-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
+    "title": "Logistic regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\\}\n\\]\n. . .\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^*\\times SE_{\\hat{\\beta}_j}\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE_{\\hat{\\beta}_j}\\}\\), holding all else constant."
+  },
+  {
     "objectID": "slides/18-logistic-inference-notes.html#ci-for-age",
     "href": "slides/18-logistic-inference-notes.html#ci-for-age",
     "title": "Logistic regression",
     "section": "CI for age",
-    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.255\n0.315\n-19.855\n0\n-6.880\n-5.645\n\n\nage\n0.084\n0.006\n15.046\n0\n0.073\n0.095\n\n\ncurrentSmoker1\n0.453\n0.092\n4.906\n0\n0.272\n0.634\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
+    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.255\n0.315\n-19.855\n0\n-6.880\n-5.645\n\n\nage\n0.084\n0.006\n15.046\n0\n0.073\n0.095\n\n\ncurrentSmoker1\n0.453\n0.092\n4.906\n0\n0.272\n0.634\n\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
   },
   {
     "objectID": "slides/18-logistic-inference-notes.html#recap",
@@ -9359,7 +9359,7 @@
     "href": "slides/18-logistic-inference.html#announcements",
     "title": "Logistic regression",
     "section": "Announcements",
-    "text": "Announcements\n\nProject EDA due TODAY at 11:59pm (on GitHub)\nHW 04 due March 21 at 11:59pm\n\nReleased after class\n\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
+    "text": "Announcements\n\nProject EDA due TODAY at 11:59pm (on GitHub)\nHW 04 due March 31 at 11:59pm\n\nReleased after class\n\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
   },
   {
     "objectID": "slides/18-logistic-inference.html#topics",
@@ -9422,7 +9422,7 @@
     "href": "slides/18-logistic-inference.html#truefalse-positivenegative",
     "title": "Logistic regression",
     "section": "True/false positive/negative",
-    "text": "True/false positive/negative\n\n\n\n\n\n\n\n\n\nNot high risk \\((y_i = 0)\\)\nHigh risk \\((y_i = 1)\\)\n\n\n\n\nClassified not high risk \\((\\hat{\\pi}_i \\leq \\text{threshold})\\)\nTrue negative (TN)\nFalse negative (FN)\n\n\nClassified high risk \\((\\hat{\\pi}_i &gt; \\text{threshold})\\)\nFalse positive (FP)"
+    "text": "True/false positive/negative\n\n\n\n\n\n\n\n\n\nNot high risk \\((y_i = 0)\\)\nHigh risk \\((y_i = 1)\\)\n\n\n\n\nClassified not high risk \\((\\hat{\\pi}_i \\leq \\text{threshold})\\)\nTrue negative (TN)\nFalse negative (FN)\n\n\nClassified high risk \\((\\hat{\\pi}_i &gt; \\text{threshold})\\)\nFalse positive (FP)\nTrue positive (TP)"
   },
   {
     "objectID": "slides/18-logistic-inference.html#sensitivity-and-specificity",
@@ -9492,7 +9492,7 @@
     "href": "slides/18-logistic-inference.html#estimating-coefficients-1",
     "title": "Logistic regression",
     "section": "Estimating coefficients",
-    "text": "Estimating coefficients\nWe use the log-likelihood function to find the maximum likelihood estimates\n\\[\n\\log L = \\sum\\limits_{i=1}^n[y_i \\log(\\hat{\\pi}_i) + (1 - y_i)\\log(1 - \\hat{\\pi}_i)]\n\\]\nwhere\n\\(\\hat{\\pi} = \\frac{\\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1X_1 + \\dots + \\hat{\\beta}_pX_p\\}}{1 + \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1X_1 + \\dots + \\hat{\\beta}_pX_p\\}}\\)"
+    "text": "Estimating coefficients\nWe use the log-likelihood function to find the maximum likelihood estimates\n\\[\n\\log L = \\sum\\limits_{i=1}^n[y_i \\log(\\hat{\\pi}_i) + (1 - y_i)\\log(1 - \\hat{\\pi}_i)]\n\\]\nwhere\n\\(\\hat{\\pi}_i = \\frac{\\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\dots + \\hat{\\beta}_px_{ip}\\}}{1 + \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\dots + \\hat{\\beta}_px_{ip}\\}}\\)"
   },
   {
     "objectID": "slides/18-logistic-inference.html#iterative-model-fitting-in-r",
@@ -9506,7 +9506,7 @@
     "href": "slides/18-logistic-inference.html#inference-for-coefficients-1",
     "title": "Logistic regression",
     "section": "Inference for coefficients",
-    "text": "Inference for coefficients\nThere are two approaches for testing coefficients in logistic regression\n\n(Wald) hypothesis test. Use to test\n\na single coefficient (when \\(n\\) is large)\n\n\n\n\nDrop-in-deviance test. Use to test…\n\na single coefficient\na categorical predictor with 3+ levels\na group of predictor variables"
+    "text": "Inference for coefficients\nThere are two approaches for testing coefficients in logistic regression\n\n(Wald) hypothesis test: Use to test\n\na single coefficient (when \\(n\\) is large)\n\nDrop-in-deviance test: Use to test…\n\na single coefficient\na categorical predictor with 3+ levels\na group of predictor variables"
   },
   {
     "objectID": "slides/18-logistic-inference.html#hypothesis-test-for-beta_j",
@@ -9514,20 +9514,6 @@
     "title": "Logistic regression",
     "section": "Hypothesis test for \\(\\beta_j\\)",
     "text": "Hypothesis test for \\(\\beta_j\\)\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n\n(Wald) Test Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)}\\]\n\n\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
-  },
-  {
-    "objectID": "slides/18-logistic-inference.html#confidence-interval-for-beta_j",
-    "href": "slides/18-logistic-inference.html#confidence-interval-for-beta_j",
-    "title": "Logistic regression",
-    "section": "Confidence interval for \\(\\beta_j\\)",
-    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
-  },
-  {
-    "objectID": "slides/18-logistic-inference.html#interpretation-in-terms-of-the-odds",
-    "href": "slides/18-logistic-inference.html#interpretation-in-terms-of-the-odds",
-    "title": "Logistic regression",
-    "section": "Interpretation in terms of the odds",
-    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\\}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^*\\times SE_{\\hat{\\beta}_j}\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE_{\\hat{\\beta}_j}\\}\\), holding all else constant."
   },
   {
     "objectID": "slides/18-logistic-inference.html#coefficient-for-age",
@@ -9558,11 +9544,25 @@
     "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.25511\n0.31504\n-19.85519\n0\n-6.88001\n-5.64472\n\n\nage\n0.08360\n0.00556\n15.04622\n0\n0.07279\n0.09458\n\n\ncurrentSmoker1\n0.45270\n0.09227\n4.90642\n0\n0.27230\n0.63410\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for smoking status."
   },
   {
+    "objectID": "slides/18-logistic-inference.html#confidence-interval-for-beta_j",
+    "href": "slides/18-logistic-inference.html#confidence-interval-for-beta_j",
+    "title": "Logistic regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe compute the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\n\\]\nwhere \\(z^*\\) is the critical value from the \\(N(0,1)\\) distribution\n\n# z* for 95% confidence interval \nqnorm(0.975, mean = 0, sd = 1) \n\n[1] 1.959964\n\n\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/18-logistic-inference.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/18-logistic-inference.html#interpretation-in-terms-of-the-odds",
+    "title": "Logistic regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE_{\\hat{\\beta}_j}\\}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^*\\times SE_{\\hat{\\beta}_j}\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE_{\\hat{\\beta}_j}\\}\\), holding all else constant."
+  },
+  {
     "objectID": "slides/18-logistic-inference.html#ci-for-age",
     "href": "slides/18-logistic-inference.html#ci-for-age",
     "title": "Logistic regression",
     "section": "CI for age",
-    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.255\n0.315\n-19.855\n0\n-6.880\n-5.645\n\n\nage\n0.084\n0.006\n15.046\n0\n0.073\n0.095\n\n\ncurrentSmoker1\n0.453\n0.092\n4.906\n0\n0.272\n0.634\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
+    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.255\n0.315\n-19.855\n0\n-6.880\n-5.645\n\n\nage\n0.084\n0.006\n15.046\n0\n0.073\n0.095\n\n\ncurrentSmoker1\n0.453\n0.092\n4.906\n0\n0.272\n0.634\n\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
   },
   {
     "objectID": "slides/18-logistic-inference.html#recap",

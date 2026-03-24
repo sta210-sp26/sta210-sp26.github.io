@@ -46,7 +46,7 @@ library(countdown)
 
 -   Project EDA due TODAY at 11:59pm (on GitHub)
 
--   HW 04 due March 21 at 11:59pm
+-   HW 04 due March 31 at 11:59pm
 
     -   Released after class
 
@@ -54,7 +54,7 @@ library(countdown)
 
 -   SSMU Data Mini #3 - April 4
 
-    -   See Ed Discussion for full announcement
+    -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7847547) for full announcement
 
 ## Topics
 
@@ -173,7 +173,7 @@ tidy(heart_disease_fit) |>
 
 # ROC curve and AUC
 
-## Prediction and classification
+## Prediction and classification {.midi}
 
 ::: incremental
 -   We are often interested in using the model to classify observations, i.e., predict whether a given observation will have a 1 or 0 response
@@ -210,7 +210,7 @@ autoplot(heart_conf_mat, type = "heatmap")
 |   | <u>Not</u> high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
 |------------------------|------------------------|------------------------|
 | **Classified** <u>**not**</u> **high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
-| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) |  |
+| **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
 
 ## Sensitivity and specificity
 
@@ -219,9 +219,9 @@ autoplot(heart_conf_mat, type = "heatmap")
 
 :::: midi
 ::: question
-1.  How do we set the threshold if the primary goal is high sensitivity?
+1.  How do we set the threshold if the primary goal is high **sensitivity**?
 
-2.  How do we set the threshold if the primary goal is high specificity?
+2.  How do we set the threshold if the primary goal is high **specificity**?
 :::
 
 🔗 <https://forms.office.com/r/ysNdXsj5cW>
@@ -403,7 +403,7 @@ $$
 
 where
 
-$\hat{\pi} = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}$
+$\hat{\pi}_i = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1x_{i1} + \dots + \hat{\beta}_px_{ip}\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1x_{i1} + \dots + \hat{\beta}_px_{ip}\}}$
 
 ## Iterative model fitting in R
 
@@ -432,13 +432,11 @@ untrace(glm.fit)
 
 There are two approaches for testing coefficients in logistic regression
 
--   **(Wald) hypothesis test.** Use to test
+-   **(Wald) hypothesis test:** Use to test
 
     -   a single coefficient (when $n$ is large)
 
-<!-- -->
-
--   **Drop-in-deviance test**. Use to test...
+-   **Drop-in-deviance test**: Use to test...
 
     -   a single coefficient
     -   a categorical predictor with 3+ levels
@@ -455,34 +453,6 @@ There are two approaches for testing coefficients in logistic regression
 . . .
 
 **P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
-
-## Confidence interval for $\beta_j$
-
-We can calculate the **C% confidence interval** for $\beta_j$ as the following:
-
-$$
-\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}
-$$
-
-where $z^*$ is calculated from the $N(0,1)$ distribution
-
-. . .
-
-::: callout-note
-This is an interval for the change in the log-odds for every one unit increase in $x_j$
-:::
-
-## Interpretation in terms of the odds
-
-The change in **odds** for every one unit increase in $x_j$.
-
-$$
-\exp\{\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}\}
-$$
-
-. . .
-
-**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^*\times SE_{\hat{\beta}_j}\}$ to $\exp\{\hat{\beta}_j + z^* \times SE_{\hat{\beta}_j}\}$, holding all else constant.
 
 ## Coefficient for `age` {.midi}
 
@@ -507,7 +477,7 @@ $$
 H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
 $$, given current smoking status is in the model
 
-## Coefficient for `age`    {.midi}
+## Coefficient for `age` {.midi}
 
 ```{r}
 #| echo: false
@@ -519,7 +489,7 @@ $$, given current smoking status is in the model
 $$z = \frac{0.08360 - 0}{0.00556} = 15.04
 $$
 
-## Coefficient for `age`  {.midi}
+## Coefficient for `age` {.midi}
 
 ```{r}
 #| echo: false
@@ -538,7 +508,7 @@ $$
 2 * pnorm(15.04,lower.tail = FALSE)
 ```
 
-## Coefficient for `age`  {.midi}
+## Coefficient for `age` {.midi}
 
 ```{r}
 #| echo: false
@@ -549,6 +519,39 @@ $$
 
 The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for smoking status.
 
+## Confidence interval for $\beta_j$
+
+We compute the **C% confidence interval** for $\beta_j$ as the following:
+
+$$
+\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}
+$$
+
+where $z^*$ is the critical value from the $N(0,1)$ distribution
+
+```{r}
+# z* for 95% confidence interval 
+qnorm(0.975, mean = 0, sd = 1) 
+```
+
+. . .
+
+::: callout-note
+This is an interval for the change in the log-odds for every one unit increase in $x_j$
+:::
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_j$.
+
+$$
+\exp\{\hat{\beta}_j \pm z^* \times SE_{\hat{\beta}_j}\}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^*\times SE_{\hat{\beta}_j}\}$ to $\exp\{\hat{\beta}_j + z^* \times SE_{\hat{\beta}_j}\}$, holding all else constant.
+
 ## CI for `age`
 
 ```{r}
@@ -558,6 +561,8 @@ tidy(high_risk_fit, conf.int = TRUE) |>
   kable(digits = 3) |>
   row_spec(2, background = "#D9E3E4")
 ```
+
+<br>
 
 ::: question
 Interpret the 95% confidence interval for `age` in terms of the **odds** of being high risk for heart disease.

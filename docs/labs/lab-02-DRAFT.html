@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 04: Logistic regression – STA 210 - Spring 2026</title>
+<title>Lab 02: Inference for regression using mathematical models – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../hw/stats-experience.html" rel="next">
-<link href="../hw/hw-03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -147,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-04.html">HW 04</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 02: Inference for regression using mathematical models</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -248,13 +246,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -275,7 +273,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link active">
+  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 04</span></a>
   </div>
 </li>
@@ -406,10 +404,10 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  </ul></li>
-  <li><a href="#data-why-many-americans-dont-vote" id="toc-data-why-many-americans-dont-vote" class="nav-link" data-scroll-target="#data-why-many-americans-dont-vote">Data: “Why Many Americans Don’t Vote”</a></li>
+  <li><a href="#data-coffee-ratings" id="toc-data-coffee-ratings" class="nav-link" data-scroll-target="#data-coffee-ratings">Data: Coffee ratings</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -423,18 +421,18 @@ window.Quarto = {
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
-  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#grading-10pts" id="toc-grading-10pts" class="nav-link" data-scroll-target="#grading-10pts"><strong>Grading (10pts)</strong></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-04.html">HW 04</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 04: Logistic regression</h1>
+<h1 class="title">Lab 02: Inference for regression using mathematical models</h1>
+<p class="subtitle lead">Coffee ratings</p>
 </div>
 
 
@@ -457,11 +455,11 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Due date
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Tuesday, March 31 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This lab is due on <strong>Thursday, February 5 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
 <li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
@@ -470,109 +468,87 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In this assignment, you will analyze data from an online Ipsos survey that was conducted for the 2020 article “Why Many Americans Don’t Vote” on the now defunct data journalism website FiveThirtyEight. You will use logistic regression for interpretation and prediction. <a href="why-americans-dont-vote.pdf">Click here</a> for the original article. You can read more about the polling design and respondents in the README of the <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">GitHub repo</a> for the original data set.</p>
+<p>In today’s lab, you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aftertaste and its overall quality.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
-<p>By the end of the assignment you will be able to…</p>
+<p>By the end of the lab you will…</p>
 <ul>
-<li><p>Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables</p></li>
-<li><p>Conduct exploratory data analysis for logistic regression</p></li>
-<li><p>Interpret coefficients of logistic regression model</p></li>
-<li><p>Conduct model selection using cross validation</p></li>
-<li><p>Use the logistic regression model for prediction and classification</p></li>
+<li>use mathematical models to conduct inference for the slope.</li>
+<li>assess conditions for linear regression.</li>
 </ul>
 </section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-04</strong>. It contains the starter documents you need to complete the assignment.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00</a> for details on cloning a repo and starting a new project in R.</p></li>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-02-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
 </ul>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>The following packages will be used for this assignment.</p>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-</section>
-<section id="data-why-many-americans-dont-vote" class="level1">
-<h1>Data: “Why Many Americans Don’t Vote”</h1>
-<p>The data from the 2020 article “Why Many Americans Don’t Vote” includes information from polling done by Ipsos for FiveThirtyEight. Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. We will focus on using the demographic variables and someone’s party identification to understand whether an eligible voter is a “frequent” voter.</p>
-<p>The codebook for the variable definitions can be found in the <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">GitHub repo</a> for the data. The variables we’ll focus on are:</p>
+<section id="data-coffee-ratings" class="level1">
+<h1>Data: Coffee ratings</h1>
+<p>We will analyze data originally from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a>. It was featured in the TidyTuesday weekly data visualization challenge in July 2020, and the data set for the lab was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various coffee characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably treated as a random sample.</p>
+<p>This lab will focus on the following variables:</p>
 <ul>
-<li><p><code>ppage</code>: Age of respondent</p></li>
-<li><p><code>educ</code>: Highest educational attainment category.</p></li>
-<li><p><code>race</code>: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.</p></li>
-<li><p><code>gender</code>: Gender of respondent</p></li>
-<li><p><code>income_cat</code>: Household income category of respondent</p></li>
-<li><p><code>Q30</code>: Response to the question “Generally speaking, do you think of yourself as a…”</p>
-<ul>
-<li>1:Republican</li>
-<li>2: Democrat</li>
-<li>3: Independent</li>
-<li>4: Another party, please specify</li>
-<li>5: No preference</li>
-<li>-1: No response</li>
-</ul></li>
-<li><p><code>voter_category</code>: past voting behavior:</p>
-<ul>
-<li>always: respondent voted in all or all-but-one of the elections they were eligible in</li>
-<li>sporadic: respondent voted in at least two, but fewer than all-but-one of the elections they were eligible in</li>
-<li>rarely/never: respondent voted in 0 or 1 of the elections they were eligible in</li>
-</ul></li>
+<li><code>aftertaste</code>: Aftertaste rating, 0 (worst aftertaste) - 10 (best aftertaste)</li>
+<li><code>total_cup_points</code>: Rating of overall quality, 0 (worst quality) - 10 (best quality)</li>
 </ul>
-<p>The data is in the file <code>fivethirtyeight-nonvoters-data.csv</code> in the <code>data</code> folder of your GitHub repo.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<p><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">Click here</a> for the definitions of all variables in the data set. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these characteristics were measured.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/coffee-ratings.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that the authors use weighting to make the final sample more representative on the US population for their article. We will not use the weighting in this assignment, so we should treat the sample as a convenience sample rather than a random sample of the population.</p>
+<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Make sure the teaching team can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is to start a new line after every pipe (<code>|&gt;</code>) and plus sign (<code>+</code>).</p>
 </div>
 </div>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p>The goal of this analysis is use the polling data to examine the relationship between U.S. adults’ political party identification and voting behavior.</p>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression to understand variability in overall quality rating based on the aftertaste rating in coffee.</p>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Why do you think the authors chose to only include data from people who were eligible to vote for at least four election cycles?</p>
+<p>Visualize the relationship between the aftertaste rating and total cup points. Write two observations from the plot.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Let’s prepare the data for analysis and modeling.</p>
-<ul>
-<li>Create a new variable called <code>frequent_voter</code> that takes the value 1 if the <code>voter_category</code> is “always” and 0 otherwise.</li>
-<li>Make a table of the distribution of <code>frequent_voter</code>.</li>
-<li>What percentage of the respondents in the data say they voted “in all or all-but-one of the elections they were eligible in”?</li>
-</ul>
+<p>Fit the linear model using the aftertaste rating to understand variability in the total cup points. Neatly display the model using three decimal places and include the <strong>98%</strong> confidence interval for the model coefficients in the output.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>The variable <code>Q30</code> contains the respondent’s political party identification. Make a new variable, <code>party_id</code>, that simplifies <code>Q30</code> into three categories: “Democrat”, “Republican”, “Independent/Neither”, The category “Independent/Neither” will also include respondents who did not answer the question. Make <code>party_id</code> a factor and relevel it so that it is consistent with the ordering of the responses in Question 30 of the survey.</p>
-<ul>
-<li>Make a plot of the distribution of <code>party_id</code>.</li>
-<li>Which category of <code>party_id</code> occurs most frequently in this data set?</li>
-</ul>
+<ol type="a">
+<li>Interpret the slope in the context of the data.</li>
+<li>Assume you are a coffee drinker using the model from <a href="#exercise-2">Exercise 2</a>. Would you drink a coffee represented by the intercept? Why or why not?</li>
+</ol>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>In the FiveThirtyEight article, the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.</p>
-<ul>
-<li><p>Make a segmented barplot (also known as a stacked barplot) displaying the distribution of <code>frequent_voter</code> for each category of <code>party_id</code>. Make the plot such that the percentages (instead of counts) are displayed.</p></li>
-<li><p>Use the plot to describe the relationship between these two variables.</p></li>
-</ul>
+<p>You can obtain the predicted values and other observation-level statistics from the model using the <code>augment()</code> function. Create a data frame called <code>coffee_aug</code> by replacing the blank with the name of the fitted model.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coffee_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(_____)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li>Write code to “manually” compute the regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span> using the residuals (stored in the column <code>.resid</code>).</li>
+<li>State the definition of the regression standard error in the context of the data.</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -583,82 +559,105 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>See the plots of demographic information by voting history in the <a href="https://canvas.duke.edu/courses/47067/files/folder/articles?preview=2880646">FiveThirtyEight article</a> for examples of segmented bar plots.</p>
+<p>You can check your answer to part (b) by using the code below to get <span class="math inline">\(\hat{\sigma}_\epsilon\)</span></p>
+<center>
+<code>glance(model_name)$sigma</code>
+</center>
 </div>
 </div>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Let’s start by fitting a model using the demographic factors - <code>ppage</code>, <code>educ</code>, <code>race</code>, <code>gender</code>, <code>income_cat</code> - to predict the odds a person is a frequent voter.</p>
-<ul>
-<li><p>Split the data into training (75%) and testing sets (25%). Use a seed of <code>29</code>.</p></li>
-<li><p>Fit the model on the training data. Display the model using 3 digits.</p></li>
-<li><p>Consider the relationship between <code>ppage</code> and one’s voting behavior. Interpret the coefficient of <code>ppage</code> in the context of the data in terms of the <strong>odds</strong> a person is a frequent voter.</p></li>
-</ul>
+<p>Do the data provide evidence of a statistically significant linear relationship between aftertaste rating and total cup points? Conduct a hypothesis test using mathematical models to answer this question.</p>
+<ol type="a">
+<li>State the null and alternative hypotheses in words and in mathematical notation.</li>
+<li>What is the test statistic? State what the test statistic means in the context of this problem. <em>Note: You do not need to show how the test statistic is computed.</em></li>
+<li>What distribution was used to calculate the p-value? Be specific.</li>
+<li>State the conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.02\)</span> to make your decision.</li>
+</ol>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Use 5-fold cross validation to evaluate whether it is useful to add party identification to the model from the previous exercise. Use a seed of <code>210</code>. Explain how the results from cross validation support your choice and what they suggest about the usefulness of party identification as a predictor.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<ol type="a">
+<li><p>What is the critical value used to calculate the confidence interval displayed in <a href="#exercise-2">Exercise 2</a>? Show the code and output used to get your response.</p></li>
+<li><p>Is the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.</p></li>
+</ol>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<ol type="a">
+<li><p>Compute the 98% confidence interval for the mean total cup points for coffees with aftertaste rating of 8.25. Interpret this interval in the context of the data.</p></li>
+<li><p>One coffee produced by the Ethiopia Commodity Exchange has an aftertaste of 8.25. Calculate the 98% prediction interval for the total cup points for this coffee. Interpret this interval in the context of the data.</p></li>
+<li><p>How do the intervals in parts (a) and (b) compare? If there are differences in the predictions and/or margin of error for the intervals, briefly explain why.</p></li>
+</ol>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>We have conducted inference in the previous exercises making some inherent assumptions about the data. Therefore, we will check some model conditions to assess whether the assumptions hold, and thus evaluate the reliability of the inferential results. To do so, we will use the data frame <code>coffee_aug</code> from <a href="#exercise-4">Exercise 4</a> that includes the residuals, predicted values, and other observation-level statistics from the model.</p>
+<ol type="a">
+<li>Make a scatterplot of the residuals (<code>.resid</code>) vs.&nbsp;fitted values (<code>.fitted</code>). Use <a href="https://ggplot2.tidyverse.org/reference/geom_abline.html"><code>geom_hline()</code></a> to add a horizontal dotted line at <span class="math inline">\(residuals = 0\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The code to perform cross validation for logistic regression is very similar to the code for linear regression. The primary difference is defining the logistic regression model using <code>add_model(logistic_reg())</code> in the workflow.</p>
+<p>The <strong>linearity condition</strong> is satisfied if the residuals are randomly scattered (no distinguishable pattern or structure) in the plot of residuals vs.&nbsp;fitted values.<br>
+<br>
+The <strong>equal variance</strong> condition is satisfied if the vertical spread of the residuals is relatively equal across the plot.</p>
+<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#linearity">Section 6.2.2</a> and <a href="https://intro-regression.github.io/06-slr-conditions.html#equal-variance">Section 6.2.5</a> of the textbook for more on linearity and equal variance, respectively.</p>
 </div>
 </div>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Display the model chosen from the previous exercise using 3 digits.</p>
-<p>Then use the model selected to write a short paragraph (2 - 5 sentences) describing the effect (or lack of effect) of political party on the odds a person is a frequent voter. The paragraph should include an indication of which levels (if any) are statistically significant at <span class="math inline">\(\alpha = 0.05\)</span> along with specifics about the differences in the odds between the political parties, as appropriate.</p>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>In the article, the authors write</p>
-<blockquote class="blockquote">
-<p><em>“Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don’t belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system.”</em></p>
-</blockquote>
-<p>Consider the model you selected in Exercise 6. Is it consistent with this statement? Briefly explain why or why not.</p>
+<ol start="2" type="a">
+<li><p>Is the linearity condition satisfied? Briefly explain why or why not.</p></li>
+<li><p>Is the equal variance condition satisfied? Briefly explain why or why not.</p></li>
+</ol>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Use the testing data to produce the ROC curve and compute the area under the curve (AUC) for the model selected in Exercise 6. Write 1 - 2 sentences describing how well the model fits the data.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>normality</strong> condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large <span class="math inline">\((n &gt; 30)\)</span>.</p>
+<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#normality">Section 6.2.4</a> of the textbook for more on normality.</p>
+</div>
+</div>
+<ol type="a">
+<li>Make a histogram or density plot of the residuals (<code>.resid</code>).</li>
+<li>Is the normality condition satisfied? Briefly explain why or why not. If not, can it be relaxed for this data set? Briefly explain.</li>
+</ol>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>You have been tasked by a local political organization to identify adults in the community who are frequent voters. These adults will receive targeted political mailings that will be different from the mailings sent to adults who are not frequent voters. You will use the model selected in Exercise 6 to identify the frequent voters.</p>
-<ul>
-<li><p>Select a classification threshold. Briefly explain the reasoning for your choice, including any relevant statistics used select the threshold.</p></li>
-<li><p>Make a confusion matrix based on the chosen classification threshold. Use the confusion matrix to compute the following:</p>
-<ul>
-<li><p>Sensitivity</p></li>
-<li><p>Specificity</p></li>
-<li><p>False negative rate</p></li>
-<li><p>False positive rate</p></li>
-</ul></li>
-</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>independence</strong> condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.</p>
+<p>This condition is sometimes difficult to fully assess, so we just want to consider whether it is reasonably satisfied based on the information and data available.</p>
+<p>See <a href="https://intro-regression.github.io/06-slr-conditions.html#independence">Section 6.2.3</a> of the textbook for more on independence.</p>
+</div>
+</div>
+<p>Is the independence condition satisfied for these data? Briefly explain why or why not.</p>
 </section>
-</section>
-<section id="ai-disclosure" class="level1">
-<h1>AI Disclosure</h1>
-<p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.</p>
-<ul>
-<li>I didn’t use an LLM / Generative AI tool.</li>
-<li>I asked it to clarify one or more exercises.</li>
-<li>I asked it clarifying questions to better understand a concept.</li>
-<li>I asked it to help write code to complete an exercise.</li>
-<li>I gave it my code and asked it to help me fix it.</li>
-<li>I asked it about an error or why code would do something I didn’t want.</li>
-<li>I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.</li>
-<li>I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.</li>
-<li>Other:______</li>
-</ul>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
@@ -673,19 +672,20 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+<p>Reminder: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
 </div>
 </div>
 <p>To submit your assignment:</p>
 <ul>
 <li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .pdf submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+<li><p>Mark the pages for the <em>“Exercises”</em> question.</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> question.</p></li>
 </ul>
 </section>
-<section id="grading" class="level1">
-<h1>Grading</h1>
+<section id="grading-10pts" class="level1">
+<h1><strong>Grading (10pts)</strong></h1>
+<p>This lab will be graded based on completion and workflow &amp; formatting. The point breakdown is as follows:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -695,56 +695,31 @@ Warning
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ex 1</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Ex 2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 10</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>AI Disclosure</td>
-<td>1</td>
+<td>Completion</td>
+<td>8</td>
 </tr>
 <tr class="even">
 <td>Workflow &amp; formatting</td>
-<td>3</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+<p><strong>Completion:</strong> Points will be awarded for completion based on the following:</p>
+<ul>
+<li><p>8pts: Complete 10 exercises</p></li>
+<li><p>7pts: Complete 8 - 9 exercises</p></li>
+<li><p>6pts: Complete 6 - 7 exercises</p></li>
+<li><p>5pts: Complete 4 - 5 exercises</p></li>
+<li><p>4pts: Complete 2 - 3 exercises</p></li>
+<li><p>0pts: Complete &lt; 2 exercises</p></li>
+</ul>
+<p><strong>Workflow &amp; formatting</strong></p>
+<p>The workflow &amp; formatting grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code, and your name and the date updated in the YAML.</p>
+<ul>
+<li><p>2pts: Meet all criteria</p></li>
+<li><p>1pt: Meet some criteria</p></li>
+<li><p>0pt: Meet no criteria</p></li>
+</ul>
 
 
 </section>
@@ -1150,18 +1125,6 @@ Warning
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../hw/hw-03.html" class="pagination-link" aria-label="HW 03">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">HW 03</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../hw/stats-experience.html" class="pagination-link" aria-label="Statistics experience">
-        <span class="nav-page-text">Statistics experience</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

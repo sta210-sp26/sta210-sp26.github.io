@@ -33,9 +33,8 @@ In this assignment, you will…
 
 -   use model diagnostics to identify influential points.
 
-<!-- -->
-
 -   evaluate multicollinearity and consider strategies to handle it.
+
 -   fit and interpret models with transformed variables.
 
 # Getting started

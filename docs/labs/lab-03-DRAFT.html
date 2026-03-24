@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 04: Logistic regression – STA 210 - Spring 2026</title>
+<title>Lab 03: Multiple linear regression – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../hw/stats-experience.html" rel="next">
-<link href="../hw/hw-03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -147,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-04.html">HW 04</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 03: Multiple linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -248,13 +246,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -275,7 +273,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link active">
+  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 04</span></a>
   </div>
 </li>
@@ -406,10 +404,11 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   </ul></li>
-  <li><a href="#data-why-many-americans-dont-vote" id="toc-data-why-many-americans-dont-vote" class="nav-link" data-scroll-target="#data-why-many-americans-dont-vote">Data: “Why Many Americans Don’t Vote”</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-candy-competition" id="toc-data-candy-competition" class="nav-link" data-scroll-target="#data-candy-competition">Data: Candy competition</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -419,22 +418,19 @@ window.Quarto = {
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
-  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#grading-10-points" id="toc-grading-10-points" class="nav-link" data-scroll-target="#grading-10-points">Grading (10 points)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-04.html">HW 04</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 04: Logistic regression</h1>
+<h1 class="title">Lab 03: Multiple linear regression</h1>
+<p class="subtitle lead">Candy competition</p>
 </div>
 
 
@@ -457,122 +453,191 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Due date
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Tuesday, March 31 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This lab is due on <strong>Thursday, February 12 at 11:59pm.</strong></p>
+<p>To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li><p>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</p></li>
 <li><p>Final <code>.pdf</code> file submitted on Gradescope</p></li>
 </ul>
+<section id="section" class="level1">
+<h1></h1>
+</section>
 </div>
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In this assignment, you will analyze data from an online Ipsos survey that was conducted for the 2020 article “Why Many Americans Don’t Vote” on the now defunct data journalism website FiveThirtyEight. You will use logistic regression for interpretation and prediction. <a href="why-americans-dont-vote.pdf">Click here</a> for the original article. You can read more about the polling design and respondents in the README of the <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">GitHub repo</a> for the original data set.</p>
+<p>In today’s lab you will analyze data collected from an online experiment conducted by the now defunct data journalism website FiveThirtyEight to describe what makes the best candy.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
-<p>By the end of the assignment you will be able to…</p>
+<p>By the end of the lab you will be able to…</p>
 <ul>
-<li><p>Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables</p></li>
-<li><p>Conduct exploratory data analysis for logistic regression</p></li>
-<li><p>Interpret coefficients of logistic regression model</p></li>
-<li><p>Conduct model selection using cross validation</p></li>
-<li><p>Use the logistic regression model for prediction and classification</p></li>
+<li><p>transform and create new variables</p></li>
+<li><p>fit and interpret multiple linear regression models</p></li>
+<li><p>compare models to select the “best” one</p></li>
+<li><p>collaborate using GitHub</p></li>
 </ul>
 </section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-04</strong>. It contains the starter documents you need to complete the assignment.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00</a> for details on cloning a repo and starting a new project in R.</p></li>
+<li><p><a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/IQBOyCiOAbuCTaSDqSwx5e17AXQXY39VvMy2szPYTCGCMUY?e=muOdca"><strong>Click here</strong></a> to find your team for this week’s lab. - UPDATE</p></li>
+<li><p>Go to the <a href="https://www.github.com/sta210-sp26">sta210-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-03-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+<li><p>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</p></li>
+<li><p><strong>Do not make any changes to the <code>.qmd</code> file until the instructions tell you to do so.</strong></p></li>
 </ul>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>The following packages will be used for this assignment.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-</section>
-<section id="data-why-many-americans-dont-vote" class="level1">
-<h1>Data: “Why Many Americans Don’t Vote”</h1>
-<p>The data from the 2020 article “Why Many Americans Don’t Vote” includes information from polling done by Ipsos for FiveThirtyEight. Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. We will focus on using the demographic variables and someone’s party identification to understand whether an eligible voter is a “frequent” voter.</p>
-<p>The codebook for the variable definitions can be found in the <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">GitHub repo</a> for the data. The variables we’ll focus on are:</p>
-<ul>
-<li><p><code>ppage</code>: Age of respondent</p></li>
-<li><p><code>educ</code>: Highest educational attainment category.</p></li>
-<li><p><code>race</code>: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.</p></li>
-<li><p><code>gender</code>: Gender of respondent</p></li>
-<li><p><code>income_cat</code>: Household income category of respondent</p></li>
-<li><p><code>Q30</code>: Response to the question “Generally speaking, do you think of yourself as a…”</p>
-<ul>
-<li>1:Republican</li>
-<li>2: Democrat</li>
-<li>3: Independent</li>
-<li>4: Another party, please specify</li>
-<li>5: No preference</li>
-<li>-1: No response</li>
-</ul></li>
-<li><p><code>voter_category</code>: past voting behavior:</p>
-<ul>
-<li>always: respondent voted in all or all-but-one of the elections they were eligible in</li>
-<li>sporadic: respondent voted in at least two, but fewer than all-but-one of the elections they were eligible in</li>
-<li>rarely/never: respondent voted in 0 or 1 of the elections they were eligible in</li>
-</ul></li>
-</ul>
-<p>The data is in the file <code>fivethirtyeight-nonvoters-data.csv</code> in the <code>data</code> folder of your GitHub repo.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<section id="workflow-using-git-and-github-as-a-team" class="level1">
+<h1>Workflow: Using Git and GitHub as a team</h1>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that the authors use weighting to make the final sample more representative on the US population for their article. We will not use the weighting in this assignment, so we should treat the sample as a convenience sample rather than a random sample of the population.</p>
+<p>Assign each person on your team a number 1 through 4. For teams of three, Team Member 1 can take on the role of Team Member 4.</p>
+<p>The following exercises must be done in order. <strong>Only one person should type in the <code>.qmd</code> file, commit, and push updates at a time.</strong> When it is not your turn to type, you should still share ideas and contribute to the team’s discussion.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>⌨️ <strong>Team Member 1: Hands on the keyboard.</strong></p>
+<p>🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</div>
+</div>
+</div>
+<p>Change the author to your team name and include each team member’s name in the <code>author</code> field of the YAML in the following format: <code>Team Name: Member 1, Member 2, Member 3, Member 4</code>.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 1:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub.</p>
+<p><br></p>
+</div>
+<div class="pull">
+<p><strong>Team Members 2, 3, 4:</strong> Once Team Member 1 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the updated name in your <code>.qmd</code> file.</p>
+</div>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-candy-competition" class="level1">
+<h1>Data: Candy competition</h1>
+<p>The data from this lab comes from the <em>FiveThirtyEight</em> article <a href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking"><em>The Ultimate Halloween Candy Power Ranking</em></a> by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g.&nbsp;Reeses vs.&nbsp;Skittles). Click <a href="http://walthickey.com/2017/10/18/whats-the-best-halloween-candy/">here</a> to check out some of the matchups.</p>
+<p>The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chocolate</code></td>
+<td>Does it contain chocolate?</td>
+</tr>
+<tr class="even">
+<td><code>fruity</code></td>
+<td>Is it fruit flavored?</td>
+</tr>
+<tr class="odd">
+<td><code>caramel</code></td>
+<td>Is there caramel in the candy?</td>
+</tr>
+<tr class="even">
+<td><code>peanutalmondy</code></td>
+<td>Does it contain peanuts, peanut butter or almonds?</td>
+</tr>
+<tr class="odd">
+<td><code>nougat</code></td>
+<td>Does it contain nougat?</td>
+</tr>
+<tr class="even">
+<td><code>crispedricewafer</code></td>
+<td>Does it contain crisped rice, wafers, or a cookie component?</td>
+</tr>
+<tr class="odd">
+<td><code>hard</code></td>
+<td>Is it a hard candy?</td>
+</tr>
+<tr class="even">
+<td><code>bar</code></td>
+<td>Is it a candy bar?</td>
+</tr>
+<tr class="odd">
+<td><code>pluribus</code></td>
+<td>Is it one of many candies in a bag or box?</td>
+</tr>
+<tr class="even">
+<td><code>sugarpercent</code></td>
+<td>The percentile of sugar it falls under within the data set. Values 0 - 1.</td>
+</tr>
+<tr class="odd">
+<td><code>pricepercent</code></td>
+<td>The unit price percentile compared to the rest of the set. Values 0 - 1.</td>
+</tr>
+<tr class="even">
+<td><code>winpercent</code></td>
+<td>The overall win percentage according to 269,000 matchups. Values 0 - 100.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the code below to get a glimpse of the <code>candy_rankings</code> data frame in the <strong>fivethirtyeight</strong> R package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candy_rankings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 85
+Columns: 13
+$ competitorname   &lt;chr&gt; "100 Grand", "3 Musketeers", "One dime", "One quarter…
+$ chocolate        &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
+$ fruity           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…
+$ caramel          &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
+$ peanutyalmondy   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, …
+$ nougat           &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
+$ crispedricewafer &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
+$ hard             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ bar              &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
+$ pluribus         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE…
+$ sugarpercent     &lt;dbl&gt; 0.732, 0.604, 0.011, 0.011, 0.906, 0.465, 0.604, 0.31…
+$ pricepercent     &lt;dbl&gt; 0.860, 0.511, 0.116, 0.511, 0.511, 0.767, 0.767, 0.51…
+$ winpercent       &lt;dbl&gt; 66.97173, 67.60294, 32.26109, 46.11650, 52.34146, 50.…</code></pre>
 </div>
 </div>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p>The goal of this analysis is use the polling data to examine the relationship between U.S. adults’ political party identification and voting behavior.</p>
+<p>The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy, as measured by <code>winpercent</code>.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 1</strong>: Type the team’s responses to exercises 1 - 2.</p>
+</div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Why do you think the authors chose to only include data from people who were eligible to vote for at least four election cycles?</p>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Let’s prepare the data for analysis and modeling.</p>
-<ul>
-<li>Create a new variable called <code>frequent_voter</code> that takes the value 1 if the <code>voter_category</code> is “always” and 0 otherwise.</li>
-<li>Make a table of the distribution of <code>frequent_voter</code>.</li>
-<li>What percentage of the respondents in the data say they voted “in all or all-but-one of the elections they were eligible in”?</li>
-</ul>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>The variable <code>Q30</code> contains the respondent’s political party identification. Make a new variable, <code>party_id</code>, that simplifies <code>Q30</code> into three categories: “Democrat”, “Republican”, “Independent/Neither”, The category “Independent/Neither” will also include respondents who did not answer the question. Make <code>party_id</code> a factor and relevel it so that it is consistent with the ordering of the responses in Question 30 of the survey.</p>
-<ul>
-<li>Make a plot of the distribution of <code>party_id</code>.</li>
-<li>Which category of <code>party_id</code> occurs most frequently in this data set?</li>
-</ul>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>In the FiveThirtyEight article, the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.</p>
-<ul>
-<li><p>Make a segmented barplot (also known as a stacked barplot) displaying the distribution of <code>frequent_voter</code> for each category of <code>party_id</code>. Make the plot such that the percentages (instead of counts) are displayed.</p></li>
-<li><p>Use the plot to describe the relationship between these two variables.</p></li>
-</ul>
+<ol type="a">
+<li><p>Visualize the relationship between the response variable <code>winpercent</code> and one potential quantitative predictor. Write an observation from the graph.</p></li>
+<li><p>Visualize the relationship between the response variable and one potential categorical predictor. Write an observation from the graph.</p></li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -583,82 +648,95 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>See the plots of demographic information by voting history in the <a href="https://canvas.duke.edu/courses/47067/files/folder/articles?preview=2880646">FiveThirtyEight article</a> for examples of segmented bar plots.</p>
+<p>Include informative axis labels and titles on the visualizations.</p>
 </div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>We will do some feature engineering<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> to transform and create new variables to consider for the model.</p>
+<ul>
+<li><p>Create a categorical variable that breaks <code>sugarpercent</code> into quartiles:</p>
+<ul>
+<li><p>“Q1” if <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> the <span class="math inline">\(25^{th}\)</span> percentile.</p></li>
+<li><p>“Q2” if <span class="math inline">\(25^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(50^{th}\)</span> percentile.</p></li>
+<li><p>“Q3” if <span class="math inline">\(50^{th}\)</span> percentile <span class="math inline">\(\leq\)</span> <code>sugarpercent</code> <span class="math inline">\(&lt;\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
+<li><p>“Q4” if <code>sugarpercent</code> <span class="math inline">\(\geq\)</span> <span class="math inline">\(75^{th}\)</span> percentile.</p></li>
+</ul></li>
+<li><p>Multiply <code>pricepercent</code> * 100, so the variable ranges from 0 - 100% instead of 0 - 1.</p></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will use these variables whenever <code>sugarpercent</code> and <code>pricepercent</code> are referenced in the remainder of the lab.</p>
+</div>
+</div>
+<div class="render-commit-push">
+<p><strong>Team Member 1</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.</p>
+<p><strong>Team Member 2</strong>: It’s your turn! Type the team’s response to exercises 3 - 4.</p>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ol type="a">
+<li><p>Fit a model using <code>sugarpercent</code>, <code>pricepercent</code>, <code>chocolate</code>, <code>peanutalmondy</code>, the interaction between <code>pricepercent</code> and <code>chocolate</code>, and the interaction between <code>chocolate</code> and <code>peanutalmondy</code> to predict <code>winpercent</code>. Neatly display the model using 3 decimal places. <em>Remember to use the variables created in the previous exercise.</em></p></li>
+<li><p>Interpret the intercept in the context of the data.</p></li>
+</ol>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Use the model from the previous exercise to interpret the following in the context of the data:</p>
+<ol type="a">
+<li><p>Coefficient of <code>sugarpercent = Q3</code>.</p></li>
+<li><p>Coefficient of <code>pricepercent:chocolateTRUE</code></p></li>
+<li><p>Effect of <code>peanutalmondy</code> for chocolate candy</p></li>
+</ol>
+<div class="render-commit-push">
+<p><strong>Team Member 2</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.</p>
+<p><strong>Team Member 3</strong>: It’s your turn! Type the team’s response to exercises 5 - 6.</p>
 </div>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Let’s start by fitting a model using the demographic factors - <code>ppage</code>, <code>educ</code>, <code>race</code>, <code>gender</code>, <code>income_cat</code> - to predict the odds a person is a frequent voter.</p>
-<ul>
-<li><p>Split the data into training (75%) and testing sets (25%). Use a seed of <code>29</code>.</p></li>
-<li><p>Fit the model on the training data. Display the model using 3 digits.</p></li>
-<li><p>Consider the relationship between <code>ppage</code> and one’s voting behavior. Interpret the coefficient of <code>ppage</code> in the context of the data in terms of the <strong>odds</strong> a person is a frequent voter.</p></li>
-</ul>
+<p>Let’s consider another model. Fit a model that includes <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutalmondy</code>, <code>sugarpercent</code> , along with the interaction between <code>pricepercent</code> and <code>peanutalmondy</code> . Neatly display the model using 3 decimal places. <em>Remember to use the variables created in Exercise 2.</em></p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Use 5-fold cross validation to evaluate whether it is useful to add party identification to the model from the previous exercise. Use a seed of <code>210</code>. Explain how the results from cross validation support your choice and what they suggest about the usefulness of party identification as a predictor.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<ol type="a">
+<li><p>Compute the RMSE for the models fit in <a href="#exercise-3">Exercise 3</a> and <a href="#exercise-5">Exercise 5</a>.</p></li>
+<li><p>Which model would you choose based on the results from part (a)? Briefly explain.</p></li>
+</ol>
+<div class="render-commit-push">
+<p><strong>Team Member 3</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The code to perform cross validation for logistic regression is very similar to the code for linear regression. The primary difference is defining the logistic regression model using <code>add_model(logistic_reg())</code> in the workflow.</p>
-</div>
+<div class="pull">
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.</p>
+<p><strong>Team Member 4</strong>: It’s your turn! Type the team’s response to exercises 7.</p>
 </div>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Display the model chosen from the previous exercise using 3 digits.</p>
-<p>Then use the model selected to write a short paragraph (2 - 5 sentences) describing the effect (or lack of effect) of political party on the odds a person is a frequent voter. The paragraph should include an indication of which levels (if any) are statistically significant at <span class="math inline">\(\alpha = 0.05\)</span> along with specifics about the differences in the odds between the political parties, as appropriate.</p>
+<p>Use the model you selected to describe what generally makes a good candy, as measured by the win percentage. Include discussion about the interpretation of the model coefficients and the statistical significance of the predictors based on the model output.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 4</strong>: Render, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is clear afterwards and the rest of the team can see the completed lab.</p>
+</div>
+<div class="pull">
+<p><strong>All other team members</strong>: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!</p>
+</div>
 </section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>In the article, the authors write</p>
-<blockquote class="blockquote">
-<p><em>“Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don’t belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system.”</em></p>
-</blockquote>
-<p>Consider the model you selected in Exercise 6. Is it consistent with this statement? Briefly explain why or why not.</p>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Use the testing data to produce the ROC curve and compute the area under the curve (AUC) for the model selected in Exercise 6. Write 1 - 2 sentences describing how well the model fits the data.</p>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>You have been tasked by a local political organization to identify adults in the community who are frequent voters. These adults will receive targeted political mailings that will be different from the mailings sent to adults who are not frequent voters. You will use the model selected in Exercise 6 to identify the frequent voters.</p>
-<ul>
-<li><p>Select a classification threshold. Briefly explain the reasoning for your choice, including any relevant statistics used select the threshold.</p></li>
-<li><p>Make a confusion matrix based on the chosen classification threshold. Use the confusion matrix to compute the following:</p>
-<ul>
-<li><p>Sensitivity</p></li>
-<li><p>Specificity</p></li>
-<li><p>False negative rate</p></li>
-<li><p>False positive rate</p></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="ai-disclosure" class="level1">
-<h1>AI Disclosure</h1>
-<p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.</p>
-<ul>
-<li>I didn’t use an LLM / Generative AI tool.</li>
-<li>I asked it to clarify one or more exercises.</li>
-<li>I asked it clarifying questions to better understand a concept.</li>
-<li>I asked it to help write code to complete an exercise.</li>
-<li>I gave it my code and asked it to help me fix it.</li>
-<li>I asked it about an error or why code would do something I didn’t want.</li>
-<li>I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.</li>
-<li>I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.</li>
-<li>Other:______</li>
-</ul>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
@@ -673,83 +751,66 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+<p>Reminder: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
 </div>
 </div>
-<p>To submit your assignment:</p>
+<p>To submit the assignment:</p>
 <ul>
 <li><p>Access Gradescope through the <a href="https://canvas.duke.edu/courses/68771">STA 210 Canvas site</a>.</p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .pdf submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+<li><p>Select the name of <strong>every</strong> team member.</p></li>
+<li><p>Mark the pages for the <em>“Exercises”</em> question.</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> question.</p></li>
 </ul>
 </section>
-<section id="grading" class="level1">
-<h1>Grading</h1>
+<section id="grading-10-points" class="level1">
+<h1>Grading (10 points)</h1>
+<p><br></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Component</th>
-<th>Points</th>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ex 1</td>
-<td>3</td>
+<td style="text-align: left;">Completion</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
-<td>Ex 2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 10</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>AI Disclosure</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Workflow &amp; formatting</td>
-<td>3</td>
+<td style="text-align: left;">Workflow &amp; formatting</td>
+<td style="text-align: left;">2</td>
 </tr>
 </tbody>
 </table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+<ul>
+<li><p>7 pts: Complete all exercises</p></li>
+<li><p>6 pts: Complete 6 exercises</p></li>
+<li><p>5 pts: Complete 5 exercises</p></li>
+<li><p>4 pts: Complete 4 exercises</p></li>
+<li><p>3 pts: Complete 3 exercises</p></li>
+<li><p>0 pts: Complete &lt; 2 exercises</p></li>
+</ul>
+<p><strong>Workflow &amp; formatting</strong></p>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.</p>
+<ul>
+<li><p>2 pts: Meet all criteria</p></li>
+<li><p>1 pt: Meet some criteria</p></li>
+<li><p>0 pt: Meet no criteria</p></li>
+</ul>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>“Feature engineering entails reformatting predictor values to make them easier for a model to use effectively. This includes transformations and encodings of the data to best represent their important characteristics.” -from <a href="https://www.tmwr.org/recipes">Tidy Modeling with R</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1150,18 +1211,6 @@ Warning
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../hw/hw-03.html" class="pagination-link" aria-label="HW 03">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">HW 03</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../hw/stats-experience.html" class="pagination-link" aria-label="Statistics experience">
-        <span class="nav-page-text">Statistics experience</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

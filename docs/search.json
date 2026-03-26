@@ -7089,49 +7089,49 @@
     "href": "ae/ae-11-logistic-select.html#packages",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)"
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\n\nleukemia &lt;- read_csv(\"data/leukemia.csv\") |&gt;\n  mutate(Resp = factor(Resp))"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#response-to-leukemia-treatment",
     "href": "ae/ae-11-logistic-select.html#response-to-leukemia-treatment",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Response to Leukemia treatment",
-    "text": "Response to Leukemia treatment\nToday’s data is from a study where 51 untreated adult patients with Acute Myeloid Leukemia who were given a course of treatment, and they were assessed as to their response to the treatment.1\nThe goal of today’s analysis is to use pre-treatment factors to predict how likely it is a patient will respond to the treatment.\nWe will use the following variables:\n\nAge: Age at diagnosis (in years)\nSmear: Differential percentage of blasts\nInfil: Percentage of absolute marrow leukemia infiltrate\nIndex: Percentage labeling index of the bone marrow leukemia cells\nBlasts: Absolute number of blasts, in thousands\nTemp: Highest temperature of the patient prior to treatment, in degrees Fahrenheit\nResp: 1 = responded to treatment or 0 = failed to respond\n\n\nleukemia &lt;- read_csv(\"data/leukemia.csv\") |&gt;\n  mutate(Resp = factor(Resp))"
+    "text": "Response to Leukemia treatment\nToday’s data is from a study where 51 untreated adult patients with Acute Myeloid Leukemia who were given a course of treatment, and they were assessed as to their response to the treatment.1\nThe goal of today’s analysis is to use pre-treatment factors to predict how likely it is a patient will respond to the treatment.\nWe will use the following variables:\n\nAge: Age at diagnosis (in years)\nSmear: Differential percentage of blasts\nInfil: Percentage of absolute marrow leukemia infiltrate\nIndex: Percentage labeling index of the bone marrow leukemia cells\nBlasts: Absolute number of blasts, in thousands\nTemp: Highest temperature of the patient prior to treatment, in degrees Fahrenheit\nResp: 1 = responded to treatment or 0 = failed to respond"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-1",
     "href": "ae/ae-11-logistic-select.html#exercise-1",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nBegin by splitting the data into training (80%) and testing (20%) sets. Use 210 for the seed.\n\nset.seed(210)\n\n# add code to create training and testing sets"
+    "text": "Exercise 1\nBegin by splitting the data into training (80%) and testing (20%) sets. Use 210 for the seed."
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-2",
     "href": "ae/ae-11-logistic-select.html#exercise-2",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nWe will begin by considering the model with all pre-treatment variables: Age, Smear, Infil, Index, Blasts and Temp. Fit a model using these six variables to predict whether a patient responded to the treatment.\nWhich variables are statistically significant using a threshold of \\(\\alpha = 0.05\\)?\n\n# add code here"
+    "text": "Exercise 2\nWe will begin by considering the model with all pre-treatment variables: Age, Smear, Infil, Index, Blasts and Temp. Fit a model using these six variables to predict whether a patient responded to the treatment (Resp).\nWhich variables are statistically significant using a threshold of \\(\\alpha = 0.05\\)?"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-3",
     "href": "ae/ae-11-logistic-select.html#exercise-3",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nWe want to compare the model from Exercise 2 that includes all pre-treatment factors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.\nWhy might we prefer cross-validation with AUC over AIC/BIC on the training data for this analysis?"
+    "text": "Exercise 3\nWe want to compare the model from Exercise 2 that includes all pre-treatment predictors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.\nWhy might we prefer cross-validation with AUC over AIC/BIC on the training data for this analysis?"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-4",
     "href": "ae/ae-11-logistic-select.html#exercise-4",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\nComplete the code below to conduct 4-fold cross validation on the training data for the model in Exercise 2 with all pre-treatment predictors. Use 210 for the seed.\n\n\n\n\n\n\nImportant\n\n\n\nRemove #| eval: false when you have filled in the code.\n\n\n\n# define the folds\nfolds &lt;- vfold_cv(____, v = 4)\n\n# specify workflow for the model\n______ &lt;- workflow() |&gt; \n  add_model(logistic_reg()) |&gt; \n  add_formula(__________) \n\n# CV for model \ncross_validation &lt;- _______ |&gt; \n  fit_resamples(resamples = folds)\n\n# compute performance statistics for the model\ncollect_metrics(cross_validation, summarize = TRUE)"
+    "text": "Exercise 4\nComplete the code below to conduct 4-fold cross validation on the training data for the model in Exercise 2 with all pre-treatment predictors. Use 210 for the seed. :::\n\n\n\n\n\n\nImportant\n\n\n\nRemove #| eval: false when you have filled in the code.\n\n\n\n# define the folds\nfolds &lt;- vfold_cv(____, v = 4)\n\n# specify workflow for the model\n______ &lt;- workflow() |&gt; \n  add_model(logistic_reg()) |&gt; \n  add_formula(__________) \n\n# CV for model \ncross_validation &lt;- _______ |&gt; \n  fit_resamples(resamples = folds)\n\n# compute performance statistics for the model\ncollect_metrics(cross_validation, summarize = TRUE)"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-5",
     "href": "ae/ae-11-logistic-select.html#exercise-5",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nConduct cross validation for the model that only includes the predictors from Exercise 2 that are statistically significant at \\(\\alpha = 0.05\\). Use 210 for the seed.\n\n# define the folds\n\n\n# specify workflow for the model\n\n\n# CV for moodel \n\n\n# compute performance statistics for the model"
+    "text": "Exercise 5\nConduct cross validation for the model that only includes the predictors from Exercise 2 that are statistically significant at \\(\\alpha = 0.05\\). Use 210 for the seed."
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-6",

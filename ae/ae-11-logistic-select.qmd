@@ -20,6 +20,9 @@ Go to the course GitHub organization and locate your `ae-11` repo to get started
 library(tidyverse)
 library(tidymodels)
 library(knitr)
+
+leukemia <- read_csv("data/leukemia.csv") |>
+  mutate(Resp = factor(Resp))
 ```
 
 ## Response to Leukemia treatment
@@ -40,47 +43,33 @@ We will use the following variables:
 -   `Temp`: Highest temperature of the patient prior to treatment, in degrees Fahrenheit
 -   `Resp`: 1 = responded to treatment or 0 = failed to respond
 
-```{r}
-#| eval: false
-leukemia <- read_csv("data/leukemia.csv") |>
-  mutate(Resp = factor(Resp))
-```
 
 ## Exercise 1
 
 Begin by splitting the data into training (80%) and testing (20%) sets. Use `210` for the seed.
 
-```{r}
-#| label: ex-01
 
-set.seed(210)
 
-# add code to create training and testing sets
-
-```
 
 ## Exercise 2
 
-We will begin by considering the model with all pre-treatment variables: `Age`, `Smear`, `Infil`, `Index`, `Blasts` and `Temp`. Fit a model using these six variables to predict whether a patient responded to the treatment.
+We will begin by considering the model with all pre-treatment variables: `Age`, `Smear`, `Infil`, `Index`, `Blasts` and `Temp`. Fit a model using these six variables to predict whether a patient responded to the treatment (`Resp`).
 
 Which variables are statistically significant using a threshold of $\alpha = 0.05$?
 
-```{r}
-#| label: ex-02
 
-# add code here
 
-```
 
 ## Exercise 3
 
-We want to compare the model from Exercise 2 that includes all pre-treatment factors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.
+We want to compare the model from Exercise 2 that includes all pre-treatment predictors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.
 
 Why might we prefer cross-validation with AUC over AIC/BIC on the training data for this analysis?
 
 ## Exercise 4
 
 Complete the code below to conduct 4-fold cross validation on the training data for the model in Exercise 2 with all pre-treatment predictors. Use `210` for the seed.
+:::
 
 ::: callout-important
 Remove `#| eval: false` when you have filled in the code.
@@ -106,33 +95,16 @@ cross_validation <- _______ |>
 collect_metrics(cross_validation, summarize = TRUE)
 ```
 
+
 ## Exercise 5
 
 Conduct cross validation for the model that only includes the predictors from Exercise 2 that are statistically significant at $\alpha = 0.05$. Use `210` for the seed.
 
-```{r}
-#| label: ex-05
-
-# define the folds
-
-
-# specify workflow for the model
-
-
-# CV for moodel 
-
-
-# compute performance statistics for the model
-
-```
 
 ## Exercise 6
 
 Which model do you select based on the results from cross validation? Evaluate how well the selected model performs on the testing data.
 
-```{r}
-#| label: ex-06
-```
 
 ## Wrapping up
 

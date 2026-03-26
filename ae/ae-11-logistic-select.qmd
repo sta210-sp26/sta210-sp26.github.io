@@ -9,8 +9,6 @@ execute:
 
 ::: callout-important
 Go to the course GitHub organization and locate your `ae-11` repo to get started.
-
-Render, commit, and push your responses to GitHub by the end of class to submit your AE.
 :::
 
 ## Packages
@@ -76,13 +74,13 @@ Which variables are statistically significant using a threshold of $\alpha = 0.0
 
 ## Exercise 3
 
-We want to compare from Exercise 2 that includes all pre-treatment factors to the model that only includes the statistically significant predictors. We will conduct cross validation using AUC as the criteria for selecting a final model.
+We want to compare the model from Exercise 2 that includes all pre-treatment factors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.
 
-What do we learn from cross validation that is useful given the goals of this analysis?
+Why might we prefer cross-validation with AUC over AIC/BIC on the training data for this analysis?
 
 ## Exercise 4
 
-Complete the code below to conduct 4-fold cross validation for the model in Exercise 2 with all pre-treatment predictors. Use `210` for the seed.
+Complete the code below to conduct 4-fold cross validation on the training data for the model in Exercise 2 with all pre-treatment predictors. Use `210` for the seed.
 
 ::: callout-important
 Remove `#| eval: false` when you have filled in the code.
@@ -100,11 +98,11 @@ ______ <- workflow() |>
   add_model(logistic_reg()) |> 
   add_formula(__________) 
 
-# CV for moodel 
+# CV for model 
 cross_validation <- _______ |> 
   fit_resamples(resamples = folds)
 
-# obtain performance statistics for the model
+# compute performance statistics for the model
 collect_metrics(cross_validation, summarize = TRUE)
 ```
 
@@ -124,16 +122,16 @@ Conduct cross validation for the model that only includes the predictors from Ex
 # CV for moodel 
 
 
-# obtain performance statistics for the model
+# compute performance statistics for the model
 
 ```
 
 ## Exercise 6
 
-Which model do you choose based on the results fro cross validation? Evaluate how well the model performs on the testing data.
+Which model do you select based on the results from cross validation? Evaluate how well the selected model performs on the testing data.
 
 ```{r}
-#\ label: ex-06
+#| label: ex-06
 ```
 
 ## Wrapping up

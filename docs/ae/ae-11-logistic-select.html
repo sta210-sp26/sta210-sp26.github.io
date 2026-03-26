@@ -453,7 +453,6 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>Go to the course GitHub organization and locate your <code>ae-11</code> repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class to submit your AE.</p>
 </div>
 </div>
 <section id="packages" class="level2">
@@ -502,12 +501,12 @@ Important
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>We want to compare from Exercise 2 that includes all pre-treatment factors to the model that only includes the statistically significant predictors. We will conduct cross validation using AUC as the criteria for selecting a final model.</p>
-<p>What do we learn from cross validation that is useful given the goals of this analysis?</p>
+<p>We want to compare the model from Exercise 2 that includes all pre-treatment factors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.</p>
+<p>Why might we prefer cross-validation with AUC over AIC/BIC on the training data for this analysis?</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Complete the code below to conduct 4-fold cross validation for the model in Exercise 2 with all pre-treatment predictors. Use <code>210</code> for the seed.</p>
+<p>Complete the code below to conduct 4-fold cross validation on the training data for the model in Exercise 2 with all pre-treatment predictors. Use <code>210</code> for the seed.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -530,11 +529,11 @@ Important
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(<span class="fu">logistic_reg</span>()) <span class="sc">|&gt;</span> </span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(__________) </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CV for moodel </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CV for model </span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>cross_validation <span class="ot">&lt;-</span> _______ <span class="sc">|&gt;</span> </span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> folds)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain performance statistics for the model</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># compute performance statistics for the model</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(cross_validation, <span class="at">summarize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -551,15 +550,12 @@ Important
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># CV for moodel </span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain performance statistics for the model</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># compute performance statistics for the model</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Which model do you choose based on the results fro cross validation? Evaluate how well the model performs on the testing data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#\ label: ex-06</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>Which model do you select based on the results from cross validation? Evaluate how well the selected model performs on the testing data.</p>
 </section>
 <section id="wrapping-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>

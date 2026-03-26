@@ -7082,7 +7082,7 @@
     "href": "ae/ae-11-logistic-select.html",
     "title": "AE 11: Model selection for logistic regression",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-11 repo to get started.\nRender, commit, and push your responses to GitHub by the end of class to submit your AE."
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-11 repo to get started."
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#packages",
@@ -7117,28 +7117,28 @@
     "href": "ae/ae-11-logistic-select.html#exercise-3",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nWe want to compare from Exercise 2 that includes all pre-treatment factors to the model that only includes the statistically significant predictors. We will conduct cross validation using AUC as the criteria for selecting a final model.\nWhat do we learn from cross validation that is useful given the goals of this analysis?"
+    "text": "Exercise 3\nWe want to compare the model from Exercise 2 that includes all pre-treatment factors to a model that only includes the statistically significant predictors. We will conduct cross validation using AUC on the assessment set as the criteria for selecting a final model.\nWhy might we prefer cross-validation with AUC over AIC/BIC on the training data for this analysis?"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-4",
     "href": "ae/ae-11-logistic-select.html#exercise-4",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\nComplete the code below to conduct 4-fold cross validation for the model in Exercise 2 with all pre-treatment predictors. Use 210 for the seed.\n\n\n\n\n\n\nImportant\n\n\n\nRemove #| eval: false when you have filled in the code.\n\n\n\n# define the folds\nfolds &lt;- vfold_cv(____, v = 4)\n\n# specify workflow for the model\n______ &lt;- workflow() |&gt; \n  add_model(logistic_reg()) |&gt; \n  add_formula(__________) \n\n# CV for moodel \ncross_validation &lt;- _______ |&gt; \n  fit_resamples(resamples = folds)\n\n# obtain performance statistics for the model\ncollect_metrics(cross_validation, summarize = TRUE)"
+    "text": "Exercise 4\nComplete the code below to conduct 4-fold cross validation on the training data for the model in Exercise 2 with all pre-treatment predictors. Use 210 for the seed.\n\n\n\n\n\n\nImportant\n\n\n\nRemove #| eval: false when you have filled in the code.\n\n\n\n# define the folds\nfolds &lt;- vfold_cv(____, v = 4)\n\n# specify workflow for the model\n______ &lt;- workflow() |&gt; \n  add_model(logistic_reg()) |&gt; \n  add_formula(__________) \n\n# CV for model \ncross_validation &lt;- _______ |&gt; \n  fit_resamples(resamples = folds)\n\n# compute performance statistics for the model\ncollect_metrics(cross_validation, summarize = TRUE)"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-5",
     "href": "ae/ae-11-logistic-select.html#exercise-5",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nConduct cross validation for the model that only includes the predictors from Exercise 2 that are statistically significant at \\(\\alpha = 0.05\\). Use 210 for the seed.\n\n# define the folds\n\n\n# specify workflow for the model\n\n\n# CV for moodel \n\n\n# obtain performance statistics for the model"
+    "text": "Exercise 5\nConduct cross validation for the model that only includes the predictors from Exercise 2 that are statistically significant at \\(\\alpha = 0.05\\). Use 210 for the seed.\n\n# define the folds\n\n\n# specify workflow for the model\n\n\n# CV for moodel \n\n\n# compute performance statistics for the model"
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#exercise-6",
     "href": "ae/ae-11-logistic-select.html#exercise-6",
     "title": "AE 11: Model selection for logistic regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\nWhich model do you choose based on the results fro cross validation? Evaluate how well the model performs on the testing data.\n\n#\\ label: ex-06"
+    "text": "Exercise 6\nWhich model do you select based on the results from cross validation? Evaluate how well the selected model performs on the testing data."
   },
   {
     "objectID": "ae/ae-11-logistic-select.html#wrapping-up",

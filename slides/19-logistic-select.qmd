@@ -1,0 +1,532 @@
+---
+title: "Logistic Regression"
+subtitle: "Model selection"
+author: "Prof. Maria Tackett"
+date: "03-26-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 19-logistic-select-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Announcements
+
+-   Lab 06 due TODAY at 11:59pm
+
+-   HW 04 due March 31 at 11:59pm
+
+-   Statistics experience due April 15
+
+-   SSMU Data Mini #3 - April 4
+
+    -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7847547) for full announcement
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(openintro)
+library(knitr)
+library(kableExtra)  # for table embellishments
+library(Stat2Data)   # for empirical logit
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## Review from HW 03
+
+Recall the four candidate models for Buchanan vs. Bush in HW 03:
+
+| Model | Response variable | Predictor variable | RMSE    |
+|-------|-------------------|--------------------|---------|
+| 1     | Buchanan2000      | Bush2000           | 348.6   |
+| 2     | log(Buchanan2000) | Bush2000           | 0.758   |
+| 3     | Buchanan2000      | log(Bush2000)      | 369.533 |
+| 4     | log(Buchanan2000) | log(Bush2000)      | 0.460   |
+
+<br>
+
+::: question
+Why is it unreliable to use these values of RMSE to choose the best fit model?
+:::
+
+```{r}
+#| echo: false
+
+florida <- read_csv("../hw/data/florida-votes-2000.csv")
+
+model1 <- lm(Buchanan2000 ~ Bush2000, data = florida)
+model1_aug <- augment(model1)
+rmse_model1 <- rmse(model1_aug, Buchanan2000, .fitted)
+
+model2 <- lm(log(Buchanan2000) ~ Bush2000, data = florida)
+model2_aug <- augment(model2)
+rmse_model2 <- rmse(model2_aug, `log(Buchanan2000)`, .fitted)
+
+model3 <- lm(Buchanan2000 ~ log(Bush2000), data = florida)
+model3_aug <- augment(model3)
+rmse_model3 <- rmse(model3_aug, Buchanan2000, .fitted)
+
+model4 <- lm(log(Buchanan2000) ~ log(Bush2000), data = florida)
+model4_aug <- augment(model4)
+rmse_model4 <- rmse(model4_aug, `log(Buchanan2000)`, .fitted)
+```
+
+## Topics
+
+-   Comparing logistic regression models using
+
+    -   Drop-in-deviance test
+
+    -   AIC
+
+    -   BIC
+
+-   Cross validation for logistic regression
+
+## Data: Risk of coronary heart disease {.midi}
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.
+
+-   `high_risk`:
+
+    -   1: High risk of having heart disease in next 10 years
+    -   0: Not high risk of having heart disease in next 10 years
+
+-   `age`: Age at exam time (in years)
+
+-   `education`: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College
+
+-   `currentSmoker`: 0 = nonsmoker, 1 = smoker
+
+-   `totChol`: Total cholesterol (in mg/dL)
+
+## Data
+
+```{r}
+#| echo: false
+heart_disease <- read_csv(here::here("slides", "data/framingham.csv")) |>
+  select(age, education, TenYearCHD, totChol, currentSmoker) |>
+  drop_na() |> #consider the limitations of doing this
+  mutate(
+    high_risk = as.factor(TenYearCHD),
+    education = as.factor(education),
+    currentSmoker = as.factor(currentSmoker)
+  )
+
+heart_disease
+```
+
+## Modeling risk of coronary heart disease
+
+Using `age`, `totChol`, and `currentSmoker`
+
+```{r}
+#| echo: false
+high_risk_fit <- glm(high_risk ~ age + totChol + currentSmoker, 
+              data = heart_disease, family = "binomial")
+
+tidy(high_risk_fit, conf.int = TRUE) |> 
+  kable(format = "markdown", digits = 3)
+```
+
+## Review: ROC Curve + Model fit
+
+```{r}
+high_risk_aug <- augment(high_risk_fit)
+
+roc_curve_data <- high_risk_aug |>
+  roc_curve(high_risk, .fitted, event_level = "second")
+
+#calculate AUC
+high_risk_aug |>
+  roc_auc(high_risk, .fitted, event_level = "second")
+```
+
+## Inference for coefficients
+
+There are two approaches for testing coefficients in logistic regression
+
+-   **(Wald) hypothesis test:** Use to test
+
+    -   a single coefficient (when $n$ is large)
+
+-   **Drop-in-deviance test**: Use to test...
+
+    -   a single coefficient
+    -   a categorical predictor with 3+ levels
+    -   a group of predictor variables
+
+# Drop-in-deviance test
+
+## Which model do we choose?
+
+```{r}
+#| echo: false
+
+high_risk_fit2 <- glm(high_risk ~ age + totChol + currentSmoker + education, 
+              data = heart_disease, family = "binomial")
+```
+
+::::: columns
+::: {.column width="50%"}
+<center>**Model 1**</center>
+
+```{r}
+#| echo: false
+
+tidy(high_risk_fit) |> 
+  select(term, estimate) |>
+  kable(digits = 3)
+
+```
+:::
+
+::: {.column width="50%"}
+<center>**Model 2**</center>
+
+```{r}
+#| echo: false
+
+tidy(high_risk_fit2) |> 
+  select(term, estimate) |>
+  kable(digits = 3)
+```
+:::
+:::::
+
+## Log likelihood
+
+$$
+\begin{aligned}
+\log L = \sum\limits_{i=1}^n[y_i \log(\hat{\pi}_i) + (1 - y_i)\log(1 - \hat{\pi}_i)]
+\end{aligned}
+$$
+
+. . .
+
+-   Measure of how well the model fits the data
+
+-   Higher values of $\log L$ are better
+
+-   **Deviance** = $-2 \log L$
+
+    -   $-2 \log L$ follows a $\chi^2$ ("Chi squared") distribution with $n - p - 1$ degrees of freedom
+
+## Comparing nested models
+
+::: incremental
+-   Suppose there are two nested models:
+
+    -   Reduced Model includes predictors $x_1, \ldots, x_q$
+    -   Full Model includes predictors $x_1, \ldots, x_q, x_{q+1}, \ldots, x_p$
+
+-   We want to test the hypotheses
+
+    $$
+    \begin{aligned}
+    H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
+    H_a&: \text{ at least one }\beta_j \text{ is not } 0
+    \end{aligned}
+    $$
+
+-   To do so, we will use the **Drop-in-deviance test**, also known as the Nested Likelihood Ratio test
+:::
+
+## Drop-in-deviance test
+
+**Hypotheses:**
+
+$$
+\begin{aligned}
+H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
+H_a&: \text{ at least one }\beta_j \text{ is not } 0
+\end{aligned}
+$$
+
+. . .
+
+**Test Statistic:** $$\begin{aligned}G &= \text{Deviance}_{reduced} - \text{Deviance}_{full} \\
+&= (-2 \log L_{reduced}) - (-2 \log L_{full})\end{aligned}$$
+
+. . .
+
+**P-value:** $P(\chi^2 > G)$, calculated using a $\chi^2$ distribution with degrees of freedom equal to the number of parameters being tested
+
+## $\chi^2$ distribution
+
+```{r}
+#| echo: false
+#| fig-height: 6
+
+x <- seq(from =0, to = 10, length = 100)
+
+# Evaluate the densities
+y_1 <- dchisq(x, 1)
+y_2 <- dchisq(x,2)
+y_3 <- dchisq(x,3)
+y_4 <- dchisq(x,5)
+
+# Plot the densities
+plot(x, y_1, col = 1, type = "l", ylab="",lwd=3, ylim = c(0, 0.5), 
+     main  = "Chi-square Distribution")
+lines(x,y_2, col = 2,lwd=3)
+lines(x, y_3, col = 3,lwd=3)
+lines(x, y_4, col = 4,lwd=3)
+
+# Add the legend
+legend("topright",
+       c("df = 1", "df = 2 ", "df = 3", "df = 5"), 
+       col = c(1, 2, 3, 4), lty = 1)
+```
+
+## Add `education` to the model? {.midi}
+
+**Reduced model**
+
+```{r}
+
+high_risk_fit_reduced <- glm(high_risk ~ age + totChol + currentSmoker,
+                             data = heart_disease, family = "binomial")
+```
+
+<br>
+
+. . .
+
+**Full model**
+
+```{r}
+#| code-line-numbers: "2"
+
+high_risk_fit_full <- glm(high_risk ~ age + totChol +
+                            currentSmoker + education, 
+              data = heart_disease, family = "binomial")
+```
+
+<br>
+
+::: question
+Write the null and alternative hypotheses in words and mathematical notation.
+:::
+
+## Add `education` to the model?
+
+Compute the deviance for each model:
+
+```{r}
+(dev_reduced <- glance(high_risk_fit_reduced)$deviance)
+
+(dev_full <- glance(high_risk_fit_full)$deviance)
+```
+
+. . .
+
+Drop-in-deviance test statistic:
+
+```{r}
+(test_stat <- dev_reduced - dev_full)
+```
+
+## Add `education` to the model?
+
+Calculate the p-value using a `pchisq()`, with degrees of freedom equal to the number of new model terms in the second model:
+
+```{r}
+pchisq(test_stat, 3, lower.tail = FALSE) 
+```
+
+## Add `education` to the model?
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: question
+The p-value is 0.065. What is your conclusion?
+:::
+
+🔗 <https://forms.office.com/r/DxiwzbjGvs>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/DxiwzbjGvs?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
+
+## Drop-in-Deviance test in R {.midi}
+
+-   Use `anova()` to conduct the drop-in deviance test
+
+<!-- -->
+
+-   Add argument `test = "Chisq"` to conduct the drop-in-deviance test
+
+. . .
+
+```{r}
+anova(high_risk_fit_reduced, high_risk_fit_full, test = "Chisq") |>
+  tidy() |> kable(digits = 3)
+```
+
+## Applies to linear regression {.midi}
+
+-   We can use the drop-in-deviance test to test for subset of predictors in linear regression
+
+-   The deviance for the linear regression model is the sum of squared residuals
+
+    $$
+    SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
+    $$
+
+-   The test statistic for the drop-in-deviance test is $$G = SSR_{\text{reduced}} - SSR_{full}$$
+
+-   This is also called the **Nested F Test**
+
+# Model selection using AIC and BIC
+
+## AIC & BIC
+
+Estimators of prediction error and *relative* quality of models:
+
+. . .
+
+**Akaike's Information Criterion (AIC)**[^1]: $$AIC = -2\log L + 2(p+1)$$
+
+[^1]: Akaike, Hirotugu. ["A new look at the statistical model identification."](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1100705) *IEEE transactions on automatic control* 19.6 (1974): 716-723.
+
+. . .
+
+**Bayesian Information Criterion (BIC)**[^2]: $$ BIC = -2\log L + \log(n)\times(p+1)$$
+
+[^2]: Schwarz, Gideon. ["Estimating the dimension of a model."](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faos%2F1176344136) *The annals of statistics* (1978): 461-464.
+
+## AIC & BIC
+
+$$
+\begin{aligned} 
+& AIC = -2\log L \color{black}{+ 2(p+1)} \\
+& BIC = -2\log L  + \color{black}{\log(n)\times(p+1)}
+\end{aligned}
+$$
+
+<br>
+
+where $\log L$ is the log-likelihood evaluated at the maximum likelihood estimate, $(p+1)$ is the number of terms in the model, and $n$ is the sample size
+
+## AIC & BIC
+
+$$
+\begin{aligned} 
+& AIC = -2\log L \color{black}{+ 2(p+1)} \\
+& BIC = -2\log L  + \color{black}{\log(n)\times(p+1)}
+\end{aligned}
+$$
+
+<br>
+
+. . .
+
+::: incremental
+-   First Term: Decreases as *p* increases
+
+-   Second term: Increases as *p* increases
+
+-   If $n \geq 8$, the **penalty** for BIC is larger than that of AIC, so BIC tends to favor *more parsimonious* models (i.e. models with fewer terms)
+:::
+
+## AIC from the `glance()` function
+
+Let's look at the AIC for the model that includes `age`, `totChol`, and `currentSmoker`
+
+```{r}
+glance(high_risk_fit)$AIC
+```
+
+<br>
+
+. . .
+
+**Calculating AIC**
+
+```{r}
+- 2 * glance(high_risk_fit)$logLik + 2 * (3 + 1)
+```
+
+## Comparing the models using AIC
+
+Let's compare the full and reduced models using AIC.
+
+```{r}
+glance(high_risk_fit_reduced)$AIC
+glance(high_risk_fit_full)$AIC
+```
+
+<br>
+
+::: question
+Based on AIC, which model would you choose?
+:::
+
+## Comparing the models using BIC
+
+Let's compare the full and reduced models using BIC
+
+```{r echo = T}
+glance(high_risk_fit_reduced)$BIC
+glance(high_risk_fit_full)$BIC
+```
+
+<br>
+
+::: question
+Based on BIC, which model would you choose?
+:::
+
+# Application exercise
+
+**Cross validation for logistic regression**
+
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-11-logistic-select.html](../ae/ae-11-logistic-select.html)
+:::

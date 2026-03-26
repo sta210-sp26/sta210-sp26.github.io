@@ -208,7 +208,7 @@ autoplot(heart_conf_mat, type = "heatmap")
 ## True/false positive/negative {.midi}
 
 |   | <u>Not</u> high risk $(y_i = 0)$ | High risk $(y_i = 1)$ |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **Classified** <u>**not**</u> **high risk** $(\hat{\pi}_i \leq \text{threshold})$ | True negative (TN) | False negative (FN) |
 | **Classified high risk** $(\hat{\pi}_i > \text{threshold})$ | False positive (FP) | True positive (TP) |
 

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 210 - Spring 2026 – Logistic Regression</title>
+  <title>STA 210 - Spring 2026 – Logistic regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -196,7 +196,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Logistic Regression</h1>
+  <h1 class="title">Logistic regression</h1>
   <p class="subtitle">Model selection</p>
 
 <div class="quarto-title-authors">
@@ -275,7 +275,6 @@ Prof.&nbsp;Maria Tackett
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <div class="question">
 <p>Why is it unreliable to use these values of RMSE to choose the best fit model?</p>
 </div>
@@ -756,7 +755,7 @@ SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
 <p><br></p>
 <div class="fragment">
 <ul>
-<li class="fragment"><p>First Term: Decreases as <em>p</em> increases</p></li>
+<li class="fragment"><p>First Term: Decreases as <em>p</em> increases (assuming “step-wise” model selection approach)</p></li>
 <li class="fragment"><p>Second term: Increases as <em>p</em> increases</p></li>
 <li class="fragment"><p>If <span class="math inline">\(n \geq 8\)</span>, the <strong>penalty</strong> for BIC is larger than that of AIC, so BIC tends to favor <em>more parsimonious</em> models (i.e.&nbsp;models with fewer terms)</p></li>
 </ul>
@@ -784,13 +783,15 @@ SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
 </section>
 <section id="comparing-the-models-using-aic" class="slide level2">
 <h2>Comparing the models using AIC</h2>
-<p>Let’s compare the full and reduced models using AIC.</p>
+<p>Let’s compare the reduced and full models using AIC.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">glance</span>(high_risk_fit_reduced)<span class="sc">$</span>AIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="do">## AIC reduced model </span></span>
+<span id="cb20-2"><a></a><span class="fu">glance</span>(high_risk_fit_reduced)<span class="sc">$</span>AIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3232.812</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">glance</span>(high_risk_fit_full)<span class="sc">$</span>AIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="do">## AIC full model</span></span>
+<span id="cb22-2"><a></a><span class="fu">glance</span>(high_risk_fit_full)<span class="sc">$</span>AIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3231.6</code></pre>
 </div>
@@ -802,13 +803,15 @@ SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
 </section>
 <section id="comparing-the-models-using-bic" class="slide level2">
 <h2>Comparing the models using BIC</h2>
-<p>Let’s compare the full and reduced models using BIC</p>
+<p>Let’s compare the reduced and full models using BIC</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">glance</span>(high_risk_fit_reduced)<span class="sc">$</span>BIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="do">## BIC reduced model</span></span>
+<span id="cb24-2"><a></a><span class="fu">glance</span>(high_risk_fit_reduced)<span class="sc">$</span>BIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3258.074</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">glance</span>(high_risk_fit_full)<span class="sc">$</span>BIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="do">## BIC full model</span></span>
+<span id="cb26-2"><a></a><span class="fu">glance</span>(high_risk_fit_full)<span class="sc">$</span>BIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3275.807</code></pre>
 </div>

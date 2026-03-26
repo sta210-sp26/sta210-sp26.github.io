@@ -1,5 +1,5 @@
 ---
-title: "Logistic Regression"
+title: "Logistic regression"
 subtitle: "Model selection"
 author: "Prof. Maria Tackett"
 date: "03-26-2026"
@@ -81,8 +81,6 @@ Recall the four candidate models for Buchanan vs. Bush in HW 03:
 | 2     | log(Buchanan2000) | Bush2000           | 0.758   |
 | 3     | Buchanan2000      | log(Bush2000)      | 369.533 |
 | 4     | log(Buchanan2000) | log(Bush2000)      | 0.460   |
-
-<br>
 
 ::: question
 Why is it unreliable to use these values of RMSE to choose the best fit model?
@@ -468,7 +466,7 @@ $$
 . . .
 
 ::: incremental
--   First Term: Decreases as *p* increases
+-   First Term: Decreases as *p* increases (assuming "step-wise" model selection approach)
 
 -   Second term: Increases as *p* increases
 
@@ -495,10 +493,13 @@ glance(high_risk_fit)$AIC
 
 ## Comparing the models using AIC
 
-Let's compare the full and reduced models using AIC.
+Let's compare the reduced and full models using AIC.
 
 ```{r}
+## AIC reduced model 
 glance(high_risk_fit_reduced)$AIC
+
+## AIC full model
 glance(high_risk_fit_full)$AIC
 ```
 
@@ -510,10 +511,13 @@ Based on AIC, which model would you choose?
 
 ## Comparing the models using BIC
 
-Let's compare the full and reduced models using BIC
+Let's compare the reduced and full models using BIC
 
 ```{r echo = T}
+## BIC reduced model
 glance(high_risk_fit_reduced)$BIC
+
+## BIC full model
 glance(high_risk_fit_full)$BIC
 ```
 

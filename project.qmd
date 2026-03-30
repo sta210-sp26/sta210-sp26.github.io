@@ -8,11 +8,11 @@ title: Final project
 
 [Exploratory data analysis](#eda) due Tuesday, March 24
 
-[Prelminary analysis](#prelim-analysis) due April 2
+[Preliminary analysis] due April 7
 
 [Presentation](#presentation) + [Presentation comments](#presentation-comments) due Tuesday, April 14 and Thursday, April 16
 
-[Draft report](#draft-report) + [Peer review] due Monday, April 20 (draft due before lab)
+[Draft report](#draft-report) + [Peer review](#peer-review) due Monday, April 20 (draft due before lab)
 
 [Written report](#written-report) due Monday, April 27
 
@@ -206,10 +206,10 @@ The exploratory data analysis is worth 10 points and will be graded based on acc
 ::: callout-important
 ## Submission
 
-Write your draft analysis in the `written-report.qmd` file in your GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **April 2 at 11:59pm**.
+Write your draft analysis in the `written-report.qmd` file in your GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **April 7 at 11:59pm**.
 :::
 
-The purpose of the draft analysis is to get early feedback on your modeling approach. Therefore, this project milestone focuses on the eventual Methods and Results sections of the final report. 
+The purpose of the draft analysis is to get early feedback on your modeling approach. Therefore, this project milestone focuses on the eventual Methods and Results sections of the final report.
 
 ### Introduction
 
@@ -229,7 +229,7 @@ In this section, you will present the final model and include a brief discussion
 
 This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research question, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
 
-### Grading 
+### Grading
 
 The draft analysis is worth 10 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from previous milestones.
 
@@ -249,7 +249,7 @@ The slides may be submitted in one of the following ways:
 **There is no make up work for the presentation.**
 :::
 
-You will do an in-person presentation that summarizes and showcases the work you've done on the project. It  will also be an opportunity to receive feedback on your project that can be incorporated in the final written report. Through the presentation, you will introduce the subject matter and research question, showcase key results from the exploratory data analysis and modeling, interpret key predictors, and present initial conclusions from the analysis. The presentation should be supported by slides that serve as a brief visual aid to the presentation. The presentation and slides will be graded for content accuracy and clarity.
+You will do an in-person presentation that summarizes and showcases the work you've done on the project. It will also be an opportunity to receive feedback on your project that can be incorporated in the final written report. Through the presentation, you will introduce the subject matter and research question, showcase key results from the exploratory data analysis and modeling, interpret key predictors, and present initial conclusions from the analysis. The presentation should be supported by slides that serve as a brief visual aid to the presentation. The presentation and slides will be graded for content accuracy and clarity.
 
 You can create your slides with any software you like (e.g., Keynote, PowerPoint, Google Slides, etc.). You can also use Quarto to make your slides! While we will not cover making slides with Quarto in class, the teaching team can help you during office hours. It's no different than writing other documents with Quarto, so the learning curve will not be steep! You can learn more about making slides in Quarto here: <https://quarto.org/docs/presentations/revealjs/>
 
@@ -288,7 +288,7 @@ The presentation is worth 15 points. It will be graded based on the following:
 ::: callout-important
 ## Submission
 
-Presentation comments must be submitted through the feedback form by the end of the lecture. 
+Presentation comments must be submitted through the feedback form by the end of the lecture.
 
 See the Canvas announcement the day before presentations for your feedback assignments and link to the feedback form.
 
@@ -297,11 +297,9 @@ See the Canvas announcement the day before presentations for your feedback assig
 
 You will provide feedback on two presentations on the day you are not presenting. There will be a few minutes between each presentation to submit scores and comments.
 
-
-
 ### Grading
 
-The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned presentations by the end of the lecture. 
+The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned presentations by the end of the lecture.
 
 ## Draft report {#draft-report}
 
@@ -311,9 +309,9 @@ The presentation comments are worth 2 points. The grade will be based on submitt
 Write your draft report in the `written-report.qmd` file in your GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub **before the start of your lab section on** **April 20**.
 :::
 
-The purpose of the draft and peer review is to give you an opportunity to receive feedback on your written report before the final submission.  
+The purpose of the draft and peer review is to give you an opportunity to receive feedback on your written report before the final submission.
 
-The draft report will include all required sections of the final written report. There is no page limit for the draft, but keep in mind that the final written report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed. The appendix does **not** count towards the 10-page limit. 
+The draft report will include all required sections of the final written report. There is no page limit for the draft, but keep in mind that the final written report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed. The appendix does **not** count towards the 10-page limit.
 
 ### Introduction
 
@@ -331,10 +329,9 @@ In this section, you will present the final model and include a brief discussion
 
 This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research question, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
 
-### Discussion 
+### Discussion
 
 This section is a summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Connect the conclusions drawn from your analysis to previous research, and discuss how they align or differ. In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved. Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. Lastly, this section will include ideas for future work.
-
 
 ### Grading
 
@@ -348,9 +345,9 @@ The draft will be graded based on whether there is demonstration of a reasonable
 Write the peer review in the `Peer Review` issue in your assigned GitHub repos by **April 21 at 11:59pm.**
 :::
 
-Critically reviewing others' work is a crucial part of the scientific process, and STA 210 is no exception. Everyone will be assigned two other projects to review. Everyone should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, you will have the opportunity to review and provide quality feedback on two other projects. 
+Critically reviewing others' work is a crucial part of the scientific process, and STA 210 is no exception. Everyone will be assigned two other projects to review. Everyone should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, you will have the opportunity to review and provide quality feedback on two other projects.
 
-During the peer review process, you will be provided read-only access to the assigned GitHub repos. Provide your review in the form of a GitHub issue to the GitHub repos using the provided peer review issue template. 
+During the peer review process, you will be provided read-only access to the assigned GitHub repos. Provide your review in the form of a GitHub issue to the GitHub repos using the provided peer review issue template.
 
 #### Steps for peer review
 
@@ -366,7 +363,7 @@ Go to the Canvas announcement to see which projects you are reviewing. You'll sp
 
 -   For each project you're reviewing:
 
-    -   Open  the repo, read the project draft, and browse the rest of the repo.
+    -   Open the repo, read the project draft, and browse the rest of the repo.
 
     -   Go to the **Issues** tab in that repo, click on **New issue**, and click on **Get started** for the Peer Review issue. Write your responses to the prompts in the issue. You will answer the following questions:
 
@@ -400,17 +397,17 @@ The written report must be completed in the `written-report.qmd` file and must b
 
 Below are general details about the final written report.
 
--   The rendered PDF must match exactly what is produced when rendering `written-report.qmd` in your GitHub repo. 
+-   The rendered PDF must match exactly what is produced when rendering `written-report.qmd` in your GitHub repo.
 
-- **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address the analysis and clearly communicate your findings.
+-   **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address the analysis and clearly communicate your findings.
 
 -   Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
 
 -   You are welcome to include an appendix with additional work at the end of the written report document, as needed; however, grading will overwhelmingly be based on the content in the main body of the report. You should assume the reader will not see the material in the appendix unless prompted to view it in the main body of the report. The appendix should be neatly formatted and easy for the reader to navigate. The appendix does [**not**]{.underline} count towards the 10-page limit.
 
-The mandatory components of the written report are below. You are free to add additional sections as necessary. 
+The mandatory components of the written report are below. You are free to add additional sections as necessary.
 
-### Introduction 
+### Introduction
 
 This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
 
@@ -438,7 +435,7 @@ This section also includes initial interpretations of key model coefficients and
 
 The model fit is clearly assessed, and interesting findings from the model are clearly described. The model conditions and diagnostics are thoroughly and accurately assessed for the final model, if not previously discussed in the methodology. Interpretations of model coefficients are used to support the key findings and conclusions, rather than merely listing the interpretation of every model coefficient. If the primary modeling objective is prediction, the model's predictive power is thoroughly assessed.
 
-### Discussion 
+### Discussion
 
 This section is a summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Connect the conclusions drawn from your analysis to previous research, and discuss how they align or differ. In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved. Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. Lastly, this section will include ideas for future work.
 

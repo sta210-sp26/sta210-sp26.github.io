@@ -12162,5 +12162,117 @@
       "Project",
       "Instructions"
     ]
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#announcements---update",
+    "href": "slides/20-ds-ethics.html#announcements---update",
+    "title": "Data science ethics",
+    "section": "Announcements - UPDATE",
+    "text": "Announcements - UPDATE\n\nLab 06 due TODAY at 11:59pm\nHW 04 due March 31 at 11:59pm\nStatistics experience due April 15\nSSMU Data Mini #3 - April 4\n\nSee Ed Discussion for full announcement"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#discussion-guidelines",
+    "href": "slides/20-ds-ethics.html#discussion-guidelines",
+    "title": "Data science ethics",
+    "section": "Discussion guidelines",
+    "text": "Discussion guidelines"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#when-it-goes-wrong",
+    "href": "slides/20-ds-ethics.html#when-it-goes-wrong",
+    "title": "Data science ethics",
+    "section": "When it goes wrong",
+    "text": "When it goes wrong\n\nUse examples from eCOTS"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#ds-life-cycle-from-jos-paper",
+    "href": "slides/20-ds-ethics.html#ds-life-cycle-from-jos-paper",
+    "title": "Data science ethics",
+    "section": "DS life cycle from Jo’s paper",
+    "text": "DS life cycle from Jo’s paper\n\nQuestion about what are some decisions they’ve made thus far in the project."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#subjectivity-vs-objectivity",
+    "href": "slides/20-ds-ethics.html#subjectivity-vs-objectivity",
+    "title": "Data science ethics",
+    "section": "Subjectivity vs objectivity",
+    "text": "Subjectivity vs objectivity\n[Add quotes from SRTL presentation ]\nDesire to remove humans - that is objective. What is wrong with this idea?"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#why-are-ethics-important",
+    "href": "slides/20-ds-ethics.html#why-are-ethics-important",
+    "title": "Data science ethics",
+    "section": "Why are ethics important?",
+    "text": "Why are ethics important?\n\ncommonly held belief that mathematics, and statistics, is “objective”, not influenced by practitioner’s moral values,\nIn the age of “big data”, high stakes decisions are being made based on data and statistics\nShow the article about the woman from Tennessee who was in jail due to facial recognition software."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#child-welfare-example",
+    "href": "slides/20-ds-ethics.html#child-welfare-example",
+    "title": "Data science ethics",
+    "section": "child welfare example:",
+    "text": "child welfare example:\n“Critics worry that delegating some of that critical work to AI tools powered by data collected largely from people who are poor can bake in discrimination against families based on race, income, disabilities or other external characteristics.”\n“Using a trove of detailed personal data and birth, Medicaid, substance abuse, mental health, jail and probation records, among other government data sets, the Allegheny tool’s statistical calculations help social workers decide which families should be investigated for neglect – a nuanced term that can include everything from inadequate housing to poor hygiene, but is a different category from physical or sexual abuse, which is investigated separately in Pennsylvania and is not subject to the algorithm.”\n“Allegheny’s algorithm, in use since 2016, has at times drawn from data related to Supplemental Security Income as well as diagnoses for mental, behavioral and neurodevelopmental disorders, including schizophrenia or mood disorders, AP found”"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#responsibility",
+    "href": "slides/20-ds-ethics.html#responsibility",
+    "title": "Data science ethics",
+    "section": "Responsibility",
+    "text": "Responsibility\n\nresponsibility in how data are handled and stored\n\ndecisions about data handling and implications of those decisions\n\nresponsibility in clear model documentation and how the a model should be used\nusing algorithm that produces biased results (Amazon example)\n\nQuestion - What are the implications of dropping observations with missing values?\nThese are from hardin article."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#importance-of-interpretability",
+    "href": "slides/20-ds-ethics.html#importance-of-interpretability",
+    "title": "Data science ethics",
+    "section": "Importance of interpretability",
+    "text": "Importance of interpretability\n\nethical expectation that data models are understandable to human stakeholders is often referred to the “right to an explanation”.\n\nThis is found in European Unions General Data Protection Regulation (GDPR)\n\nDurham ShotSpotter example.\n\nMaybe look at some of the community feedback versus the results.\nquote the website that says “sophisticated machine learning”"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#ds-life-cycle-from-jos-paper-with-markers-about-ethics",
+    "href": "slides/20-ds-ethics.html#ds-life-cycle-from-jos-paper-with-markers-about-ethics",
+    "title": "Data science ethics",
+    "section": "DS life cycle from Jo’s paper with markers about ethics",
+    "text": "DS life cycle from Jo’s paper with markers about ethics"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#what-is-data-science-ethics",
+    "href": "slides/20-ds-ethics.html#what-is-data-science-ethics",
+    "title": "Data science ethics",
+    "section": "What is data science ethics?",
+    "text": "What is data science ethics?\nData science ethics studies and evaluates moral problems related to:\n\nData: generation, recording, process, dissemination, and sharing\nAlgorithms: artificial intelligence, machine learning, large language models, and statistical learning models\nCorresponding practices: responsible innovation, programming, hacking, professional code\n\nHardin paper, Floridi and Taddeo (2016)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#ethics-codes-from-different-organization",
+    "href": "slides/20-ds-ethics.html#ethics-codes-from-different-organization",
+    "title": "Data science ethics",
+    "section": "Ethics codes from different organization",
+    "text": "Ethics codes from different organization"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#principles-to-guide-ethical-action",
+    "href": "slides/20-ds-ethics.html#principles-to-guide-ethical-action",
+    "title": "Data science ethics",
+    "section": "Principles to guide ethical action",
+    "text": "Principles to guide ethical action\nFrom MSDR: https://mdsr-book.github.io/mdsr3e/08-ethics.html#some-principles-to-guide-ethical-action"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#example",
+    "href": "slides/20-ds-ethics.html#example",
+    "title": "Data science ethics",
+    "section": "example",
+    "text": "example\n\nblue hair green shirt eample"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#example-1",
+    "href": "slides/20-ds-ethics.html#example-1",
+    "title": "Data science ethics",
+    "section": "example",
+    "text": "example\n\nTalking about using race as a predictor in a model\n\n-https://slate.com/technology/2016/02/how-to-bring-better-ethics-to-data-science.html\nAdd something about considersations of race."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#further-reading",
+    "href": "slides/20-ds-ethics.html#further-reading",
+    "title": "Data science ethics",
+    "section": "Further reading",
+    "text": "Further reading\n\nData science ethics reading lists"
   }
 ]

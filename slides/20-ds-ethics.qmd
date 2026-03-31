@@ -1,0 +1,184 @@
+---
+title: "Data science ethics"
+author: "Prof. Maria Tackett"
+date: "03-31-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 20-ds-ethics-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Announcements - UPDATE
+
+-   Lab 06 due TODAY at 11:59pm
+
+-   HW 04 due March 31 at 11:59pm
+
+-   Statistics experience due April 15
+
+-   SSMU Data Mini #3 - April 4
+
+    -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7847547) for full announcement
+
+# Application exercise
+
+**Cross validation for logistic regression**
+
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-11-logistic-select.html](../ae/ae-11-logistic-select.html)
+:::
+
+# Data science ethics
+
+## Discussion guidelines
+
+## When it goes wrong 
+
+-   Use examples from eCOTS
+
+## DS life cycle from Jo's paper 
+
+![Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html](images/clipboard-719982942.png)
+
+-   Question about what are some decisions they've made thus far in the project.
+
+## Subjectivity vs objectivity 
+
+\[Add quotes from SRTL presentation \]
+
+Desire to remove humans - that is objective. What is wrong with this idea?
+
+## Why is data science ethics important? 
+
+![Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html](images/clipboard-3136590850.png)
+
+Question - where have you made decisions in your project?
+
+## What is data science ethics? 
+
+Data science ethics studies and evaluates moral problems related to:
+
+-   Data: generation, recording, process, dissemination, and sharing
+
+-   Algorithms: artificial intelligence, machine learning, large language models, and statistical learning models
+
+-   Corresponding practices: responsible innovation, programming, hacking, professional code
+
+Hardin paper, Floridi and Taddeo (2016)
+
+## Why is data science ethics important? 
+
+-   commonly held belief that mathematics, and statistics, is "objective", not influenced by practitioner's moral values,
+
+-   In the age of "big data", high stakes decisions are being made based on data and statistics
+
+-   Show the article about the woman from Tennessee who was in jail due to facial recognition software.
+
+## child welfare example: 
+
+"Critics worry that delegating some of that critical work to AI tools powered by data collected largely from people who are poor can bake in discrimination against families based on race, income, disabilities or other external characteristics."
+
+"Using a trove of detailed personal data and birth, Medicaid, substance abuse, mental health, jail and probation records, among other government data sets, the Allegheny tool’s statistical calculations help social workers decide which families should be investigated for neglect – a nuanced term that can include everything from inadequate housing to poor hygiene, but is a different category from physical or sexual abuse, which is investigated separately in Pennsylvania and is not subject to the algorithm."
+
+"Allegheny’s algorithm, in use since 2016, has at times drawn from data related to Supplemental Security Income as well as diagnoses for mental, behavioral and neurodevelopmental disorders, including schizophrenia or mood disorders, AP found"
+
+## Responsibility 
+
+-   responsibility in how data are handled and stored
+
+    -   decisions about data handling and implications of those decisions
+
+-   responsibility in clear model documentation and how the a model should be used
+
+-   using algorithm that produces biased results (Amazon example)
+
+Question - What are the implications of dropping observations with missing values?
+
+These are from hardin article.
+
+## Importance of transparency
+
+-   ethical expectation that data models are understandable to human stakeholders is often referred to the "right to an explanation".
+
+    -   This is found in European Unions General Data Protection Regulation (GDPR)
+
+-   Durham ShotSpotter example.
+
+    -   Maybe look at some of the community feedback versus the results.
+
+    -   quote the website that says "sophisticated machine learning"
+
+## Ethics codes from different organization 
+
+## Principles to guide ethical action 
+
+From MSDR: <https://mdsr-book.github.io/mdsr3e/08-ethics.html#some-principles-to-guide-ethical-action>
+
+## example 
+
+-   blue hair green shirt eample
+
+## example 
+
+-   Talking about using race as a predictor in a model
+
+\-<https://slate.com/technology/2016/02/how-to-bring-better-ethics-to-data-science.html>
+
+Add something about considersations of race.
+
+## Case study 1
+
+**Problem 8 (Medium)**: A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships. Why might it be problematic to post a deidentified form of this data set where name and email address were removed?
+
+From Modern Data Science with R (<https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises>)
+
+## Case study 2
+
+A company uses a machine-learning algorithm to determine which job advertisement to display for users searching for technology jobs. Based on past results, the algorithm tends to display lower-paying jobs for women than for men (after controlling for other characteristics than gender). What ethical considerations might be considered when reviewing this algorithm?
+
+From Modern Data Science with R (<https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises>)
+
+## Further reading 
+
+-   [Data science ethics reading lists](https://scolando.github.io/data-science-ethics/Reading-Tags.html)
+
+-   Chapter 8 - Modern Data Science with R
+
+## Next class 
+
+-   Special topic: Causal inference
+
+-   Complete [Lecture 21 prepare](../prepare/prepare-lec21.html)

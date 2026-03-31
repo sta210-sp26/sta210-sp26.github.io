@@ -12182,14 +12182,14 @@
     "href": "slides/20-ds-ethics.html#when-it-goes-wrong",
     "title": "Data science ethics",
     "section": "When it goes wrong",
-    "text": "When it goes wrong\n\nUse examples from eCOTS"
+    "text": "When it goes wrong"
   },
   {
     "objectID": "slides/20-ds-ethics.html#ds-life-cycle-from-jos-paper",
     "href": "slides/20-ds-ethics.html#ds-life-cycle-from-jos-paper",
     "title": "Data science ethics",
     "section": "DS life cycle from Jo’s paper",
-    "text": "DS life cycle from Jo’s paper\n\nQuestion about what are some decisions they’ve made thus far in the project."
+    "text": "DS life cycle from Jo’s paper\n\nSource: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html\nQuestion about what are some decisions they’ve made thus far in the project."
   },
   {
     "objectID": "slides/20-ds-ethics.html#subjectivity-vs-objectivity",
@@ -12273,6 +12273,146 @@
     "href": "slides/20-ds-ethics.html#further-reading",
     "title": "Data science ethics",
     "section": "Further reading",
-    "text": "Further reading\n\nData science ethics reading lists"
+    "text": "Further reading\n\nData science ethics reading lists\nChapter 8 - Modern Data Science with R\nWhen things go wrong examples:\n\n“Cambridge Analytica made ‘ethical mistakes’ because it was too focused on regulation, former COO says” on Vox.com\n“How big data is helping states kick poor people off welfare” on Vox.com\n“How AI researchers uncover ethical, legal risks to using popular data sets” from Washington Post\nBoeing’s manufacturing, ethical lapses go back decades from The Seattle Times"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#why-is-data-science-ethics-important",
+    "href": "slides/20-ds-ethics.html#why-is-data-science-ethics-important",
+    "title": "Data science ethics",
+    "section": "Why is data science ethics important?",
+    "text": "Why is data science ethics important?\n\ncommonly held belief that mathematics, and statistics, is “objective”, not influenced by practitioner’s moral values,\nIn the age of “big data”, high stakes decisions are being made based on data and statistics\nShow the article about the woman from Tennessee who was in jail due to facial recognition software."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#why-is-data-science-ethics-important-1",
+    "href": "slides/20-ds-ethics.html#why-is-data-science-ethics-important-1",
+    "title": "Data science ethics",
+    "section": "Why is data science ethics important?",
+    "text": "Why is data science ethics important?\n\ncommonly held belief that mathematics, and statistics, is “objective”, not influenced by practitioner’s moral values,\nIn the age of “big data”, high stakes decisions are being made based on data and statistics\nShow the article about the woman from Tennessee who was in jail due to facial recognition software."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#importance-of-transparency",
+    "href": "slides/20-ds-ethics.html#importance-of-transparency",
+    "title": "Data science ethics",
+    "section": "Importance of transparency",
+    "text": "Importance of transparency\n\nethical expectation that data models are understandable to human stakeholders is often referred to the “right to an explanation”.\n\nThis is found in European Unions General Data Protection Regulation (GDPR)\n\nDurham ShotSpotter example.\n\nMaybe look at some of the community feedback versus the results.\nquote the website that says “sophisticated machine learning”"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#case-study-1",
+    "href": "slides/20-ds-ethics.html#case-study-1",
+    "title": "Data science ethics",
+    "section": "Case study 1",
+    "text": "Case study 1\nProblem 8 (Medium): A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships. Why might it be problematic to post a deidentified form of this data set where name and email address were removed?\nFrom Modern Data Science with R (https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#case-study-2",
+    "href": "slides/20-ds-ethics.html#case-study-2",
+    "title": "Data science ethics",
+    "section": "Case study 2",
+    "text": "Case study 2\nA company uses a machine-learning algorithm to determine which job advertisement to display for users searching for technology jobs. Based on past results, the algorithm tends to display lower-paying jobs for women than for men (after controlling for other characteristics than gender). What ethical considerations might be considered when reviewing this algorithm?\nFrom Modern Data Science with R (https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#next-class",
+    "href": "slides/20-ds-ethics.html#next-class",
+    "title": "Data science ethics",
+    "section": "Next class",
+    "text": "Next class\n\nSpecial topic: Causal inference\nComplete Lecture 21 prepare\n\n\n\n\n\nColando, Sara, and Johanna Hardin. 2024. “Philosophy Within Data Science Ethics Courses.” Journal of Statistics and Data Science Education 32 (4): 361–73."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#processes-in-data-science",
+    "href": "slides/20-ds-ethics.html#processes-in-data-science",
+    "title": "Data science ethics",
+    "section": "Processes in data science",
+    "text": "Processes in data science\n\n\n\n\n\n\nProblem definition: Question we wish to answer with data\n\nWhat is the likelihood a customer purchases product S?\nOur model (built on training data) is successful if it achieves at least 75% accuracy on testing data\n\n\n\n\nSource: Colando and Hardin (2024)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#example-processes-in-data-science",
+    "href": "slides/20-ds-ethics.html#example-processes-in-data-science",
+    "title": "Data science ethics",
+    "section": "Example: Processes in data science",
+    "text": "Example: Processes in data science\n\nSource: Figure 1 of Colando and Hardin (2024)\nQuestion about what are some decisions they’ve made thus far in the project."
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#processes-in-data-science-1",
+    "href": "slides/20-ds-ethics.html#processes-in-data-science-1",
+    "title": "Data science ethics",
+    "section": "Processes in data science",
+    "text": "Processes in data science\n\n\n\n\n\n\nRaw data: Information collected by interacting with the world\n\nInformation from each time the customer clicks on an advertisement for product S\nIncludes timestamps for each advertisement interaction and the customer’s demographic information\n\n\n\n\nSource: Colando and Hardin (2024)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#processes-in-data-science-2",
+    "href": "slides/20-ds-ethics.html#processes-in-data-science-2",
+    "title": "Data science ethics",
+    "section": "Processes in data science",
+    "text": "Processes in data science\n\n\n\n\n\n\nData: Processed form of raw data\n\nData table where each row represents a unique customer and the columns are the variables that describe that customer\nIncludes information from raw data and engineered variables (e.g., average time between clicks)\nWe decide what to do with missing data\n\n\n\n\nSource: Colando and Hardin (2024)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#processes-in-data-science-3",
+    "href": "slides/20-ds-ethics.html#processes-in-data-science-3",
+    "title": "Data science ethics",
+    "section": "Processes in data science",
+    "text": "Processes in data science\n\n\n\n\n\n\nData model(s): Product from running input data through learning algorithm (generalize the relationship between variables in the data)\n\nWe choose a logistic regression model of the form\n\\[\n\\begin{aligned}\n\\log(\\frac{\\pi}{1-\\pi}) = \\beta_0 &+ \\beta_1 ~ \\text{age} \\\\\n&+ \\beta_2 ~ \\text{number clicks}\\\\\n& + \\beta_3 ~ \\text{avg time between clicks}\n\\end{aligned}\n\\]\n\n\n\n\nSource: Colando and Hardin (2024)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#processes-in-data-science-4",
+    "href": "slides/20-ds-ethics.html#processes-in-data-science-4",
+    "title": "Data science ethics",
+    "section": "Processes in data science",
+    "text": "Processes in data science\n\n\n\n\n\n\nTuned data model(s): Data model in which the parameters are adjusted\n\nUse 5-fold cross validation to determine which variables to include in order to improve model’s accuracy\n\n\n\n\nSource: Colando and Hardin (2024)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#processes-in-data-science-5",
+    "href": "slides/20-ds-ethics.html#processes-in-data-science-5",
+    "title": "Data science ethics",
+    "section": "Processes in data science",
+    "text": "Processes in data science\n\n\n\n\n\n\nDeployment and usage: Generating predictions (or other output) from the tuned model\n\nDetermine that the model should only be used for customers under a certain age\nDetermine only data scientists at the company selling product S should be able to access model and sell products from it\n\n\n\n\nSource: Colando and Hardin (2024)"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#your-data-science-process",
+    "href": "slides/20-ds-ethics.html#your-data-science-process",
+    "title": "Data science ethics",
+    "section": "Your data science process",
+    "text": "Your data science process\n\nSource: Figure 2 of Colando and Hardin (2024)\nWhat are some decisions you have made in your project (or other data analysis work)?"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#true-objectivity",
+    "href": "slides/20-ds-ethics.html#true-objectivity",
+    "title": "Data science ethics",
+    "section": "True objectivity?",
+    "text": "True objectivity?\n[Add quotes from SRTL presentation ]\nDesire to remove humans - that is objective. What is wrong with this idea?"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#topics-in-data-science-ethics",
+    "href": "slides/20-ds-ethics.html#topics-in-data-science-ethics",
+    "title": "Data science ethics",
+    "section": "Topics in data science ethics",
+    "text": "Topics in data science ethics\n[get from reading list. See the list for more details]"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#announcements",
+    "href": "slides/20-ds-ethics.html#announcements",
+    "title": "Data science ethics",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 04 due TODAY at 11:59pm\nProject: Preliminary analysis due April 7\nStatistics experience due April 15"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#when-things-go-wrong",
+    "href": "slides/20-ds-ethics.html#when-things-go-wrong",
+    "title": "Data science ethics",
+    "section": "When things go wrong",
+    "text": "When things go wrong"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#gap-in-public-trust",
+    "href": "slides/20-ds-ethics.html#gap-in-public-trust",
+    "title": "Data science ethics",
+    "section": "Gap in public trust",
+    "text": "Gap in public trust"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#ideal-objectivity",
+    "href": "slides/20-ds-ethics.html#ideal-objectivity",
+    "title": "Data science ethics",
+    "section": "“Ideal objectivity?”",
+    "text": "“Ideal objectivity?”\n- SRTL SLIDES"
   }
 ]

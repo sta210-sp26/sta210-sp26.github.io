@@ -28,7 +28,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-d33e1146c03e6fd01aa27e41fa6c8ae1.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -142,16 +162,12 @@ Prof.&nbsp;Maria Tackett
 
   <p class="date">Mar 31, 2026</p>
 </section>
-<section id="announcements---update" class="slide level2">
-<h2>Announcements - UPDATE</h2>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
 <ul>
-<li><p>Lab 06 due TODAY at 11:59pm</p></li>
-<li><p>HW 04 due March 31 at 11:59pm</p></li>
+<li><p>HW 04 due TODAY at 11:59pm</p></li>
+<li><p>Project: Preliminary analysis due April 7</p></li>
 <li><p>Statistics experience due April 15</p></li>
-<li><p>SSMU Data Mini #3 - April 4</p>
-<ul>
-<li>See <a href="https://edstem.org/us/courses/91299/discussion/7847547">Ed Discussion</a> for full announcement</li>
-</ul></li>
 </ul>
 </section>
 <section id="application-exercise" class="title-slide slide level1 center">
@@ -167,28 +183,162 @@ Prof.&nbsp;Maria Tackett
 <h1>Data science ethics</h1>
 
 </section>
-<section id="discussion-guidelines" class="slide level2">
-<h2>Discussion guidelines</h2>
+<section id="when-things-go-wrong" class="slide level2">
+<h2>When things go wrong</h2>
+
+<img data-src="images/clipboard-2930999253.png" class="r-stretch"></section>
+<section id="gap-in-public-trust" class="slide level2">
+<h2>Gap in public trust</h2>
+
+<img data-src="images/clipboard-129687469.png" class="r-stretch"></section>
+<section class="slide level2">
+
+<p>“…coverage of polls [statistics] often <strong>does not adequately convey the many decisions</strong> that pollsters [statisticians] must make … as well as the <strong>potential consequences of those decisions</strong>”</p>
+
+<aside><div>
+<p>Clinton, J. (2021, January 11). Polling problems and why we should still trust (some) polls. The Vanderbilt Project on Unity and American Democracy. <a href="https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/" class="uri">https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/</a></p>
+</div></aside></section>
+<section id="ideal-objectivity" class="slide level2">
+<h2>“Ideal objectivity?”</h2>
+<p>- SRTL SLIDES</p>
 </section>
-<section id="when-it-goes-wrong" class="slide level2">
-<h2>When it goes wrong</h2>
+<section id="processes-in-data-science" class="slide level2">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <ul>
-<li>Use examples from eCOTS</li>
-</ul>
-</section>
-<section id="ds-life-cycle-from-jos-paper" class="slide level2">
-<h2>DS life cycle from Jo’s paper</h2>
+<li><strong>Problem definition</strong>: Question we wish to answer with data
 <ul>
-<li>Question about what are some decisions they’ve made thus far in the project.</li>
+<li>What is the likelihood a customer purchases product S?</li>
+<li>Our model (built on training data) is successful if it achieves at least 75% accuracy on testing data</li>
+</ul></li>
 </ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-1" class="slide level2">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Raw data</strong>: Information collected by interacting with the world
+<ul>
+<li>Information from each time the customer clicks on an advertisement for product S</li>
+<li>Includes timestamps for each advertisement interaction and the customer’s demographic information</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-2" class="slide level2">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Data</strong>: Processed form of raw data
+<ul>
+<li>Data table where each row represents a unique customer and the columns are the variables that describe that customer</li>
+<li>Includes information from raw data and engineered variables (e.g., average time between clicks)</li>
+<li>We decide what to do with missing data</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-3" class="slide level2">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Data model(s)</strong>: Product from running input data through learning algorithm (generalize the relationship between variables in the data)
+<ul>
+<li><p>We choose a logistic regression model of the form</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log(\frac{\pi}{1-\pi}) = \beta_0 &amp;+ \beta_1 ~ \text{age} \\
+&amp;+ \beta_2 ~ \text{number clicks}\\
+&amp; + \beta_3 ~ \text{avg time between clicks}
+\end{aligned}
+\]</span></p></li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-4" class="slide level2">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Tuned data model(s)</strong>: Data model in which the parameters are adjusted
+<ul>
+<li>Use 5-fold cross validation to determine which variables to include in order to improve model’s accuracy</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-5" class="slide level2">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Deployment and usage</strong>: Generating predictions (or other output) from the tuned model
+<ul>
+<li>Determine that the model should only be used for customers under a certain age</li>
+<li>Determine only data scientists at the company selling product S should be able to access model and sell products from it</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="your-data-science-process" class="slide level2">
+<h2>Your data science process</h2>
+
+<img data-src="images/clipboard-3136590850.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Source: Figure 2 of <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/next-class" role="doc-biblioref" onclick="">2024</a>)</span></p><div class="question">
+<p>What are some decisions you have made in your project (or other data analysis work)?</p>
+</div>
 </section>
-<section id="subjectivity-vs-objectivity" class="slide level2">
-<h2>Subjectivity vs objectivity</h2>
-<p>[Add quotes from SRTL presentation ]</p>
-<p>Desire to remove humans - that is objective. What is wrong with this idea?</p>
+<section id="what-is-data-science-ethics" class="slide level2">
+<h2>What is data science ethics?</h2>
+<p>Data science ethics studies and evaluates moral problems related to:</p>
+<ul>
+<li><p>Data: generation, recording, process, dissemination, and sharing</p></li>
+<li><p>Algorithms: artificial intelligence, machine learning, large language models, and statistical learning models</p></li>
+<li><p>Corresponding practices: responsible innovation, programming, hacking, professional code</p></li>
+</ul>
+<p>Hardin paper, Floridi and Taddeo (2016)</p>
 </section>
-<section id="why-are-ethics-important" class="slide level2">
-<h2>Why are ethics important?</h2>
+<section id="topics-in-data-science-ethics" class="slide level2">
+<h2>Topics in data science ethics</h2>
+<p>[get from reading list. See the list for more details]</p>
+</section>
+<section id="why-is-data-science-ethics-important" class="slide level2">
+<h2>Why is data science ethics important?</h2>
 <ul>
 <li><p>commonly held belief that mathematics, and statistics, is “objective”, not influenced by practitioner’s moral values,</p></li>
 <li><p>In the age of “big data”, high stakes decisions are being made based on data and statistics</p></li>
@@ -214,8 +364,8 @@ Prof.&nbsp;Maria Tackett
 <p>Question - What are the implications of dropping observations with missing values?</p>
 <p>These are from hardin article.</p>
 </section>
-<section id="importance-of-interpretability" class="slide level2">
-<h2>Importance of interpretability</h2>
+<section id="importance-of-transparency" class="slide level2">
+<h2>Importance of transparency</h2>
 <ul>
 <li><p>ethical expectation that data models are understandable to human stakeholders is often referred to the “right to an explanation”.</p>
 <ul>
@@ -227,19 +377,6 @@ Prof.&nbsp;Maria Tackett
 <li><p>quote the website that says “sophisticated machine learning”</p></li>
 </ul></li>
 </ul>
-</section>
-<section id="ds-life-cycle-from-jos-paper-with-markers-about-ethics" class="slide level2">
-<h2>DS life cycle from Jo’s paper with markers about ethics</h2>
-</section>
-<section id="what-is-data-science-ethics" class="slide level2">
-<h2>What is data science ethics?</h2>
-<p>Data science ethics studies and evaluates moral problems related to:</p>
-<ul>
-<li><p>Data: generation, recording, process, dissemination, and sharing</p></li>
-<li><p>Algorithms: artificial intelligence, machine learning, large language models, and statistical learning models</p></li>
-<li><p>Corresponding practices: responsible innovation, programming, hacking, professional code</p></li>
-</ul>
-<p>Hardin paper, Floridi and Taddeo (2016)</p>
 </section>
 <section id="ethics-codes-from-different-organization" class="slide level2">
 <h2>Ethics codes from different organization</h2>
@@ -262,13 +399,43 @@ Prof.&nbsp;Maria Tackett
 <p>-<a href="https://slate.com/technology/2016/02/how-to-bring-better-ethics-to-data-science.html" class="uri">https://slate.com/technology/2016/02/how-to-bring-better-ethics-to-data-science.html</a></p>
 <p>Add something about considersations of race.</p>
 </section>
+<section id="case-study-1" class="slide level2">
+<h2>Case study 1</h2>
+<p><strong>Problem 8 (Medium)</strong>: A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships. Why might it be problematic to post a deidentified form of this data set where name and email address were removed?</p>
+<p>From Modern Data Science with R (<a href="https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises" class="uri">https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises</a>)</p>
+</section>
+<section id="case-study-2" class="slide level2">
+<h2>Case study 2</h2>
+<p>A company uses a machine-learning algorithm to determine which job advertisement to display for users searching for technology jobs. Based on past results, the algorithm tends to display lower-paying jobs for women than for men (after controlling for other characteristics than gender). What ethical considerations might be considered when reviewing this algorithm?</p>
+<p>From Modern Data Science with R (<a href="https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises" class="uri">https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises</a>)</p>
+</section>
 <section id="further-reading" class="slide level2">
 <h2>Further reading</h2>
 <ul>
-<li>Data science ethics reading lists</li>
+<li><p><a href="https://scolando.github.io/data-science-ethics/Reading-Tags.html">Data science ethics reading lists</a></p></li>
+<li><p>Chapter 8 - Modern Data Science with R</p></li>
+<li><p>When things go wrong examples:</p>
+<ul>
+<li><p><a href="https://www.vox.com/recode/2019/7/31/20747874/cambridge-analytica-julian-wheatland-great-hack-netflix-documentary-kara-swisher-podcast-interview">“Cambridge Analytica made ‘ethical mistakes’ because it was too focused on regulation, former COO says” on Vox.com</a></p></li>
+<li><p><a href="https://www.vox.com/2018/2/6/16874782/welfare-big-data-technology-poverty">“How big data is helping states kick poor people off welfare” on Vox.com</a></p></li>
+<li><p><a href="https://www.washingtonpost.com/technology/2023/10/25/data-provenance/">“How AI researchers uncover ethical, legal risks to using popular data sets” from Washington Post</a></p></li>
+<li><p><a href="https://www.seattletimes.com/opinion/boeings-manufacturing-ethical-lapses-go-back-decades/">Boeing’s manufacturing, ethical lapses go back decades from The Seattle Times</a></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="next-class" class="slide level2 smaller scrollable">
+<h2>Next class</h2>
+<ul>
+<li><p>Special topic: Causal inference</p></li>
+<li><p>Complete <a href="../prepare/prepare-lec21.html">Lecture 21 prepare</a></p></li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-colando2024philosophy" class="csl-entry" role="listitem">
+Colando, Sara, and Johanna Hardin. 2024. <span>“Philosophy Within Data Science Ethics Courses.”</span> <em>Journal of Statistics and Data Science Education</em> 32 (4): 361–73.
+</div>
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

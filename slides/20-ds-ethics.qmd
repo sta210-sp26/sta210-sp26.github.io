@@ -41,17 +41,13 @@ knitr::opts_chunk$set(
 library(countdown)
 ```
 
-## Announcements - UPDATE
+## Announcements 
 
--   Lab 06 due TODAY at 11:59pm
+-   HW 04 due TODAY at 11:59pm
 
--   HW 04 due March 31 at 11:59pm
+-   Project: Preliminary analysis due April 7
 
 -   Statistics experience due April 15
-
--   SSMU Data Mini #3 - April 4
-
-    -   See [Ed Discussion](https://edstem.org/us/courses/91299/discussion/7847547) for full announcement
 
 # Application exercise
 
@@ -63,29 +59,114 @@ library(countdown)
 
 # Data science ethics
 
-## Discussion guidelines
+## When things go wrong
 
-## When it goes wrong 
+![](images/clipboard-2930999253.png)
 
--   Use examples from eCOTS
+## Gap in public trust 
 
-## DS life cycle from Jo's paper 
+![](images/clipboard-129687469.png)
 
-![Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html](images/clipboard-719982942.png)
+---
 
--   Question about what are some decisions they've made thus far in the project.
+"…coverage of polls \[statistics\] often **does not adequately convey the many decisions** that pollsters \[statisticians\] must make … as well as the **potential consequences of those decisions**”
 
-## Subjectivity vs objectivity 
+::: aside
+Clinton, J. (2021, January 11). Polling problems and why we should still trust (some) polls. The Vanderbilt Project on Unity and American Democracy. <https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/>
+:::
 
-\[Add quotes from SRTL presentation \]
+---
 
-Desire to remove humans - that is objective. What is wrong with this idea?
+## "Ideal objectivity?"
 
-## Why is data science ethics important? 
+\- SRTL SLIDES
 
-![Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html](images/clipboard-3136590850.png)
+## Processes in data science
 
-Question - where have you made decisions in your project?
+![](images/clipboard-719982942.png){fig-align="center"}
+
+-   **Problem definition**: Question we wish to answer with data
+    -   What is the likelihood a customer purchases product S?
+    -   Our model (built on training data) is successful if it achieves at least 75% accuracy on testing data
+
+::: aside
+Source: @colando2024philosophy
+:::
+
+## Processes in data science
+
+![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
+
+-   **Raw data**: Information collected by interacting with the world
+    -   Information from each time the customer clicks on an advertisement for product S
+    -   Includes timestamps for each advertisement interaction and the customer’s demographic information
+
+::: aside
+Source: @colando2024philosophy
+:::
+
+## Processes in data science
+
+![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
+
+-   **Data**: Processed form of raw data
+    -   Data table where each row represents a unique customer and the columns are the variables that describe that customer
+    -   Includes information from raw data and engineered variables (e.g., average time between clicks)
+    -   We decide what to do with missing data
+
+::: aside
+Source: @colando2024philosophy
+:::
+
+## Processes in data science
+
+![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
+
+-   **Data model(s)**: Product from running input data through learning algorithm (generalize the relationship between variables in the data)
+    -   We choose a logistic regression model of the form
+
+        $$
+        \begin{aligned}
+        \log(\frac{\pi}{1-\pi}) = \beta_0 &+ \beta_1 ~ \text{age} \\
+        &+ \beta_2 ~ \text{number clicks}\\
+        & + \beta_3 ~ \text{avg time between clicks}
+        \end{aligned}
+        $$
+
+::: aside
+Source: @colando2024philosophy
+:::
+
+## Processes in data science
+
+![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
+
+-   **Tuned data model(s)**: Data model in which the parameters are adjusted
+    -   Use 5-fold cross validation to determine which variables to include in order to improve model's accuracy
+
+::: aside
+Source: @colando2024philosophy
+:::
+
+## Processes in data science
+
+![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
+
+-   **Deployment and usage**: Generating predictions (or other output) from the tuned model
+    -   Determine that the model should only be used for customers under a certain age
+    -   Determine only data scientists at the company selling product S should be able to access model and sell products from it
+
+::: aside
+Source: @colando2024philosophy
+:::
+
+## Your data science process
+
+![Source: Figure 2 of @colando2024philosophy](images/clipboard-3136590850.png){alt="Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html" width="90%"}
+
+::: question
+What are some decisions you have made in your project (or other data analysis work)?
+:::
 
 ## What is data science ethics? 
 
@@ -98,6 +179,10 @@ Data science ethics studies and evaluates moral problems related to:
 -   Corresponding practices: responsible innovation, programming, hacking, professional code
 
 Hardin paper, Floridi and Taddeo (2016)
+
+## Topics in data science ethics 
+
+\[get from reading list. See the list for more details\]
 
 ## Why is data science ethics important? 
 
@@ -176,6 +261,16 @@ From Modern Data Science with R (<https://mdsr-book.github.io/mdsr3e/08-ethics.h
 -   [Data science ethics reading lists](https://scolando.github.io/data-science-ethics/Reading-Tags.html)
 
 -   Chapter 8 - Modern Data Science with R
+
+-   When things go wrong examples:
+
+    -   ["Cambridge Analytica made 'ethical mistakes' because it was too focused on regulation, former COO says" on Vox.com](https://www.vox.com/recode/2019/7/31/20747874/cambridge-analytica-julian-wheatland-great-hack-netflix-documentary-kara-swisher-podcast-interview)
+
+    -   ["How big data is helping states kick poor people off welfare" on Vox.com](https://www.vox.com/2018/2/6/16874782/welfare-big-data-technology-poverty)
+
+    -   ["How AI researchers uncover ethical, legal risks to using popular data sets" from Washington Post](https://www.washingtonpost.com/technology/2023/10/25/data-provenance/)
+
+    -   [Boeing's manufacturing, ethical lapses go back decades from The Seattle Times](https://www.seattletimes.com/opinion/boeings-manufacturing-ethical-lapses-go-back-decades/)
 
 ## Next class 
 

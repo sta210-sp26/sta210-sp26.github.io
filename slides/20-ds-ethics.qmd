@@ -69,6 +69,12 @@ library(countdown)
 
 ---
 
+<br>
+
+<br>
+
+<br>
+
 "…coverage of polls \[statistics\] often **does not adequately convey the many decisions** that pollsters \[statisticians\] must make … as well as the **potential consequences of those decisions**”
 
 ::: aside
@@ -79,6 +85,7 @@ Clinton, J. (2021, January 11). Polling problems and why we should still trust (
 
 ## "Ideal objectivity?"
 
+::: incremental
 -   **Desire for “ideal objectivity”**
 
     -   Work that is free from interference of human perception [@feinberg2023myth]
@@ -92,6 +99,7 @@ Clinton, J. (2021, January 11). Polling problems and why we should still trust (
     -   Distorted reality of data analysis process
 
     -   Lack of communication about decisions that don’t seem “objective”
+:::
 
 ## The role of data science ethics 
 
@@ -107,7 +115,7 @@ Clinton, J. (2021, January 11). Polling problems and why we should still trust (
 Source: @colando2024philosophy
 :::
 
-## Processes in data science
+## Processes in data science {.midi}
 
 ![](images/clipboard-719982942.png){fig-align="center"}
 
@@ -119,7 +127,7 @@ Source: @colando2024philosophy
 Source: @colando2024philosophy
 :::
 
-## Processes in data science
+## Processes in data science {.midi}
 
 ![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
 
@@ -131,7 +139,7 @@ Source: @colando2024philosophy
 Source: @colando2024philosophy
 :::
 
-## Processes in data science
+## Processes in data science {.midi}
 
 ![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
 
@@ -144,7 +152,7 @@ Source: @colando2024philosophy
 Source: @colando2024philosophy
 :::
 
-## Processes in data science
+## Processes in data science {.midi}
 
 ![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
 
@@ -163,7 +171,7 @@ Source: @colando2024philosophy
 Source: @colando2024philosophy
 :::
 
-## Processes in data science
+## Processes in data science {.midi}
 
 ![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
 
@@ -174,7 +182,7 @@ Source: @colando2024philosophy
 Source: @colando2024philosophy
 :::
 
-## Processes in data science
+## Processes in data science {.midi}
 
 ![](images/clipboard-719982942.png){alt="Source: Figure 1 of @colando2024philosophy" fig-align="center"}
 
@@ -186,12 +194,12 @@ Source: @colando2024philosophy
 Source: @colando2024philosophy
 :::
 
-## Your data science process
+## Your data science process {.midi}
 
 ![Source: Figure 2 of @colando2024philosophy](images/clipboard-3136590850.png){alt="Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html" width="90%"}
 
 ::: question
-What are some decisions you have made in your project (or other data analysis work)?
+What are some decisions you have made (or will make) in your project or other data analysis work?
 :::
 
 ## What is data science ethics? 
@@ -238,7 +246,7 @@ Sources: @colando2024philosophy, @floridi2016data
 List adapted from @colando_data_science_ethics and @baumer2017modern
 :::
 
-## Data Science Oath
+## Data Science Oath {.midi}
 
 1.  I will not be ashamed to say, “I know not,” nor will I fail to call in my colleagues when the skills of another are needed for solving a problem.
 
@@ -248,14 +256,14 @@ List adapted from @colando_data_science_ethics and @baumer2017modern
 
 <small>From @nas2018data_science_undergraduate_project based on the Hippocratic Oath for physicians.</small>
 
-## Responsibility 
+## Responsibility  {.midi}
 
 The data scientist is (morally) responsible for
 
 -   How the data are handled and stored
 -   Modeling decisions
 -   Implications of data handling and modeling
--   Providing clear documentation and how model should be used
+-   Providing clear documentation and guidance on model use
 
 . . .
 
@@ -268,21 +276,28 @@ The user is (morally) responsible for
 Source: @colando2024philosophy
 :::
 
-## Example: Mistaken identity
+## Example: Mistaken identity {.midi}
 
 Angela Lipps, A woman from Tennessee spent 5 months in jail after facial recognition connected her to a string of bank fraud cases in Fargo, North Dakota
 
 -   String of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit
--   Investigators use facial recognition technology to identify person based on bank survellience video
+-   Investigators use facial recognition technology to identify person based on bank surveillance video
 -   The software "identified a potential suspect with similar features to Angela Lipps"
+
+::: aside
+Source: [New York Times](https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html)
+:::
+
+## Example: Mistaken identity {.midi}
+
 -   Police find Angela Lipps' Facebook and Instagram accounts, along with her Tennessee ID and determine she matches the identified suspect
 -   She is released from jail after a judge dismisses the case
 
 ::: aside
-Source: <https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html>
+Source: [New York Times](https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html)
 :::
 
-## Example: Mistaken identity
+## Example: Mistaken identity {.midi}
 
 -   Facial recognition company, Clearview AI uses "publicly available images" for its data base and to train its models
 
@@ -297,29 +312,31 @@ Source: <https://www.clearview.ai/>
 ## Example: Mistaken identity
 
 ::: question
--   What are the ethical considerations for those building such facial recognition technology?
+-   What are the ethical considerations for the data scientists [building]{.underline} such facial recognition technology?
 
--   What are the ethical responsibilities for those building such facial recognition technology?
+-   What are the ethical responsibilities for the data scientists [building]{.underline} such facial recognition technology?
 :::
 
 <br>
 
 ::: question
--   What are the ethical considerations for those using such facial recognition technology?
+-   What are the ethical considerations for those [using]{.underline} such facial recognition technology?
 
--   What are the ethical responsibilities for those using such facial recognition technology?
+-   What are the ethical responsibilities for those [using]{.underline} such facial recognition technology?
 :::
 
-## Example case study 1
+## Example case study 
 
 A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.
 
+<br>
+
 ::: question
-Why might it be problematic to post a deidentified form of this data set where name and email address were removed?
+What are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?
 :::
 
 ::: aside
-From Chapter 8 of @baumer2017modern
+Adapted from Chapter 8 of @baumer2017modern
 :::
 
 ## Further reading 
@@ -329,6 +346,8 @@ From Chapter 8 of @baumer2017modern
 -   [Data science ethics reading lists](https://scolando.github.io/data-science-ethics/Reading-Tags.html)
 
 -   [Chapter 8 in Modern Data Science with R](https://mdsr-book.github.io/mdsr3e/08-ethics.html#sec-ethics-intro)
+
+## Further reading
 
 -   When things go wrong examples:
 
@@ -354,6 +373,6 @@ From Chapter 8 of @baumer2017modern
 
 ## Next class 
 
--   Special topic: Causal inference
+-   7Special topic: Causal inference
 
 -   Complete [Lecture 21 prepare](../prepare/prepare-lec21.html)

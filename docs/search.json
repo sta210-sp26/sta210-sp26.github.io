@@ -12315,7 +12315,7 @@
     "href": "slides/20-ds-ethics.html#next-class",
     "title": "Data science ethics",
     "section": "Next class",
-    "text": "Next class\n\nSpecial topic: Causal inference\nComplete Lecture 21 prepare\n\n\n\n\n\nColando, Sara, and Johanna Hardin. 2024. “Philosophy Within Data Science Ethics Courses.” Journal of Statistics and Data Science Education 32 (4): 361–73."
+    "text": "Next class\n\nSpecial topic: Causal inference\nComplete Lecture 21 prepare\n\n\n\n\n\nColando, Sara, and Johanna Hardin. 2024. “Philosophy Within Data Science Ethics Courses.” Journal of Statistics and Data Science Education 32 (4): 361–73.\n\n\nFeinberg, Melanie. 2023. “The Myth of Objective Data.” MIT Press Reader. 2023. https://thereader.mitpress.mit.edu/the-myth-of-objective-data/."
   },
   {
     "objectID": "slides/20-ds-ethics.html#processes-in-data-science",
@@ -12413,6 +12413,13 @@
     "href": "slides/20-ds-ethics.html#ideal-objectivity",
     "title": "Data science ethics",
     "section": "“Ideal objectivity?”",
-    "text": "“Ideal objectivity?”\n- SRTL SLIDES"
+    "text": "“Ideal objectivity?”\n\nDesire for “ideal objectivity”\n\nWork that is free from interference of human perception (Feinberg 2023)\nConclusions that are observer independent (gelman2017beyond?)\n\nFeels like the ethical approach (Feinberg 2023)\nThere are implications (Feinberg 2023)\n\nDistorted reality of data analysis process\nLack of communication about decisions that don’t seem “objective”"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#the-role-of-data-science-ethics-colando2024philosophy",
+    "href": "slides/20-ds-ethics.html#the-role-of-data-science-ethics-colando2024philosophy",
+    "title": "Data science ethics",
+    "section": "The role of data science ethics (Colando and Hardin 2024)",
+    "text": "The role of data science ethics (Colando and Hardin 2024)\n\nIlluminates the the decision-making in data science\n\nMakes explicit the existence of choice throughout an analysis\nMakes explicit the moral implications of our choices\n\nAlign data science practices with what we ought to do and moral duties to stakeholders"
   }
 ]

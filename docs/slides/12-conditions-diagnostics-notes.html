@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Maria Tackett">
+
+<title>Model conditions + diagnostics – STA 210 - Spring 2026</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e3e41cc2c0ce9679c3508be82c967636.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Model conditions + diagnostics</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/sta210-sp26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
+    <a href="https://edstem.org/us/courses/91299" title="Ed Discussion" class="quarto-navigation-tool px-1" aria-label="Ed Discussion"><i class="bi bi-chat-dots-fill"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/68771">
+            Canvas
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/1212990">
+            Gradescope
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/stats-experience.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics experience</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 00</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 05</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 06</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 08</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project-tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tips + resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=edec3a44-0ec4-4414-89b5-b3c901375980" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture recordings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exam-01-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam 01 practice</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#announcements---update" id="toc-announcements---update" class="nav-link active" data-scroll-target="#announcements---update">Announcements - UPDATE</a></li>
+  <li><a href="#review-ae-06" id="toc-review-ae-06" class="nav-link" data-scroll-target="#review-ae-06">Review: AE 06</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
+  <li><a href="#computing-set-up" id="toc-computing-set-up" class="nav-link" data-scroll-target="#computing-set-up">Computing set up</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#data-duke-lemurs---update" id="toc-data-duke-lemurs---update" class="nav-link" data-scroll-target="#data-duke-lemurs---update">Data: Duke lemurs - UPDATE</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#variables-1" id="toc-variables-1" class="nav-link" data-scroll-target="#variables-1">Variables</a></li>
+  <li><a href="#bivariate-eda" id="toc-bivariate-eda" class="nav-link" data-scroll-target="#bivariate-eda">Bivariate EDA</a></li>
+  <li><a href="#fit-model" id="toc-fit-model" class="nav-link" data-scroll-target="#fit-model">Fit model</a></li>
+  <li><a href="#model-conditions" id="toc-model-conditions" class="nav-link" data-scroll-target="#model-conditions">Model conditions</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-regression" id="toc-assumptions-for-regression" class="nav-link" data-scroll-target="#assumptions-for-regression">Assumptions for regression</a></li>
+  <li><a href="#linearity" id="toc-linearity" class="nav-link" data-scroll-target="#linearity">Linearity</a></li>
+  <li><a href="#residuals-vs.-predictors" id="toc-residuals-vs.-predictors" class="nav-link" data-scroll-target="#residuals-vs.-predictors">Residuals vs.&nbsp;predictors</a></li>
+  <li><a href="#example-linearity-not-satisfied" id="toc-example-linearity-not-satisfied" class="nav-link" data-scroll-target="#example-linearity-not-satisfied">Example: Linearity not satisfied</a></li>
+  <li><a href="#equal-variance" id="toc-equal-variance" class="nav-link" data-scroll-target="#equal-variance">Equal variance</a></li>
+  <li><a href="#example-equal-variance-not-satisfied" id="toc-example-equal-variance-not-satisfied" class="nav-link" data-scroll-target="#example-equal-variance-not-satisfied">Example: Equal variance not satisfied</a></li>
+  <li><a href="#normality" id="toc-normality" class="nav-link" data-scroll-target="#normality">Normality</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a></li>
+  <li><a href="#independence-1" id="toc-independence-1" class="nav-link" data-scroll-target="#independence-1">Independence</a></li>
+  <li><a href="#what-conditions-are-needed" id="toc-what-conditions-are-needed" class="nav-link" data-scroll-target="#what-conditions-are-needed">What conditions are needed?</a></li>
+  </ul></li>
+  <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics">Model diagnostics</a>
+  <ul class="collapse">
+  <li><a href="#model-diagnostics-1" id="toc-model-diagnostics-1" class="nav-link" data-scroll-target="#model-diagnostics-1">Model diagnostics</a></li>
+  <li><a href="#model-diagnostics-in-r" id="toc-model-diagnostics-in-r" class="nav-link" data-scroll-target="#model-diagnostics-in-r">Model diagnostics in R</a></li>
+  <li><a href="#influential-point" id="toc-influential-point" class="nav-link" data-scroll-target="#influential-point">Influential Point</a></li>
+  <li><a href="#influential-points" id="toc-influential-points" class="nav-link" data-scroll-target="#influential-points">Influential points</a></li>
+  </ul></li>
+  <li><a href="#leverage" id="toc-leverage" class="nav-link" data-scroll-target="#leverage">Leverage</a>
+  <ul class="collapse">
+  <li><a href="#leverage-1" id="toc-leverage-1" class="nav-link" data-scroll-target="#leverage-1">Leverage</a></li>
+  <li><a href="#large-leverage" id="toc-large-leverage" class="nav-link" data-scroll-target="#large-leverage">Large leverage</a></li>
+  <li><a href="#lemurs-leverage" id="toc-lemurs-leverage" class="nav-link" data-scroll-target="#lemurs-leverage">Lemurs: Leverage</a></li>
+  <li><a href="#lets-look-at-the-data" id="toc-lets-look-at-the-data" class="nav-link" data-scroll-target="#lets-look-at-the-data">Let’s look at the data</a></li>
+  <li><a href="#large-leverage-1" id="toc-large-leverage-1" class="nav-link" data-scroll-target="#large-leverage-1">Large leverage</a></li>
+  </ul></li>
+  <li><a href="#scaled-residuals" id="toc-scaled-residuals" class="nav-link" data-scroll-target="#scaled-residuals">Scaled residuals</a>
+  <ul class="collapse">
+  <li><a href="#scaled-residuals-1" id="toc-scaled-residuals-1" class="nav-link" data-scroll-target="#scaled-residuals-1">Scaled residuals</a></li>
+  <li><a href="#standardized-residuals" id="toc-standardized-residuals" class="nav-link" data-scroll-target="#standardized-residuals">Standardized residuals</a></li>
+  <li><a href="#using-standardized-residuals" id="toc-using-standardized-residuals" class="nav-link" data-scroll-target="#using-standardized-residuals">Using standardized residuals</a></li>
+  <li><a href="#digging-in-to-the-data" id="toc-digging-in-to-the-data" class="nav-link" data-scroll-target="#digging-in-to-the-data">Digging in to the data</a></li>
+  <li><a href="#studentized-residuals" id="toc-studentized-residuals" class="nav-link" data-scroll-target="#studentized-residuals">Studentized residuals</a></li>
+  </ul></li>
+  <li><a href="#cooks-distance" id="toc-cooks-distance" class="nav-link" data-scroll-target="#cooks-distance">Cook’s Distance</a>
+  <ul class="collapse">
+  <li><a href="#motivating-cooks-distance" id="toc-motivating-cooks-distance" class="nav-link" data-scroll-target="#motivating-cooks-distance">Motivating Cook’s Distance</a></li>
+  <li><a href="#cooks-distance-1" id="toc-cooks-distance-1" class="nav-link" data-scroll-target="#cooks-distance-1">Cook’s Distance</a></li>
+  <li><a href="#using-cooks-distance" id="toc-using-cooks-distance" class="nav-link" data-scroll-target="#using-cooks-distance">Using Cook’s Distance</a></li>
+  <li><a href="#cooks-distance-2" id="toc-cooks-distance-2" class="nav-link" data-scroll-target="#cooks-distance-2">Cook’s Distance</a></li>
+  <li><a href="#using-these-measures" id="toc-using-these-measures" class="nav-link" data-scroll-target="#using-these-measures">Using these measures</a></li>
+  <li><a href="#what-to-do-with-outliersinfluential-points" id="toc-what-to-do-with-outliersinfluential-points" class="nav-link" data-scroll-target="#what-to-do-with-outliersinfluential-points">What to do with outliers/influential points?</a></li>
+  <li><a href="#what-to-do-with-outliersinfluential-points-1" id="toc-what-to-do-with-outliersinfluential-points-1" class="nav-link" data-scroll-target="#what-to-do-with-outliersinfluential-points-1">What to do with outliers/influential points?</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="10-conditions-diagnostics.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Model conditions + diagnostics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Maria Tackett </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Feb 10, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="announcements---update" class="level2">
+<h2 class="anchored" data-anchor-id="announcements---update">Announcements - UPDATE</h2>
+<ul>
+<li><p>HW 02</p></li>
+<li><p>Lab 03</p></li>
+<li><p>Lecture recordings + exam 01 practice problems on menu of course website</p></li>
+</ul>
+</section>
+<section id="review-ae-06" class="level2">
+<h2 class="anchored" data-anchor-id="review-ae-06">Review: AE 06</h2>
+<div class="appex">
+<p>📋 <a href="../ae/ae-06-mlr-inf.html">sta210-sp26.github.io/ae/ae-06-mlr-inf.html</a></p>
+</div>
+</section>
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">Question</h2>
+<ul>
+<li>write question about the structure that gets preserved vs.&nbsp;messed up depending on how you do permutation sampling.</li>
+</ul>
+</section>
+<section id="computing-set-up" class="level2">
+<h2 class="anchored" data-anchor-id="computing-set-up">Computing set up</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)       </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)   </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># set default theme in ggplot2</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<ul>
+<li><p>Model conditions</p></li>
+<li><p>Influential points</p></li>
+<li><p>Model diagnostics</p>
+<ul>
+<li><p>Leverage</p></li>
+<li><p>Studentized residuals</p></li>
+<li><p>Cook’s Distance</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="data-duke-lemurs---update" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="data-duke-lemurs---update">Data: Duke lemurs - UPDATE</h2>
+<p>Today’s data contains a subset of the original Duke Lemur data set available in the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md">TidyTuesday GitHub repo</a>. This data includes information on lemurs age 25 months or young from who were at the Duke Lemur Center when they were measured.</p>
+<p><strong>The goal of the analysis is to use the age, sex, taxon, and litter size of the lemurs to understand variability in the weight.</strong></p>
+</section>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<ul>
+<li><p><code>weight</code>: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights &gt;500g generally to the nearest 1-20g.</p></li>
+<li><p><code>taxon</code> : Code made as a combination of the lemur’s genus and species. Note that the genus is a broader categorization that includes lemurs from multiple species. This analysis focuses on the following taxon:</p>
+<ul>
+<li><code>ERUF</code>: Eulemur rufus, commonly known as Red-fronted brown lemur</li>
+<li><code>PCOQ</code>: Propithecus coquereli, commonly known as Coquerel’s sifaka</li>
+<li><code>VRUB</code>: Varecia rubra, commonly known as Red ruffed lemur</li>
+</ul></li>
+</ul>
+</section>
+<section id="variables-1" class="level2">
+<h2 class="anchored" data-anchor-id="variables-1">Variables</h2>
+<ul>
+<li><p><code>sex</code> : Sex of lemur (<code>M</code>: Male, <code>F</code>: Female)</p></li>
+<li><p><code>age</code>: Age of lemur when weight was recorded (in months)</p></li>
+<li><p><code>litter_size</code>: Total number of infants in the litter the lemur was born into (this includes the observed lemur)</p></li>
+</ul>
+</section>
+<section id="bivariate-eda" class="level2">
+<h2 class="anchored" data-anchor-id="bivariate-eda">Bivariate EDA</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-model" class="level2">
+<h2 class="anchored" data-anchor-id="fit-model">Fit model</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lemurs_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> age <span class="sc">+</span> sex <span class="sc">+</span> taxon <span class="sc">+</span> litter_size, <span class="at">data =</span> lemurs)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lemurs_fit) <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">43.844</td>
+<td style="text-align: right;">121.715</td>
+<td style="text-align: right;">0.360</td>
+<td style="text-align: right;">0.719</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">136.903</td>
+<td style="text-align: right;">4.858</td>
+<td style="text-align: right;">28.182</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sexM</td>
+<td style="text-align: right;">-88.838</td>
+<td style="text-align: right;">68.001</td>
+<td style="text-align: right;">-1.306</td>
+<td style="text-align: right;">0.193</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">taxonPCOQ</td>
+<td style="text-align: right;">471.715</td>
+<td style="text-align: right;">95.430</td>
+<td style="text-align: right;">4.943</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">taxonVRUB</td>
+<td style="text-align: right;">1037.323</td>
+<td style="text-align: right;">133.906</td>
+<td style="text-align: right;">7.747</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">litter_size</td>
+<td style="text-align: right;">-19.607</td>
+<td style="text-align: right;">65.797</td>
+<td style="text-align: right;">-0.298</td>
+<td style="text-align: right;">0.766</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="model-conditions" class="level1">
+<h1>Model conditions</h1>
+<section id="assumptions-for-regression" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="assumptions-for-regression">Assumptions for regression</h2>
+<p><span class="math display">\[
+Y|X_1, \ldots, X_p \sim N(\beta_0 + \beta_1X_1 + \dots + \beta_pX_p, \sigma_\epsilon^2)
+\]</span></p>
+<ol type="1">
+<li><strong>Linearity:</strong> There is a linear relationship between the response and predictor variables.</li>
+<li><strong>Equal variance:</strong> The variability about the least squares line is equal for all combinations of predictors.</li>
+<li><strong>Normality:</strong> The distribution of the errors (residuals) is approximately normal.</li>
+<li><strong>Independence:</strong> The errors (residuals) are independent from one another.</li>
+</ol>
+<p>. . .</p>
+<div class="question">
+<p>How do we know if these assumptions hold in our data?</p>
+</div>
+</section>
+<section id="linearity" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="linearity">Linearity</h2>
+<ul>
+<li>Look at plot of residuals versus fitted (predicted) values.</li>
+<li>Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around <span class="math inline">\(\text{residuals} = 0\)</span>)</li>
+</ul>
+<p>. . .</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<center>
+<strong>Linearity is satisfied</strong>
+</center>
+</section>
+<section id="residuals-vs.-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="residuals-vs.-predictors">Residuals vs.&nbsp;predictors</h2>
+<p>If we need a closer look at the linearity condition, we can plot the residuals versus each quantitative predictor.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example-linearity-not-satisfied" class="level2">
+<h2 class="anchored" data-anchor-id="example-linearity-not-satisfied">Example: Linearity not satisfied</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<ul>
+<li>If linearity is not satisfied, examine the plots of residuals versus each predictor.</li>
+<li>Add higher order term(s), as needed.</li>
+</ul>
+</section>
+<section id="equal-variance" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="equal-variance">Equal variance</h2>
+<ul>
+<li>Look at plot of residuals versus fitted (predicted) values.</li>
+<li>Equal variance is satisfied if the vertical spread of the points is approximately equal for all fitted values</li>
+</ul>
+<p>. . .</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<center>
+<strong>Equal variance is</strong> <strong>satisfied</strong>
+</center>
+</section>
+<section id="example-equal-variance-not-satisfied" class="level2">
+<h2 class="anchored" data-anchor-id="example-equal-variance-not-satisfied">Example: Equal variance not satisfied</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<ul>
+<li><p>Condition is critical for inference</p></li>
+<li><p>Address violations by applying transformation on the response</p></li>
+</ul>
+</section>
+<section id="normality" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="normality">Normality</h2>
+<ul>
+<li>Look at the distribution of the residuals</li>
+<li>Normality is satisfied if the distribution is approximately unimodal and symmetric. Inference robust to violations if <span class="math inline">\(n &gt; 30\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<center>
+Distribution approximately unimodal and symmetric, aside from the outlier. There are 252 observations, so inference robust to departures from normality
+</center>
+</section>
+<section id="independence" class="level2">
+<h2 class="anchored" data-anchor-id="independence">Independence</h2>
+<ul>
+<li><p>We can often check the independence condition based on the context of the data and how the observations were collected.</p></li>
+<li><p>If the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.</p></li>
+<li><p>If data has spatial element, plot residuals on a map to examine potential spatial correlation.</p></li>
+<li><p>If there are subgroups in the data, plot the residuals by subgroup</p></li>
+</ul>
+</section>
+<section id="independence-1" class="level2">
+<h2 class="anchored" data-anchor-id="independence-1">Independence</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<center>
+<strong>The independence condition is</strong> <strong>satisfied</strong>.
+</center>
+</section>
+<section id="what-conditions-are-needed" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="what-conditions-are-needed">What conditions are needed?</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 28%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model condition</th>
+<th>Interpret and predict</th>
+<th>Simulation-based inference</th>
+<th>Theory-based inference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Linearity</strong></td>
+<td>Important</td>
+<td>Important</td>
+<td>Important</td>
+</tr>
+<tr class="even">
+<td><strong>Independence</strong></td>
+<td>Not needed</td>
+<td>Important</td>
+<td>Important</td>
+</tr>
+<tr class="odd">
+<td><strong>Normality</strong></td>
+<td>Not needed</td>
+<td>Not needed</td>
+<td><p>Not needed if <span class="math inline">\(n &gt;&gt; 30\)</span></p>
+<p>Important if <span class="math inline">\(n &lt; 30\)</span></p></td>
+</tr>
+<tr class="even">
+<td><strong>Equal variance</strong></td>
+<td>Not needed</td>
+<td>Not needed</td>
+<td>Important</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="model-diagnostics" class="level1">
+<h1>Model diagnostics</h1>
+<section id="model-diagnostics-1" class="level2">
+<h2 class="anchored" data-anchor-id="model-diagnostics-1">Model diagnostics</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lemurs_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(lemurs_fit)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>lemurs_aug <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 11
+   weight   age sex   taxon litter_size .fitted .resid   .hat .sigma    .cooksd
+    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+ 1    410  2.27 F     ERUF            1    335.   75.0 0.0277   534. 0.0000968 
+ 2    137  0.72 F     ERUF            1    123.   14.2 0.0298   534. 0.00000374
+ 3    206  0.69 F     PCOQ            1    590. -384.  0.0201   533. 0.00182   
+ 4    185  1.05 M     PCOQ            1    551. -366.  0.0183   533. 0.00150   
+ 5    373  2.66 F     PCOQ            1    860. -487.  0.0178   533. 0.00257   
+ 6    200  0.76 F     ERUF            1    128.   71.7 0.0297   534. 0.0000953 
+ 7   1861  9.01 F     ERUF            1   1258.  603.  0.0234   533. 0.00525   
+ 8   1634  8.02 M     ERUF            1   1033.  601.  0.0272   533. 0.00609   
+ 9    636  2.76 F     ERUF            1    402.  234.  0.0272   534. 0.000921  
+10    373  1.74 F     ERUF            1    262.  111.  0.0284   534. 0.000216  
+# ℹ 1 more variable: .std.resid &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="model-diagnostics-in-r" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="model-diagnostics-in-r">Model diagnostics in R</h2>
+<p>Use the <code>augment()</code> function in the broom package to output the model diagnostics (along with the predicted values and residuals)</p>
+<ul>
+<li>response and predictor variables in the model</li>
+<li><code>.fitted</code>: predicted values</li>
+<li><code>.se.fit</code>: standard errors of predicted values</li>
+<li><code>.resid</code>: residuals</li>
+<li><code>.hat</code>: leverage</li>
+<li><code>.sigma</code>: estimate of residual standard deviation when the corresponding observation is dropped from model</li>
+<li><code>.cooksd</code>: Cook’s distance</li>
+<li><code>.std.resid</code>: standardized residuals</li>
+</ul>
+</section>
+<section id="influential-point" class="level2">
+<h2 class="anchored" data-anchor-id="influential-point">Influential Point</h2>
+<p>An observation is <strong>influential</strong> if removing has a noticeable impact on the regression coefficients</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="influential-points" class="level2">
+<h2 class="anchored" data-anchor-id="influential-points">Influential points</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Influential points have a noticeable impact on the coefficients and standard errors used for inference</li>
+<li>These points can sometimes be identified in a scatterplot if there is only one predictor variable
+<ul class="incremental">
+<li>This is often not the case when there are multiple predictors</li>
+</ul></li>
+<li>We will use measures to quantify an individual observation’s influence on the regression model
+<ul class="incremental">
+<li><strong>leverage</strong>, <strong>standardized &amp; studentized residuals</strong>, and <strong>Cook’s distance</strong></li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="leverage" class="level1 page-columns page-full">
+<h1>Leverage</h1>
+<section id="leverage-1" class="level2 midi page-columns page-full">
+<h2 class="midi anchored" data-anchor-id="leverage-1">Leverage</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p><strong>Leverage</strong> <span class="math inline">\((h_i)\)</span> : a measure of the distance of the predictor (or combination of predictors) for the <span class="math inline">\(i^{th}\)</span> observation is from the mean value of the predictor (or combination of predictors)</p></li>
+<li><p>For simple linear regression:</p></li>
+</ul>
+<p><span class="math display">\[
+h_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{j = 1}^n(x_j - \bar{x})^2}
+\]</span></p>
+<ul class="incremental">
+<li>Observations with large values of <span class="math inline">\(h_{i}\)</span> are far away from the typical value (or combination of values) of the <u>predictors</u> in the data</li>
+</ul>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>See <a href="https://intro-regression.github.io/appendix-linear.html#sec-hat-matrix">Appendix A.4</a> for math details of leverage in multiple linear regression.</p>
+</div></div></section>
+<section id="large-leverage" class="level2">
+<h2 class="anchored" data-anchor-id="large-leverage">Large leverage</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>The sum of the leverages for all points is <span class="math inline">\(p + 1\)</span>, where <span class="math inline">\(p\)</span> is the number of predictors in the model</p></li>
+<li><p>The average value of leverage is <span class="math inline">\(\bar{h} =  \frac{(p+1)}{n}\)</span></p></li>
+<li><p>An observation has <strong>large leverage</strong> if <span class="math display">\[h_{i} &gt; \frac{2(p+1)}{n}\]</span></p></li>
+</ul>
+</div>
+</section>
+<section id="lemurs-leverage" class="level2">
+<h2 class="anchored" data-anchor-id="lemurs-leverage">Lemurs: Leverage</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>h_threshold <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="fu">nrow</span>(lemurs)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>h_threshold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04761905</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lemurs_aug <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> h_threshold)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 11
+   weight   age sex   taxon litter_size .fitted .resid   .hat .sigma  .cooksd
+    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+ 1  2605   4.9  F     VRUB            1   1732.  873.  0.0563   531. 0.0282  
+ 2  2574  12.3  M     VRUB            1   2657.  -82.6 0.0503   534. 0.000224
+ 3  2502. 10.3  M     VRUB            1   2377.  124.  0.0502   534. 0.000503
+ 4  2076  12.0  F     VRUB            1   2700. -624.  0.0520   532. 0.0132  
+ 5  3532  20.2  F     VRUB            4   3771. -239.  0.0520   534. 0.00194 
+ 6  3804  17.8  F     VRUB            1   3497.  307.  0.0547   534. 0.00339 
+ 7  1589  18.5  M     ERUF            2   2454. -865.  0.0504   531. 0.0246  
+ 8  3010  13.0  F     VRUB            1   2834.  176.  0.0521   534. 0.00105 
+ 9  2550  11.6  F     VRUB            1   2655. -105.  0.0520   534. 0.000375
+10   440   0.76 F     VRUB            1   1166. -726.  0.0626   532. 0.0220  
+11   680   1.55 M     VRUB            4   1126. -446.  0.0485   533. 0.00625 
+12  3820  14.5  M     VRUB            1   2954.  866.  0.0513   531. 0.0251  
+13   617   1.12 M     VRUB            1   1126. -509.  0.0579   533. 0.00993 
+# ℹ 1 more variable: .std.resid &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="lets-look-at-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="lets-look-at-the-data">Let’s look at the data</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>The high leverage points are primarily VRUB lemurs with no siblings.</strong></p>
+</section>
+<section id="large-leverage-1" class="level2">
+<h2 class="anchored" data-anchor-id="large-leverage-1">Large leverage</h2>
+<p>If there is point with high leverage, ask</p>
+<ul>
+<li><p>❓ Is there a data entry error?</p></li>
+<li><p>❓ Is this observation within the scope of individuals for which you want to make predictions and draw conclusions?</p></li>
+<li><p>❓ Is this observation impacting the estimates of the model coefficients? (Need more information!)</p></li>
+</ul>
+<p>. . .</p>
+<p>Just because a point has high leverage does not necessarily mean it will have a substantial impact on the regression. Therefore we need to check other measures.</p>
+</section>
+</section>
+<section id="scaled-residuals" class="level1">
+<h1>Scaled residuals</h1>
+<section id="scaled-residuals-1" class="level2">
+<h2 class="anchored" data-anchor-id="scaled-residuals-1">Scaled residuals</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>What is the best way to identify outlier points that don’t fit the pattern from the regression line?</p>
+<ul class="incremental">
+<li>Look for points that have large residuals</li>
+</ul></li>
+<li><p>We can rescale residuals and put them on a common scale to more easily identify “large” residuals</p></li>
+<li><p>We will consider two types of scaled residuals: standardized residuals and studentized residuals</p></li>
+</ul>
+</div>
+</section>
+<section id="standardized-residuals" class="level2">
+<h2 class="anchored" data-anchor-id="standardized-residuals">Standardized residuals</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>The variance of the residuals can be estimated by the mean squared residuals (MSR) <span class="math inline">\(= \frac{SSR}{n - p - 1} = \hat{\sigma}^2_{\epsilon}\)</span></p></li>
+<li><p>We can use MSR to compute <strong>standardized residuals</strong></p>
+<p><span class="math display">\[
+std.res_i = \frac{e_i}{\hat{\sigma}_{\epsilon}}
+\]</span></p></li>
+<li><p>Standardized residuals are produced by <code>augment()</code> in the column <code>.std.resid</code></p></li>
+</ul>
+</div>
+<hr>
+</section>
+<section id="using-standardized-residuals" class="level2">
+<h2 class="anchored" data-anchor-id="using-standardized-residuals">Using standardized residuals</h2>
+<p>We can examine the standardized residuals directly from the output from the <code>augment()</code> function</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/std residuals vs fitted-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>An observation is a <em>potential outlier</em> if its standardized residual is beyond <span class="math inline">\(\pm 3\)</span></li>
+</ul>
+</section>
+<section id="digging-in-to-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="digging-in-to-the-data">Digging in to the data</h2>
+<p>Let’s look at the value of the response variable to better understand potential outliers</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="studentized-residuals" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="studentized-residuals">Studentized residuals</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>MSR is an approximation of the variance of the residuals.</p></li>
+<li><p>A more precise calculation of the variance for the <span class="math inline">\(i^{th}\)</span> residual is is <span class="math inline">\(Var(e_i) = \hat{\sigma}^2_{\epsilon}(1 - h_{i})\)</span></p>
+<ul class="incremental">
+<li>This is called the <strong>studentized residual</strong></li>
+</ul></li>
+</ul>
+</div>
+<p><span class="math display">\[
+r_i = \frac{e_{i}}{\sqrt{\hat{\sigma}^2_{\epsilon}(1 - h_{i})}}
+\]</span></p>
+<ul>
+<li>Standardized and studentized residuals provide similar information about which points are outliers in the response.
+<ul>
+<li><strong>Studentized residuals are used to compute Cook’s Distance</strong></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="cooks-distance" class="level1">
+<h1>Cook’s Distance</h1>
+<section id="motivating-cooks-distance" class="level2">
+<h2 class="anchored" data-anchor-id="motivating-cooks-distance">Motivating Cook’s Distance</h2>
+<ul>
+<li><p>An observation’s influence on the regression line depends on</p>
+<ul>
+<li><p>How close it lies to the general trend of the data</p></li>
+<li><p>Its leverage</p></li>
+</ul></li>
+<li><p><strong>Cook’s Distance</strong> is a statistic that includes both of these components to measure an observation’s overall impact on the model</p></li>
+</ul>
+</section>
+<section id="cooks-distance-1" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="cooks-distance-1">Cook’s Distance</h2>
+<p>Cook’s distance for the <span class="math inline">\(i^{th}\)</span> observation is</p>
+<p><span class="math display">\[
+D_i = \frac{r^2_i}{p + 1}\Big(\frac{h_{i}}{1 - h_{i}}\Big)
+\]</span></p>
+<p>where <span class="math inline">\(r_i\)</span> is the studentized residual and <span class="math inline">\(h_{i}\)</span> is the leverage for the <span class="math inline">\(i^{th}\)</span> observation</p>
+<p>. . .</p>
+<p>This measure is a combination of</p>
+<ul>
+<li><p>How well the model fits the <span class="math inline">\(i^{th}\)</span> observation (magnitude of residuals)</p></li>
+<li><p>How far the combination of predictors for the <span class="math inline">\(i^{th}\)</span> observation is from the rest of the observations</p></li>
+</ul>
+</section>
+<section id="using-cooks-distance" class="level2">
+<h2 class="anchored" data-anchor-id="using-cooks-distance">Using Cook’s Distance</h2>
+<ul>
+<li><p>An observation with large value of <span class="math inline">\(D_i\)</span> is said to have a strong influence on the predicted values</p></li>
+<li><p>General thresholds .An observation with</p>
+<ul>
+<li><p><span class="math inline">\(D_i &gt; 0.5\)</span> is <strong>moderately influential</strong></p></li>
+<li><p><span class="math inline">\(D_i &gt; 1\)</span> is <strong>very influential</strong></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="cooks-distance-2" class="level2">
+<h2 class="anchored" data-anchor-id="cooks-distance-2">Cook’s Distance</h2>
+<p>Cook’s Distance is in the column <code>.cooksd</code> in the output from the <code>augment()</code> function</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="using-these-measures" class="level2">
+<h2 class="anchored" data-anchor-id="using-these-measures">Using these measures</h2>
+<ul>
+<li><p>Standardized residuals, leverage, and Cook’s Distance should all be examined together</p></li>
+<li><p>Examine plots of the measures to identify observations that are outliers, high leverage, and may potentially impact the model.</p></li>
+</ul>
+</section>
+<section id="what-to-do-with-outliersinfluential-points" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-do-with-outliersinfluential-points">What to do with outliers/influential points?</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>First consider if the outlier is a result of a data entry error.</p></li>
+<li><p>If not, you may consider dropping an observation if it’s an outlier in the <u>predictor</u> variables if…</p>
+<ul class="incremental">
+<li><p>It is meaningful to drop the observation given the context of the problem</p></li>
+<li><p>You intended to build a model on a smaller range of the predictor variables. Mention this in the write up of the results and be careful to avoid extrapolation when making predictions</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="what-to-do-with-outliersinfluential-points-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-do-with-outliersinfluential-points-1">What to do with outliers/influential points?</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>It is generally <strong>not</strong> good practice to drop observations that ar outliers in the value of the <u>response</u> variable</p>
+<ul class="incremental">
+<li><p>These are legitimate observations and should be in the model</p></li>
+<li><p>You can try transformations or increasing the sample size by collecting more data</p></li>
+</ul></li>
+<li><p>A general strategy when there are influential points is to fit the model with and without the influential points and compare the outcomes</p></li>
+</ul>
+</div>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li><p>Introduced model conditions for linear regression</p></li>
+<li><p>Defined influential points</p></li>
+<li><p>Introduced model diagnostics for linear regression</p>
+<ul>
+<li><p>Leverage</p></li>
+<li><p>Studentized residuals</p></li>
+<li><p>Cook’s Distance</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="next-class" class="level2">
+<h2 class="anchored" data-anchor-id="next-class">Next class</h2>
+<ul>
+<li><p>Exam 01 review</p></li>
+<li><p>No prepare assignment</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sta210-sp26\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Maria Tackett</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -79,7 +79,33 @@ Clinton, J. (2021, January 11). Polling problems and why we should still trust (
 
 ## "Ideal objectivity?"
 
-\- SRTL SLIDES
+-   **Desire for “ideal objectivity”**
+
+    -   Work that is free from interference of human perception [@feinberg2023myth]
+
+    -   Conclusions that are observer independent [@gelman2017beyond]
+
+-   **Feels like the ethical approach** [@feinberg2023myth]
+
+-   **There are implications** [@feinberg2023myth]
+
+    -   Distorted reality of data analysis process
+
+    -   Lack of communication about decisions that don’t seem “objective”
+
+## The role of data science ethics 
+
+-   Illuminates the the decision-making in data science
+
+    -   Makes explicit the existence of choice throughout an analysis
+
+    -   Makes explicit the moral implications of our choices
+
+-   Align data science practices with what we ought to do and moral duties to stakeholders
+
+::: aside
+Source: @colando2024philosophy
+:::
 
 ## Processes in data science
 
@@ -172,105 +198,159 @@ What are some decisions you have made in your project (or other data analysis wo
 
 Data science ethics studies and evaluates moral problems related to:
 
--   Data: generation, recording, process, dissemination, and sharing
+-   **Data:** generation, recording, process, dissemination, and sharing
 
--   Algorithms: artificial intelligence, machine learning, large language models, and statistical learning models
+-   **Algorithms:** artificial intelligence, machine learning, large language models, and statistical learning models
 
--   Corresponding practices: responsible innovation, programming, hacking, professional code
+-   **Corresponding practices:** responsible innovation, programming, hacking, professional code
 
-Hardin paper, Floridi and Taddeo (2016)
+::: aside
+Sources: @colando2024philosophy, @floridi2016data
+:::
 
-## Topics in data science ethics 
+## Data science ethics issues
 
-\[get from reading list. See the list for more details\]
+::::: columns
+::: {.column width="50%"}
+-   Bias, fairness, and justice
 
-## Why is data science ethics important? 
+-   Causation
 
--   commonly held belief that mathematics, and statistics, is "objective", not influenced by practitioner's moral values,
+-   Data privacy and informed consent
 
--   In the age of "big data", high stakes decisions are being made based on data and statistics
+-   Explainability, interpretability, and transparency
 
--   Show the article about the woman from Tennessee who was in jail due to facial recognition software.
+-   Responsibility
+:::
 
-## child welfare example: 
+::: {.column width="50%"}
+-   Applications in government and policing
 
-"Critics worry that delegating some of that critical work to AI tools powered by data collected largely from people who are poor can bake in discrimination against families based on race, income, disabilities or other external characteristics."
+-   Professional ethics
 
-"Using a trove of detailed personal data and birth, Medicaid, substance abuse, mental health, jail and probation records, among other government data sets, the Allegheny tool’s statistical calculations help social workers decide which families should be investigated for neglect – a nuanced term that can include everything from inadequate housing to poor hygiene, but is a different category from physical or sexual abuse, which is investigated separately in Pennsylvania and is not subject to the algorithm."
+-   Reproducibility
 
-"Allegheny’s algorithm, in use since 2016, has at times drawn from data related to Supplemental Security Income as well as diagnoses for mental, behavioral and neurodevelopmental disorders, including schizophrenia or mood disorders, AP found"
+-   ..and others.
+:::
+:::::
+
+::: aside
+List adapted from @colando_data_science_ethics and @baumer2017modern
+:::
+
+## Data Science Oath
+
+1.  I will not be ashamed to say, “I know not,” nor will I fail to call in my colleagues when the skills of another are needed for solving a problem.
+
+2.  I will respect the privacy of my data subjects, for their data are not disclosed to me that the world may know, so I will tread with care in matters of privacy and security.
+
+3.  I will remember that my data are not just numbers without meaning or context, but represent real people and situations, and that my work may lead to unintended societal consequences, such as inequality, poverty, and disparities due to algorithmic bias.
+
+<small>From @nas2018data_science_undergraduate_project based on the Hippocratic Oath for physicians.</small>
 
 ## Responsibility 
 
--   responsibility in how data are handled and stored
+The data scientist is (morally) responsible for
 
-    -   decisions about data handling and implications of those decisions
+-   How the data are handled and stored
+-   Modeling decisions
+-   Implications of data handling and modeling
+-   Providing clear documentation and how model should be used
 
--   responsibility in clear model documentation and how the a model should be used
+. . .
 
--   using algorithm that produces biased results (Amazon example)
+The user is (morally) responsible for
 
-Question - What are the implications of dropping observations with missing values?
+-   Understanding the model and its limitations
+-   How the model is deployed
 
-These are from hardin article.
+::: aside
+Source: @colando2024philosophy
+:::
 
-## Importance of transparency
+## Example: Mistaken identity
 
--   ethical expectation that data models are understandable to human stakeholders is often referred to the "right to an explanation".
+Angela Lipps, A woman from Tennessee spent 5 months in jail after facial recognition connected her to a string of bank fraud cases in Fargo, North Dakota
 
-    -   This is found in European Unions General Data Protection Regulation (GDPR)
+-   String of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit
+-   Investigators use facial recognition technology to identify person based on bank survellience video
+-   The software "identified a potential suspect with similar features to Angela Lipps"
+-   Police find Angela Lipps' Facebook and Instagram accounts, along with her Tennessee ID and determine she matches the identified suspect
+-   She is released from jail after a judge dismisses the case
 
--   Durham ShotSpotter example.
+::: aside
+Source: <https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html>
+:::
 
-    -   Maybe look at some of the community feedback versus the results.
+## Example: Mistaken identity
 
-    -   quote the website that says "sophisticated machine learning"
+-   Facial recognition company, Clearview AI uses "publicly available images" for its data base and to train its models
 
-## Ethics codes from different organization 
+-   Their statement on how models should be used: "Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation."
 
-## Principles to guide ethical action 
+-   Website reports "99% accuracy for all demographics"
 
-From MSDR: <https://mdsr-book.github.io/mdsr3e/08-ethics.html#some-principles-to-guide-ethical-action>
+::: aside
+Source: <https://www.clearview.ai/>
+:::
 
-## example 
+## Example: Mistaken identity
 
--   blue hair green shirt eample
+::: question
+-   What are the ethical considerations for those building such facial recognition technology?
 
-## example 
+-   What are the ethical responsibilities for those building such facial recognition technology?
+:::
 
--   Talking about using race as a predictor in a model
+<br>
 
-\-<https://slate.com/technology/2016/02/how-to-bring-better-ethics-to-data-science.html>
+::: question
+-   What are the ethical considerations for those using such facial recognition technology?
 
-Add something about considersations of race.
+-   What are the ethical responsibilities for those using such facial recognition technology?
+:::
 
-## Case study 1
+## Example case study 1
 
-**Problem 8 (Medium)**: A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships. Why might it be problematic to post a deidentified form of this data set where name and email address were removed?
+A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.
 
-From Modern Data Science with R (<https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises>)
+::: question
+Why might it be problematic to post a deidentified form of this data set where name and email address were removed?
+:::
 
-## Case study 2
-
-A company uses a machine-learning algorithm to determine which job advertisement to display for users searching for technology jobs. Based on past results, the algorithm tends to display lower-paying jobs for women than for men (after controlling for other characteristics than gender). What ethical considerations might be considered when reviewing this algorithm?
-
-From Modern Data Science with R (<https://mdsr-book.github.io/mdsr3e/08-ethics.html#ethics-online-exercises>)
+::: aside
+From Chapter 8 of @baumer2017modern
+:::
 
 ## Further reading 
 
+-   [American Statistical Association: Ethical Guidelines for Statistical Practice](https://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice)
+
 -   [Data science ethics reading lists](https://scolando.github.io/data-science-ethics/Reading-Tags.html)
 
--   Chapter 8 - Modern Data Science with R
+-   [Chapter 8 in Modern Data Science with R](https://mdsr-book.github.io/mdsr3e/08-ethics.html#sec-ethics-intro)
 
 -   When things go wrong examples:
 
-    -   ["Cambridge Analytica made 'ethical mistakes' because it was too focused on regulation, former COO says" on Vox.com](https://www.vox.com/recode/2019/7/31/20747874/cambridge-analytica-julian-wheatland-great-hack-netflix-documentary-kara-swisher-podcast-interview)
+    -   [Cambridge Analytica made 'ethical mistakes' because it was too focused on regulation, former COO says](https://www.vox.com/recode/2019/7/31/20747874/cambridge-analytica-julian-wheatland-great-hack-netflix-documentary-kara-swisher-podcast-interview) from Vox.com
 
-    -   ["How big data is helping states kick poor people off welfare" on Vox.com](https://www.vox.com/2018/2/6/16874782/welfare-big-data-technology-poverty)
+    -   [How big data is helping states kick poor people off welfare](https://www.vox.com/2018/2/6/16874782/welfare-big-data-technology-poverty) from Vox.com
 
-    -   ["How AI researchers uncover ethical, legal risks to using popular data sets" from Washington Post](https://www.washingtonpost.com/technology/2023/10/25/data-provenance/)
+    -   [How AI researchers uncover ethical, legal risks to using popular data sets](https://www.washingtonpost.com/technology/2023/10/25/data-provenance/) from the Washington Post
 
-    -   [Boeing's manufacturing, ethical lapses go back decades from The Seattle Times](https://www.seattletimes.com/opinion/boeings-manufacturing-ethical-lapses-go-back-decades/)
+    -   [Boeing's manufacturing, ethical lapses go back decades](https://www.seattletimes.com/opinion/boeings-manufacturing-ethical-lapses-go-back-decades/) from the Seattle Times
+
+## Further reading
+
+-   Gap in public trust examples
+
+    -   [Can we trust the polls this year?](https://www.vox.com/2024-elections/370649/trust-polls-2016-2020-election-2024-pollster-polling-miss) from Vox.com
+
+    -   [Polling problems and why we should still trust (some) polls](https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/) from Vanderbilt Project on Unity and American Democracy
+
+    -   [So, can we trust the polls?](https://www.nytimes.com/2024/11/01/upshot/so-can-we-trust-the-polls.html) from New York Times
+
+    -   [Can we still trust the polls?](https://today.usc.edu/can-we-still-trust-the-polls/) from University of Southern California
 
 ## Next class 
 

@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 library(countdown)
 ```
 
-## Announcements 
+## Announcements
 
 -   HW 04 due TODAY at 11:59pm
 
@@ -57,17 +57,33 @@ library(countdown)
 📋 [sta210-sp26.github.io/ae/ae-11-logistic-select.html](../ae/ae-11-logistic-select.html)
 :::
 
+:::: panel-tabset
+## Question 
+
+::: midi
+Which model do you select?
+
+🔗 <https://forms.office.com/r/DKwguYp84J>
+:::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/DKwguYp84J?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+::::
+
 # Data science ethics
 
 ## When things go wrong
 
 ![](images/clipboard-2930999253.png)
 
-## Gap in public trust 
+## Gap in public trust
 
 ![](images/clipboard-129687469.png)
 
----
+------------------------------------------------------------------------
 
 <br>
 
@@ -75,13 +91,13 @@ library(countdown)
 
 <br>
 
-"…coverage of polls \[statistics\] often **does not adequately convey the many decisions** that pollsters \[statisticians\] must make … as well as the **potential consequences of those decisions**”
+"…coverage of polls \[data science\] often **does not adequately convey the many decisions** that pollsters \[data scientists\] must make … as well as the **potential consequences of those decisions**”
 
 ::: aside
 Clinton, J. (2021, January 11). Polling problems and why we should still trust (some) polls. The Vanderbilt Project on Unity and American Democracy. <https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/>
 :::
 
----
+------------------------------------------------------------------------
 
 ## "Ideal objectivity?"
 
@@ -101,7 +117,7 @@ Clinton, J. (2021, January 11). Polling problems and why we should still trust (
     -   Lack of communication about decisions that don’t seem “objective”
 :::
 
-## The role of data science ethics 
+## The role of data science ethics
 
 -   Illuminates the the decision-making in data science
 
@@ -159,13 +175,11 @@ Source: @colando2024philosophy
 -   **Data model(s)**: Product from running input data through learning algorithm (generalize the relationship between variables in the data)
     -   We choose a logistic regression model of the form
 
-        $$
-        \begin{aligned}
-        \log(\frac{\pi}{1-\pi}) = \beta_0 &+ \beta_1 ~ \text{age} \\
-        &+ \beta_2 ~ \text{number clicks}\\
-        & + \beta_3 ~ \text{avg time between clicks}
-        \end{aligned}
-        $$
+$$
+\log(\frac{\pi}{1-\pi}) = \beta_0 + \beta_1 ~ \text{age} 
++ \beta_2 ~ \text{number clicks}
+ + \beta_3 ~ \text{avg time between clicks}
+$$
 
 ::: aside
 Source: @colando2024philosophy
@@ -196,13 +210,13 @@ Source: @colando2024philosophy
 
 ## Your data science process {.midi}
 
-![Source: Figure 2 of @colando2024philosophy](images/clipboard-3136590850.png){alt="Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html" width="90%"}
+![Source: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html](images/clipboard-3136590850.png){width="90%"}
 
 ::: question
 What are some decisions you have made (or will make) in your project or other data analysis work?
 :::
 
-## What is data science ethics? 
+## What is data science ethics?
 
 Data science ethics studies and evaluates moral problems related to:
 
@@ -238,7 +252,7 @@ Sources: @colando2024philosophy, @floridi2016data
 
 -   Reproducibility
 
--   ..and others.
+-   ..and more
 :::
 :::::
 
@@ -256,7 +270,7 @@ List adapted from @colando_data_science_ethics and @baumer2017modern
 
 <small>From @nas2018data_science_undergraduate_project based on the Hippocratic Oath for physicians.</small>
 
-## Responsibility  {.midi}
+## Responsibility {.midi}
 
 The data scientist is (morally) responsible for
 
@@ -278,10 +292,10 @@ Source: @colando2024philosophy
 
 ## Example: Mistaken identity {.midi}
 
-Angela Lipps, A woman from Tennessee spent 5 months in jail after facial recognition connected her to a string of bank fraud cases in Fargo, North Dakota
+Angela Lipps, from Tennessee, spent 5 months in jail after facial recognition software connected her to a string of bank fraud cases in Fargo, North Dakota
 
--   String of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit
--   Investigators use facial recognition technology to identify person based on bank surveillance video
+-   Police were investigating a string of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit
+-   Investigators used facial recognition technology to identify a potential suspect based on bank surveillance video
 -   The software "identified a potential suspect with similar features to Angela Lipps"
 
 ::: aside
@@ -290,8 +304,8 @@ Source: [New York Times](https://www.nytimes.com/2026/03/30/us/north-dakota-faci
 
 ## Example: Mistaken identity {.midi}
 
--   Police find Angela Lipps' Facebook and Instagram accounts, along with her Tennessee ID and determine she matches the identified suspect
--   She is released from jail after a judge dismisses the case
+-   Police used Angela Lipps' Facebook and Instagram accounts, along with her Tennessee ID to determine she matched the identified suspect
+-   She was released from jail after a judge dismissed the case
 
 ::: aside
 Source: [New York Times](https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html)
@@ -299,9 +313,11 @@ Source: [New York Times](https://www.nytimes.com/2026/03/30/us/north-dakota-faci
 
 ## Example: Mistaken identity {.midi}
 
--   Facial recognition company, Clearview AI uses "publicly available images" for its data base and to train its models
+-   Facial recognition company, Clearview AI uses "publicly available images" for its data base and to train its models used by law enforcement agencies
 
--   Their statement on how models should be used: "Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation."
+-   Their statement on how models should be used:
+
+    > "Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation."
 
 -   Website reports "99% accuracy for all demographics"
 
@@ -314,7 +330,7 @@ Source: <https://www.clearview.ai/>
 ::: question
 -   What are the ethical considerations for the data scientists [building]{.underline} such facial recognition technology?
 
--   What are the ethical responsibilities for the data scientists [building]{.underline} such facial recognition technology?
+-   What are the ethical responsibilities of the data scientists [building]{.underline} such facial recognition technology?
 :::
 
 <br>
@@ -322,12 +338,12 @@ Source: <https://www.clearview.ai/>
 ::: question
 -   What are the ethical considerations for those [using]{.underline} such facial recognition technology?
 
--   What are the ethical responsibilities for those [using]{.underline} such facial recognition technology?
+-   What are the ethical responsibilities of those [using]{.underline} such facial recognition technology?
 :::
 
-## Example case study 
+## Example case study
 
-A data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.
+A data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.
 
 <br>
 
@@ -339,7 +355,7 @@ What are ethical considerations of putting a deidentified data set with name and
 Adapted from Chapter 8 of @baumer2017modern
 :::
 
-## Further reading 
+## Further reading
 
 -   [American Statistical Association: Ethical Guidelines for Statistical Practice](https://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice)
 
@@ -371,8 +387,10 @@ Adapted from Chapter 8 of @baumer2017modern
 
     -   [Can we still trust the polls?](https://today.usc.edu/can-we-still-trust-the-polls/) from University of Southern California
 
-## Next class 
+## Next class
 
--   7Special topic: Causal inference
+-   Special topic: Causal inference
 
 -   Complete [Lecture 21 prepare](../prepare/prepare-lec21.html)
+
+## References

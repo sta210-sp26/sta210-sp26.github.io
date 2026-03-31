@@ -8001,7 +8001,7 @@
     "href": "slides/20-ds-ethics-notes.html#gap-in-public-trust",
     "title": "Data science ethics",
     "section": "Gap in public trust",
-    "text": "Gap in public trust\n\n\n\n\n\n“…coverage of polls [statistics] often does not adequately convey the many decisions that pollsters [statisticians] must make … as well as the potential consequences of those decisions”\n\n\nClinton, J. (2021, January 11). Polling problems and why we should still trust (some) polls. The Vanderbilt Project on Unity and American Democracy. https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/"
+    "text": "Gap in public trust\n\n\n\n\n\n“…coverage of polls [data science] often does not adequately convey the many decisions that pollsters [data scientists] must make … as well as the potential consequences of those decisions”\n\n\nClinton, J. (2021, January 11). Polling problems and why we should still trust (some) polls. The Vanderbilt Project on Unity and American Democracy. https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#ideal-objectivity",
@@ -8043,7 +8043,7 @@
     "href": "slides/20-ds-ethics-notes.html#processes-in-data-science-3",
     "title": "Data science ethics",
     "section": "Processes in data science",
-    "text": "Processes in data science\n\n\n\n\n\n\nData model(s): Product from running input data through learning algorithm (generalize the relationship between variables in the data)\n\nWe choose a logistic regression model of the form\n\\[\n\\begin{aligned}\n\\log(\\frac{\\pi}{1-\\pi}) = \\beta_0 &+ \\beta_1 ~ \\text{age} \\\\\n&+ \\beta_2 ~ \\text{number clicks}\\\\\n& + \\beta_3 ~ \\text{avg time between clicks}\n\\end{aligned}\n\\]\n\n\n\n\nSource: Colando and Hardin (2024b)"
+    "text": "Processes in data science\n\n\n\n\n\n\nData model(s): Product from running input data through learning algorithm (generalize the relationship between variables in the data)\n\nWe choose a logistic regression model of the form\n\n\n\\[\n\\log(\\frac{\\pi}{1-\\pi}) = \\beta_0 + \\beta_1 ~ \\text{age}\n+ \\beta_2 ~ \\text{number clicks}\n+ \\beta_3 ~ \\text{avg time between clicks}\n\\]\n\n\nSource: Colando and Hardin (2024b)"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#processes-in-data-science-4",
@@ -8064,7 +8064,7 @@
     "href": "slides/20-ds-ethics-notes.html#your-data-science-process",
     "title": "Data science ethics",
     "section": "Your data science process",
-    "text": "Your data science process\n\n\n\nSource: Figure 2 of Colando and Hardin (2024b)\n\n\n\nWhat are some decisions you have made (or will make) in your project or other data analysis work?"
+    "text": "Your data science process\n\n\n\nSource: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html\n\n\n\nWhat are some decisions you have made (or will make) in your project or other data analysis work?"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#what-is-data-science-ethics",
@@ -8078,7 +8078,7 @@
     "href": "slides/20-ds-ethics-notes.html#data-science-ethics-issues",
     "title": "Data science ethics",
     "section": "Data science ethics issues",
-    "text": "Data science ethics issues\n\n\n\nBias, fairness, and justice\nCausation\nData privacy and informed consent\nExplainability, interpretability, and transparency\nResponsibility\n\n\n\nApplications in government and policing\nProfessional ethics\nReproducibility\n..and others.\n\n\n\n\n\nList adapted from Colando and Hardin (2024a) and Baumer, Kaplan, and Horton (2024)"
+    "text": "Data science ethics issues\n\n\n\nBias, fairness, and justice\nCausation\nData privacy and informed consent\nExplainability, interpretability, and transparency\nResponsibility\n\n\n\nApplications in government and policing\nProfessional ethics\nReproducibility\n..and more\n\n\n\n\n\nList adapted from Colando and Hardin (2024a) and Baumer, Kaplan, and Horton (2024)"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#data-science-oath",
@@ -8099,35 +8099,35 @@
     "href": "slides/20-ds-ethics-notes.html#example-mistaken-identity",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\nAngela Lipps, A woman from Tennessee spent 5 months in jail after facial recognition connected her to a string of bank fraud cases in Fargo, North Dakota\n\nString of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit\nInvestigators use facial recognition technology to identify person based on bank surveillance video\nThe software “identified a potential suspect with similar features to Angela Lipps”\n\n\n\nSource: New York Times"
+    "text": "Example: Mistaken identity\nAngela Lipps, from Tennessee, spent 5 months in jail after facial recognition software connected her to a string of bank fraud cases in Fargo, North Dakota\n\nPolice were investigating a string of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit\nInvestigators used facial recognition technology to identify a potential suspect based on bank surveillance video\nThe software “identified a potential suspect with similar features to Angela Lipps”\n\n\n\nSource: New York Times"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#example-mistaken-identity-1",
     "href": "slides/20-ds-ethics-notes.html#example-mistaken-identity-1",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\n\nPolice find Angela Lipps’ Facebook and Instagram accounts, along with her Tennessee ID and determine she matches the identified suspect\nShe is released from jail after a judge dismisses the case\n\n\n\nSource: New York Times"
+    "text": "Example: Mistaken identity\n\nPolice used Angela Lipps’ Facebook and Instagram accounts, along with her Tennessee ID to determine she matched the identified suspect\nShe was released from jail after a judge dismissed the case\n\n\n\nSource: New York Times"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#example-mistaken-identity-2",
     "href": "slides/20-ds-ethics-notes.html#example-mistaken-identity-2",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\n\nFacial recognition company, Clearview AI uses “publicly available images” for its data base and to train its models\nTheir statement on how models should be used: “Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation.”\nWebsite reports “99% accuracy for all demographics”\n\n\n\nSource: https://www.clearview.ai/"
+    "text": "Example: Mistaken identity\n\nFacial recognition company, Clearview AI uses “publicly available images” for its data base and to train its models used by law enforcement agencies\nTheir statement on how models should be used:\n\n“Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation.”\n\nWebsite reports “99% accuracy for all demographics”\n\n\n\nSource: https://www.clearview.ai/"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#example-mistaken-identity-3",
     "href": "slides/20-ds-ethics-notes.html#example-mistaken-identity-3",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\n\n\nWhat are the ethical considerations for the data scientists building such facial recognition technology?\nWhat are the ethical responsibilities for the data scientists building such facial recognition technology?\n\n\n\n\n\nWhat are the ethical considerations for those using such facial recognition technology?\nWhat are the ethical responsibilities for those using such facial recognition technology?"
+    "text": "Example: Mistaken identity\n\n\nWhat are the ethical considerations for the data scientists building such facial recognition technology?\nWhat are the ethical responsibilities of the data scientists building such facial recognition technology?\n\n\n\n\n\nWhat are the ethical considerations for those using such facial recognition technology?\nWhat are the ethical responsibilities of those using such facial recognition technology?"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#example-case-study",
     "href": "slides/20-ds-ethics-notes.html#example-case-study",
     "title": "Data science ethics",
     "section": "Example case study",
-    "text": "Example case study\nA data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.\n\n\nWhat are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?\n\n\n\nAdapted from Chapter 8 of Baumer, Kaplan, and Horton (2024)"
+    "text": "Example case study\nA data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.\n\n\nWhat are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?\n\n\n\nAdapted from Chapter 8 of Baumer, Kaplan, and Horton (2024)"
   },
   {
     "objectID": "slides/20-ds-ethics-notes.html#further-reading",
@@ -8155,7 +8155,7 @@
     "href": "slides/20-ds-ethics-notes.html#next-class",
     "title": "Data science ethics",
     "section": "Next class",
-    "text": "Next class\n\n7Special topic: Causal inference\nComplete Lecture 21 prepare"
+    "text": "Next class\n\nSpecial topic: Causal inference\nComplete Lecture 21 prepare"
   },
   {
     "objectID": "slides/20-ds-ethics.html#announcements",
@@ -8218,7 +8218,7 @@
     "href": "slides/20-ds-ethics.html#processes-in-data-science-3",
     "title": "Data science ethics",
     "section": "Processes in data science",
-    "text": "Processes in data science\n\n\n\n\n\n\nData model(s): Product from running input data through learning algorithm (generalize the relationship between variables in the data)\n\nWe choose a logistic regression model of the form\n\\[\n\\begin{aligned}\n\\log(\\frac{\\pi}{1-\\pi}) = \\beta_0 &+ \\beta_1 ~ \\text{age} \\\\\n&+ \\beta_2 ~ \\text{number clicks}\\\\\n& + \\beta_3 ~ \\text{avg time between clicks}\n\\end{aligned}\n\\]\n\n\n\n\nSource: Colando and Hardin (2024b)"
+    "text": "Processes in data science\n\n\n\n\n\n\nData model(s): Product from running input data through learning algorithm (generalize the relationship between variables in the data)\n\nWe choose a logistic regression model of the form\n\n\n\\[\n\\log(\\frac{\\pi}{1-\\pi}) = \\beta_0 + \\beta_1 ~ \\text{age}\n+ \\beta_2 ~ \\text{number clicks}\n+ \\beta_3 ~ \\text{avg time between clicks}\n\\]\n\n\nSource: Colando and Hardin (2024b)"
   },
   {
     "objectID": "slides/20-ds-ethics.html#processes-in-data-science-4",
@@ -8239,7 +8239,7 @@
     "href": "slides/20-ds-ethics.html#your-data-science-process",
     "title": "Data science ethics",
     "section": "Your data science process",
-    "text": "Your data science process\n\nSource: Figure 2 of Colando and Hardin (2024b)\nWhat are some decisions you have made (or will make) in your project or other data analysis work?"
+    "text": "Your data science process\n\nSource: https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html\nWhat are some decisions you have made (or will make) in your project or other data analysis work?"
   },
   {
     "objectID": "slides/20-ds-ethics.html#what-is-data-science-ethics",
@@ -8253,7 +8253,7 @@
     "href": "slides/20-ds-ethics.html#data-science-ethics-issues",
     "title": "Data science ethics",
     "section": "Data science ethics issues",
-    "text": "Data science ethics issues\n\n\n\nBias, fairness, and justice\nCausation\nData privacy and informed consent\nExplainability, interpretability, and transparency\nResponsibility\n\n\n\nApplications in government and policing\nProfessional ethics\nReproducibility\n..and others.\n\n\n\n\nList adapted from Colando and Hardin (2024a) and Baumer, Kaplan, and Horton (2024)"
+    "text": "Data science ethics issues\n\n\n\nBias, fairness, and justice\nCausation\nData privacy and informed consent\nExplainability, interpretability, and transparency\nResponsibility\n\n\n\nApplications in government and policing\nProfessional ethics\nReproducibility\n..and more\n\n\n\n\nList adapted from Colando and Hardin (2024a) and Baumer, Kaplan, and Horton (2024)"
   },
   {
     "objectID": "slides/20-ds-ethics.html#data-science-oath",
@@ -8274,35 +8274,35 @@
     "href": "slides/20-ds-ethics.html#example-mistaken-identity",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\nAngela Lipps, A woman from Tennessee spent 5 months in jail after facial recognition connected her to a string of bank fraud cases in Fargo, North Dakota\n\nString of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit\nInvestigators use facial recognition technology to identify person based on bank surveillance video\nThe software “identified a potential suspect with similar features to Angela Lipps”\n\n\n\nSource: New York Times"
+    "text": "Example: Mistaken identity\nAngela Lipps, from Tennessee, spent 5 months in jail after facial recognition software connected her to a string of bank fraud cases in Fargo, North Dakota\n\nPolice were investigating a string of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit\nInvestigators used facial recognition technology to identify a potential suspect based on bank surveillance video\nThe software “identified a potential suspect with similar features to Angela Lipps”\n\n\n\nSource: New York Times"
   },
   {
     "objectID": "slides/20-ds-ethics.html#example-mistaken-identity-1",
     "href": "slides/20-ds-ethics.html#example-mistaken-identity-1",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\n\nPolice find Angela Lipps’ Facebook and Instagram accounts, along with her Tennessee ID and determine she matches the identified suspect\nShe is released from jail after a judge dismisses the case\n\n\n\nSource: New York Times"
+    "text": "Example: Mistaken identity\n\nPolice used Angela Lipps’ Facebook and Instagram accounts, along with her Tennessee ID to determine she matched the identified suspect\nShe was released from jail after a judge dismissed the case\n\n\n\nSource: New York Times"
   },
   {
     "objectID": "slides/20-ds-ethics.html#example-mistaken-identity-2",
     "href": "slides/20-ds-ethics.html#example-mistaken-identity-2",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\n\nFacial recognition company, Clearview AI uses “publicly available images” for its data base and to train its models\nTheir statement on how models should be used: “Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation.”\nWebsite reports “99% accuracy for all demographics”\n\n\n\nSource: https://www.clearview.ai/"
+    "text": "Example: Mistaken identity\n\nFacial recognition company, Clearview AI uses “publicly available images” for its data base and to train its models used by law enforcement agencies\nTheir statement on how models should be used:\n\n“Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation.”\n\nWebsite reports “99% accuracy for all demographics”\n\n\n\nSource: https://www.clearview.ai/"
   },
   {
     "objectID": "slides/20-ds-ethics.html#example-mistaken-identity-3",
     "href": "slides/20-ds-ethics.html#example-mistaken-identity-3",
     "title": "Data science ethics",
     "section": "Example: Mistaken identity",
-    "text": "Example: Mistaken identity\n\n\nWhat are the ethical considerations for the data scientists building such facial recognition technology?\nWhat are the ethical responsibilities for the data scientists building such facial recognition technology?\n\n\n\n\n\nWhat are the ethical considerations for those using such facial recognition technology?\nWhat are the ethical responsibilities for those using such facial recognition technology?"
+    "text": "Example: Mistaken identity\n\n\nWhat are the ethical considerations for the data scientists building such facial recognition technology?\nWhat are the ethical responsibilities of the data scientists building such facial recognition technology?\n\n\n\n\n\nWhat are the ethical considerations for those using such facial recognition technology?\nWhat are the ethical responsibilities of those using such facial recognition technology?"
   },
   {
     "objectID": "slides/20-ds-ethics.html#example-case-study",
     "href": "slides/20-ds-ethics.html#example-case-study",
     "title": "Data science ethics",
     "section": "Example case study",
-    "text": "Example case study\nA data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.\n\n\nWhat are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?\n\n\n\nAdapted from Chapter 8 of Baumer, Kaplan, and Horton (2024)"
+    "text": "Example case study\nA data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.\n\n\nWhat are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?\n\n\n\nAdapted from Chapter 8 of Baumer, Kaplan, and Horton (2024)"
   },
   {
     "objectID": "slides/20-ds-ethics.html#further-reading",
@@ -8330,7 +8330,14 @@
     "href": "slides/20-ds-ethics.html#next-class",
     "title": "Data science ethics",
     "section": "Next class",
-    "text": "Next class\n\n7Special topic: Causal inference\nComplete Lecture 21 prepare\n\n\n\n\n\nBaumer, Benjamin S, Daniel T Kaplan, and Nicholas J Horton. 2024. Modern Data Science with r. 3rd ed. https://mdsr-book.github.io/mdsr3e/.\n\n\nColando, Sara, and Jo Hardin. 2024a. “Data Science Ethics.” 2024. https://scolando.github.io/data-science-ethics/.\n\n\nColando, Sara, and Johanna Hardin. 2024b. “Philosophy Within Data Science Ethics Courses.” Journal of Statistics and Data Science Education 32 (4): 361–73.\n\n\nFeinberg, Melanie. 2023. “The Myth of Objective Data.” MIT Press Reader. 2023. https://thereader.mitpress.mit.edu/the-myth-of-objective-data/.\n\n\nFloridi, Luciano, and Mariarosaria Taddeo. 2016. “What Is Data Ethics?” Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 374 (2083).\n\n\nGelman, Andrew, and Christian Hennig. 2017. “Beyond Subjective and Objective in Statistics.” Journal of the Royal Statistical Society Series A: Statistics in Society 180 (4): 967–1033.\n\n\nNational Academies of Sciences, Engineering, and Medicine. 2018. “Envisioning the Data Science Discipline: The Undergraduate Perspective.” 2018. https://www.nationalacademies.org/projects/DEPS-CSTB-16-01."
+    "text": "Next class\n\nSpecial topic: Causal inference\nComplete Lecture 21 prepare"
+  },
+  {
+    "objectID": "slides/20-ds-ethics.html#references",
+    "href": "slides/20-ds-ethics.html#references",
+    "title": "Data science ethics",
+    "section": "References",
+    "text": "References\n\n\n\n\nBaumer, Benjamin S, Daniel T Kaplan, and Nicholas J Horton. 2024. Modern Data Science with r. 3rd ed. https://mdsr-book.github.io/mdsr3e/.\n\n\nColando, Sara, and Jo Hardin. 2024a. “Data Science Ethics.” 2024. https://scolando.github.io/data-science-ethics/.\n\n\nColando, Sara, and Johanna Hardin. 2024b. “Philosophy Within Data Science Ethics Courses.” Journal of Statistics and Data Science Education 32 (4): 361–73.\n\n\nFeinberg, Melanie. 2023. “The Myth of Objective Data.” MIT Press Reader. 2023. https://thereader.mitpress.mit.edu/the-myth-of-objective-data/.\n\n\nFloridi, Luciano, and Mariarosaria Taddeo. 2016. “What Is Data Ethics?” Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 374 (2083).\n\n\nGelman, Andrew, and Christian Hennig. 2017. “Beyond Subjective and Objective in Statistics.” Journal of the Royal Statistical Society Series A: Statistics in Society 180 (4): 967–1033.\n\n\nNational Academies of Sciences, Engineering, and Medicine. 2018. “Envisioning the Data Science Discipline: The Undergraduate Perspective.” 2018. https://www.nationalacademies.org/projects/DEPS-CSTB-16-01."
   },
   {
     "objectID": "slides/06-slr-math-models-notes.html",

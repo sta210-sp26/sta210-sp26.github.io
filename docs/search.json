@@ -12526,5 +12526,180 @@
       "Project",
       "Instructions"
     ]
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#announcements",
+    "href": "slides/21-causal-inference.html#announcements",
+    "title": "Special topic: Causal inference",
+    "section": "Announcements",
+    "text": "Announcements\n\nProject:\n\nPreliminary analysis due April 7\nPresentations April 14 & 16\n\nStatistics experience due April 15\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#data-science-ethics-case-study",
+    "href": "slides/21-causal-inference.html#data-science-ethics-case-study",
+    "title": "Special topic: Causal inference",
+    "section": "Data science ethics case study",
+    "text": "Data science ethics case study\nA data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.\n\n\nWhat are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?\n\n\n\nAdapted from Chapter 8 of Baumer, Kaplan, and Horton (2024)"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#introduce-scenario",
+    "href": "slides/21-causal-inference.html#introduce-scenario",
+    "title": "Special topic: Causal inference",
+    "section": "Introduce scenario",
+    "text": "Introduce scenario"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#look-at-distributions",
+    "href": "slides/21-causal-inference.html#look-at-distributions",
+    "title": "Special topic: Causal inference",
+    "section": "Look at distributions",
+    "text": "Look at distributions"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#look-at-distributions-treatment-vs-control",
+    "href": "slides/21-causal-inference.html#look-at-distributions-treatment-vs-control",
+    "title": "Special topic: Causal inference",
+    "section": "Look at distributions treatment vs control",
+    "text": "Look at distributions treatment vs control"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#fit-a-model",
+    "href": "slides/21-causal-inference.html#fit-a-model",
+    "title": "Special topic: Causal inference",
+    "section": "fit a model",
+    "text": "fit a model\n\nWhy cant we draw causal claims about the effect of the treatment?"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#two-types-of-data",
+    "href": "slides/21-causal-inference.html#two-types-of-data",
+    "title": "Special topic: Causal inference",
+    "section": "Two types of data",
+    "text": "Two types of data\n\nExperimental\nObservational"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#drawing-conclusions-from-observational-data",
+    "href": "slides/21-causal-inference.html#drawing-conclusions-from-observational-data",
+    "title": "Special topic: Causal inference",
+    "section": "Drawing conclusions from observational data",
+    "text": "Drawing conclusions from observational data"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#propensity-score-matching",
+    "href": "slides/21-causal-inference.html#propensity-score-matching",
+    "title": "Special topic: Causal inference",
+    "section": "Propensity score matching",
+    "text": "Propensity score matching\n\nWhat it is and the process"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#propensity-score-model",
+    "href": "slides/21-causal-inference.html#propensity-score-model",
+    "title": "Special topic: Causal inference",
+    "section": "Propensity score model",
+    "text": "Propensity score model"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#common-support",
+    "href": "slides/21-causal-inference.html#common-support",
+    "title": "Special topic: Causal inference",
+    "section": "Common support",
+    "text": "Common support\n\nWhy do we want these distributions ot overlap?"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#how-matching-happens",
+    "href": "slides/21-causal-inference.html#how-matching-happens",
+    "title": "Special topic: Causal inference",
+    "section": "How matching happens",
+    "text": "How matching happens\n\nis there a visual to help with this?"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#match-it-r-package-code",
+    "href": "slides/21-causal-inference.html#match-it-r-package-code",
+    "title": "Special topic: Causal inference",
+    "section": "Match it R package + code",
+    "text": "Match it R package + code"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#look-at-matched-results",
+    "href": "slides/21-causal-inference.html#look-at-matched-results",
+    "title": "Special topic: Causal inference",
+    "section": "Look at matched results",
+    "text": "Look at matched results"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#look-at-the-matched-data-set",
+    "href": "slides/21-causal-inference.html#look-at-the-matched-data-set",
+    "title": "Special topic: Causal inference",
+    "section": "Look at the matched data set",
+    "text": "Look at the matched data set"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#fit-the-treatment-model",
+    "href": "slides/21-causal-inference.html#fit-the-treatment-model",
+    "title": "Special topic: Causal inference",
+    "section": "Fit the treatment model",
+    "text": "Fit the treatment model"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#average-treatment-effect",
+    "href": "slides/21-causal-inference.html#average-treatment-effect",
+    "title": "Special topic: Causal inference",
+    "section": "Average treatment effect",
+    "text": "Average treatment effect\n\nWhat is your conclusion about project ACE?"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#recap",
+    "href": "slides/21-causal-inference.html#recap",
+    "title": "Special topic: Causal inference",
+    "section": "Recap",
+    "text": "Recap"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#further-reading",
+    "href": "slides/21-causal-inference.html#further-reading",
+    "title": "Special topic: Causal inference",
+    "section": "Further reading",
+    "text": "Further reading"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#next-class",
+    "href": "slides/21-causal-inference.html#next-class",
+    "title": "Special topic: Causal inference",
+    "section": "Next class",
+    "text": "Next class\n\nExam 02 review\nNo prepare assignment"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#references",
+    "href": "slides/21-causal-inference.html#references",
+    "title": "Special topic: Causal inference",
+    "section": "References",
+    "text": "References\n\n\n\n\nBaumer, Benjamin S, Daniel T Kaplan, and Nicholas J Horton. 2024. Modern Data Science with r. 3rd ed. https://mdsr-book.github.io/mdsr3e/."
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#computational-setup",
+    "href": "slides/21-causal-inference.html#computational-setup",
+    "title": "Special topic: Causal inference",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(MatchIt) # for propensity score matching\nlibrary(ggridges)\nlibrary(patchwork)\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))\n\n# set color palettes \nsunset2 &lt;- PNWColors::pnw_palette(\"Sunset2\",2)\nsunset3 &lt;- PNWColors::pnw_palette(\"Sunset2\",3)\nsunset4 &lt;- PNWColors::pnw_palette(\"Sunset2\",4)"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#look-at-distribution-of-gpa",
+    "href": "slides/21-causal-inference.html#look-at-distribution-of-gpa",
+    "title": "Special topic: Causal inference",
+    "section": "Look at distribution of GPA",
+    "text": "Look at distribution of GPA\n\n\nHow does the distribution of GPA compare between the two groups?"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#eda-covariates-by-group",
+    "href": "slides/21-causal-inference.html#eda-covariates-by-group",
+    "title": "Special topic: Causal inference",
+    "section": "EDA: Covariates by group",
+    "text": "EDA: Covariates by group"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#try-a-model",
+    "href": "slides/21-causal-inference.html#try-a-model",
+    "title": "Special topic: Causal inference",
+    "section": "Try a model",
+    "text": "Try a model\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2.416\n0.052\n46.037\n0.000\n\n\nGrade10\n0.257\n0.061\n4.206\n0.000\n\n\nGrade11\n0.317\n0.062\n5.135\n0.000\n\n\nGrade12\n0.412\n0.064\n6.443\n0.000\n\n\nGenderM\n-0.285\n0.045\n-6.357\n0.000\n\n\nEthnicity.Hispanic.Y.NNon Hispanic\n0.042\n0.184\n0.226\n0.821\n\n\nELLY\n-0.316\n0.048\n-6.626\n0.000\n\n\nSpedY\n-0.257\n0.061\n-4.182\n0.000\n\n\nHomelessY\n-0.139\n0.221\n-0.628\n0.530\n\n\n\n\n\n\nWhy cant we draw causal claims about the effect of the treatment?"
   }
 ]

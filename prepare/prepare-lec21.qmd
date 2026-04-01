@@ -1,7 +1,7 @@
 ---
-title: "Prepare for Lecture 21: Special topic"
+title: "Prepare for Lecture 21: Causal inference"
 ---
 
 <br>
 
-To be posted.
+📖 Read [Section 13.4](https://intro-regression.github.io/13-special-topics.html#sec-causal)

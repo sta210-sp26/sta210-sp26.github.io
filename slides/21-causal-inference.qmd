@@ -83,7 +83,7 @@ sunset4 <- PNWColors::pnw_palette("Sunset2",4)
 
 -   Discuss data science ethics case study
 
--   Introduce causal inference for observation data
+-   Introduce causal inference for observational data
 
 -   Use propensity scores to create a matched data set
 
@@ -91,7 +91,7 @@ sunset4 <- PNWColors::pnw_palette("Sunset2",4)
 
 ## Data science ethics case study
 
-A data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.
+A data scientist received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic region, IP (internet protocol) address, demographic profiles, and preferences for relationships.
 
 <br>
 
@@ -111,11 +111,11 @@ Project Action for Equity (Project ACE) was a "five year interdisciplinary progr
 
 <br>
 
-**Our goal is to evaluate whether the data provide evidence that participating in Project ACE has a positive impact on students' GPA.**
+**Our goal is to evaluate whether the data provide evidence that participating in Project ACE had a positive impact on students' GPA.**
 
 <br>
 
-The data were obtained from @evans2025testing, and the analysis will closely follow the analysis in their article.
+The data were obtained from @evans2025testing, and the analysis in the lecture will closely follow the analysis in the original article.
 
 ```{r}
 project_ace <- read_csv("https://intro-regression.github.io/data/project-ace-data.csv") |>
@@ -148,7 +148,7 @@ project_ace <- read_csv("https://intro-regression.github.io/data/project-ace-dat
 glimpse(project_ace)
 ```
 
-## Distribution of Tracking Pathway
+## Distribution of tracking pathway
 
 ```{r}
 #| fig-align: center
@@ -164,7 +164,7 @@ ggplot(data = project_ace, aes(x = Tracking.Pathway)) +
   ylim(0, 1300)
 ```
 
-## Look at distribution of GPA
+## Distribution of GPA
 
 ```{r}
 ggplot(data = project_ace, aes(x = Current.GPA, y = Tracking.Pathway, fill = Tracking.Pathway)) + 
@@ -180,7 +180,7 @@ ggplot(data = project_ace, aes(x = Current.GPA, y = Tracking.Pathway, fill = Tra
 How does the distribution of GPA compare between the two groups?
 :::
 
-## Covariates by group
+## Covariates by tracking pathway
 
 ```{r}
 #| echo: false
@@ -238,6 +238,7 @@ Why should we avoid using this model to conclude participation in Project ACE im
 
 ## Two types of data {.midi}
 
+::: incremental
 -   **Experimental data**: Data obtained by explicitly applying a treatment
 
     -   Individuals randomly assigned to treatment or control groups
@@ -245,9 +246,10 @@ Why should we avoid using this model to conclude participation in Project ACE im
 
 -   **Observational data**: Data obtained without explicitly applying a treatment
 
-    -   Potential underlying factors that are confounded with response likelihood of being in treatment group
+    -   Potential underlying factors that are confounded with response and likelihood of being in treatment group
 
     -   Cannot draw causal conclusions from typical regression analysis
+:::
 
 ## Causal conclusions from observational data {.midi}
 
@@ -257,15 +259,19 @@ Why should we avoid using this model to conclude participation in Project ACE im
 
 -   We create these groups matching individuals in the treatment and control groups based on these underlying covariates
 
-    -   We do this matching using the process called **propensity score matching**
+    ::: incremental
+    -   We do so using **propensity score matching**
+    :::
 
 ## Propensity score matching
 
--    **Propensity score:** The probability an observation is assigned to the treatment group based on a set of confounding variables that directly impact the response and likelihood of being in the treatment group
+::: incremental
+-   **Propensity score:** The probability an observation is assigned to the treatment group based on a set of confounding variables that directly impact the response and likelihood of being in the treatment group
 
 -   **Propensity score matching**: Create a new data set by matching individuals in the treatment and control groups who have the same (or similar) propensity scores
 
 -   Use the matched data set to model the effect of the treatment
+:::
 
 ## Propensity score matching
 
@@ -275,6 +281,7 @@ Why should we avoid using this model to conclude participation in Project ACE im
 
 ```{r}
 #| code-fold: true
+#| echo: true
 propensity_score_model <- glm(Tracking.Pathway ~ Grade + Gender + Ethnicity.Hispanic.Y.N + ELL + Sped + Homeless,
                         data = project_ace, 
                         family = "binomial")
@@ -291,6 +298,7 @@ The **propensity scores** are the predicted probabilities from the logistic regr
 
 ```{r}
 #| code-fold: true
+#| echo: true
 
 # compute propensity scores
 project_ace_aug <- augment(propensity_score_model, 
@@ -441,15 +449,13 @@ Describe the effect of Project ACE on GPA. Is there evidence that participating 
 
 ## Average treatment effect
 
--   Note that this is the average treatment effect on the matched population
-
--   The results may not generalize to the entire population if the observations removed from the analysis are systematically different than the individuals in the matched data
-
+-   The model produces the average treatment effect on the matched population
+-   The results may not generalize to the entire population if the observations removed from the analysis are systematically different than the observations in the matched data
 -   Strategies such as $1:k$ matching and weighting can mitigate this limitation
 
 ## Recap
 
--   Introduced causal inference for observation data
+-   Introduced causal inference for observational data
 
 -   Used propensity scores to create a matched data set
 

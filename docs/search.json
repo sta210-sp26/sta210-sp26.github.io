@@ -12530,14 +12530,14 @@
   {
     "objectID": "slides/21-causal-inference.html#announcements",
     "href": "slides/21-causal-inference.html#announcements",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Announcements",
     "text": "Announcements\n\nProject:\n\nPreliminary analysis due April 7\nPresentations April 14 & 16\n\nStatistics experience due April 15\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website"
   },
   {
     "objectID": "slides/21-causal-inference.html#data-science-ethics-case-study",
     "href": "slides/21-causal-inference.html#data-science-ethics-case-study",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Data science ethics case study",
     "text": "Data science ethics case study\nA data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.\n\n\nWhat are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?\n\n\n\nAdapted from Chapter 8 of Baumer, Kaplan, and Horton (2024)"
   },
@@ -12572,42 +12572,42 @@
   {
     "objectID": "slides/21-causal-inference.html#two-types-of-data",
     "href": "slides/21-causal-inference.html#two-types-of-data",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Two types of data",
-    "text": "Two types of data\n\nExperimental\nObservational"
+    "text": "Two types of data\n\nExperimental data: Data obtained by explicitly applying a treatment\n\nIndividuals randomly assigned to treatment or control groups\nCan draw causal conclusions, because we can assume the only difference between treatment and control groups is the treatment itself\n\nObservational data: Data obtained without explicitly applying a treatment\n\nPotential underlying factors that are confounded with response likelihood of being in treatment group\nCannot draw causal conclusions from typical regression analysis"
   },
   {
     "objectID": "slides/21-causal-inference.html#drawing-conclusions-from-observational-data",
     "href": "slides/21-causal-inference.html#drawing-conclusions-from-observational-data",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Drawing conclusions from observational data",
     "text": "Drawing conclusions from observational data"
   },
   {
     "objectID": "slides/21-causal-inference.html#propensity-score-matching",
     "href": "slides/21-causal-inference.html#propensity-score-matching",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Propensity score matching",
-    "text": "Propensity score matching\n\nWhat it is and the process"
+    "text": "Propensity score matching\nIn propensity score matching, we compute the probability (propensity) an observation is assigned to the treatment group based on a set of confounding variables that directly impact both the response and the likelihood an individual is in the treatment group. We then match individuals in the treatment and control groups who have the same or similar propensities to create a new data set in which the control and treatment groups have similar characteristics. The matched data set is used to estimate the effect of the treatment. \n\nWhat it is and the process\nhow to choose what goes in the propensity score model"
   },
   {
     "objectID": "slides/21-causal-inference.html#propensity-score-model",
     "href": "slides/21-causal-inference.html#propensity-score-model",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Propensity score model",
-    "text": "Propensity score model"
+    "text": "Propensity score model\n\npropensity_score_model &lt;- glm(Tracking.Pathway ~ Grade + Gender + Ethnicity.Hispanic.Y.N + ELL + Sped + Homeless,\n                        data = project_ace, \n                        family = \"binomial\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-1.670\n0.216\n-7.733\n0.000\n\n\nGrade10\n0.539\n0.264\n2.040\n0.041\n\n\nGrade11\n0.566\n0.263\n2.155\n0.031\n\n\nGrade12\n0.314\n0.273\n1.151\n0.250\n\n\nGenderM\n-1.390\n0.206\n-6.731\n0.000\n\n\nEthnicity.Hispanic.Y.NNon Hispanic\n-0.498\n0.775\n-0.643\n0.520\n\n\nELLY\n-0.792\n0.222\n-3.562\n0.000\n\n\nSpedY\n0.017\n0.277\n0.060\n0.952\n\n\nHomelessY\n1.126\n0.649\n1.734\n0.083"
   },
   {
     "objectID": "slides/21-causal-inference.html#common-support",
     "href": "slides/21-causal-inference.html#common-support",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Common support",
-    "text": "Common support\n\nWhy do we want these distributions ot overlap?"
+    "text": "Common support\nCommon support: Individuals in the matched treatment and control groups have a non-zero probability of receiving the treatment\n\n# compute propensity scores\nproject_ace_aug &lt;- augment(propensity_score_model, \n                           type.predict = \"response\")\n\n\n\n\nWhat do you observe from the visualization?\nWhy is common support important?"
   },
   {
     "objectID": "slides/21-causal-inference.html#how-matching-happens",
     "href": "slides/21-causal-inference.html#how-matching-happens",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "How matching happens",
     "text": "How matching happens\n\nis there a visual to help with this?"
   },
@@ -12635,56 +12635,56 @@
   {
     "objectID": "slides/21-causal-inference.html#fit-the-treatment-model",
     "href": "slides/21-causal-inference.html#fit-the-treatment-model",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Fit the treatment model",
-    "text": "Fit the treatment model"
+    "text": "Fit the treatment model\n\ntreatment_model &lt;- lm(Current.GPA ~ Tracking.Pathway, \n                      data = project_ace_matched)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2.418\n0.069\n35.043\n0.000\n\n\nTracking.PathwayTreatment\n0.209\n0.098\n2.138\n0.033\n\n\n\n\n\n\n\nDescribe the effect of Project ACE on GPA. Is there evidence that participating in the program leads higher GPA?"
   },
   {
     "objectID": "slides/21-causal-inference.html#average-treatment-effect",
     "href": "slides/21-causal-inference.html#average-treatment-effect",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Average treatment effect",
     "text": "Average treatment effect\n\nWhat is your conclusion about project ACE?"
   },
   {
     "objectID": "slides/21-causal-inference.html#recap",
     "href": "slides/21-causal-inference.html#recap",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Recap",
     "text": "Recap"
   },
   {
     "objectID": "slides/21-causal-inference.html#further-reading",
     "href": "slides/21-causal-inference.html#further-reading",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Further reading",
-    "text": "Further reading"
+    "text": "Further reading\nAll books are freely available online.\n\nCausal Inference: The Mixtape by Scott Cunningham\nThe Effect: An Introduction to Research Design and Causality by Nick Huntington-Klein\nCausal Inference in R by Malcolm Barret, Lucy McGowan, Travis Gerke"
   },
   {
     "objectID": "slides/21-causal-inference.html#next-class",
     "href": "slides/21-causal-inference.html#next-class",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Next class",
     "text": "Next class\n\nExam 02 review\nNo prepare assignment"
   },
   {
     "objectID": "slides/21-causal-inference.html#references",
     "href": "slides/21-causal-inference.html#references",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "References",
     "text": "References\n\n\n\n\nBaumer, Benjamin S, Daniel T Kaplan, and Nicholas J Horton. 2024. Modern Data Science with r. 3rd ed. https://mdsr-book.github.io/mdsr3e/."
   },
   {
     "objectID": "slides/21-causal-inference.html#computational-setup",
     "href": "slides/21-causal-inference.html#computational-setup",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Computational setup",
     "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(MatchIt) # for propensity score matching\nlibrary(ggridges)\nlibrary(patchwork)\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))\n\n# set color palettes \nsunset2 &lt;- PNWColors::pnw_palette(\"Sunset2\",2)\nsunset3 &lt;- PNWColors::pnw_palette(\"Sunset2\",3)\nsunset4 &lt;- PNWColors::pnw_palette(\"Sunset2\",4)"
   },
   {
     "objectID": "slides/21-causal-inference.html#look-at-distribution-of-gpa",
     "href": "slides/21-causal-inference.html#look-at-distribution-of-gpa",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Look at distribution of GPA",
     "text": "Look at distribution of GPA\n\n\nHow does the distribution of GPA compare between the two groups?"
   },
@@ -12698,8 +12698,92 @@
   {
     "objectID": "slides/21-causal-inference.html#try-a-model",
     "href": "slides/21-causal-inference.html#try-a-model",
-    "title": "Special topic: Causal inference",
+    "title": "Causal inference",
     "section": "Try a model",
-    "text": "Try a model\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2.416\n0.052\n46.037\n0.000\n\n\nGrade10\n0.257\n0.061\n4.206\n0.000\n\n\nGrade11\n0.317\n0.062\n5.135\n0.000\n\n\nGrade12\n0.412\n0.064\n6.443\n0.000\n\n\nGenderM\n-0.285\n0.045\n-6.357\n0.000\n\n\nEthnicity.Hispanic.Y.NNon Hispanic\n0.042\n0.184\n0.226\n0.821\n\n\nELLY\n-0.316\n0.048\n-6.626\n0.000\n\n\nSpedY\n-0.257\n0.061\n-4.182\n0.000\n\n\nHomelessY\n-0.139\n0.221\n-0.628\n0.530\n\n\n\n\n\n\nWhy cant we draw causal claims about the effect of the treatment?"
+    "text": "Try a model\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2.416\n0.052\n46.037\n0.000\n\n\nGrade10\n0.257\n0.061\n4.206\n0.000\n\n\nGrade11\n0.317\n0.062\n5.135\n0.000\n\n\nGrade12\n0.412\n0.064\n6.443\n0.000\n\n\nGenderM\n-0.285\n0.045\n-6.357\n0.000\n\n\nEthnicity.Hispanic.Y.NNon Hispanic\n0.042\n0.184\n0.226\n0.821\n\n\nELLY\n-0.316\n0.048\n-6.626\n0.000\n\n\nSpedY\n-0.257\n0.061\n-4.182\n0.000\n\n\nHomelessY\n-0.139\n0.221\n-0.628\n0.530"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#covariates-by-group",
+    "href": "slides/21-causal-inference.html#covariates-by-group",
+    "title": "Causal inference",
+    "section": "Covariates by group",
+    "text": "Covariates by group"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#propensity-score-matching-in-r",
+    "href": "slides/21-causal-inference.html#propensity-score-matching-in-r",
+    "title": "Causal inference",
+    "section": "Propensity score matching in R",
+    "text": "Propensity score matching in R\nWe conduct propensity score matching using matchit() from the MatchIt R package (will need to install in the containers).\n\nlibrary(MatchIt)\n\n# generate propensity scores and matches\nproject_ace_psm &lt;- matchit(Tracking.Pathway ~ Grade + Gender + Ethnicity.Hispanic.Y.N +\n                          Race + ELL + Sped + Homeless,\n                 data = project_ace,\n                 method = \"nearest\",   \n                 distance = \"logit\")\n\n# data with matches\nproject_ace_matched &lt;- match.data(project_ace_psm)\n\n\nmethod = \"nearest\": Each observation in the treatment group is matched the an observation in the control group with closest propensity score\ndistance = \"logit\": Generate the propensity scores using a logistic regression model"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#matched-data",
+    "href": "slides/21-causal-inference.html#matched-data",
+    "title": "Causal inference",
+    "section": "Matched data",
+    "text": "Matched data\n\n\n# A tibble: 10 × 16\n   Student.ID Grade Gender Race  Ethnicity.Hispanic.Y.N ELL   Sped  Homeless\n        &lt;dbl&gt; &lt;fct&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   \n 1       9478 12    M      C     Hispanic               N     N     N       \n 2       8268 12    M      C     Hispanic               N     N     N       \n 3       9846 12    F      C     Hispanic               N     N     Y       \n 4       2272 12    F      C     Hispanic               N     N     N       \n 5       4235 11    M      C     Hispanic               N     Y     N       \n 6       7555 11    M      C     Hispanic               N     Y     N       \n 7       9603 11    M      C     Hispanic               N     N     N       \n 8       8187 12    F      C     Hispanic               N     N     N       \n 9       9623 11    M      C     Hispanic               N     N     N       \n10       3995 12    M      C     Hispanic               N     N     N       \n# ℹ 8 more variables: Free.Lunch &lt;chr&gt;, Migrant &lt;chr&gt;, Current.GPA &lt;dbl&gt;,\n#   Number.of.Classes.Enrolled.in.for.the.school.year &lt;dbl&gt;,\n#   Tracking.Pathway &lt;fct&gt;, distance &lt;dbl&gt;, weights &lt;dbl&gt;, subclass &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#matched-observations",
+    "href": "slides/21-causal-inference.html#matched-observations",
+    "title": "Causal inference",
+    "section": "Matched observations",
+    "text": "Matched observations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsubclass\nTracking.Pathway\ndistance\nGrade\nGender\nEthnicity.Hispanic.Y.N\nELL\nSped\nHomeless\n\n\n\n\n14\nControl\n0.3786138\n9\nF\nHispanic\nN\nN\nY\n\n\n14\nTreatment\n0.4507080\n12\nF\nHispanic\nN\nN\nY\n\n\n50\nControl\n0.2496294\n11\nF\nHispanic\nN\nN\nN\n\n\n50\nTreatment\n0.2496294\n11\nF\nHispanic\nN\nN\nN\n\n\n118\nControl\n0.1585438\n9\nF\nHispanic\nN\nN\nN\n\n\n118\nTreatment\n0.1585438\n9\nF\nHispanic\nN\nN\nN"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#distributions-in-matched-data",
+    "href": "slides/21-causal-inference.html#distributions-in-matched-data",
+    "title": "Special topic: Causal inference",
+    "section": "Distributions in matched data",
+    "text": "Distributions in matched data"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#covariates-by-group-in-matched-data",
+    "href": "slides/21-causal-inference.html#covariates-by-group-in-matched-data",
+    "title": "Causal inference",
+    "section": "Covariates by group in matched data",
+    "text": "Covariates by group in matched data"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#impact-of-project-ace",
+    "href": "slides/21-causal-inference.html#impact-of-project-ace",
+    "title": "Causal inference",
+    "section": "Impact of Project ACE",
+    "text": "Impact of Project ACE\nProject Action for Equity (Project ACE) was a “five year interdisciplinary program aimed to get more underrepresented high school students from disadvantaged backgrounds to get interested in college degrees in engineering as well as biomedical and behavioral sciences” (ProjectACE_UTEP?).\nOur goal is toevaluate whether the data provide evidence that participation in Project ACE improved students’ educational outcomes (as measured by GPA).\nThe data were obtained from (evans2025testing?), and the analysis will closely follow the analysis in their article."
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#variables",
+    "href": "slides/21-causal-inference.html#variables",
+    "title": "Causal inference",
+    "section": "Variables",
+    "text": "Variables\nThe data are in project-ace-data.csv. We will use the following variables:\n\nGrade: Grade level (9, 10, 11, 12)\nGender: Gender (F, M)\nEthnicity: Ethnicity (Hispanic, Non-Hispanic)\nELL: Whether student is an English language learner (N, Y)\nSped: Whether student is in a special education program (N, Y)\nHomeless: Whether student is homeless (N, Y)\nTracking.Pathway: Whether student was in Project ACE (Treatment) or not (Control)\nCurrent.GPA: Grade Point Average (GPA) ranging 0 to 5.0"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#glimpse-of-data",
+    "href": "slides/21-causal-inference.html#glimpse-of-data",
+    "title": "Causal inference",
+    "section": "Glimpse of data",
+    "text": "Glimpse of data\n\nproject_ace &lt;- read_csv(\"https://intro-regression.github.io/data/project-ace-data.csv\") |&gt;\n  mutate(Tracking.Pathway = factor(if_else(is.na(Tracking.Pathway), \"Control\", \"Treatment\")), \n         Grade = factor(Grade))\n\n\n\nglimpse(project_ace)\n\nRows: 1,300\nColumns: 13\n$ Student.ID                                        &lt;dbl&gt; 3955, 7008, 7791, 59…\n$ Grade                                             &lt;fct&gt; 12, 11, 11, 10, 11, …\n$ Gender                                            &lt;chr&gt; \"F\", \"M\", \"M\", \"M\", …\n$ Race                                              &lt;chr&gt; \"C\", \"C\", \"C\", \"C\", …\n$ Ethnicity.Hispanic.Y.N                            &lt;chr&gt; \"Hispanic\", \"Hispani…\n$ ELL                                               &lt;chr&gt; \"Y\", \"Y\", \"Y\", \"Y\", …\n$ Sped                                              &lt;chr&gt; \"Y\", \"Y\", \"N\", \"Y\", …\n$ Homeless                                          &lt;chr&gt; \"N\", \"N\", \"N\", \"N\", …\n$ Free.Lunch                                        &lt;chr&gt; \"Y\", \"Y\", \"Y\", \"Y\", …\n$ Migrant                                           &lt;chr&gt; \"N\", \"N\", \"N\", \"N\", …\n$ Current.GPA                                       &lt;dbl&gt; 3.455, 1.688, 2.233,…\n$ Number.of.Classes.Enrolled.in.for.the.school.year &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7,…\n$ Tracking.Pathway                                  &lt;fct&gt; Control, Control, Co…"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#draw-causal-conclusion",
+    "href": "slides/21-causal-inference.html#draw-causal-conclusion",
+    "title": "Causal inference",
+    "section": "Draw causal conclusion?",
+    "text": "Draw causal conclusion?\n\nWhy should we avoid using this model to conclude participation in Project ACE improved students’ GPAs?"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#causal-conclusions-from-observational-data",
+    "href": "slides/21-causal-inference.html#causal-conclusions-from-observational-data",
+    "title": "Causal inference",
+    "section": "Causal conclusions from observational data",
+    "text": "Causal conclusions from observational data\n\nWe will use statistical methods to make observational data look more like experimental data\nWe do so by making the treatment and control groups similar based on a set of covariates (variables) that impact both the response and the likelihood an individual is in the treatment group\nWe create these groups matching individuals in the treatment and control groups based on these underlying covariates\n\nWe do this matching using the process called propensity score matching"
+  },
+  {
+    "objectID": "slides/21-causal-inference.html#exam-02-review",
+    "href": "slides/21-causal-inference.html#exam-02-review",
+    "title": "Causal inference",
+    "section": "Exam 02 review",
+    "text": "Exam 02 review\nWe will do Exam 02 review in lab on Monday, April 6 and lecture on Tuesday, April 7. Exam 02 covers content from multicollinearity (February 24) - today.\n\nQuestionSubmit\n\n\n\n\nPlease submit one question you have about the Exam 02 content. I will use these questions to write the exam reviews.\n\n🔗 https://forms.cloud.microsoft/r/0ukue0JaMw"
   }
 ]

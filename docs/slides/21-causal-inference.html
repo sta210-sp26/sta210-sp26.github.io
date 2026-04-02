@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 210 - Spring 2026 – Special topic: Causal inference</title>
+  <title>STA 210 - Spring 2026 – Causal inference</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -216,7 +216,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Special topic: Causal inference</h1>
+  <h1 class="title">Causal inference</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -280,21 +280,67 @@ Prof.&nbsp;Maria Tackett
 <h1>Causal inference</h1>
 
 </section>
-<section id="introduce-scenario" class="slide level2">
-<h2>Introduce scenario</h2>
+<section id="impact-of-project-ace" class="slide level2">
+<h2>Impact of Project ACE</h2>
+<p>Project Action for Equity (Project ACE) was a “five year interdisciplinary program aimed to get more underrepresented high school students from disadvantaged backgrounds to get interested in college degrees in engineering as well as biomedical and behavioral sciences” <span class="citation" data-cites="ProjectACE_UTEP">(<a href="#/references" role="doc-biblioref" onclick=""><strong>ProjectACE_UTEP?</strong></a>)</span>.</p>
+<p><strong>Our goal is toevaluate whether the data provide evidence that participation in Project ACE improved students’ educational outcomes (as measured by GPA).</strong></p>
+<p>The data were obtained from <span class="citation" data-cites="evans2025testing">(<a href="#/references" role="doc-biblioref" onclick=""><strong>evans2025testing?</strong></a>)</span>, and the analysis will closely follow the analysis in their article.</p>
+</section>
+<section id="variables" class="slide level2 midi">
+<h2>Variables</h2>
+<p>The data are in <code>project-ace-data.csv</code>. We will use the following variables:</p>
+<ul>
+<li><code>Grade</code>: Grade level (9, 10, 11, 12)</li>
+<li><code>Gender</code>: Gender (F, M)</li>
+<li><code>Ethnicity</code>: Ethnicity (Hispanic, Non-Hispanic)</li>
+<li><code>ELL</code>: Whether student is an English language learner (N, Y)</li>
+<li><code>Sped</code>: Whether student is in a special education program (N, Y)</li>
+<li><code>Homeless</code>: Whether student is homeless (N, Y)</li>
+<li><code>Tracking.Pathway</code>: Whether student was in Project ACE (Treatment) or not (Control)</li>
+<li><code>Current.GPA</code>: Grade Point Average (GPA) ranging 0 to 5.0</li>
+</ul>
+</section>
+<section id="glimpse-of-data" class="slide level2">
+<h2>Glimpse of data</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>project_ace <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://intro-regression.github.io/data/project-ace-data.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Tracking.Pathway =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(<span class="fu">is.na</span>(Tracking.Pathway), <span class="st">"Control"</span>, <span class="st">"Treatment"</span>)), </span>
+<span id="cb2-3"><a></a>         <span class="at">Grade =</span> <span class="fu">factor</span>(Grade))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(project_ace)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,300
+Columns: 13
+$ Student.ID                                        &lt;dbl&gt; 3955, 7008, 7791, 59…
+$ Grade                                             &lt;fct&gt; 12, 11, 11, 10, 11, …
+$ Gender                                            &lt;chr&gt; "F", "M", "M", "M", …
+$ Race                                              &lt;chr&gt; "C", "C", "C", "C", …
+$ Ethnicity.Hispanic.Y.N                            &lt;chr&gt; "Hispanic", "Hispani…
+$ ELL                                               &lt;chr&gt; "Y", "Y", "Y", "Y", …
+$ Sped                                              &lt;chr&gt; "Y", "Y", "N", "Y", …
+$ Homeless                                          &lt;chr&gt; "N", "N", "N", "N", …
+$ Free.Lunch                                        &lt;chr&gt; "Y", "Y", "Y", "Y", …
+$ Migrant                                           &lt;chr&gt; "N", "N", "N", "N", …
+$ Current.GPA                                       &lt;dbl&gt; 3.455, 1.688, 2.233,…
+$ Number.of.Classes.Enrolled.in.for.the.school.year &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7,…
+$ Tracking.Pathway                                  &lt;fct&gt; Control, Control, Co…</code></pre>
+</div>
+</div>
 </section>
 <section id="look-at-distribution-of-gpa" class="slide level2">
 <h2>Look at distribution of GPA</h2>
 
-<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
+<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
 <p>How does the distribution of GPA compare between the two groups?</p>
 </div>
 </section>
-<section id="eda-covariates-by-group" class="slide level2">
-<h2>EDA: Covariates by group</h2>
+<section id="covariates-by-group" class="slide level2">
+<h2>Covariates by group</h2>
 
-<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="try-a-model" class="slide level2">
+<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="try-a-model" class="slide level2 midi">
 <h2>Try a model</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -383,34 +429,157 @@ Prof.&nbsp;Maria Tackett
 </table>
 </div>
 </div>
-<ul>
-<li>Why cant we draw causal claims about the effect of the treatment?</li>
-</ul>
+</section>
+<section id="draw-causal-conclusion" class="slide level2">
+<h2>Draw causal conclusion?</h2>
+<div class="question">
+<p>Why should we avoid using this model to conclude participation in Project ACE improved students’ GPAs?</p>
+</div>
 </section>
 <section id="two-types-of-data" class="slide level2">
 <h2>Two types of data</h2>
 <ul>
-<li><p>Experimental</p></li>
-<li><p>Observational</p></li>
+<li><p><strong>Experimental data</strong>: Data obtained by explicitly applying a treatment</p>
+<ul>
+<li>Individuals randomly assigned to treatment or control groups</li>
+<li>Can draw causal conclusions, because we can assume the only difference between treatment and control groups is the treatment itself</li>
+</ul></li>
+<li><p><strong>Observational data</strong>: Data obtained without explicitly applying a treatment</p>
+<ul>
+<li><p>Potential underlying factors that are confounded with response likelihood of being in treatment group</p></li>
+<li><p>Cannot draw causal conclusions from typical regression analysis</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="drawing-conclusions-from-observational-data" class="slide level2">
-<h2>Drawing conclusions from observational data</h2>
+<section id="causal-conclusions-from-observational-data" class="slide level2">
+<h2>Causal conclusions from observational data</h2>
+<ul>
+<li><p>We will use statistical methods to make observational data look more like experimental data</p></li>
+<li><p>We do so by making the treatment and control groups similar based on a set of covariates (variables) that impact both the response and the likelihood an individual is in the treatment group</p></li>
+<li><p>We create these groups matching individuals in the treatment and control groups based on these underlying covariates</p>
+<ul>
+<li>We do this matching using the process called <strong>propensity score matching</strong></li>
+</ul></li>
+</ul>
 </section>
 <section id="propensity-score-matching" class="slide level2">
 <h2>Propensity score matching</h2>
+<p>In <strong>propensity score matching</strong>, we compute the probability (propensity) an observation is assigned to the treatment group based on a set of confounding variables that directly impact both the response and the likelihood an individual is in the treatment group. We then match individuals in the treatment and control groups who have the same or similar propensities to create a new data set in which the control and treatment groups have similar characteristics. The matched data set is used to estimate the effect of the treatment. <!--# use exchangeability here?--></p>
 <ul>
 <li>What it is and the process</li>
+<li>how to choose what goes in the propensity score model</li>
 </ul>
 </section>
 <section id="propensity-score-model" class="slide level2">
 <h2>Propensity score model</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>propensity_score_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Tracking.Pathway <span class="sc">~</span> Grade <span class="sc">+</span> Gender <span class="sc">+</span> Ethnicity.Hispanic.Y.N <span class="sc">+</span> ELL <span class="sc">+</span> Sped <span class="sc">+</span> Homeless,</span>
+<span id="cb5-2"><a></a>                        <span class="at">data =</span> project_ace, </span>
+<span id="cb5-3"><a></a>                        <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-1.670</td>
+<td style="text-align: right;">0.216</td>
+<td style="text-align: right;">-7.733</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grade10</td>
+<td style="text-align: right;">0.539</td>
+<td style="text-align: right;">0.264</td>
+<td style="text-align: right;">2.040</td>
+<td style="text-align: right;">0.041</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grade11</td>
+<td style="text-align: right;">0.566</td>
+<td style="text-align: right;">0.263</td>
+<td style="text-align: right;">2.155</td>
+<td style="text-align: right;">0.031</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grade12</td>
+<td style="text-align: right;">0.314</td>
+<td style="text-align: right;">0.273</td>
+<td style="text-align: right;">1.151</td>
+<td style="text-align: right;">0.250</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GenderM</td>
+<td style="text-align: right;">-1.390</td>
+<td style="text-align: right;">0.206</td>
+<td style="text-align: right;">-6.731</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ethnicity.Hispanic.Y.NNon Hispanic</td>
+<td style="text-align: right;">-0.498</td>
+<td style="text-align: right;">0.775</td>
+<td style="text-align: right;">-0.643</td>
+<td style="text-align: right;">0.520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ELLY</td>
+<td style="text-align: right;">-0.792</td>
+<td style="text-align: right;">0.222</td>
+<td style="text-align: right;">-3.562</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SpedY</td>
+<td style="text-align: right;">0.017</td>
+<td style="text-align: right;">0.277</td>
+<td style="text-align: right;">0.060</td>
+<td style="text-align: right;">0.952</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HomelessY</td>
+<td style="text-align: right;">1.126</td>
+<td style="text-align: right;">0.649</td>
+<td style="text-align: right;">1.734</td>
+<td style="text-align: right;">0.083</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="common-support" class="slide level2">
 <h2>Common support</h2>
+<p><strong>Common support</strong>: Individuals in the matched treatment and control groups have a non-zero probability of receiving the treatment</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># compute propensity scores</span></span>
+<span id="cb6-2"><a></a>project_ace_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(propensity_score_model, </span>
+<span id="cb6-3"><a></a>                           <span class="at">type.predict =</span> <span class="st">"response"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
 <ul>
-<li>Why do we want these distributions ot overlap?</li>
+<li><p>What do you observe from the visualization?</p></li>
+<li><p>Why is common support important?</p></li>
 </ul>
+</div>
 </section>
 <section id="how-matching-happens" class="slide level2">
 <h2>How matching happens</h2>
@@ -418,17 +587,196 @@ Prof.&nbsp;Maria Tackett
 <li>is there a visual to help with this?</li>
 </ul>
 </section>
-<section id="match-it-r-package-code" class="slide level2">
-<h2>Match it R package + code</h2>
+<section id="propensity-score-matching-in-r" class="slide level2">
+<h2>Propensity score matching in R</h2>
+<p>We conduct propensity score matching using <code>matchit()</code> from the <strong>MatchIt</strong> R package (will need to install in the containers).</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co"># generate propensity scores and matches</span></span>
+<span id="cb7-4"><a></a>project_ace_psm <span class="ot">&lt;-</span> <span class="fu">matchit</span>(Tracking.Pathway <span class="sc">~</span> Grade <span class="sc">+</span> Gender <span class="sc">+</span> Ethnicity.Hispanic.Y.N <span class="sc">+</span></span>
+<span id="cb7-5"><a></a>                          Race <span class="sc">+</span> ELL <span class="sc">+</span> Sped <span class="sc">+</span> Homeless,</span>
+<span id="cb7-6"><a></a>                 <span class="at">data =</span> project_ace,</span>
+<span id="cb7-7"><a></a>                 <span class="at">method =</span> <span class="st">"nearest"</span>,   </span>
+<span id="cb7-8"><a></a>                 <span class="at">distance =</span> <span class="st">"logit"</span>)</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="co"># data with matches</span></span>
+<span id="cb7-11"><a></a>project_ace_matched <span class="ot">&lt;-</span> <span class="fu">match.data</span>(project_ace_psm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p><code>method = "nearest"</code>: Each observation in the treatment group is matched the an observation in the control group with closest propensity score</p></li>
+<li><p><code>distance = "logit"</code>: Generate the propensity scores using a logistic regression model</p></li>
+</ul>
 </section>
-<section id="look-at-matched-results" class="slide level2">
-<h2>Look at matched results</h2>
+<section id="matched-data" class="slide level2">
+<h2>Matched data</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 16
+   Student.ID Grade Gender Race  Ethnicity.Hispanic.Y.N ELL   Sped  Homeless
+        &lt;dbl&gt; &lt;fct&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   
+ 1       9478 12    M      C     Hispanic               N     N     N       
+ 2       8268 12    M      C     Hispanic               N     N     N       
+ 3       9846 12    F      C     Hispanic               N     N     Y       
+ 4       2272 12    F      C     Hispanic               N     N     N       
+ 5       4235 11    M      C     Hispanic               N     Y     N       
+ 6       7555 11    M      C     Hispanic               N     Y     N       
+ 7       9603 11    M      C     Hispanic               N     N     N       
+ 8       8187 12    F      C     Hispanic               N     N     N       
+ 9       9623 11    M      C     Hispanic               N     N     N       
+10       3995 12    M      C     Hispanic               N     N     N       
+# ℹ 8 more variables: Free.Lunch &lt;chr&gt;, Migrant &lt;chr&gt;, Current.GPA &lt;dbl&gt;,
+#   Number.of.Classes.Enrolled.in.for.the.school.year &lt;dbl&gt;,
+#   Tracking.Pathway &lt;fct&gt;, distance &lt;dbl&gt;, weights &lt;dbl&gt;, subclass &lt;fct&gt;</code></pre>
+</div>
+</div>
 </section>
-<section id="look-at-the-matched-data-set" class="slide level2">
-<h2>Look at the matched data set</h2>
+<section id="matched-observations" class="slide level2">
+<h2>Matched observations</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 25%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">subclass</th>
+<th style="text-align: left;">Tracking.Pathway</th>
+<th style="text-align: right;">distance</th>
+<th style="text-align: left;">Grade</th>
+<th style="text-align: left;">Gender</th>
+<th style="text-align: left;">Ethnicity.Hispanic.Y.N</th>
+<th style="text-align: left;">ELL</th>
+<th style="text-align: left;">Sped</th>
+<th style="text-align: left;">Homeless</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">0.3786138</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Hispanic</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Treatment</td>
+<td style="text-align: right;">0.4507080</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Hispanic</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">0.2496294</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Hispanic</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">Treatment</td>
+<td style="text-align: right;">0.2496294</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Hispanic</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">118</td>
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">0.1585438</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Hispanic</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">118</td>
+<td style="text-align: left;">Treatment</td>
+<td style="text-align: right;">0.1585438</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Hispanic</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">N</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
+<section id="covariates-by-group-in-matched-data" class="slide level2">
+<h2>Covariates by group in matched data</h2>
+
+<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
 <section id="fit-the-treatment-model" class="slide level2">
 <h2>Fit the treatment model</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>treatment_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Current.GPA <span class="sc">~</span> Tracking.Pathway, </span>
+<span id="cb9-2"><a></a>                      <span class="at">data =</span> project_ace_matched)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">2.418</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">35.043</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tracking.PathwayTreatment</td>
+<td style="text-align: right;">0.209</td>
+<td style="text-align: right;">0.098</td>
+<td style="text-align: right;">2.138</td>
+<td style="text-align: right;">0.033</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br></p>
+<div class="question">
+<p>Describe the effect of Project ACE on GPA. Is there evidence that participating in the program leads higher GPA?</p>
+</div>
 </section>
 <section id="average-treatment-effect" class="slide level2">
 <h2>Average treatment effect</h2>
@@ -438,14 +786,35 @@ Prof.&nbsp;Maria Tackett
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
-</section></section>
-<section>
-<section id="poll-question" class="title-slide slide level1 center">
-<h1>Poll question</h1>
-<p>What is one question / topic you want to cover on the Exam 02 review. Exam 02 will cover topics from Multicollinearity - Today.</p>
 </section>
 <section id="further-reading" class="slide level2">
 <h2>Further reading</h2>
+<p>All books are freely available online.</p>
+<ul>
+<li><p><a href="https://mixtape.scunning.com/">Causal Inference: The Mixtape</a> by Scott Cunningham</p></li>
+<li><p><a href="https://theeffectbook.net/">The Effect: An Introduction to Research Design</a> and Causality by Nick Huntington-Klein</p></li>
+<li><p><a href="https://www.r-causal.org/">Causal Inference in R</a> by Malcolm Barret, Lucy McGowan, Travis Gerke</p></li>
+</ul>
+</section>
+<section id="exam-02-review" class="slide level2">
+<h2>Exam 02 review</h2>
+<p>We will do Exam 02 review in lab on Monday, April 6 and lecture on Tuesday, April 7. Exam 02 covers content from multicollinearity (February 24) - today.</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Question</a></li><li><a href="#tabset-1-2">Submit</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="midi">
+<div class="question">
+<p>Please submit one question you have about the Exam 02 content. I will use these questions to write the exam reviews.</p>
+</div>
+<p>🔗 <a href="https://forms.cloud.microsoft/r/0ukue0JaMw" class="uri">https://forms.cloud.microsoft/r/0ukue0JaMw</a></p>
+</div>
+</div>
+<div id="tabset-1-2">
+<center><iframe width="640px" height="480px" src="https://forms.cloud.microsoft/r/0ukue0JaMw?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe></center>
+</div>
+</div>
+</div>
 </section>
 <section id="next-class" class="slide level2">
 <h2>Next class</h2>

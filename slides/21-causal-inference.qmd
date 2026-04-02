@@ -1,5 +1,5 @@
 ---
-title: "Special topic: Causal inference"
+title: "Causal inference"
 author: "Prof. Maria Tackett"
 date: "04-02-2026"
 date-format: "MMM DD, YYYY"
@@ -95,12 +95,49 @@ Adapted from Chapter 8 of @baumer2017modern
 
 # Causal inference
 
-## Introduce scenario
+## Impact of Project ACE
+
+Project Action for Equity (Project ACE) was a "five year interdisciplinary program aimed to get more underrepresented high school students from disadvantaged backgrounds to get interested in college degrees in engineering as well as biomedical and behavioral sciences" [@ProjectACE_UTEP].
+
+**Our goal is toevaluate whether the data provide evidence that participation in Project ACE improved students' educational outcomes (as measured by GPA).**
+
+The data were obtained from @evans2025testing, and the analysis will closely follow the analysis in their article.
 
 ```{r}
 project_ace <- read_csv("https://intro-regression.github.io/data/project-ace-data.csv") |>
   mutate(Tracking.Pathway = factor(if_else(is.na(Tracking.Pathway), "Control", "Treatment")), 
          Grade = factor(Grade))
+```
+
+## Variables {.midi}
+
+The data are in `project-ace-data.csv`. We will use the following variables:
+
+-   `Grade`: Grade level (9, 10, 11, 12)
+-   `Gender`: Gender (F, M)
+-   `Ethnicity`: Ethnicity (Hispanic, Non-Hispanic)
+-   `ELL`: Whether student is an English language learner (N, Y)
+-   `Sped`: Whether student is in a special education program (N, Y)
+-   `Homeless`: Whether student is homeless (N, Y)
+-   `Tracking.Pathway`: Whether student was in Project ACE (Treatment) or not (Control)
+-   `Current.GPA`: Grade Point Average (GPA) ranging 0 to 5.0
+
+## Glimpse of data
+
+```{r}
+#| echo: true
+project_ace <- read_csv("https://intro-regression.github.io/data/project-ace-data.csv") |>
+  mutate(Tracking.Pathway = factor(if_else(is.na(Tracking.Pathway), "Control", "Treatment")), 
+         Grade = factor(Grade))
+```
+
+<br>
+
+```{r}
+#| echo: true
+
+
+glimpse(project_ace)
 ```
 
 ## Look at distribution of GPA
@@ -119,8 +156,7 @@ ggplot(data = project_ace, aes(x = Current.GPA, y = Tracking.Pathway, fill = Tra
 How does the distribution of GPA compare between the two groups?
 :::
 
-## EDA: Covariates by group
-
+## Covariates by group 
 
 ```{r}
 #| echo: false
@@ -159,33 +195,52 @@ p_ell <- ggplot(data = project_ace, aes(x = Tracking.Pathway, fill = ELL)) +
 p_grade + p_gender + p_ell
 ```
 
-## Try a model
+## Try a model {.midi}
 
 ```{r}
-
 orig_model <- lm(Current.GPA ~ Grade + Gender + Ethnicity.Hispanic.Y.N + ELL + Sped + Homeless, data = project_ace)
 
 tidy(orig_model) |> 
   kable(digits = 3)
 ```
 
+## Draw causal conclusion? 
 
--   Why cant we draw causal claims about the effect of the treatment?
+::: question
+Why should we avoid using this model to conclude participation in Project ACE improved students' GPAs?
+:::
 
-## Two types of data 
+## Two types of data
 
--   Experimental
+-   **Experimental data**: Data obtained by explicitly applying a treatment
 
--   Observational
+    -   Individuals randomly assigned to treatment or control groups
+    -   Can draw causal conclusions, because we can assume the only difference between treatment and control groups is the treatment itself
 
-## Drawing conclusions from observational data
+-   **Observational data**: Data obtained without explicitly applying a treatment
+
+    -   Potential underlying factors that are confounded with response likelihood of being in treatment group
+
+    -   Cannot draw causal conclusions from typical regression analysis
+
+## Causal conclusions from observational data
+
+-   We will use statistical methods to make observational data look more like experimental data
+
+-   We do so by making the treatment and control groups similar based on a set of covariates (variables) that impact both the response and the likelihood an individual is in the treatment group
+
+-   We create these groups matching individuals in the treatment and control groups based on these underlying covariates
+
+    -   We do this matching using the process called **propensity score matching**
 
 ## Propensity score matching 
 
--   What it is and the process
-- how to choose what goes in the propensity score model
+In **propensity score matching**, we compute the probability (propensity) an observation is assigned to the treatment group based on a set of confounding variables that directly impact both the response and the likelihood an individual is in the treatment group. We then match individuals in the treatment and control groups who have the same or similar propensities to create a new data set in which the control and treatment groups have similar characteristics. The matched data set is used to estimate the effect of the treatment. <!--# use exchangeability here?-->
 
-## Propensity score model 
+-   What it is and the process
+-   how to choose what goes in the propensity score model
+
+## Propensity score model
 
 ```{r}
 #| echo: true
@@ -199,7 +254,9 @@ tidy(propensity_score_model) |>
   kable(digits = 3)
 ```
 
-## Common support 
+## Common support
+
+**Common support**: Individuals in the matched treatment and control groups have a non-zero probability of receiving the treatment
 
 ```{r}
 #| echo: true
@@ -208,7 +265,6 @@ tidy(propensity_score_model) |>
 project_ace_aug <- augment(propensity_score_model, 
                            type.predict = "response")
 ```
-
 
 ```{r}
 ggplot(data = project_ace_aug, aes(x = .fitted, y = Tracking.Pathway, fill = Tracking.Pathway)) + 
@@ -220,33 +276,157 @@ ggplot(data = project_ace_aug, aes(x = .fitted, y = Tracking.Pathway, fill = Tra
   scale_fill_manual(values = sunset2)
 ```
 
-- What do you observe about these distributions?
+::: question
+-   What do you observe from the visualization?
 
--   Why do we want these distributions to overlap?
+-   Why is common support important?
+:::
 
 ## How matching happens
 
 -   is there a visual to help with this?
 
-## Match it R package + code
+## Propensity score matching in R
 
-## Look at matched results 
+We conduct propensity score matching using `matchit()` from the **MatchIt** R package (will need to install in the containers).
 
-## Look at the matched data set
+```{r}
+#| echo: true
+#| label: match-scores-nearest-neighbor
+#| 
+library(MatchIt)
 
-## Fit the treatment model 
+# generate propensity scores and matches
+project_ace_psm <- matchit(Tracking.Pathway ~ Grade + Gender + Ethnicity.Hispanic.Y.N +
+                          Race + ELL + Sped + Homeless,
+                 data = project_ace,
+                 method = "nearest",   
+                 distance = "logit")
 
-## Average treatment effect 
+# data with matches
+project_ace_matched <- match.data(project_ace_psm)
+```
+
+-   `method = "nearest"`: Each observation in the treatment group is matched the an observation in the control group with closest propensity score
+
+-   `distance = "logit"`: Generate the propensity scores using a logistic regression model
+
+## Matched data
+
+```{r}
+project_ace_matched |> slice(1:10)
+```
+
+## Matched observations
+
+```{r}
+set.seed(123)
+
+groups <- sample(1:148, 3, replace = FALSE)
+
+project_ace_matched |> 
+  filter(subclass %in% groups) |>
+  arrange(subclass, Tracking.Pathway) |>
+  select(subclass, Tracking.Pathway, distance, Tracking.Pathway, Grade, Gender, Ethnicity.Hispanic.Y.N, ELL, Sped, Homeless) |>
+  kable()
+```
+
+## Covariates by group in matched data
+
+```{r}
+#| echo: false
+
+# grade level 
+
+p_grade <- ggplot(data = project_ace_matched, aes(x = Tracking.Pathway, fill = Grade)) + 
+  geom_bar(position = "fill", color = "black") +
+  labs(x = "", 
+       y = "Proportion", 
+       fill = "Grade") +
+  theme_bw() + 
+  theme(legend.position = "bottom") +
+  scale_fill_manual(values = sunset4)
+
+# gender
+
+p_gender <- ggplot(data = project_ace_matched, aes(x = Tracking.Pathway, fill = Gender)) + 
+  geom_bar(position = "fill", color = "black") +
+  labs(x = "", 
+       y = "Proportion") +
+  theme_bw() + 
+  theme(legend.position = "bottom") +
+  scale_fill_manual(values = sunset2)
+
+# ELL
+
+p_ell <- ggplot(data = project_ace_matched, aes(x = Tracking.Pathway, fill = ELL)) + 
+  geom_bar(position = "fill", color = "black") +
+  labs(x = "", 
+       y = "Proportion") +
+   theme_bw() + 
+  theme(legend.position = "bottom") +
+  scale_fill_manual(values = sunset2)
+
+p_grade + p_gender + p_ell
+```
+
+## Fit the treatment model
+
+```{r}
+#| echo: true
+#| 
+treatment_model <- lm(Current.GPA ~ Tracking.Pathway, 
+                      data = project_ace_matched)
+```
+
+```{r}
+tidy(treatment_model) |> 
+  kable(digits = 3, conf.int = TRUE)
+```
+
+<br>
+
+::: question
+Describe the effect of Project ACE on GPA. Is there evidence that participating in the program leads higher GPA?
+:::
+
+## Average treatment effect
 
 -   What is your conclusion about project ACE?
 
 ## Recap
 
-# Poll question 
+## Further reading 
 
-What is one question / topic you want to cover on the Exam 02 review. Exam 02 will cover topics from Multicollinearity - Today.
+All books are freely available online.
 
-## Further reading
+-   [Causal Inference: The Mixtape](https://mixtape.scunning.com/) by Scott Cunningham
+
+-   [The Effect: An Introduction to Research Design](https://theeffectbook.net/) and Causality by Nick Huntington-Klein
+
+-   [Causal Inference in R](https://www.r-causal.org/) by Malcolm Barret, Lucy McGowan, Travis Gerke
+
+## Exam 02 review
+
+We will do Exam 02 review in lab on Monday, April 6 and lecture on Tuesday, April 7. Exam 02 covers content from multicollinearity (February 24) - today.
+
+::::: panel-tabset
+## Question
+
+:::: midi
+::: question
+Please submit one question you have about the Exam 02 content. I will use these questions to write the exam reviews.
+:::
+
+🔗 <https://forms.cloud.microsoft/r/0ukue0JaMw>
+::::
+
+## Submit
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.cloud.microsoft/r/0ukue0JaMw?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe></center>
+```
+:::::
 
 ## Next class
 

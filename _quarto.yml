@@ -88,8 +88,6 @@ website:
           text: Lab 06
         - href: labs/lab-07.qmd
           text: Lab 07
-        - href: labs/lab-08.qmd
-          text: Lab 08
       - section: Project
         contents:
         - href: project.qmd
@@ -98,10 +96,10 @@ website:
           text: Tips + resources
       - href: links.qmd
         text: Useful links
-      - href: https://forms.office.com/r/TwGidRkmb0
-        text: Lecture recording request
-      #- href: https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=edec3a44-0ec4-4414-89b5-b3c901375980
-      #  text: Lecture recordings
+     # - href: https://forms.office.com/r/TwGidRkmb0
+     #   text: Lecture recording request
+      - href: https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=edec3a44-0ec4-4414-89b5-b3c901375980
+        text: Lecture recordings
       - href: exam-01-practice.qmd
         text: Exam 01 practice
         

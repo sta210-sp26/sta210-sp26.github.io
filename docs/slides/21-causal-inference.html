@@ -264,6 +264,15 @@ Prof.&nbsp;Maria Tackett
 <span id="cb1-16"><a></a>sunset4 <span class="ot">&lt;-</span> PNWColors<span class="sc">::</span><span class="fu">pnw_palette</span>(<span class="st">"Sunset2"</span>,<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section id="topics" class="slide level2">
+<h2>Topics</h2>
+<ul>
+<li><p>Discuss data science ethics case study</p></li>
+<li><p>Introduce causal inference for observation data</p></li>
+<li><p>Use propensity scores to create a matched data set</p></li>
+<li><p>Draw causal claims using the matched data</p></li>
+</ul>
+</section>
 <section id="data-science-ethics-case-study" class="slide level2">
 <h2>Data science ethics case study</h2>
 <p>A data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.</p>
@@ -280,11 +289,13 @@ Prof.&nbsp;Maria Tackett
 <h1>Causal inference</h1>
 
 </section>
-<section id="impact-of-project-ace" class="slide level2">
+<section id="impact-of-project-ace" class="slide level2 midi">
 <h2>Impact of Project ACE</h2>
-<p>Project Action for Equity (Project ACE) was a “five year interdisciplinary program aimed to get more underrepresented high school students from disadvantaged backgrounds to get interested in college degrees in engineering as well as biomedical and behavioral sciences” <span class="citation" data-cites="ProjectACE_UTEP">(<a href="#/references" role="doc-biblioref" onclick=""><strong>ProjectACE_UTEP?</strong></a>)</span>.</p>
-<p><strong>Our goal is toevaluate whether the data provide evidence that participation in Project ACE improved students’ educational outcomes (as measured by GPA).</strong></p>
-<p>The data were obtained from <span class="citation" data-cites="evans2025testing">(<a href="#/references" role="doc-biblioref" onclick=""><strong>evans2025testing?</strong></a>)</span>, and the analysis will closely follow the analysis in their article.</p>
+<p>Project Action for Equity (Project ACE) was a “five year interdisciplinary program aimed to get more underrepresented high school students from disadvantaged backgrounds to get interested in college degrees in engineering as well as biomedical and behavioral sciences” <span class="citation" data-cites="ProjectACE_UTEP">(<a href="#/references" role="doc-biblioref" onclick="">Texas at El Paso College of Liberal Arts n.d.</a>)</span>.</p>
+<p><br></p>
+<p><strong>Our goal is to evaluate whether the data provide evidence that participating in Project ACE has a positive impact on students’ GPA.</strong></p>
+<p><br></p>
+<p>The data were obtained from <span class="citation" data-cites="evans2025testing">Evans, Perez, and Morera (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, and the analysis will closely follow the analysis in their article.</p>
 </section>
 <section id="variables" class="slide level2 midi">
 <h2>Variables</h2>
@@ -303,13 +314,6 @@ Prof.&nbsp;Maria Tackett
 <section id="glimpse-of-data" class="slide level2">
 <h2>Glimpse of data</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>project_ace <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://intro-regression.github.io/data/project-ace-data.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Tracking.Pathway =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(<span class="fu">is.na</span>(Tracking.Pathway), <span class="st">"Control"</span>, <span class="st">"Treatment"</span>)), </span>
-<span id="cb2-3"><a></a>         <span class="at">Grade =</span> <span class="fu">factor</span>(Grade))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><br></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(project_ace)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,300
 Columns: 13
@@ -329,6 +333,10 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </div>
 </div>
 </section>
+<section id="distribution-of-tracking-pathway" class="slide level2">
+<h2>Distribution of Tracking Pathway</h2>
+
+<img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
 <section id="look-at-distribution-of-gpa" class="slide level2">
 <h2>Look at distribution of GPA</h2>
 
@@ -432,11 +440,12 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </section>
 <section id="draw-causal-conclusion" class="slide level2">
 <h2>Draw causal conclusion?</h2>
+<p><br> <br></p>
 <div class="question">
 <p>Why should we avoid using this model to conclude participation in Project ACE improved students’ GPAs?</p>
 </div>
 </section>
-<section id="two-types-of-data" class="slide level2">
+<section id="two-types-of-data" class="slide level2 midi">
 <h2>Two types of data</h2>
 <ul>
 <li><p><strong>Experimental data</strong>: Data obtained by explicitly applying a treatment</p>
@@ -451,7 +460,7 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </ul></li>
 </ul>
 </section>
-<section id="causal-conclusions-from-observational-data" class="slide level2">
+<section id="causal-conclusions-from-observational-data" class="slide level2 midi">
 <h2>Causal conclusions from observational data</h2>
 <ul>
 <li><p>We will use statistical methods to make observational data look more like experimental data</p></li>
@@ -464,19 +473,18 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </section>
 <section id="propensity-score-matching" class="slide level2">
 <h2>Propensity score matching</h2>
-<p>In <strong>propensity score matching</strong>, we compute the probability (propensity) an observation is assigned to the treatment group based on a set of confounding variables that directly impact both the response and the likelihood an individual is in the treatment group. We then match individuals in the treatment and control groups who have the same or similar propensities to create a new data set in which the control and treatment groups have similar characteristics. The matched data set is used to estimate the effect of the treatment. <!--# use exchangeability here?--></p>
 <ul>
-<li>What it is and the process</li>
-<li>how to choose what goes in the propensity score model</li>
+<li><p><strong>Propensity score:</strong> The probability an observation is assigned to the treatment group based on a set of confounding variables that directly impact the response and likelihood of being in the treatment group</p></li>
+<li><p><strong>Propensity score matching</strong>: Create a new data set by matching individuals in the treatment and control groups who have the same (or similar) propensity scores</p></li>
+<li><p>Use the matched data set to model the effect of the treatment</p></li>
 </ul>
 </section>
-<section id="propensity-score-model" class="slide level2">
+<section id="propensity-score-matching-1" class="slide level2">
+<h2>Propensity score matching</h2>
+
+<img data-src="images/propensity-score-matching.png" class="r-stretch quarto-figure-center"><p class="caption">Source: Figure 1 in <span class="citation" data-cites="evans2025testing">Evans, Perez, and Morera (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p></section>
+<section id="propensity-score-model" class="slide level2 midi">
 <h2>Propensity score model</h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>propensity_score_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Tracking.Pathway <span class="sc">~</span> Grade <span class="sc">+</span> Gender <span class="sc">+</span> Ethnicity.Hispanic.Y.N <span class="sc">+</span> ELL <span class="sc">+</span> Sped <span class="sc">+</span> Homeless,</span>
-<span id="cb5-2"><a></a>                        <span class="at">data =</span> project_ace, </span>
-<span id="cb5-3"><a></a>                        <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -565,14 +573,32 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </div>
 </div>
 </section>
-<section id="common-support" class="slide level2">
-<h2>Common support</h2>
-<p><strong>Common support</strong>: Individuals in the matched treatment and control groups have a non-zero probability of receiving the treatment</p>
+<section id="propensity-scores" class="slide level2">
+<h2>Propensity scores</h2>
+<p>The <strong>propensity scores</strong> are the predicted probabilities from the logistic regression model</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># compute propensity scores</span></span>
-<span id="cb6-2"><a></a>project_ace_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(propensity_score_model, </span>
-<span id="cb6-3"><a></a>                           <span class="at">type.predict =</span> <span class="st">"response"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 13
+   Tracking.Pathway Grade Gender Ethnicity.Hispanic.Y.N ELL   Sped  Homeless
+   &lt;fct&gt;            &lt;fct&gt; &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   
+ 1 Control          12    F      Hispanic               Y     Y     N       
+ 2 Control          11    M      Hispanic               Y     Y     N       
+ 3 Control          11    M      Hispanic               Y     N     N       
+ 4 Control          10    M      Hispanic               Y     Y     N       
+ 5 Control          11    M      Hispanic               N     N     N       
+ 6 Control          12    M      Hispanic               N     Y     N       
+ 7 Control          12    M      Hispanic               N     N     N       
+ 8 Treatment        12    M      Hispanic               N     N     N       
+ 9 Control          12    M      Hispanic               Y     N     N       
+10 Control          12    F      Hispanic               N     N     Y       
+# ℹ 6 more variables: .fitted &lt;dbl&gt;, .resid &lt;dbl&gt;, .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;,
+#   .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;</code></pre>
 </div>
+</div>
+</section>
+<section id="common-support" class="slide level2 midi">
+<h2>Common support</h2>
+<p><strong>Common support</strong>: Individuals in the matched treatment and control groups have a non-zero probability of being in the treatment group</p>
 
 <img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
 <ul>
@@ -581,58 +607,65 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </ul>
 </div>
 </section>
-<section id="how-matching-happens" class="slide level2">
-<h2>How matching happens</h2>
-<ul>
-<li>is there a visual to help with this?</li>
-</ul>
-</section>
-<section id="propensity-score-matching-in-r" class="slide level2">
+<section id="propensity-score-matching-in-r" class="slide level2 midi">
 <h2>Propensity score matching in R</h2>
-<p>We conduct propensity score matching using <code>matchit()</code> from the <strong>MatchIt</strong> R package (will need to install in the containers).</p>
+<p>We conduct propensity score matching using <code>matchit()</code> from the <strong>MatchIt</strong> R package (will need to install in the RStudio Docker containers)</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(MatchIt)</span>
-<span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a><span class="co"># generate propensity scores and matches</span></span>
-<span id="cb7-4"><a></a>project_ace_psm <span class="ot">&lt;-</span> <span class="fu">matchit</span>(Tracking.Pathway <span class="sc">~</span> Grade <span class="sc">+</span> Gender <span class="sc">+</span> Ethnicity.Hispanic.Y.N <span class="sc">+</span></span>
-<span id="cb7-5"><a></a>                          Race <span class="sc">+</span> ELL <span class="sc">+</span> Sped <span class="sc">+</span> Homeless,</span>
-<span id="cb7-6"><a></a>                 <span class="at">data =</span> project_ace,</span>
-<span id="cb7-7"><a></a>                 <span class="at">method =</span> <span class="st">"nearest"</span>,   </span>
-<span id="cb7-8"><a></a>                 <span class="at">distance =</span> <span class="st">"logit"</span>)</span>
-<span id="cb7-9"><a></a></span>
-<span id="cb7-10"><a></a><span class="co"># data with matches</span></span>
-<span id="cb7-11"><a></a>project_ace_matched <span class="ot">&lt;-</span> <span class="fu">match.data</span>(project_ace_psm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="co"># generate propensity scores and matches</span></span>
+<span id="cb4-4"><a></a>project_ace_psm <span class="ot">&lt;-</span> <span class="fu">matchit</span>(Tracking.Pathway <span class="sc">~</span> Grade <span class="sc">+</span> Gender <span class="sc">+</span> Ethnicity.Hispanic.Y.N <span class="sc">+</span></span>
+<span id="cb4-5"><a></a>                          Race <span class="sc">+</span> ELL <span class="sc">+</span> Sped <span class="sc">+</span> Homeless,</span>
+<span id="cb4-6"><a></a>                 <span class="at">data =</span> project_ace, <span class="at">method =</span> <span class="st">"nearest"</span>, <span class="at">distance =</span> <span class="st">"logit"</span>)</span>
+<span id="cb4-7"><a></a></span>
+<span id="cb4-8"><a></a><span class="co"># matched data set</span></span>
+<span id="cb4-9"><a></a>project_ace_matched <span class="ot">&lt;-</span> <span class="fu">match.data</span>(project_ace_psm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="fragment">
 <ul>
-<li><p><code>method = "nearest"</code>: Each observation in the treatment group is matched the an observation in the control group with closest propensity score</p></li>
+<li><p><code>method = "nearest"</code>: Each observation in the treatment group is matched to the observation in the control group with closest propensity score</p></li>
 <li><p><code>distance = "logit"</code>: Generate the propensity scores using a logistic regression model</p></li>
 </ul>
+</div>
 </section>
 <section id="matched-data" class="slide level2">
 <h2>Matched data</h2>
+<p><br></p>
+<div class="question">
+<p>How many observations are in the matched data set based on our matching process?</p>
+</div>
+<p><br></p>
+<div class="fragment">
+<p>We’re using <span class="math inline">\(1:1\)</span> matching, but there are other approaches such as <span class="math inline">\(1:k\)</span> and weighting to reduce data loss</p>
+</div>
+</section>
+<section id="matched-data-1" class="slide level2">
+<h2>Matched data</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 16
-   Student.ID Grade Gender Race  Ethnicity.Hispanic.Y.N ELL   Sped  Homeless
-        &lt;dbl&gt; &lt;fct&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   
- 1       9478 12    M      C     Hispanic               N     N     N       
- 2       8268 12    M      C     Hispanic               N     N     N       
- 3       9846 12    F      C     Hispanic               N     N     Y       
- 4       2272 12    F      C     Hispanic               N     N     N       
- 5       4235 11    M      C     Hispanic               N     Y     N       
- 6       7555 11    M      C     Hispanic               N     Y     N       
- 7       9603 11    M      C     Hispanic               N     N     N       
- 8       8187 12    F      C     Hispanic               N     N     N       
- 9       9623 11    M      C     Hispanic               N     N     N       
-10       3995 12    M      C     Hispanic               N     N     N       
-# ℹ 8 more variables: Free.Lunch &lt;chr&gt;, Migrant &lt;chr&gt;, Current.GPA &lt;dbl&gt;,
-#   Number.of.Classes.Enrolled.in.for.the.school.year &lt;dbl&gt;,
-#   Tracking.Pathway &lt;fct&gt;, distance &lt;dbl&gt;, weights &lt;dbl&gt;, subclass &lt;fct&gt;</code></pre>
+<pre><code>Rows: 296
+Columns: 16
+$ Student.ID                                        &lt;dbl&gt; 9478, 8268, 9846, 22…
+$ Grade                                             &lt;fct&gt; 12, 12, 12, 12, 11, …
+$ Gender                                            &lt;chr&gt; "M", "M", "F", "F", …
+$ Race                                              &lt;chr&gt; "C", "C", "C", "C", …
+$ Ethnicity.Hispanic.Y.N                            &lt;chr&gt; "Hispanic", "Hispani…
+$ ELL                                               &lt;chr&gt; "N", "N", "N", "N", …
+$ Sped                                              &lt;chr&gt; "N", "N", "N", "N", …
+$ Homeless                                          &lt;chr&gt; "N", "N", "Y", "N", …
+$ Free.Lunch                                        &lt;chr&gt; "Y", "Y", "Y", "Y", …
+$ Migrant                                           &lt;chr&gt; "N", "N", "N", "N", …
+$ Current.GPA                                       &lt;dbl&gt; 1.452, 2.957, 2.955,…
+$ Number.of.Classes.Enrolled.in.for.the.school.year &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 7,…
+$ Tracking.Pathway                                  &lt;fct&gt; Control, Treatment, …
+$ distance                                          &lt;dbl&gt; 0.05897680, 0.058976…
+$ weights                                           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1,…
+$ subclass                                          &lt;fct&gt; 1, 1, 42, 3, 2, 2, 4…</code></pre>
 </div>
 </div>
 </section>
-<section id="matched-observations" class="slide level2">
-<h2>Matched observations</h2>
+<section id="example-matches" class="slide level2">
+<h2>Example matches</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top" style="width:100%;">
@@ -738,9 +771,10 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 <img data-src="21-causal-inference_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
 <section id="fit-the-treatment-model" class="slide level2">
 <h2>Fit the treatment model</h2>
+<p>Use matched data set to fit the treatment model.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>treatment_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Current.GPA <span class="sc">~</span> Tracking.Pathway, </span>
-<span id="cb9-2"><a></a>                      <span class="at">data =</span> project_ace_matched)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>treatment_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Current.GPA <span class="sc">~</span> Tracking.Pathway, </span>
+<span id="cb6-2"><a></a>                      <span class="at">data =</span> project_ace_matched)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -775,17 +809,24 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 </div>
 <p><br></p>
 <div class="question">
-<p>Describe the effect of Project ACE on GPA. Is there evidence that participating in the program leads higher GPA?</p>
+<p>Describe the effect of Project ACE on GPA. Is there evidence that participating in the program has a positive impact on GPA?</p>
 </div>
 </section>
 <section id="average-treatment-effect" class="slide level2">
 <h2>Average treatment effect</h2>
 <ul>
-<li>What is your conclusion about project ACE?</li>
+<li><p>Note that this is the average treatment effect on the matched population</p></li>
+<li><p>The results may not generalize to the entire population if the observations removed from the analysis are systematically different than the individuals in the matched data</p></li>
+<li><p>Strategies such as <span class="math inline">\(1:k\)</span> matching and weighting can mitigate this limitation</p></li>
 </ul>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
+<ul>
+<li><p>Introduced causal inference for observation data</p></li>
+<li><p>Used propensity scores to create a matched data set</p></li>
+<li><p>Drew causal claims using the matched data</p></li>
+</ul>
 </section>
 <section id="further-reading" class="slide level2">
 <h2>Further reading</h2>
@@ -793,7 +834,7 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 <ul>
 <li><p><a href="https://mixtape.scunning.com/">Causal Inference: The Mixtape</a> by Scott Cunningham</p></li>
 <li><p><a href="https://theeffectbook.net/">The Effect: An Introduction to Research Design</a> and Causality by Nick Huntington-Klein</p></li>
-<li><p><a href="https://www.r-causal.org/">Causal Inference in R</a> by Malcolm Barret, Lucy McGowan, Travis Gerke</p></li>
+<li><p><a href="https://www.r-causal.org/">Causal Inference in R</a> by Malcolm Barrett, Lucy McGowan, Travis Gerke</p></li>
 </ul>
 </section>
 <section id="exam-02-review" class="slide level2">
@@ -830,6 +871,12 @@ $ Tracking.Pathway                                  &lt;fct&gt; Control, Control
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-baumer2017modern" class="csl-entry" role="listitem">
 Baumer, Benjamin S, Daniel T Kaplan, and Nicholas J Horton. 2024. <em>Modern Data Science with r</em>. 3rd ed. <a href="https://mdsr-book.github.io/mdsr3e/">https://mdsr-book.github.io/mdsr3e/</a>.
+</div>
+<div id="ref-evans2025testing" class="csl-entry" role="listitem">
+Evans, Nicholas D, Perla C Perez, and Osvaldo F Morera. 2025. <span>“Testing the Efficacy of Educational Interventions on Matched Student Samples: A Primer for Propensity Score Matching in r.”</span> <em>Journal of STEM Outreach</em> 8 (1): 1–9.
+</div>
+<div id="ref-ProjectACE_UTEP" class="csl-entry" role="listitem">
+Texas at El Paso College of Liberal Arts, The University of. n.d. <span>“Project ACE: Action for Equity.”</span> <a href="https://www.utep.edu/liberalarts/project-ace/" class="uri">https://www.utep.edu/liberalarts/project-ace/</a>.
 </div>
 </div>
 </section></section>

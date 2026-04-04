@@ -222,7 +222,7 @@ p_grade + p_gender + p_ell
 ## Try a model {.midi}
 
 ```{r}
-orig_model <- lm(Current.GPA ~ Grade + Gender + Ethnicity.Hispanic.Y.N + ELL + Sped + Homeless, data = project_ace)
+orig_model <- lm(Current.GPA ~ Grade + Gender + Ethnicity.Hispanic.Y.N + ELL + Sped + Homeless + Tracking.Pathway, data = project_ace)
 
 tidy(orig_model) |> 
   kable(digits = 3)

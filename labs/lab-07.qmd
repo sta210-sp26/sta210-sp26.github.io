@@ -1,5 +1,5 @@
 ---
-title: "Lab 07"
+title: "Lab 07: Exam 02 review"
 execute:
   freeze: auto
   echo: false
@@ -9,4 +9,107 @@ format: html
 bibliography: references.bib
 ---
 
-To be posted.
+::: callout-important
+# Due date
+
+This lab is due on **Tuesday, April 7 at 11:59pm.** To be considered on time, the following must be done by the due date:
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   Final `.pdf` file submitted on Gradescope
+:::
+
+## Exam 02 review
+
+The goal of this lab is to review for Exam 02. There are some topics eligible for Exam 02 that are not covered in this review.
+
+## Packages
+
+```{r}
+#| label: load-pkgs
+#| message: false
+#| echo: true
+ 
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(pROC)
+```
+
+## Data: Credit cards
+
+The data for this analysis is about credit card customers. It can be found in the file `credit.csv`. The following variables are in the data set:
+
+-   `income`: Income in \$1,000's
+-   `limit`: Credit limit
+-   `rating`: Credit rating
+-   `cards`: Number of credit cards
+-   `age`: Age in years
+-   `education`: Number of years of education
+-   `own`: A factor with levels `No` and `Yes` indicating whether the individual owns their home
+-   `student`: A factor with levels `No` and `Yes` indicating whether the individual was a student
+-   `married`: A factor with levels `No` and `Yes` indicating whether the individual was married
+-   `region`: A factor with levels `South`, `East`, and `West` indicating the region of the US the individual is from
+-   `balance`: Average credit card balance in \$.
+
+**The objective of this analysis is to predict whether a person has maxed out their credit card, i.e., had \$0 average card balance.**
+
+## Exercise 1
+
+a.  Create the response variable called `maxed` that takes the value 1 if `balance ==0` and 0 otherwise.
+
+b.  Why is logistic regression the best modeling approach for this analysis?
+
+c.  Describe where each of the following show up in the analysis:
+
+    -   log-odds ...
+
+    -   odds
+
+    -   probabilities
+
+## Exercise 2
+
+Start by splitting the data into training (80%) and testing (20%) sets. Then fit the model to predict the odds of `maxed = 1` using `income`, `rating`, and `region`.
+
+## Exercise 3
+
+Use the model from the previous exercise.
+
+a.  Write the interpretation of `income` in terms of the odds of maxing out a credit card.
+
+b.  Show the expected change in the odds of maxing out a credit card when the credit rating increases by 10 points. Assume income and region are constant.
+
+c.  Suppose there are two individuals. Individual 1 has an income of \$64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of \$135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2.
+
+## Exercise 4
+
+We consider adding the interaction between `region` and `income` to the current model. We'll use a drop-in-deviance test to determine whether or not to add the interaction term.
+
+a.  State the null and alternative hypotheses in words and using mathematical notation.
+b.  Describe what the test statistic $G$ means in the context of the data.
+c.  Show why the degrees of freedom for the test statistic are equal to 2.
+d.  Conduct the drop-in-deviance test and state your conclusion in the context of the data.
+
+## Exercise 5
+
+Now let's evaluate the performance of the selected model using the testing data.
+
+Create a confusion matrix using a cutoff probability of 0.3.
+
+a.  What is the sensitivity? What does it mean in the context of the data ?
+
+b.  What is the specificity? What does it mean in the context of the data?
+
+c.  What is the false positive rate? What does it mean in the context of the data?
+
+d.  What is the false negative rate? What does it mean in the context of the data?
+
+## Exercise 5
+
+a.  Produce the ROC curve.
+
+b.  Describe how you can use this curve to select a cutoff probability (rather than just going with 0.5).
+
+## Exercise 6
+
+Describe one ethical consideration for this analysis.

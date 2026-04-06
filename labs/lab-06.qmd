@@ -126,7 +126,7 @@ Now let's evaluate our model on the test set. Compute the predicted probabilitie
 
 ## Exercise 9
 
-With these estimated probabilities, we can now try to classify the rice in the test set. Choose a threshold for assigning a class to each observation based on the estimated probability. Briefly explain your reasoning for selecting the threshold, including any analysis used to make your decision. 
+With these estimated probabilities, we can now try to classify the rice in the test set. Choose a threshold for assigning a class to each observation based on the estimated probability. Briefly explain your reasoning for selecting the threshold, including any analysis used to make your decision.
 
 ## Exercise 10
 

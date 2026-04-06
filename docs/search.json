@@ -6645,7 +6645,7 @@
     "href": "labs/lab-07.html#exercise-2",
     "title": "Lab 07: Exam 02 review",
     "section": "Exercise 2",
-    "text": "Exercise 2\nStart by splitting the data into training (80%) and testing (20%) sets. Then fit the model to predict the odds of maxed = 1 using income, rating, and region.",
+    "text": "Exercise 2\nStart by splitting the data into training (80%) and testing (20%) sets. Use seed 210. Then fit the model to predict the odds of maxed = 1 using income, rating, and region.",
     "crumbs": [
       "Labs",
       "Lab 07"
@@ -6656,7 +6656,7 @@
     "href": "labs/lab-07.html#exercise-3",
     "title": "Lab 07: Exam 02 review",
     "section": "Exercise 3",
-    "text": "Exercise 3\nUse the model from the previous exercise.\n\nWrite the interpretation of income in terms of the odds of maxing out a credit card.\nShow the expected change in the odds of maxing out a credit card when the credit rating increases by 10 points. Assume income and region are constant.\nSuppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2.",
+    "text": "Exercise 3\nUse the model from the previous exercise.\n\nWrite the interpretation of income in terms of the odds of maxing out a credit card.\nShow the expected change in the odds of maxing out a credit card when the credit rating increases by 10 points. Assume income and region are constant.\nSuppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Show how the odds of maxing out a credit card differ between Individual 1 and Individual 2.",
     "crumbs": [
       "Labs",
       "Lab 07"

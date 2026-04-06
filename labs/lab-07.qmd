@@ -22,6 +22,16 @@ This lab is due on **Tuesday, April 7 at 11:59pm.** To be considered on time, th
 
 The goal of this lab is to review for Exam 02. There are some topics eligible for Exam 02 that are not covered in this review.
 
+# Getting started
+
+-   [Click here](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/IQDf5MLPq5jTR4scjbgUMVNmAcur2Dmn7w0TAXt4oL4kGB0?e=Q9grcE) to see your team for this week's lab.
+
+-   Go to the [sta210-sp26](https://www.github.com/sta210-sp26) organization on GitHub. Click on the repo with the prefix **lab-07-**. It contains the starter documents you need to complete the lab.
+
+-   Clone the repo and start a new project in RStudio. See the [Lab 00 instructions](lab-00.qmd) for details on cloning a repo, starting a new project in R, and configuring git.
+
+-   Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo
+
 ## Packages
 
 ```{r}
@@ -104,12 +114,65 @@ c.  What is the false positive rate? What does it mean in the context of the dat
 
 d.  What is the false negative rate? What does it mean in the context of the data?
 
-## Exercise 5
+## Exercise 6
 
 a.  Produce the ROC curve.
 
 b.  Describe how you can use this curve to select a cutoff probability (rather than just going with 0.5).
 
-## Exercise 6
+## Exercise 7
 
 Describe one ethical consideration for this analysis.
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Reminder: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+:::
+
+To submit the assignment:
+
+-   Access Gradescope through the [STA 210 Canvas site](https://canvas.duke.edu/courses/68771).
+
+-   Click on the assignment, and you’ll be prompted to submit it.
+
+-   Select the name of every team member who contributed to the assignment (if applicable)
+
+-   Mark the pages for the *“Exercises”* question.
+
+-   Mark the first page for *"Workflow & formatting".*
+
+# Grading (10 pts)
+
+This lab will be graded based on completion and workflow & formatting. The point breakdown is as follows:
+
+| Component             | Points |
+|-----------------------|--------|
+| Complete exercises    | 8      |
+| Workflow & formatting | 2      |
+
+: **Completion:** Points will be awarded for completion based on the following:
+
+-   8 pts: Complete all exercises
+
+-   7 pts: Complete 6 exercises
+
+-   6 pts: Complete 5 exercises
+
+-   5 pts: Complete 4 exercises
+
+-   4 pts: Complete 3 exercises
+
+-   0 pts: Complete \< 3 exercises
+
+**Workflow & formatting**
+
+The “Workflow & formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member (if applicable) and updating the name and date in the YAML.
+
+-   2 pts: Meet all criteria
+
+-   1 pt: Meet some criteria
+
+-   0 pts: Meet no criteria

@@ -6685,22 +6685,22 @@
     ]
   },
   {
-    "objectID": "labs/lab-07.html#exercise-5-1",
-    "href": "labs/lab-07.html#exercise-5-1",
+    "objectID": "labs/lab-07.html#exercise-6",
+    "href": "labs/lab-07.html#exercise-6",
     "title": "Lab 07: Exam 02 review",
-    "section": "Exercise 5",
-    "text": "Exercise 5\n\nProduce the ROC curve.\nDescribe how you can use this curve to select a cutoff probability (rather than just going with 0.5).",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nProduce the ROC curve.\nDescribe how you can use this curve to select a cutoff probability (rather than just going with 0.5).",
     "crumbs": [
       "Labs",
       "Lab 07"
     ]
   },
   {
-    "objectID": "labs/lab-07.html#exercise-6",
-    "href": "labs/lab-07.html#exercise-6",
+    "objectID": "labs/lab-07.html#exercise-7",
+    "href": "labs/lab-07.html#exercise-7",
     "title": "Lab 07: Exam 02 review",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nDescribe one ethical consideration for this analysis.",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nDescribe one ethical consideration for this analysis.",
     "crumbs": [
       "Labs",
       "Lab 07"

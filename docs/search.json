@@ -4,7 +4,7 @@
     "href": "exam-02-practice.html",
     "title": "Exam 02 practice",
     "section": "",
-    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 01. This set of practice problems is not comprehensive.\n\nThere is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.",
+    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 02. This set of practice problems is not comprehensive.\n\nYou are encouraged to ask questions during office hours or on Ed Discussion.\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)",
     "crumbs": [
       "Exam 02 practice"
     ]
@@ -24,7 +24,7 @@
     "href": "exam-02-practice.html#exercise-2",
     "title": "Exam 02 practice",
     "section": "Exercise 2",
-    "text": "Exercise 2\nConsider the model on this slide that uses log-transformed healthcare expenditure, income inequality, and education to explain variability in life expectancy.\nDescribe the predicted difference in life expectancy between a country with healthcare_expend = 2500, income_inequality = 30, education = Low and a country with healthcare_expend = 5000, income_inequality = 20, education = Low .",
+    "text": "Exercise 2\nConsider the model on this slide that uses log-transformed healthcare expenditure, income inequality, and education to explain variability in life expectancy.\nDescribe the predicted difference in life expectancy between a country with healthcare_expend = 2500, income_inequality = 30, education = Low and a country with healthcare_expend = 5000, income_inequality = 20, education = Low.",
     "crumbs": [
       "Exam 02 practice"
     ]
@@ -34,7 +34,7 @@
     "href": "exam-02-practice.html#exercise-3",
     "title": "Exam 02 practice",
     "section": "Exercise 3",
-    "text": "Exercise 3\nExplain how the presence of multicollinearity impacts the model coefficients, predictions from the model, and inferences that can be made from a model.",
+    "text": "Exercise 3\n\nExplain how the presence of multicollinearity impacts the model coefficients, predictions from the model, and inferences that can be made from a model.\nDescribe strategies for dealing with multicollinearity.",
     "crumbs": [
       "Exam 02 practice"
     ]
@@ -44,67 +44,77 @@
     "href": "exam-02-practice.html#exercise-4",
     "title": "Exam 02 practice",
     "section": "Exercise 4",
-    "text": "Exercise 4\nAdapted from Introduction to Statistical Learning\n\nOn average, what fraction of people with an odds of 0.37 of defaulting on their credit card payment will in fact default?\nSuppose an individual has a 16% chance of defaulting on their credit card payment. What are the odds they will default?",
+    "text": "Exercise 4\n\nUse the loans_full_schema data frame from the openintro R package. Run the code below to load the data set and fix an underlying issue with the levels.\n\nloans_full_schema &lt;- droplevels(openintro::loans_full_schema)\n\n\nSplit the data into training (80%) and testing (20%) sets.\nUse the training data to run 10-fold cross validation on the model that predicts interest_rate from debt to income ratio (debt_to_income), the term of loan (term), the number of inquiries (credit_checks) into the applicant’s credit during the last 12 months (inquiries_last_12m), whether there are any bankruptcies listed in the public record for this applicant (bankrupt), and the type of application (application_type). Fit the model such that the effect of debt to income ratio differs by application type.\nExplain in words how cross validation is conducted.\nExplain why we’re focusing on R-squared and RMSE instead of adjusted R-squared, AIC, BIC.\nExplain why we don’t use the testing data to evaluate the model during cross validation.",
     "crumbs": [
       "Exam 02 practice"
     ]
   },
   {
-    "objectID": "exam-02-practice.html#exercise-15",
-    "href": "exam-02-practice.html#exercise-15",
+    "objectID": "exam-02-practice.html#exercise-5",
+    "href": "exam-02-practice.html#exercise-5",
     "title": "Exam 02 practice",
-    "section": "Exercise 15",
-    "text": "Exercise 15\nRecall the model using age and education to predict odds of being high risk for heart disease.\n\nShow mathematically why the interpretation for the slope for age in terms of the log-odds is in the form shown on this slide.\nShow mathematically why the interpretation for the slope of age in terms of the odds is in the form shown on this slide.",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nBelow is the model using Force and Height to predict whether a crab is from the lb species.\n\nlb_model &lt;- glm(lb ~ Force + Height, data = claws,\n                family = \"binomial\")\n\ntidy(lb_model) |&gt; \n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.204\n2.389\n1.760\n0.078\n\n\nForce\n0.211\n0.092\n2.279\n0.023\n\n\nHeight\n-0.895\n0.398\n-2.249\n0.025\n\n\n\n\n\nWhy do we use a logistic regression model for this analysis?",
     "crumbs": [
       "Exam 02 practice"
     ]
   },
   {
-    "objectID": "exam-02-practice.html#exercise-4-1",
-    "href": "exam-02-practice.html#exercise-4-1",
+    "objectID": "exam-02-practice.html#exercise-6",
+    "href": "exam-02-practice.html#exercise-6",
     "title": "Exam 02 practice",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nWrite the hypotheses being tested in the drop-in-deviance test output on this slide. Explain how each value in the table is computed.",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nInterpret the effect of Force in the context of the data.\nWhat is the predicted probability a crab Force = 12.134 and Height = 8.813?",
     "crumbs": [
       "Exam 02 practice"
     ]
   },
   {
-    "objectID": "exam-02-practice.html#exercise-13",
-    "href": "exam-02-practice.html#exercise-13",
+    "objectID": "exam-02-practice.html#exercise-7",
+    "href": "exam-02-practice.html#exercise-7",
     "title": "Exam 02 practice",
-    "section": "Exercise 13",
-    "text": "Exercise 13\n\nWhat is an advantage of using a drop-in-deviance test instead of AIC (or BIC) to compare regression models?\nWhat is an advantage of using AIC (or BIC) instead of a drop-in-deviance test to compare regression models?",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nConsider a classification threshold of 0.25.\n\nConstruct the confusion matrix.\nCompute the following, and explain what they mean in the context of the data.\n\nSensitivity\nSpecificity\nFalse positive rate\nFalse negative rate\nAccuracy",
     "crumbs": [
       "Exam 02 practice"
     ]
   },
   {
-    "objectID": "exam-02-practice.html#exercise-16",
-    "href": "exam-02-practice.html#exercise-16",
+    "objectID": "exam-02-practice.html#exercise-8",
+    "href": "exam-02-practice.html#exercise-8",
     "title": "Exam 02 practice",
-    "section": "Exercise 16",
-    "text": "Exercise 16\nRecall the model using age and education to predict odds of being high risk for heart disease.\n\nShow mathematically why the interpretation for the slope for education4 in terms of the log-odds is in the form shown on this slide.\nShow mathematically why the interpretation for the slope of education4in terms of the odds is in the form shown on this slide.",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nUse a drop-in-deviance test to evaluate whether the interaction between Force and Height would be useful to add to the model.\n\nState the null and alternative hypotheses in words and mathematical notation.\nExplain what the values in the drop-in-deviance test output mean.\nState your conclusion in the context of the data.",
     "crumbs": [
       "Exam 02 practice"
     ]
   },
   {
-    "objectID": "exam-02-practice.html#exercise-17",
-    "href": "exam-02-practice.html#exercise-17",
+    "objectID": "exam-02-practice.html#exercise-9",
+    "href": "exam-02-practice.html#exercise-9",
     "title": "Exam 02 practice",
-    "section": "Exercise 17",
-    "text": "Exercise 17\nExplain why the slope of the logistic regression model is called the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor).",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\nWhat is an advantage of using a drop-in-deviance test instead of AIC (or BIC) to compare models?\nWhat is an advantage of using AIC (or BIC) instead of a drop-in-deviance test to compare models?",
     "crumbs": [
       "Exam 02 practice"
     ]
   },
   {
-    "objectID": "exam-02-practice.html#exercise-18",
-    "href": "exam-02-practice.html#exercise-18",
+    "objectID": "exam-02-practice.html#exercise-10",
+    "href": "exam-02-practice.html#exercise-10",
     "title": "Exam 02 practice",
-    "section": "Exercise 18",
-    "text": "Exercise 18\n\nDraw an example of an ROC curve such that the AUC is about 0.55\nDraw an example of an ROC curve such that the AUC is about 0.9.\nExplain what each point on an ROC curve represents.",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nExplain why the slope of the logistic regression model is called the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor).",
+    "crumbs": [
+      "Exam 02 practice"
+    ]
+  },
+  {
+    "objectID": "exam-02-practice.html#exercise-11",
+    "href": "exam-02-practice.html#exercise-11",
+    "title": "Exam 02 practice",
+    "section": "Exercise 11",
+    "text": "Exercise 11\n\nDraw an example of an ROC curve such that the AUC is about 0.55\nDraw an example of an ROC curve such that the AUC is about 0.9.\nExplain what each point on an ROC curve represents.",
     "crumbs": [
       "Exam 02 practice"
     ]

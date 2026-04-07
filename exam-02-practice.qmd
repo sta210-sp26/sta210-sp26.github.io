@@ -20,8 +20,7 @@ library(knitr)
 
 ```
 
-
-# Multiple linear regression 
+# Multiple linear regression
 
 ## Exercise 1
 
@@ -83,6 +82,12 @@ You can use the code below to load and prepare the data.
 #| echo: true
 claws <- Sleuth3::ex0722 |>
   mutate(lb = factor(if_else(Species == "Lophopanopeus bellus", 1, 0)))
+
+mean_force <- claws |> 
+  summarise(mean(Force)) |> pull()
+
+mean_height <- claws |>
+  summarise(mean(Height)) |> pull()
 ```
 
 ## Exercise 5
@@ -106,7 +111,7 @@ Why do we use a logistic regression model for this analysis?
 
 -   Interpret the effect of `Force` in the context of the data.
 
--   What is the predicted probability a crab `Force =` `r round(mean(claws$force, na.rm = TRUE), 3)` and `Height =` `r round(mean(claws$height, na.rm = TRUE), 3)`?
+-   What is the predicted probability a crab Force = `r round(mean_force, 3)` and Height = `r round(mean_height, 3)`?
 
 ## Exercise 7
 

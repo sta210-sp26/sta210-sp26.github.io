@@ -485,7 +485,13 @@ You are encouraged to ask questions during office hours or on Ed Discussion.</p>
 <p>You can use the code below to load and prepare the data.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>claws <span class="ot">&lt;-</span> Sleuth3<span class="sc">::</span>ex0722 <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lb =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(Species <span class="sc">==</span> <span class="st">"Lophopanopeus bellus"</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lb =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(Species <span class="sc">==</span> <span class="st">"Lophopanopeus bellus"</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mean_force <span class="ot">&lt;-</span> claws <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(Force)) <span class="sc">|&gt;</span> <span class="fu">pull</span>()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>mean_height <span class="ot">&lt;-</span> claws <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(Height)) <span class="sc">|&gt;</span> <span class="fu">pull</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
@@ -539,7 +545,7 @@ You are encouraged to ask questions during office hours or on Ed Discussion.</p>
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <ul>
 <li><p>Interpret the effect of <code>Force</code> in the context of the data.</p></li>
-<li><p>What is the predicted probability a crab <code>Force =</code> NA and <code>Height =</code> NA?</p></li>
+<li><p>What is the predicted probability a crab Force = 12.134 and Height = 8.813?</p></li>
 </ul>
 </section>
 <section id="exercise-7" class="level2">

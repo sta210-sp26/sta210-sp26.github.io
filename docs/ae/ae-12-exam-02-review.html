@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-04-15">
+<meta name="dcterms.date" content="2026-04-07">
 
 <title>AE 12: Exam 02 Review – STA 210 - Spring 2026</title>
 <style>
@@ -105,35 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -403,14 +374,23 @@ window.Quarto = {
    
   <ul>
   <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#part-1-multiple-linear-regression" id="toc-part-1-multiple-linear-regression" class="nav-link" data-scroll-target="#part-1-multiple-linear-regression">Part 1: Multiple linear regression</a>
+  <ul class="collapse">
+  <li><a href="#data-insurance-charges" id="toc-data-insurance-charges" class="nav-link" data-scroll-target="#data-insurance-charges">Data: Insurance charges</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#data-credit-cards" id="toc-data-credit-cards" class="nav-link" data-scroll-target="#data-credit-cards">Data: Credit cards</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  </ul></li>
+  <li><a href="#part-2-logistic-regression" id="toc-part-2-logistic-regression" class="nav-link" data-scroll-target="#part-2-logistic-regression">Part 2: Logistic regression</a>
+  <ul class="collapse">
+  <li><a href="#data-social-media-ads" id="toc-data-social-media-ads" class="nav-link" data-scroll-target="#data-social-media-ads">Data: Social media ads</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -431,7 +411,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 15, 2025</p>
+      <p class="date">April 7, 2026</p>
     </div>
   </div>
   
@@ -453,77 +433,74 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the course GitHub organization and locate your ae-12 repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class to submit your AE.</p>
+<p>Go to the course GitHub organization and locate your <code>ae-12</code> repo to get started</p>
 </div>
 </div>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
+</section>
+<section id="part-1-multiple-linear-regression" class="level1">
+<h1>Part 1: Multiple linear regression</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>insurance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/insurance.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sample down 18 - 19 year olds</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>insurance_young <span class="ot">&lt;-</span> insurance <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">==</span> <span class="dv">18</span> <span class="sc">|</span> age <span class="sc">==</span> <span class="dv">19</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">50</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>insurance <span class="ot">&lt;-</span>  insurance <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">19</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(insurance_young) <span class="sc">|&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_charges =</span> <span class="fu">log</span>(charges),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cent =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">region =</span> <span class="fu">case_when</span>(region <span class="sc">==</span> <span class="st">"northeast"</span> <span class="sc">~</span> <span class="st">"NorthEast"</span>, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                            region <span class="sc">==</span><span class="st">"northwest"</span> <span class="sc">~</span> <span class="st">"NorthWest"</span>, </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                            region <span class="sc">==</span> <span class="st">"southeast"</span> <span class="sc">~</span> <span class="st">"SouthEast"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                            region <span class="sc">==</span> <span class="st">"southwest"</span> <span class="sc">~</span> <span class="st">"SouthWest"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="data-insurance-charges" class="level2">
+<h2 class="anchored" data-anchor-id="data-insurance-charges">Data: Insurance charges</h2>
+<p>The <strong>insurance</strong> data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are 1251 observations in the data set. We will use the following variables:</p>
+<ul>
+<li><p><code>age_cent</code>: Mean-centered age in years (the mean age in the data is 40.6 years old)</p></li>
+<li><p><code>children</code>: Number of children covered by the insurance policy</p></li>
+<li><p><code>smoker</code>: Indicator of whether the the patient smokes regularly (1: yes, 0: no)</p></li>
+<li><p><code>region</code>: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest )</p></li>
+<li><p><code>charges</code>: Total costs billed by the medical insurance company</p></li>
+</ul>
+<p><strong><em>The goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges,</em></strong> <code>log(charges)</code><strong><em>, is used to fit the model.</em></strong></p>
+<pre><code></code></pre>
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Suppose you fit a simple linear regression model.</p>
-<ol type="a">
-<li><p>Draw or describe a scatterplot that contains an observation with large leverage but low Cook’s distance.</p></li>
-<li><p>Draw or describe a scatterplot that contains an observation with large leverage and high Cook’s distance.</p></li>
-<li><p>Draw or describe a scatterplot that contains an observation with a large studentized residual.</p></li>
-</ol>
-</section>
-<section id="data-credit-cards" class="level2">
-<h2 class="anchored" data-anchor-id="data-credit-cards">Data: Credit cards</h2>
-<p>The data for this analysis is about credit card customers. It can be found in the file <code>credit.csv</code>. The following variables are in the data set:</p>
-<ul>
-<li><code>income</code>: Income in $1,000’s</li>
-<li><code>limit</code>: Credit limit</li>
-<li><code>rating</code>: Credit rating</li>
-<li><code>cards</code>: Number of credit cards</li>
-<li><code>age</code>: Age in years</li>
-<li><code>education</code>: Number of years of education</li>
-<li><code>own</code>: A factor with levels <code>No</code> and <code>Yes</code> indicating whether the individual owns their home</li>
-<li><code>student</code>: A factor with levels <code>No</code> and <code>Yes</code> indicating whether the individual was a student</li>
-<li><code>married</code>: A factor with levels <code>No</code> and <code>Yes</code> indicating whether the individual was married</li>
-<li><code>region</code>: A factor with levels <code>South</code>, <code>East</code>, and <code>West</code> indicating the region of the US the individual is from</li>
-<li><code>balance</code>: Average credit card balance in $.</li>
-</ul>
-<p><strong>The objective of this analysis is to predict whether a person has maxed out their credit card, i.e., had $0 average card balance.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>credit <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/credit.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">maxed =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(balance <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>Why do we use <code>log(charges)</code> instead of the original response variable in this analysis?</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<ul>
-<li><p>Why is logistic regression the best modeling approach for this analysis?</p></li>
-<li><p>Describe where each of the following show up in the analysis:</p>
-<ul>
-<li><p>log-odds …</p></li>
-<li><p>odds</p></li>
-<li><p>probabilities</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>We’ll start by splitting the model into training and testing data. Then we’ll using the training data to fit a model for predicting the odds of <code>maxed = 1</code> using <code>income</code>, <code>rating</code>, and <code>region</code>.</p>
+<p>The output of the main effects model is below.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make training and test sets</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>credit_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(credit, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>credit_train <span class="ot">&lt;-</span> <span class="fu">training</span>(credit_split)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>credit_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(credit_split)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>credit_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(maxed <span class="sc">~</span> income <span class="sc">+</span> rating <span class="sc">+</span> region, <span class="at">data =</span> credit_train, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(credit_fit) <span class="sc">|&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(log_charges <span class="sc">~</span> age_cent <span class="sc">+</span> children <span class="sc">+</span> smoker <span class="sc">+</span> region, <span class="at">data =</span> insurance)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model1) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -538,98 +515,343 @@ Important
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">10.097</td>
-<td style="text-align: right;">1.687</td>
-<td style="text-align: right;">5.987</td>
+<td style="text-align: right;">8.819</td>
+<td style="text-align: right;">0.027</td>
+<td style="text-align: right;">320.905</td>
 <td style="text-align: right;">0.000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">income</td>
-<td style="text-align: right;">0.115</td>
-<td style="text-align: right;">0.026</td>
-<td style="text-align: right;">4.444</td>
+<td style="text-align: left;">age_cent</td>
+<td style="text-align: right;">0.034</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">37.956</td>
 <td style="text-align: right;">0.000</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">rating</td>
-<td style="text-align: right;">-0.058</td>
+<td style="text-align: left;">children</td>
+<td style="text-align: right;">0.092</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">9.252</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">smokeryes</td>
+<td style="text-align: right;">1.492</td>
+<td style="text-align: right;">0.030</td>
+<td style="text-align: right;">50.284</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">regionNorthWest</td>
+<td style="text-align: right;">-0.070</td>
+<td style="text-align: right;">0.034</td>
+<td style="text-align: right;">-2.039</td>
+<td style="text-align: right;">0.042</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">regionSouthEast</td>
+<td style="text-align: right;">-0.088</td>
+<td style="text-align: right;">0.034</td>
+<td style="text-align: right;">-2.612</td>
 <td style="text-align: right;">0.009</td>
-<td style="text-align: right;">-6.428</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">regionSouth</td>
-<td style="text-align: right;">-0.632</td>
-<td style="text-align: right;">0.715</td>
-<td style="text-align: right;">-0.884</td>
-<td style="text-align: right;">0.377</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">regionWest</td>
-<td style="text-align: right;">-0.332</td>
-<td style="text-align: right;">0.724</td>
-<td style="text-align: right;">-0.458</td>
-<td style="text-align: right;">0.647</td>
+<td style="text-align: left;">regionSouthWest</td>
+<td style="text-align: right;">-0.100</td>
+<td style="text-align: right;">0.035</td>
+<td style="text-align: right;">-2.884</td>
+<td style="text-align: right;">0.004</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>The logistic regression model takes the following form:</p>
-<p><span class="math display">\[
-\log(\frac{\pi_i}{1 - \pi_i}) = \beta_0 + \beta_1 ~ income + \beta_2 ~ rating + \beta_3 ~ regionSouth + \beta_4 ~ regionWest
-\]</span></p>
-<ol type="a">
-<li><p>Write the interpretation of <code>income</code> in terms of the odds of maxing out a credit card.</p></li>
-<li><p>Use the equation above to show the expected change in the odds of maxing out a credit card when the credit rating increases by 10 points. Assume income and region are constant. Write your answer in terms of <span class="math inline">\(\beta_0, \beta_1, \beta_2, \beta_3, \beta_4\)</span>.</p></li>
-<li><p>Suppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2. Write your answer in terms of <span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>, etc.</p></li>
-</ol>
+<ul>
+<li><p>Interpret <code>age_cent</code> in the context of the data in terms of <code>charges</code> (not <code>log(charges)</code>)</p></li>
+<li><p>Interpret <code>regionSouthEast</code> in the context of the data in terms of <code>charges</code> (not <code>log(charges)</code>).</p></li>
+</ul>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>We want to compare the model from the previous exercise to a model that also includes the interaction between <code>age_cent</code> and <code>smoker</code>. To do so, we begin by splitting the data into training and testing sets.</p>
+<p>The code to split the data into training and testing data is below. Explain why we may want to split the data into training and testing sets.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>insurance_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(insurance, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>insurance_train <span class="ot">&lt;-</span> <span class="fu">training</span>(insurance_split)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>insurance_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(insurance_split)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>We consider adding the interaction between <code>region</code> and <code>income</code> to the current model. We’ll use a drop-in-deviance test to determine whether or not to add the interaction term.</p>
-<ol type="a">
-<li>State the null and alternative hypotheses in words and using mathematical notation.</li>
-<li>Describe what the test statistic <span class="math inline">\(G\)</span> means in the context of the data.</li>
-<li>Show why the degrees of freedom for the test statistic are equal to 2.</li>
-<li>Conduct the drop-in-deviance test and state your conclusion in the context of the data.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>We will use 5-fold cross validation to determine which model is the best fit. Explain why we want to use cross validation to compare models in this analysis.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Now let’s evaluate the performance of the selected model using the testing data.</p>
-<p>Create a confusion matrix using a cutoff probability of 0.3.</p>
+<p>The code for cross validation is below. Describe the process of cross validation. You can use the code as a guide.</p>
+<p>Then, state which model you select based on the results of cross validation.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(insurance_train, <span class="at">v =</span> <span class="dv">5</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># main effects model</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>main_effects_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(<span class="fu">linear_reg</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(log_charges <span class="sc">~</span> age_cent <span class="sc">+</span> children <span class="sc">+</span> smoker <span class="sc">+</span> region) </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>main_effects_cv <span class="ot">&lt;-</span> main_effects_workflow <span class="sc">|&gt;</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> folds)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(main_effects_cv, <span class="at">summarize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  .metric .estimator  mean     n std_err .config        
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          
+1 rmse    standard   0.415     5  0.0164 pre0_mod0_post0
+2 rsq     standard   0.777     5  0.0129 pre0_mod0_post0</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># interaction effects model</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>interaction_effects_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(<span class="fu">linear_reg</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(log_charges <span class="sc">~</span> age_cent <span class="sc">+</span> children <span class="sc">+</span> smoker <span class="sc">+</span> region <span class="sc">+</span> age_cent <span class="sc">*</span> smoker) </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>interaction_effects_cv <span class="ot">&lt;-</span> interaction_effects_workflow <span class="sc">|&gt;</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> folds)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(interaction_effects_cv, <span class="at">summarize =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  .metric .estimator  mean     n std_err .config        
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          
+1 rmse    standard   0.377     5  0.0161 pre0_mod0_post0
+2 rsq     standard   0.815     5  0.0113 pre0_mod0_post0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-logistic-regression" class="level1">
+<h1>Part 2: Logistic regression</h1>
+<section id="data-social-media-ads" class="level2">
+<h2 class="anchored" data-anchor-id="data-social-media-ads">Data: Social media ads</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ads <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Social_Network_Ads.csv"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.kaggle.com/datasets/rakeshrau/social-network-ads</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sample to have even purchases / not purchases</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#no_purchase &lt;- ads |&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  filter(Purchased == 0) |&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  sample_n(143)</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Make purchased a factor</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Split age in categories </span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale salary by 1000s</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>ads <span class="ot">&lt;-</span> ads <span class="sc">|&gt;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a> <span class="co"># filter(Purchased == 1) |&gt;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a> <span class="co"># bind_rows(no_purchase) |&gt;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">purchased =</span> <span class="fu">factor</span>(Purchased),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">salary =</span> EstimatedSalary<span class="sc">/</span><span class="dv">1000</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>           Age <span class="sc">&lt;</span> <span class="dv">35</span> <span class="sc">~</span> <span class="st">"18-34"</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>           Age <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> Age <span class="sc">&lt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"35-49"</span>, </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>           <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"50+"</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>         ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The <strong>ads</strong> data set contains information about users on a social media website and whether they purchased a product through an advertisement (ad) on the site. There are 400 observations in the data set. We will use the following variables:</p>
 <ul>
-<li><p>What is the sensitivity? What does it mean in the context of the data ?</p></li>
-<li><p>What is the specificity? What does it mean in the context of the data?</p></li>
-<li><p>What is the false positive rate? What does it mean in the context of the data?</p></li>
-<li><p>What is the false negative rate? What does it mean in the context of the data?</p></li>
+<li><p><code>salary</code>: Individual’s estimated salary (in thousands of dollars)</p></li>
+<li><p><code>age_category</code>: Category indicating an individual’s age in years (18-34, 35-49, 50+)</p></li>
+<li><p><code>purchased</code>: Whether an individual purchased a product through an ad on the social media website (1: yes, 0: no)</p></li>
 </ul>
+<p><strong><em>The goal of the analysis is to predict the odds an individual purchases a product through an on the social media website based on their estimated salary and age.</em></strong></p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Produce the ROC curve.</p>
+<p>We begin by fitting a model using <code>age_category</code> to predict the odds an individual purchases a product through a social media ad. The output is below.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ad_age_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(purchased <span class="sc">~</span> age_category, <span class="at">data =</span> ads,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(ad_age_fit) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-2.244</td>
+<td style="text-align: right;">0.281</td>
+<td style="text-align: right;">-7.984</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age_category35-49</td>
+<td style="text-align: right;">1.851</td>
+<td style="text-align: right;">0.316</td>
+<td style="text-align: right;">5.862</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age_category50+</td>
+<td style="text-align: right;">4.506</td>
+<td style="text-align: right;">0.547</td>
+<td style="text-align: right;">8.229</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <ul>
-<li>Describe how you can use this curve to select a cutoff probability (rather than just going with 0.5).</li>
+<li><p>What is the odds ratio of <code>35-49</code> versus <code>18-34</code>?</p></li>
+<li><p>What are the odds an 52 year old purchases a product from a social media website? What is the probability?</p></li>
 </ul>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Questions about checking conditions for logistic regression:</p>
+<p>Now let’s fit the model that includes both <code>salary</code> and <code>age_category</code>. The output is below.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ad_age_salary_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(purchased <span class="sc">~</span> age_category <span class="sc">+</span> salary, <span class="at">data =</span> ads,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(ad_age_salary_fit) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-4.500</td>
+<td style="text-align: right;">0.500</td>
+<td style="text-align: right;">-8.995</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age_category35-49</td>
+<td style="text-align: right;">1.964</td>
+<td style="text-align: right;">0.342</td>
+<td style="text-align: right;">5.735</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age_category50+</td>
+<td style="text-align: right;">4.953</td>
+<td style="text-align: right;">0.601</td>
+<td style="text-align: right;">8.239</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">salary</td>
+<td style="text-align: right;">0.029</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">6.410</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <ul>
-<li><p>Do we assess conditions on the training or testing set?</p></li>
-<li><p>Why do we not consider categorical predictors when checking linearity?</p></li>
-<li><p>Why do we not need to check constant variance for logistic regression?</p></li>
+<li><p>What is the adjusted odds ratio of <code>35-49</code> versus <code>18-34</code>?</p></li>
+<li><p>What are the predicted odds of a 52 year old who has a salary of $60,000?</p></li>
+<li><p>What is the predicted probability for this individual?</p></li>
 </ul>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>The ROC curve for the fitted model is below.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ad_age_salary_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(ad_age_salary_fit, <span class="at">type.predict =</span> <span class="st">"response"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ad_age_salary_aug <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">roc_curve</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    purchased,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    .fitted,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ae-12-exam-02-review_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Explain what each point on the curve represents.</p></li>
+<li><p>The code to compute AUC is below. Use AUC to evaluate model performance.</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ad_age_salary_aug <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">roc_auc</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    purchased,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    .fitted,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc binary         0.861</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p><em>General question.</em></p>
+<p>Suppose we are comparing models, such that different models are selected based on AIC and BIC.</p>
+<ul>
+<li><p>When might we prefer the model selected by AIC?</p></li>
+<li><p>When might we prefer the model selected by BIC?</p></li>
+</ul>
+</section>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>

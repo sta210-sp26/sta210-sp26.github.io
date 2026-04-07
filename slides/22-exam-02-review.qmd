@@ -1,0 +1,187 @@
+---
+title: "Exam 02 review"
+author: "Prof. Maria Tackett"
+date: "04-07-2026"
+date-format: "MMM DD, YYYY"
+footer: "🔗 [sta210-sp26.github.io](https://sta210-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 22-exam-02-review-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+	fig.align = "center",
+	fig.height =5,
+	fig.width = 8,
+	message = FALSE,
+	warning = FALSE
+)
+
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+```
+
+## Announcements
+
+-   Lab 07 due TODAY at 11:59pm
+
+-   Project:
+
+    -   Preliminary analysis due TODAY
+
+    -   Presentations April 14 & 16
+
+-   Statistics experience due April 15
+
+-   Exam 02 April 9 (in-class), April 9 - 11 (take-home)
+
+    -   Lecture recordings + practice questions available on website
+
+## Exam 02
+
+-   In-class: 75 minutes during April 9 lecture
+
+-   Take-home: due April 11 at 11:59pm
+
+-   Note from academic dean required to be excused from any part of the exam
+
+## Outline of in-class portion {.midi}
+
+-   Closed-book, closed-note.
+
+-   Potential question types:
+
+    -   Multiple choice
+    -   Short answer (no more than 3 sentences)
+    -   Interpretation
+    -   Evaluate a response.
+
+-   Analysis output included in the exam
+
+-   Just need a pen or pencil. No calculator permitted on exam.
+
+## Outline of take-home portion
+
+-   Released: April 9 right after class
+
+-   Due: April 11 at 11:59pm
+
+-   Similar in format to a lab/ HW
+
+    -   Will receive exam questions in README of GitHub repo
+
+-   Push work to GitHub and submit a PDF of responses to Gradescope
+
+## Tips for studying
+
+-   Review exercises in AEs and assignments, asking “why” as you review your process and reasoning
+
+    -   e.g., Why do we include “holding all else constant” in interpretations?
+
+-   Focus on understanding not memorization
+
+-   Explain concepts / process to others
+
+-   Ask questions in office hours, lab, Ed Discussion
+
+-   Review prepare readings
+
+-   Review lecture recordings, as needed (available until start of in-class exam)
+
+## Exam 02 content {.midi}
+
+Concepts from the first half of the semester continue to apply, but the exam will focus on new content since Exam 01.
+
+::::: columns
+
+::: {.column width="50%"}
+-   Multicollinearity
+
+-   Variable transformations
+
+-   Model comparison
+
+-   Cross validation
+
+-   Probabilities, odds, odds ratios
+
+-   Fitting and interpreting logistic models
+:::
+
+::: {.column width="50%"}
+-   Predicted probabilities and classification
+
+-   ROC curve and AUC
+
+-   Inference for logistic regression
+
+-   Data science ethics (high level)
+
+-   Causal inference (high level)
+:::
+:::::
+
+# Part 1: Multiple linear regression
+
+## Data: Insurance charges
+
+```{r}
+
+insurance <- read_csv('data/insurance.csv')
+
+# sample down 18 - 19 year olds
+set.seed(210)
+insurance_young <- insurance |>
+  filter(age == 18 | age == 19) |>
+  sample_n(50)
+
+insurance <-  insurance |>
+  filter(age > 19) |>
+  bind_rows(insurance_young) |>
+  mutate(log_charges = log(charges),
+         age_cent = age - mean(age),
+         region = case_when(region == "northeast" ~ "NorthEast", 
+                            region =="northwest" ~ "NorthWest", 
+                            region == "southeast" ~ "SouthEast",
+                            region == "southwest" ~ "SouthWest")
+  )
+```
+
+The **insurance** data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are `r nrow(insurance)` observations in the data set. We will use the following variables:
+
+-   `age_cent`: Mean-centered age in years (the mean age in the data is `r round(mean(insurance$age), 1)` years old)
+
+-   `children`: Number of children covered by the insurance policy
+
+-   `smoker`: Indicator of whether the the patient smokes regularly (1: yes, 0: no)
+
+-   `region`: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest)
+
+-   `charges`: Total costs billed by the medical insurance company
+
+***The goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges,*** `log(charges)`***, is used to fit the model.***
+
+# 

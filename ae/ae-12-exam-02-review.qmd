@@ -1,6 +1,9 @@
 ---
 title: "AE 12: Exam 02 Review"
-date: "April 15, 2025"
+date: "April 7, 2026"
+format: 
+  html:
+    code-fold: true
 editor: visual
 execute: 
   warning: false
@@ -8,16 +11,13 @@ execute:
 ---
 
 ::: callout-important
-Go to the course GitHub organization and locate your ae-12 repo to get started.
-
-Render, commit, and push your responses to GitHub by the end of class to submit your AE.
+Go to the course GitHub organization and locate your `ae-12` repo to get started
 :::
 
 ## Packages
 
 ```{r}
 #| label: load-pkgs
-#| message: false
  
 library(tidyverse)
 library(tidymodels)
@@ -25,144 +25,230 @@ library(knitr)
 library(pROC)
 ```
 
-## Exercise 1
-
-Suppose you fit a simple linear regression model.
-
-a.  Draw or describe a scatterplot that contains an observation with large leverage but low Cook’s distance.
-
-b.  Draw or describe a scatterplot that contains an observation with large leverage and high Cook’s distance.
-
-c.  Draw or describe a scatterplot that contains an observation with a large studentized residual.
-
-## Data: Credit cards
-
-The data for this analysis is about credit card customers. It can be found in the file `credit.csv`. The following variables are in the data set:
-
--   `income`: Income in \$1,000's
--   `limit`: Credit limit
--   `rating`: Credit rating
--   `cards`: Number of credit cards
--   `age`: Age in years
--   `education`: Number of years of education
--   `own`: A factor with levels `No` and `Yes` indicating whether the individual owns their home
--   `student`: A factor with levels `No` and `Yes` indicating whether the individual was a student
--   `married`: A factor with levels `No` and `Yes` indicating whether the individual was married
--   `region`: A factor with levels `South`, `East`, and `West` indicating the region of the US the individual is from
--   `balance`: Average credit card balance in \$.
-
-**The objective of this analysis is to predict whether a person has maxed out their credit card, i.e., had \$0 average card balance.**
+# Part 1: Multiple linear regression
 
 ```{r}
-#| label: load-claws-data
-#| warning: false
-#| message: false
+insurance <- read_csv('data/insurance.csv')
 
-credit <- read_csv("data/credit.csv") |>
-  mutate(maxed = factor(if_else(balance == 0, 1, 0)))
+# sample down 18 - 19 year olds
+set.seed(210)
+insurance_young <- insurance |>
+  filter(age == 18 | age == 19) |>
+  sample_n(50)
+
+insurance <-  insurance |>
+  filter(age > 19) |>
+  bind_rows(insurance_young) |>
+  mutate(log_charges = log(charges),
+         age_cent = age - mean(age),
+         region = case_when(region == "northeast" ~ "NorthEast", 
+                            region =="northwest" ~ "NorthWest", 
+                            region == "southeast" ~ "SouthEast",
+                            region == "southwest" ~ "SouthWest")
+  )
 ```
+
+## Data: Insurance charges
+
+The **insurance** data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are `r nrow(insurance)` observations in the data set. We will use the following variables:
+
+-   `age_cent`: Mean-centered age in years (the mean age in the data is `r round(mean(insurance$age), 1)` years old)
+
+-   `children`: Number of children covered by the insurance policy
+
+-   `smoker`: Indicator of whether the the patient smokes regularly (1: yes, 0: no)
+
+-   `region`: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest )
+
+-   `charges`: Total costs billed by the medical insurance company
+
+***The goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges,*** `log(charges)`***, is used to fit the model.***
+
+```{}
+```
+
+## Exercise 1
+
+Why do we use `log(charges)` instead of the original response variable in this analysis?
 
 ## Exercise 2
 
--   Why is logistic regression the best modeling approach for this analysis?
-
--   Describe where each of the following show up in the analysis:
-
-    -   log-odds ...
-
-    -   odds
-
-    -   probabilities
-
-## Exercise 3
-
-We’ll start by splitting the model into training and testing data. Then we'll using the training data to fit a model for predicting the odds of `maxed = 1` using `income`, `rating`, and `region`.
+The output of the main effects model is below.
 
 ```{r}
-# make training and test sets
-set.seed(210)
-credit_split <- initial_split(credit, prop = 0.8)
-credit_train <- training(credit_split)
-credit_test <- testing(credit_split)
+model1 <- lm(log_charges ~ age_cent + children + smoker + region, data = insurance)
 
-credit_fit <- glm(maxed ~ income + rating + region, data = credit_train, 
-                  family = "binomial")
-
-tidy(credit_fit) |>
+tidy(model1) |>
   kable(digits = 3)
 ```
 
-The logistic regression model takes the following form:
+-   Interpret `age_cent` in the context of the data in terms of `charges` (not `log(charges)`)
 
-$$
- \log(\frac{\pi_i}{1 - \pi_i}) = \beta_0 + \beta_1 ~ income + \beta_2 ~ rating + \beta_3 ~ regionSouth + \beta_4 ~ regionWest
-$$
+-   Interpret `regionSouthEast` in the context of the data in terms of `charges` (not `log(charges)`).
 
-a.  Write the interpretation of `income` in terms of the odds of maxing out a credit card.
+## Exercise 3
 
-b.  Use the equation above to show the expected change in the odds of maxing out a credit card when the credit rating increases by 10 points. Assume income and region are constant. Write your answer in terms of $\beta_0, \beta_1, \beta_2, \beta_3, \beta_4$.
+We want to compare the model from the previous exercise to a model that also includes the interaction between `age_cent` and `smoker`. To do so, we begin by splitting the data into training and testing sets.
 
-c.  Suppose there are two individuals. Individual 1 has an income of \$64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of \$135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2. Write your answer in terms of $\beta_0, \beta_1, \beta_2$, etc.
+The code to split the data into training and testing data is below. Explain why we may want to split the data into training and testing sets.
+
+```{r}
+set.seed(210)
+
+insurance_split <- initial_split(insurance, prop = 0.8)
+insurance_train <- training(insurance_split)
+insurance_test <- testing(insurance_split)
+```
 
 ## Exercise 4
 
-We consider adding the interaction between `region` and `income` to the current model. We'll use a drop-in-deviance test to determine whether or not to add the interaction term.
-
-a.  State the null and alternative hypotheses in words and using mathematical notation.
-b.  Describe what the test statistic $G$ means in the context of the data.
-c.  Show why the degrees of freedom for the test statistic are equal to 2.
-d.  Conduct the drop-in-deviance test and state your conclusion in the context of the data.
-
-```{r}
-#| label: drop-in-deviance-test
-
-# add code here
-
-```
+We will use 5-fold cross validation to determine which model is the best fit. Explain why we want to use cross validation to compare models in this analysis.
 
 ## Exercise 5
 
-Now let's evaluate the performance of the selected model using the testing data.
+The code for cross validation is below. Describe the process of cross validation. You can use the code as a guide.
 
-Create a confusion matrix using a cutoff probability of 0.3.
+Then, state which model you select based on the results of cross validation.
 
 ```{r}
-#| label: confusion-matrix
+set.seed(210)
 
-# add code here
 
+folds <- vfold_cv(insurance_train, v = 5)
+
+# main effects model
+main_effects_workflow <- workflow() |> 
+  add_model(linear_reg()) |> 
+  add_formula(log_charges ~ age_cent + children + smoker + region) 
+
+main_effects_cv <- main_effects_workflow |> 
+  fit_resamples(resamples = folds)
+
+collect_metrics(main_effects_cv, summarize = TRUE)
+
+# interaction effects model
+interaction_effects_workflow <- workflow() |> 
+  add_model(linear_reg()) |> 
+  add_formula(log_charges ~ age_cent + children + smoker + region + age_cent * smoker) 
+
+interaction_effects_cv <- interaction_effects_workflow |> 
+  fit_resamples(resamples = folds)
+
+collect_metrics(interaction_effects_cv, summarize = TRUE)
 ```
 
--   What is the sensitivity? What does it mean in the context of the data ?
+# Part 2: Logistic regression
 
--   What is the specificity? What does it mean in the context of the data?
+## Data: Social media ads
 
--   What is the false positive rate? What does it mean in the context of the data?
+```{r}
+ads <- read_csv("data/Social_Network_Ads.csv")
+# https://www.kaggle.com/datasets/rakeshrau/social-network-ads
 
--   What is the false negative rate? What does it mean in the context of the data?
+# sample to have even purchases / not purchases
+
+set.seed(210)
+#no_purchase <- ads |>
+#  filter(Purchased == 0) |>
+#  sample_n(143)
+
+# Make purchased a factor
+# Split age in categories 
+# Rescale salary by 1000s
+ads <- ads |>
+ # filter(Purchased == 1) |>
+ # bind_rows(no_purchase) |>
+  mutate(purchased = factor(Purchased),
+         salary = EstimatedSalary/1000,
+         age_category = case_when(
+           Age < 35 ~ "18-34",
+           Age >= 35 & Age < 50 ~ "35-49", 
+           TRUE ~ "50+"
+         ))
+```
+
+The **ads** data set contains information about users on a social media website and whether they purchased a product through an advertisement (ad) on the site. There are `r nrow(ads)` observations in the data set. We will use the following variables:
+
+-   `salary`: Individual's estimated salary (in thousands of dollars)
+
+-   `age_category`: Category indicating an individual's age in years (18-34, 35-49, 50+)
+
+-   `purchased`: Whether an individual purchased a product through an ad on the social media website (1: yes, 0: no)
+
+***The goal of the analysis is to predict the odds an individual purchases a product through an on the social media website based on their estimated salary and age.***
 
 ## Exercise 6
 
-Produce the ROC curve.
+We begin by fitting a model using `age_category` to predict the odds an individual purchases a product through a social media ad. The output is below.
 
 ```{r}
-#| label: roc-curve
+ad_age_fit <- glm(purchased ~ age_category, data = ads,
+                  family = "binomial")
 
-# add code here
-
+tidy(ad_age_fit) |>
+  kable(digits = 3)
 ```
 
--   Describe how you can use this curve to select a cutoff probability (rather than just going with 0.5).
+-   What is the odds ratio of `35-49` versus `18-34`?
+
+-   What are the odds an 52 year old purchases a product from a social media website? What is the probability?
 
 ## Exercise 7
 
-Questions about checking conditions for logistic regression:
+Now let's fit the model that includes both `salary` and `age_category`. The output is below.
 
--   Do we assess conditions on the training or testing set?
+```{r}
+ad_age_salary_fit <- glm(purchased ~ age_category + salary, data = ads,
+                  family = "binomial")
 
--   Why do we not consider categorical predictors when checking linearity?
+tidy(ad_age_salary_fit) |>
+  kable(digits = 3)
+```
 
--   Why do we not need to check constant variance for logistic regression?
+-   What is the adjusted odds ratio of `35-49` versus `18-34`?
+
+-   What are the predicted odds of a 52 year old who has a salary of \$60,000?
+
+-   What is the predicted probability for this individual?
+
+## Exercise 8
+
+The ROC curve for the fitted model is below.
+
+```{r}
+ad_age_salary_aug <- augment(ad_age_salary_fit, type.predict = "response")
+
+ad_age_salary_aug |>
+  roc_curve(
+    purchased,
+    .fitted,
+    event_level = "second"
+) |>
+  autoplot()
+```
+
+-   Explain what each point on the curve represents.
+
+-   The code to compute AUC is below. Use AUC to evaluate model performance.
+
+```{r}
+ad_age_salary_aug |>
+  roc_auc(
+    purchased,
+    .fitted,
+    event_level = "second"
+)
+```
+
+## Exercise 9
+
+*General question.*
+
+Suppose we are comparing models, such that different models are selected based on AIC and BIC.
+
+-   When might we prefer the model selected by AIC?
+
+-   When might we prefer the model selected by BIC?
 
 # Submission
 

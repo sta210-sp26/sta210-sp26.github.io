@@ -64,12 +64,15 @@ The **insurance** data set contains information about patient characteristics an
 
 ***The goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges,*** `log(charges)`***, is used to fit the model.***
 
-```{}
-```
-
 ## Exercise 1
 
-Why do we use `log(charges)` instead of the original response variable in this analysis?
+What is the primary reason we use `log(charges)` instead of the original response variable in this analysis?
+
+🔗 <https://forms.office.com/r/nCr0Q3m1XS>
+
+```{=html}
+<center><iframe width="640px" height="480px" src="https://forms.office.com/r/nCr0Q3m1XS?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe></center>
+```
 
 ## Exercise 2
 
@@ -82,7 +85,7 @@ tidy(model1) |>
   kable(digits = 3)
 ```
 
--   Interpret `age_cent` in the context of the data in terms of `charges` (not `log(charges)`)
+-   Interpret `age_cent` in the context of the data in terms of `charges` (not `log(charges)`).
 
 -   Interpret `regionSouthEast` in the context of the data in terms of `charges` (not `log(charges)`).
 
@@ -124,8 +127,6 @@ main_effects_workflow <- workflow() |>
 main_effects_cv <- main_effects_workflow |> 
   fit_resamples(resamples = folds)
 
-collect_metrics(main_effects_cv, summarize = TRUE)
-
 # interaction effects model
 interaction_effects_workflow <- workflow() |> 
   add_model(linear_reg()) |> 
@@ -134,6 +135,8 @@ interaction_effects_workflow <- workflow() |>
 interaction_effects_cv <- interaction_effects_workflow |> 
   fit_resamples(resamples = folds)
 
+# collect metrics
+collect_metrics(main_effects_cv, summarize = TRUE)
 collect_metrics(interaction_effects_cv, summarize = TRUE)
 ```
 
@@ -148,13 +151,6 @@ ads <- read_csv("data/Social_Network_Ads.csv")
 # sample to have even purchases / not purchases
 
 set.seed(210)
-#no_purchase <- ads |>
-#  filter(Purchased == 0) |>
-#  sample_n(143)
-
-# Make purchased a factor
-# Split age in categories 
-# Rescale salary by 1000s
 ads <- ads |>
  # filter(Purchased == 1) |>
  # bind_rows(no_purchase) |>
@@ -175,7 +171,7 @@ The **ads** data set contains information about users on a social media website 
 
 -   `purchased`: Whether an individual purchased a product through an ad on the social media website (1: yes, 0: no)
 
-***The goal of the analysis is to predict the odds an individual purchases a product through an on the social media website based on their estimated salary and age.***
+***The goal of the analysis is to predict the odds an individual purchases a product through an ad on the social media website based on their estimated salary and age.***
 
 ## Exercise 6
 
@@ -189,9 +185,11 @@ tidy(ad_age_fit) |>
   kable(digits = 3)
 ```
 
--   What is the odds ratio of `35-49` versus `18-34`?
+-   What is the predicted odds ratio of `35-49` versus `18-34`?
 
--   What are the odds an 52 year old purchases a product from a social media website? What is the probability?
+-   What are the predicted odds an 52 year old purchases a product from a social media website?
+
+-   What is the predicted probability for this individual?
 
 ## Exercise 7
 

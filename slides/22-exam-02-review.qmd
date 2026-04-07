@@ -54,17 +54,17 @@ library(knitr)
 
     -   Presentations April 14 & 16
 
--   Statistics experience due April 15
-
 -   Exam 02 April 9 (in-class), April 9 - 11 (take-home)
 
     -   Lecture recordings + practice questions available on website
 
+-   Statistics experience due April 15
+
 ## Exam 02
 
--   In-class: 75 minutes during April 9 lecture
+-   In-class (36 pts): 75 minutes during April 9 lecture
 
--   Take-home: due April 11 at 11:59pm
+-   Take-home (14 pts): due April 11 at 11:59pm
 
 -   Note from academic dean required to be excused from any part of the exam
 
@@ -83,9 +83,11 @@ library(knitr)
 
 -   Just need a pen or pencil. No calculator permitted on exam.
 
+-   Don't need to simplify responses (e.g., can leave the response as `3 + 2` instead of `5`)
+
 ## Outline of take-home portion
 
--   Released: April 9 right after class
+-   Released: April 9 after class
 
 -   Due: April 11 at 11:59pm
 
@@ -94,6 +96,8 @@ library(knitr)
     -   Will receive exam questions in README of GitHub repo
 
 -   Push work to GitHub and submit a PDF of responses to Gradescope
+
+-   Ed Discussion will be read-only during exam
 
 ## Tips for studying
 
@@ -116,7 +120,6 @@ library(knitr)
 Concepts from the first half of the semester continue to apply, but the exam will focus on new content since Exam 01.
 
 ::::: columns
-
 ::: {.column width="50%"}
 -   Multicollinearity
 
@@ -144,44 +147,10 @@ Concepts from the first half of the semester continue to apply, but the exam wil
 :::
 :::::
 
-# Part 1: Multiple linear regression
+# Application exercise 
 
-## Data: Insurance charges
-
-```{r}
-
-insurance <- read_csv('data/insurance.csv')
-
-# sample down 18 - 19 year olds
-set.seed(210)
-insurance_young <- insurance |>
-  filter(age == 18 | age == 19) |>
-  sample_n(50)
-
-insurance <-  insurance |>
-  filter(age > 19) |>
-  bind_rows(insurance_young) |>
-  mutate(log_charges = log(charges),
-         age_cent = age - mean(age),
-         region = case_when(region == "northeast" ~ "NorthEast", 
-                            region =="northwest" ~ "NorthWest", 
-                            region == "southeast" ~ "SouthEast",
-                            region == "southwest" ~ "SouthWest")
-  )
-```
-
-The **insurance** data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are `r nrow(insurance)` observations in the data set. We will use the following variables:
-
--   `age_cent`: Mean-centered age in years (the mean age in the data is `r round(mean(insurance$age), 1)` years old)
-
--   `children`: Number of children covered by the insurance policy
-
--   `smoker`: Indicator of whether the the patient smokes regularly (1: yes, 0: no)
-
--   `region`: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest)
-
--   `charges`: Total costs billed by the medical insurance company
-
-***The goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges,*** `log(charges)`***, is used to fit the model.***
+::: appex
+📋 [sta210-sp26.github.io/ae/ae-12-exam-02-review.html](../ae/ae-12-exam-02.html)
+:::
 
 # 

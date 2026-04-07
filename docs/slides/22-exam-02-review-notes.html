@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -379,10 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#outline-of-take-home-portion" id="toc-outline-of-take-home-portion" class="nav-link" data-scroll-target="#outline-of-take-home-portion">Outline of take-home portion</a></li>
   <li><a href="#tips-for-studying" id="toc-tips-for-studying" class="nav-link" data-scroll-target="#tips-for-studying">Tips for studying</a></li>
   <li><a href="#exam-02-content" id="toc-exam-02-content" class="nav-link" data-scroll-target="#exam-02-content">Exam 02 content</a></li>
-  <li><a href="#part-1-multiple-linear-regression" id="toc-part-1-multiple-linear-regression" class="nav-link" data-scroll-target="#part-1-multiple-linear-regression">Part 1: Multiple linear regression</a>
-  <ul class="collapse">
-  <li><a href="#data-insurance-charges" id="toc-data-insurance-charges" class="nav-link" data-scroll-target="#data-insurance-charges">Data: Insurance charges</a></li>
-  </ul></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="22-exam-02-review.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -430,18 +392,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Preliminary analysis due TODAY</p></li>
 <li><p>Presentations April 14 &amp; 16</p></li>
 </ul></li>
-<li><p>Statistics experience due April 15</p></li>
 <li><p>Exam 02 April 9 (in-class), April 9 - 11 (take-home)</p>
 <ul>
 <li>Lecture recordings + practice questions available on website</li>
 </ul></li>
+<li><p>Statistics experience due April 15</p></li>
 </ul>
 </section>
 <section id="exam-02" class="level2">
 <h2 class="anchored" data-anchor-id="exam-02">Exam 02</h2>
 <ul>
-<li><p>In-class: 75 minutes during April 9 lecture</p></li>
-<li><p>Take-home: due April 11 at 11:59pm</p></li>
+<li><p>In-class (36 pts): 75 minutes during April 9 lecture</p></li>
+<li><p>Take-home (14 pts): due April 11 at 11:59pm</p></li>
 <li><p>Note from academic dean required to be excused from any part of the exam</p></li>
 </ul>
 </section>
@@ -458,18 +420,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p>Analysis output included in the exam</p></li>
 <li><p>Just need a pen or pencil. No calculator permitted on exam.</p></li>
+<li><p>Don’t need to simplify responses (e.g., can leave the response as <code>3 + 2</code> instead of <code>5</code>)</p></li>
 </ul>
 </section>
 <section id="outline-of-take-home-portion" class="level2">
 <h2 class="anchored" data-anchor-id="outline-of-take-home-portion">Outline of take-home portion</h2>
 <ul>
-<li><p>Released: April 9 right after class</p></li>
+<li><p>Released: April 9 after class</p></li>
 <li><p>Due: April 11 at 11:59pm</p></li>
 <li><p>Similar in format to a lab/ HW</p>
 <ul>
 <li>Will receive exam questions in README of GitHub repo</li>
 </ul></li>
 <li><p>Push work to GitHub and submit a PDF of responses to Gradescope</p></li>
+<li><p>Ed Discussion will be read-only during exam</p></li>
 </ul>
 </section>
 <section id="tips-for-studying" class="level2">
@@ -510,40 +474,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="part-1-multiple-linear-regression" class="level1">
-<h1>Part 1: Multiple linear regression</h1>
-<section id="data-insurance-charges" class="level2">
-<h2 class="anchored" data-anchor-id="data-insurance-charges">Data: Insurance charges</h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>insurance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/insurance.csv'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sample down 18 - 19 year olds</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>insurance_young <span class="ot">&lt;-</span> insurance <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">==</span> <span class="dv">18</span> <span class="sc">|</span> age <span class="sc">==</span> <span class="dv">19</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">50</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>insurance <span class="ot">&lt;-</span>  insurance <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">19</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(insurance_young) <span class="sc">|&gt;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_charges =</span> <span class="fu">log</span>(charges),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_cent =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">region =</span> <span class="fu">case_when</span>(region <span class="sc">==</span> <span class="st">"northeast"</span> <span class="sc">~</span> <span class="st">"NorthEast"</span>, </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                            region <span class="sc">==</span><span class="st">"northwest"</span> <span class="sc">~</span> <span class="st">"NorthWest"</span>, </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                            region <span class="sc">==</span> <span class="st">"southeast"</span> <span class="sc">~</span> <span class="st">"SouthEast"</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                            region <span class="sc">==</span> <span class="st">"southwest"</span> <span class="sc">~</span> <span class="st">"SouthWest"</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="application-exercise" class="level1">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-12-exam-02.html">sta210-sp26.github.io/ae/ae-12-exam-02-review.html</a></p>
 </div>
-<p>The <strong>insurance</strong> data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are 1251 observations in the data set. We will use the following variables:</p>
-<ul>
-<li><p><code>age_cent</code>: Mean-centered age in years (the mean age in the data is 40.6 years old)</p></li>
-<li><p><code>children</code>: Number of children covered by the insurance policy</p></li>
-<li><p><code>smoker</code>: Indicator of whether the the patient smokes regularly (1: yes, 0: no)</p></li>
-<li><p><code>region</code>: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest)</p></li>
-<li><p><code>charges</code>: Total costs billed by the medical insurance company</p></li>
-</ul>
-<p><strong><em>The goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges,</em></strong> <code>log(charges)</code><strong><em>, is used to fit the model.</em></strong></p>
-</section>
 </section>
 <section id="section" class="level1">
 <h1></h1>
@@ -552,6 +487,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 </main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

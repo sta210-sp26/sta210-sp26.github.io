@@ -3185,28 +3185,28 @@
     "href": "slides/22-exam-02-review.html#announcements",
     "title": "Exam 02 review",
     "section": "Announcements",
-    "text": "Announcements\n\nLab 07 due TODAY at 11:59pm\nProject:\n\nPreliminary analysis due TODAY\nPresentations April 14 & 16\n\nStatistics experience due April 15\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website"
+    "text": "Announcements\n\nLab 07 due TODAY at 11:59pm\nProject:\n\nPreliminary analysis due TODAY\nPresentations April 14 & 16\n\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website\n\nStatistics experience due April 15"
   },
   {
     "objectID": "slides/22-exam-02-review.html#exam-02",
     "href": "slides/22-exam-02-review.html#exam-02",
     "title": "Exam 02 review",
     "section": "Exam 02",
-    "text": "Exam 02\n\nIn-class: 75 minutes during April 9 lecture\nTake-home: due April 11 at 11:59pm\nNote from academic dean required to be excused from any part of the exam"
+    "text": "Exam 02\n\nIn-class (36 pts): 75 minutes during April 9 lecture\nTake-home (14 pts): due April 11 at 11:59pm\nNote from academic dean required to be excused from any part of the exam"
   },
   {
     "objectID": "slides/22-exam-02-review.html#outline-of-in-class-portion",
     "href": "slides/22-exam-02-review.html#outline-of-in-class-portion",
     "title": "Exam 02 review",
     "section": "Outline of in-class portion",
-    "text": "Outline of in-class portion\n\nClosed-book, closed-note.\nPotential question types:\n\nMultiple choice\nShort answer (no more than 3 sentences)\nInterpretation\nEvaluate a response.\n\nAnalysis output included in the exam\nJust need a pen or pencil. No calculator permitted on exam."
+    "text": "Outline of in-class portion\n\nClosed-book, closed-note.\nPotential question types:\n\nMultiple choice\nShort answer (no more than 3 sentences)\nInterpretation\nEvaluate a response.\n\nAnalysis output included in the exam\nJust need a pen or pencil. No calculator permitted on exam.\nDon’t need to simplify responses (e.g., can leave the response as 3 + 2 instead of 5)"
   },
   {
     "objectID": "slides/22-exam-02-review.html#outline-of-take-home-portion",
     "href": "slides/22-exam-02-review.html#outline-of-take-home-portion",
     "title": "Exam 02 review",
     "section": "Outline of take-home portion",
-    "text": "Outline of take-home portion\n\nReleased: April 9 right after class\nDue: April 11 at 11:59pm\nSimilar in format to a lab/ HW\n\nWill receive exam questions in README of GitHub repo\n\nPush work to GitHub and submit a PDF of responses to Gradescope"
+    "text": "Outline of take-home portion\n\nReleased: April 9 after class\nDue: April 11 at 11:59pm\nSimilar in format to a lab/ HW\n\nWill receive exam questions in README of GitHub repo\n\nPush work to GitHub and submit a PDF of responses to Gradescope\nEd Discussion will be read-only during exam"
   },
   {
     "objectID": "slides/22-exam-02-review.html#tips-for-studying",
@@ -3223,46 +3223,39 @@
     "text": "Exam 02 content\nConcepts from the first half of the semester continue to apply, but the exam will focus on new content since Exam 01.\n\n\n\nMulticollinearity\nVariable transformations\nModel comparison\nCross validation\nProbabilities, odds, odds ratios\nFitting and interpreting logistic models\n\n\n\nPredicted probabilities and classification\nROC curve and AUC\nInference for logistic regression\nData science ethics (high level)\nCausal inference (high level)"
   },
   {
-    "objectID": "slides/22-exam-02-review.html#data-insurance-charges",
-    "href": "slides/22-exam-02-review.html#data-insurance-charges",
-    "title": "Exam 02 review",
-    "section": "Data: Insurance charges",
-    "text": "Data: Insurance charges\n\ninsurance &lt;- read_csv('data/insurance.csv')\n\n# sample down 18 - 19 year olds\nset.seed(210)\ninsurance_young &lt;- insurance |&gt;\n  filter(age == 18 | age == 19) |&gt;\n  sample_n(50)\n\ninsurance &lt;-  insurance |&gt;\n  filter(age &gt; 19) |&gt;\n  bind_rows(insurance_young) |&gt;\n  mutate(log_charges = log(charges),\n         age_cent = age - mean(age),\n         region = case_when(region == \"northeast\" ~ \"NorthEast\", \n                            region ==\"northwest\" ~ \"NorthWest\", \n                            region == \"southeast\" ~ \"SouthEast\",\n                            region == \"southwest\" ~ \"SouthWest\")\n  )\n\nThe insurance data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are 1251 observations in the data set. We will use the following variables:\n\nage_cent: Mean-centered age in years (the mean age in the data is 40.6 years old)\nchildren: Number of children covered by the insurance policy\nsmoker: Indicator of whether the the patient smokes regularly (1: yes, 0: no)\nregion: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest)\ncharges: Total costs billed by the medical insurance company\n\nThe goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges, log(charges), is used to fit the model."
-  },
-  {
     "objectID": "slides/22-exam-02-review-notes.html",
     "href": "slides/22-exam-02-review-notes.html",
     "title": "Exam 02 review",
     "section": "",
-    "text": "Lab 07 due TODAY at 11:59pm\nProject:\n\nPreliminary analysis due TODAY\nPresentations April 14 & 16\n\nStatistics experience due April 15\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website"
+    "text": "Lab 07 due TODAY at 11:59pm\nProject:\n\nPreliminary analysis due TODAY\nPresentations April 14 & 16\n\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website\n\nStatistics experience due April 15"
   },
   {
     "objectID": "slides/22-exam-02-review-notes.html#announcements",
     "href": "slides/22-exam-02-review-notes.html#announcements",
     "title": "Exam 02 review",
     "section": "",
-    "text": "Lab 07 due TODAY at 11:59pm\nProject:\n\nPreliminary analysis due TODAY\nPresentations April 14 & 16\n\nStatistics experience due April 15\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website"
+    "text": "Lab 07 due TODAY at 11:59pm\nProject:\n\nPreliminary analysis due TODAY\nPresentations April 14 & 16\n\nExam 02 April 9 (in-class), April 9 - 11 (take-home)\n\nLecture recordings + practice questions available on website\n\nStatistics experience due April 15"
   },
   {
     "objectID": "slides/22-exam-02-review-notes.html#exam-02",
     "href": "slides/22-exam-02-review-notes.html#exam-02",
     "title": "Exam 02 review",
     "section": "Exam 02",
-    "text": "Exam 02\n\nIn-class: 75 minutes during April 9 lecture\nTake-home: due April 11 at 11:59pm\nNote from academic dean required to be excused from any part of the exam"
+    "text": "Exam 02\n\nIn-class (36 pts): 75 minutes during April 9 lecture\nTake-home (14 pts): due April 11 at 11:59pm\nNote from academic dean required to be excused from any part of the exam"
   },
   {
     "objectID": "slides/22-exam-02-review-notes.html#outline-of-in-class-portion",
     "href": "slides/22-exam-02-review-notes.html#outline-of-in-class-portion",
     "title": "Exam 02 review",
     "section": "Outline of in-class portion",
-    "text": "Outline of in-class portion\n\nClosed-book, closed-note.\nPotential question types:\n\nMultiple choice\nShort answer (no more than 3 sentences)\nInterpretation\nEvaluate a response.\n\nAnalysis output included in the exam\nJust need a pen or pencil. No calculator permitted on exam."
+    "text": "Outline of in-class portion\n\nClosed-book, closed-note.\nPotential question types:\n\nMultiple choice\nShort answer (no more than 3 sentences)\nInterpretation\nEvaluate a response.\n\nAnalysis output included in the exam\nJust need a pen or pencil. No calculator permitted on exam.\nDon’t need to simplify responses (e.g., can leave the response as 3 + 2 instead of 5)"
   },
   {
     "objectID": "slides/22-exam-02-review-notes.html#outline-of-take-home-portion",
     "href": "slides/22-exam-02-review-notes.html#outline-of-take-home-portion",
     "title": "Exam 02 review",
     "section": "Outline of take-home portion",
-    "text": "Outline of take-home portion\n\nReleased: April 9 right after class\nDue: April 11 at 11:59pm\nSimilar in format to a lab/ HW\n\nWill receive exam questions in README of GitHub repo\n\nPush work to GitHub and submit a PDF of responses to Gradescope"
+    "text": "Outline of take-home portion\n\nReleased: April 9 after class\nDue: April 11 at 11:59pm\nSimilar in format to a lab/ HW\n\nWill receive exam questions in README of GitHub repo\n\nPush work to GitHub and submit a PDF of responses to Gradescope\nEd Discussion will be read-only during exam"
   },
   {
     "objectID": "slides/22-exam-02-review-notes.html#tips-for-studying",
@@ -3277,13 +3270,6 @@
     "title": "Exam 02 review",
     "section": "Exam 02 content",
     "text": "Exam 02 content\nConcepts from the first half of the semester continue to apply, but the exam will focus on new content since Exam 01.\n\n\n\nMulticollinearity\nVariable transformations\nModel comparison\nCross validation\nProbabilities, odds, odds ratios\nFitting and interpreting logistic models\n\n\n\nPredicted probabilities and classification\nROC curve and AUC\nInference for logistic regression\nData science ethics (high level)\nCausal inference (high level)"
-  },
-  {
-    "objectID": "slides/22-exam-02-review-notes.html#data-insurance-charges",
-    "href": "slides/22-exam-02-review-notes.html#data-insurance-charges",
-    "title": "Exam 02 review",
-    "section": "Data: Insurance charges",
-    "text": "Data: Insurance charges\n\ninsurance &lt;- read_csv('data/insurance.csv')\n\n# sample down 18 - 19 year olds\nset.seed(210)\ninsurance_young &lt;- insurance |&gt;\n  filter(age == 18 | age == 19) |&gt;\n  sample_n(50)\n\ninsurance &lt;-  insurance |&gt;\n  filter(age &gt; 19) |&gt;\n  bind_rows(insurance_young) |&gt;\n  mutate(log_charges = log(charges),\n         age_cent = age - mean(age),\n         region = case_when(region == \"northeast\" ~ \"NorthEast\", \n                            region ==\"northwest\" ~ \"NorthWest\", \n                            region == \"southeast\" ~ \"SouthEast\",\n                            region == \"southwest\" ~ \"SouthWest\")\n  )\n\nThe insurance data set contains information about patient characteristics and the total charges billed by a medical insurance company. There are 1251 observations in the data set. We will use the following variables:\n\nage_cent: Mean-centered age in years (the mean age in the data is 40.6 years old)\nchildren: Number of children covered by the insurance policy\nsmoker: Indicator of whether the the patient smokes regularly (1: yes, 0: no)\nregion: Region where the patient lives (NorthEast, SouthEast, NorthWest, SouthWest)\ncharges: Total costs billed by the medical insurance company\n\nThe goal of the analysis is to use age, number of children covered by the insurance policy, smoking status, and region to predict the total costs billed by the medical insurance company. The log-transformed value of charges, log(charges), is used to fit the model."
   },
   {
     "objectID": "slides/21-causal-inference.html#announcements",
@@ -5634,14 +5620,14 @@
     "href": "ae/ae-12-exam-02-review.html#exercise-1",
     "title": "AE 12: Exam 02 Review",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWhy do we use log(charges) instead of the original response variable in this analysis?"
+    "text": "Exercise 1\nWhat is the primary reason we use log(charges) instead of the original response variable in this analysis?\n🔗 https://forms.office.com/r/nCr0Q3m1XS"
   },
   {
     "objectID": "ae/ae-12-exam-02-review.html#exercise-2",
     "href": "ae/ae-12-exam-02-review.html#exercise-2",
     "title": "AE 12: Exam 02 Review",
     "section": "Exercise 2",
-    "text": "Exercise 2\nThe output of the main effects model is below.\n\n\nCode\nmodel1 &lt;- lm(log_charges ~ age_cent + children + smoker + region, data = insurance)\n\ntidy(model1) |&gt;\n  kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.819\n0.027\n320.905\n0.000\n\n\nage_cent\n0.034\n0.001\n37.956\n0.000\n\n\nchildren\n0.092\n0.010\n9.252\n0.000\n\n\nsmokeryes\n1.492\n0.030\n50.284\n0.000\n\n\nregionNorthWest\n-0.070\n0.034\n-2.039\n0.042\n\n\nregionSouthEast\n-0.088\n0.034\n-2.612\n0.009\n\n\nregionSouthWest\n-0.100\n0.035\n-2.884\n0.004\n\n\n\n\n\n\nInterpret age_cent in the context of the data in terms of charges (not log(charges))\nInterpret regionSouthEast in the context of the data in terms of charges (not log(charges))."
+    "text": "Exercise 2\nThe output of the main effects model is below.\n\n\nCode\nmodel1 &lt;- lm(log_charges ~ age_cent + children + smoker + region, data = insurance)\n\ntidy(model1) |&gt;\n  kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.819\n0.027\n320.905\n0.000\n\n\nage_cent\n0.034\n0.001\n37.956\n0.000\n\n\nchildren\n0.092\n0.010\n9.252\n0.000\n\n\nsmokeryes\n1.492\n0.030\n50.284\n0.000\n\n\nregionNorthWest\n-0.070\n0.034\n-2.039\n0.042\n\n\nregionSouthEast\n-0.088\n0.034\n-2.612\n0.009\n\n\nregionSouthWest\n-0.100\n0.035\n-2.884\n0.004\n\n\n\n\n\n\nInterpret age_cent in the context of the data in terms of charges (not log(charges)).\nInterpret regionSouthEast in the context of the data in terms of charges (not log(charges))."
   },
   {
     "objectID": "ae/ae-12-exam-02-review.html#exercise-3",
@@ -5662,21 +5648,21 @@
     "href": "ae/ae-12-exam-02-review.html#exercise-5",
     "title": "AE 12: Exam 02 Review",
     "section": "Exercise 5",
-    "text": "Exercise 5\nThe code for cross validation is below. Describe the process of cross validation. You can use the code as a guide.\nThen, state which model you select based on the results of cross validation.\n\n\nCode\nset.seed(210)\n\n\nfolds &lt;- vfold_cv(insurance_train, v = 5)\n\n# main effects model\nmain_effects_workflow &lt;- workflow() |&gt; \n  add_model(linear_reg()) |&gt; \n  add_formula(log_charges ~ age_cent + children + smoker + region) \n\nmain_effects_cv &lt;- main_effects_workflow |&gt; \n  fit_resamples(resamples = folds)\n\ncollect_metrics(main_effects_cv, summarize = TRUE)\n\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config        \n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 rmse    standard   0.415     5  0.0164 pre0_mod0_post0\n2 rsq     standard   0.777     5  0.0129 pre0_mod0_post0\n\n\nCode\n# interaction effects model\ninteraction_effects_workflow &lt;- workflow() |&gt; \n  add_model(linear_reg()) |&gt; \n  add_formula(log_charges ~ age_cent + children + smoker + region + age_cent * smoker) \n\ninteraction_effects_cv &lt;- interaction_effects_workflow |&gt; \n  fit_resamples(resamples = folds)\n\ncollect_metrics(interaction_effects_cv, summarize = TRUE)\n\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config        \n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 rmse    standard   0.377     5  0.0161 pre0_mod0_post0\n2 rsq     standard   0.815     5  0.0113 pre0_mod0_post0"
+    "text": "Exercise 5\nThe code for cross validation is below. Describe the process of cross validation. You can use the code as a guide.\nThen, state which model you select based on the results of cross validation.\n\n\nCode\nset.seed(210)\n\n\nfolds &lt;- vfold_cv(insurance_train, v = 5)\n\n# main effects model\nmain_effects_workflow &lt;- workflow() |&gt; \n  add_model(linear_reg()) |&gt; \n  add_formula(log_charges ~ age_cent + children + smoker + region) \n\nmain_effects_cv &lt;- main_effects_workflow |&gt; \n  fit_resamples(resamples = folds)\n\n# interaction effects model\ninteraction_effects_workflow &lt;- workflow() |&gt; \n  add_model(linear_reg()) |&gt; \n  add_formula(log_charges ~ age_cent + children + smoker + region + age_cent * smoker) \n\ninteraction_effects_cv &lt;- interaction_effects_workflow |&gt; \n  fit_resamples(resamples = folds)\n\n# collect metrics\ncollect_metrics(main_effects_cv, summarize = TRUE)\n\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config        \n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 rmse    standard   0.415     5  0.0164 pre0_mod0_post0\n2 rsq     standard   0.777     5  0.0129 pre0_mod0_post0\n\n\nCode\ncollect_metrics(interaction_effects_cv, summarize = TRUE)\n\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config        \n  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;          \n1 rmse    standard   0.377     5  0.0161 pre0_mod0_post0\n2 rsq     standard   0.815     5  0.0113 pre0_mod0_post0"
   },
   {
     "objectID": "ae/ae-12-exam-02-review.html#data-social-media-ads",
     "href": "ae/ae-12-exam-02-review.html#data-social-media-ads",
     "title": "AE 12: Exam 02 Review",
     "section": "Data: Social media ads",
-    "text": "Data: Social media ads\n\n\nCode\nads &lt;- read_csv(\"data/Social_Network_Ads.csv\")\n# https://www.kaggle.com/datasets/rakeshrau/social-network-ads\n\n# sample to have even purchases / not purchases\n\nset.seed(210)\n#no_purchase &lt;- ads |&gt;\n#  filter(Purchased == 0) |&gt;\n#  sample_n(143)\n\n# Make purchased a factor\n# Split age in categories \n# Rescale salary by 1000s\nads &lt;- ads |&gt;\n # filter(Purchased == 1) |&gt;\n # bind_rows(no_purchase) |&gt;\n  mutate(purchased = factor(Purchased),\n         salary = EstimatedSalary/1000,\n         age_category = case_when(\n           Age &lt; 35 ~ \"18-34\",\n           Age &gt;= 35 & Age &lt; 50 ~ \"35-49\", \n           TRUE ~ \"50+\"\n         ))\n\n\nThe ads data set contains information about users on a social media website and whether they purchased a product through an advertisement (ad) on the site. There are 400 observations in the data set. We will use the following variables:\n\nsalary: Individual’s estimated salary (in thousands of dollars)\nage_category: Category indicating an individual’s age in years (18-34, 35-49, 50+)\npurchased: Whether an individual purchased a product through an ad on the social media website (1: yes, 0: no)\n\nThe goal of the analysis is to predict the odds an individual purchases a product through an on the social media website based on their estimated salary and age."
+    "text": "Data: Social media ads\n\n\nCode\nads &lt;- read_csv(\"data/Social_Network_Ads.csv\")\n# https://www.kaggle.com/datasets/rakeshrau/social-network-ads\n\n# sample to have even purchases / not purchases\n\nset.seed(210)\nads &lt;- ads |&gt;\n # filter(Purchased == 1) |&gt;\n # bind_rows(no_purchase) |&gt;\n  mutate(purchased = factor(Purchased),\n         salary = EstimatedSalary/1000,\n         age_category = case_when(\n           Age &lt; 35 ~ \"18-34\",\n           Age &gt;= 35 & Age &lt; 50 ~ \"35-49\", \n           TRUE ~ \"50+\"\n         ))\n\n\nThe ads data set contains information about users on a social media website and whether they purchased a product through an advertisement (ad) on the site. There are 400 observations in the data set. We will use the following variables:\n\nsalary: Individual’s estimated salary (in thousands of dollars)\nage_category: Category indicating an individual’s age in years (18-34, 35-49, 50+)\npurchased: Whether an individual purchased a product through an ad on the social media website (1: yes, 0: no)\n\nThe goal of the analysis is to predict the odds an individual purchases a product through an ad on the social media website based on their estimated salary and age."
   },
   {
     "objectID": "ae/ae-12-exam-02-review.html#exercise-6",
     "href": "ae/ae-12-exam-02-review.html#exercise-6",
     "title": "AE 12: Exam 02 Review",
     "section": "Exercise 6",
-    "text": "Exercise 6\nWe begin by fitting a model using age_category to predict the odds an individual purchases a product through a social media ad. The output is below.\n\n\nCode\nad_age_fit &lt;- glm(purchased ~ age_category, data = ads,\n                  family = \"binomial\")\n\ntidy(ad_age_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-2.244\n0.281\n-7.984\n0\n\n\nage_category35-49\n1.851\n0.316\n5.862\n0\n\n\nage_category50+\n4.506\n0.547\n8.229\n0\n\n\n\n\n\n\nWhat is the odds ratio of 35-49 versus 18-34?\nWhat are the odds an 52 year old purchases a product from a social media website? What is the probability?"
+    "text": "Exercise 6\nWe begin by fitting a model using age_category to predict the odds an individual purchases a product through a social media ad. The output is below.\n\n\nCode\nad_age_fit &lt;- glm(purchased ~ age_category, data = ads,\n                  family = \"binomial\")\n\ntidy(ad_age_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-2.244\n0.281\n-7.984\n0\n\n\nage_category35-49\n1.851\n0.316\n5.862\n0\n\n\nage_category50+\n4.506\n0.547\n8.229\n0\n\n\n\n\n\n\nWhat is the predicted odds ratio of 35-49 versus 18-34?\nWhat are the predicted odds an 52 year old purchases a product from a social media website?\nWhat is the predicted probability for this individual?"
   },
   {
     "objectID": "ae/ae-12-exam-02-review.html#exercise-7",

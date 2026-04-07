@@ -11,7 +11,7 @@ execute:
 ---
 
 ::: callout-important
-Go to the course GitHub organization and locate your `ae-12` repo to get started
+There is no repo for this `ae`.
 :::
 
 ## Packages
@@ -135,6 +135,10 @@ interaction_effects_workflow <- workflow() |>
 interaction_effects_cv <- interaction_effects_workflow |> 
   fit_resamples(resamples = folds)
 
+```
+
+```{r}
+
 # collect metrics
 collect_metrics(main_effects_cv, summarize = TRUE)
 collect_metrics(interaction_effects_cv, summarize = TRUE)
@@ -247,13 +251,3 @@ Suppose we are comparing models, such that different models are selected based o
 -   When might we prefer the model selected by AIC?
 
 -   When might we prefer the model selected by BIC?
-
-# Submission
-
-::: callout-important
-To submit the AE:
-
--   Render the document to produce the PDF with all of your work from today’s class.
-
--   Push all your work to your AE repo on GitHub. You’re done! 🎉
-:::

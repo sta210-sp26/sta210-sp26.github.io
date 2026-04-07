@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Insert your name">
+<meta name="dcterms.date" content="2026-01-06">
 
-<title>Exam 02 practice – STA 210 - Spring 2026</title>
+<title>AE 11: Multinomial logistic regression – STA 210 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +22,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./exam-01-practice.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e3e41cc2c0ce9679c3508be82c967636.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e3e41cc2c0ce9679c3508be82c967636.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exam-02-practice.html">Exam 02 practice</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 11: Multinomial logistic regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,9 +132,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/sta210-sp26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
@@ -130,25 +166,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./support.html" class="sidebar-item-text sidebar-link">
+  <a href="../support.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Support</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
@@ -163,19 +199,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-access.html" class="sidebar-item-text sidebar-link">
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
+  <a href="../computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Troubleshooting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-r-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
 </li>
@@ -192,31 +228,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hw/hw-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 01</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hw/hw-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../hw/hw-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 02</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hw/hw-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../hw/hw-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 03</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hw/hw-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 04</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hw/stats-experience.html" class="sidebar-item-text sidebar-link">
+  <a href="../hw/stats-experience.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistics experience</span></a>
   </div>
 </li>
@@ -233,49 +269,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-00.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-00.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 00</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 01</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 02</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 03</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 04</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-05.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 05</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-06.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 06</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab-07.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab-07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 07</span></a>
   </div>
 </li>
@@ -292,13 +328,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project.html" class="sidebar-item-text sidebar-link">
+  <a href="../project.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project-tips.html" class="sidebar-item-text sidebar-link">
+  <a href="../project-tips.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips + resources</span></a>
   </div>
 </li>
@@ -306,7 +342,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./links.html" class="sidebar-item-text sidebar-link">
+  <a href="../links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful links</span></a>
   </div>
 </li>
@@ -318,13 +354,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exam-01-practice.html" class="sidebar-item-text sidebar-link">
+  <a href="../exam-01-practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exam 01 practice</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exam-02-practice.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exam-02-practice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exam 02 practice</span></a>
   </div>
 </li>
@@ -338,24 +374,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#multiple-linear-variable-transformations-multicollinearity-model-comparison" id="toc-multiple-linear-variable-transformations-multicollinearity-model-comparison" class="nav-link active" data-scroll-target="#multiple-linear-variable-transformations-multicollinearity-model-comparison">Multiple linear (variable transformations, multicollinearity, model comparison)</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  </ul></li>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a>
-  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-15" id="toc-exercise-15" class="nav-link" data-scroll-target="#exercise-15">Exercise 15</a></li>
-  <li><a href="#exercise-4-1" id="toc-exercise-4-1" class="nav-link" data-scroll-target="#exercise-4-1">Exercise 4</a></li>
-  <li><a href="#exercise-13" id="toc-exercise-13" class="nav-link" data-scroll-target="#exercise-13">Exercise 13</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#exercise-16" id="toc-exercise-16" class="nav-link" data-scroll-target="#exercise-16">Exercise 16</a></li>
-  <li><a href="#exercise-17" id="toc-exercise-17" class="nav-link" data-scroll-target="#exercise-17">Exercise 17</a></li>
-  <li><a href="#exercise-18" id="toc-exercise-18" class="nav-link" data-scroll-target="#exercise-18">Exercise 18</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   </ul></li>
-  <li><a href="#relevant-assignments-and-aes" id="toc-relevant-assignments-and-aes" class="nav-link" data-scroll-target="#relevant-assignments-and-aes">Relevant assignments and AEs</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta210-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -364,14 +395,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exam 02 practice</h1>
+<h1 class="title">AE 11: Multinomial logistic regression</h1>
+<p class="subtitle lead">Sesame Street</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Insert your name </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 6, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -391,89 +435,126 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page contains practice problems to help prepare for Exam 01. This set of practice problems is <u><strong>not</strong></u> comprehensive.<br>
-<br>
-There is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.</p>
+<p>Go to the course GitHub organization and locate your ae-10 repo to get started.</p>
+<p>Render, commit, and push your responses to GitHub by the end of class to submit your AE.</p>
 </div>
 </div>
-<section id="multiple-linear-variable-transformations-multicollinearity-model-comparison" class="level1">
-<h1>Multiple linear (variable transformations, multicollinearity, model comparison)</h1>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nnet) <span class="co"># for multinomial logistic regression</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Today’s data comes from <a href="https://files.eric.ed.gov/fulltext/ED122799.pdf">an experiment</a> by the Educational Testing Service to test the effectiveness of the children’s program <em>Sesame Street</em>. <em>Sesame Street</em> is an educational program designed to teach young children basic educational skills such as counting and the alphabet</p>
+<p>As part of the experiment, children were assigned to one of two groups: those who were encouraged to watch the program and those who were not.</p>
+<p>The show is only effective if children watch it, so we want to understand what effect the encouragement had on the frequency children watched the program.</p>
+<p><strong>Response:</strong></p>
+<ul>
+<li><code>viewcat</code>
+<ul>
+<li>1: rarely watched show</li>
+<li>2: watched once or twice a week</li>
+<li>3: watched three to five times a week</li>
+<li>4: watched show on average more than five times a week</li>
+</ul></li>
+</ul>
+<p><strong>Predictors:</strong></p>
+<ul>
+<li><code>age</code>: child’s age in months</li>
+<li><code>prenumb</code>: score on numbers pretest (0 to 54)</li>
+<li><code>prelet</code>: score on letters pretest (0 to 58)</li>
+<li><code>viewenc</code>: 1: encouraged to watch, 0: not encouraged</li>
+<li><code>site:</code>
+<ul>
+<li>1: three to five year old from urban area</li>
+<li>2: four year old from suburban area</li>
+<li>3: from rural area with high socioeconomic status</li>
+<li>4: from rural area with low socioeconomic status</li>
+<li>5: from Spanish speaking home</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sesame <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bit.ly/sesame-street-data"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mean-center relevant continuous variables, make categorical variables factors</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sesame <span class="ot">&lt;-</span> sesame <span class="sc">|&gt;</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">viewcat =</span> <span class="fu">factor</span>(viewcat), </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">site =</span> <span class="fu">factor</span>(site), </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">prenumbCent =</span> prenumb <span class="sc">-</span> <span class="fu">mean</span>(prenumb), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">preletCent =</span> prelet <span class="sc">-</span> <span class="fu">mean</span>(prelet), </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">ageCent =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">viewenc =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(viewenc <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"1"</span>, <span class="st">"0"</span>))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Consider the model on <a href="https://sta210-sp26.github.io/slides/13-variable-transformations.html#/interpretation">this slide</a> using education and income inequality to understand variability in healthcare expenditure. Note that the log-transformed response was used to fit the model.</p>
-<p>Describe the predicted difference in healthcare between a country with <code>income_inequality = 30</code> and <code>education = Low</code> and a country with <code>income_inequality = 50</code> and <code>education = High</code>.</p>
+<p>Create a plot to visualize the relationship between the response, <code>viewcat</code> and the primary variable of interest in this analysis, <code>viewenc</code>. What do you observe from the plot?</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Consider the model on <a href="https://sta210-sp26.github.io/slides/13-variable-transformations.html#/interpretation-2">this slide</a> that uses log-transformed healthcare expenditure, income inequality, and education to explain variability in life expectancy.</p>
-<p>Describe the predicted difference in life expectancy between a country with <code>healthcare_expend = 2500</code>, <code>income_inequality = 30</code>, <code>education = Low</code> and a country with <code>healthcare_expend = 5000</code>, <code>income_inequality = 20</code>, <code>education = Low</code> .</p>
+<p>Create a plot to visualize the relationship between the response, <code>viewcat</code> and <code>age</code>. What do you observe from the plot?</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Explain how the presence of multicollinearity impacts the model coefficients, predictions from the model, and inferences that can be made from a model.</p>
+<p>Fit a model using the <code>ageCent</code> and <code>viewenc</code> to understand the odds a child is in a given category of <code>viewcat</code>. Display the model including 95% confidence intervals for the coefficients.</p>
 </section>
-</section>
-<section id="logistic-regression" class="level1">
-<h1>Logistic regression</h1>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p><em>Adapted from Introduction to Statistical Learning</em></p>
 <ul>
-<li><p>On average, what fraction of people with an odds of 0.37 of defaulting on their credit card payment will in fact default?</p></li>
-<li><p>Suppose an individual has a 16% chance of defaulting on their credit card payment. What are the odds they will default?</p></li>
+<li><p>What is the baseline category for <code>viewcat</code>? What is the baseline category for <code>viewenc</code>?</p></li>
+<li><p>Interpret the intercept associated with the odds of a child being in the category <code>viewcat == 2</code> versus the baseline.</p></li>
+<li><p>Interpret the effect of age in terms of the odds of a child being in the category <code>viewcat == 2</code> versus the baseline. Based on the confidence interval for the coefficient, is the numeric predictor a statistically significant predictor of viewership?</p></li>
 </ul>
 </section>
-<section id="exercise-15" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-15">Exercise 15</h2>
-<p>Recall the model using age and education to predict odds of being high risk for heart disease.</p>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Should the interaction between <code>ageCent</code> and <code>viewenc</code> be included in the model? Show any analysis used to make your conclusion.</p>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>The primary objective of the experiment was to understand the effect of encouragement on viewership. Does encouragement have a significant effect on viewership after adjusting for age? If so, describe the effect. Otherwise, explain why not.</p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
 <ul>
-<li><p>Show mathematically why the interpretation for the slope for <code>age</code> in terms of the log-odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-log-odds-1">this slide</a>.</p></li>
-<li><p>Show mathematically why the interpretation for the slope of <code>age</code> in terms of the odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-odds-1">this slide</a>.</p></li>
+<li><p>Use the model selected in Exercise 5 to compute the predicted probabilities and predicted classes for <code>viewcat</code>.</p></li>
+<li><p>Make a confusion matrix.</p></li>
+<li><p>What percentage of observations were correctly classified?</p></li>
 </ul>
 </section>
-<section id="exercise-4-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-1">Exercise 4</h2>
-<p>Write the hypotheses being tested in the drop-in-deviance test output on <a href="https://sta221-sp25.netlify.app/slides/22-logistic-inference#/add-interactions-with-currentsmoker">this slide</a>. Explain how each value in the table is computed.</p>
-</section>
-<section id="exercise-13" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-13">Exercise 13</h2>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <ul>
-<li><p>What is an advantage of using a drop-in-deviance test instead of AIC (or BIC) to compare regression models?</p></li>
-<li><p>What is an advantage of using AIC (or BIC) instead of a drop-in-deviance test to compare regression models?</p></li>
-</ul>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-</section>
-<section id="exercise-16" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-16">Exercise 16</h2>
-<p>Recall the model using age and education to predict odds of being high risk for heart disease.</p>
-<ul>
-<li><p>Show mathematically why the interpretation for the slope for <code>education4</code> in terms of the log-odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-log-odds">this slide</a>.</p></li>
-<li><p>Show mathematically why the interpretation for the slope of <code>education4</code>in terms of the odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-odds">this slide</a>.</p></li>
-</ul>
-</section>
-<section id="exercise-17" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-17">Exercise 17</h2>
-<p>Explain why the slope of the logistic regression model is called the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor).</p>
-</section>
-<section id="exercise-18" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-18">Exercise 18</h2>
-<ul>
-<li><p>Draw an example of an ROC curve such that the AUC is about 0.55</p></li>
-<li><p>Draw an example of an ROC curve such that the AUC is about 0.9.</p></li>
-<li><p>Explain what each point on an ROC curve represents.</p></li>
+<li><p>Assess the overall model performance.</p></li>
+<li><p>Were there particular categories in which the model has a harder time differentiating?</p></li>
 </ul>
 </section>
 </section>
-<section id="relevant-assignments-and-aes" class="level1">
-<h1>Relevant assignments and AEs</h1>
-<p>The following assignments and AEs cover Exam 02 content. Ask yourself “why” questions as your review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.</p>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To submit the AE:</p>
 <ul>
-<li><p>HW 03, HW 04</p></li>
-<li><p>Lab 05, Lab 06, Lab 07</p></li>
-<li><p>AE 04, AE 05</p></li>
+<li><p>Render the document to produce the PDF with all of your work from today’s class.</p></li>
+<li><p>Push all your work to your AE repo on GitHub. You’re done! 🎉</p></li>
 </ul>
+</div>
+</div>
 
 
 </section>
@@ -879,15 +960,6 @@ There is no answer key for these problems. You are encouraged to ask questions d
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./exam-01-practice.html" class="pagination-link" aria-label="Exam 01 practice">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exam 01 practice</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

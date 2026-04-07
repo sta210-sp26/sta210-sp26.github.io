@@ -147,10 +147,8 @@ Concepts from the first half of the semester continue to apply, but the exam wil
 :::
 :::::
 
-# Application exercise 
+# Application exercise
 
 ::: appex
-📋 [sta210-sp26.github.io/ae/ae-12-exam-02-review.html](../ae/ae-12-exam-02.html)
+📋 [sta210-sp26.github.io/ae/ae-12-exam-02-review.html](../ae/ae-12-exam-02-review.html)
 :::
-
-# 

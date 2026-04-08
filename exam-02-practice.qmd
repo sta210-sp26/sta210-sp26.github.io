@@ -55,7 +55,7 @@ loans_full_schema <- droplevels(openintro::loans_full_schema)
 
 -   Split the data into training (80%) and testing (20%) sets.
 
--   Use the training data to run 10-fold cross validation on the model that predicts `interest_rate` from debt to income ratio (`debt_to_income`), the term of loan (`term`), the number of inquiries (`credit_checks`) into the applicant’s credit during the last 12 months (`inquiries_last_12m`), whether there are any bankruptcies listed in the public record for this applicant (`bankrupt`), and the type of application (`application_type`). Fit the model such that the effect of debt to income ratio differs by application type.
+-   Use the training data to run 10-fold cross validation on the model that predicts `interest_rate` from debt to income ratio (`debt_to_income`), the term of loan (`term`), the number of inquiries into the applicant’s credit during the last 12 months (`inquiries_last_12m`), and the type of application (`application_type`). Fit the model such that the effect of debt to income ratio differs by application type.
 
 -   Explain in words how cross validation is conducted.
 
@@ -145,7 +145,7 @@ Use a drop-in-deviance test to evaluate whether the interaction between `Force` 
 
 ## Exercise 10
 
-Explain why the slope of the logistic regression model is called the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor).
+Explain how the slope of the logistic regression model is related to the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor).
 
 ## Exercise 11
 

@@ -8,7 +8,7 @@ title: Final project
 
 [Exploratory data analysis](#eda) due Tuesday, March 24
 
-[Preliminary analysis] due April 7
+[Preliminary analysis](#prelim-analysis) due April 7
 
 [Presentation](#presentation) + [Presentation comments](#presentation-comments) due Tuesday, April 14 and Thursday, April 16
 
@@ -267,7 +267,7 @@ Use no more than 6 content slides + 1 title slide to ensure you have enough time
 
 -   Slide 3 - 4: Highlights from the EDA (include EDA on the response variable and focus on the most important patterns or relationships that may motivate your modeling approach)
 
--   Slide 5: Final model and key predictors
+-   Slide 5: Current model and key predictors
 
 -   Slide 6: Conclusions drawn from model
 
@@ -275,7 +275,7 @@ Use no more than 6 content slides + 1 title slide to ensure you have enough time
 
 The presentation is worth 15 points. It will be graded based on the following:
 
--   **Content:** The student told a unified story that clearly introduced the subject matter, research question, and exploration of the data.
+-   **Content:** The student told a unified story that clearly introduced the subject matter, research question, and analysis of the data.
 
 -   **Slides:** The presentation slides were organized, included clear and informative visualizations, and were easily readable.
 

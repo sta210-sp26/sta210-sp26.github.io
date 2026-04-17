@@ -342,7 +342,7 @@ The draft will be graded based on whether there is demonstration of a reasonable
 ::: callout-important
 ## Submission
 
-Write the peer review in the `Peer Review` issue in your assigned GitHub repos by **April 21 at 11:59pm.**
+Write the peer review in the `Peer Review` issue in your assigned GitHub repo by **April 21 at 11:59pm.**
 :::
 
 Critically reviewing others' work is a crucial part of the scientific process, and STA 210 is no exception. Everyone will be assigned two other projects to review. Everyone should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, you will have the opportunity to review and provide quality feedback on two other projects.
@@ -354,14 +354,14 @@ During the peer review process, you will be provided read-only access to the ass
 ::: callout-important
 ## Peer review assignments
 
-Go to the Canvas announcement to see which projects you are reviewing. You'll spend about 30 minutes reviewing each project.
+Go to the Canvas announcement to see which project you are reviewing. You'll spend about 30 minutes reviewing the project.
 :::
 
--   When you get to lab, you should have access to the GitHub repos for the projects you're reviewing. In GitHub, search the repositories for `project`, and you should see the repos for the projects you're reviewing. You will be able to read the files in the repo and post issues, but you cannot push changes to the repo. You will have access to the repo until the deadline for the peer review.
+-   When you get to lab, you should have access to the GitHub repo for the project you're reviewing. In GitHub, search the repositories for `project`, and you should see the repo for the project you're reviewing. You will be able to read the files in the repo and post issues, but you cannot push changes to the repo. You will have access to the repo until the deadline for the peer review.
 
 -   Your feedback should be specific and constructive. Avoid brief comments such as “looks good.” Instead, explain what is effective and suggest concrete improvements where appropriate.
 
--   For each project you're reviewing:
+-   For the project you're reviewing:
 
     -   Open the repo, read the project draft, and browse the rest of the repo.
 
@@ -450,6 +450,18 @@ This is an assessment of the overall presentation and formatting of the written 
 #### Grading criteria
 
 The report is neatly written and organized with clear section headers. Figures have informative labels, are appropriately sized, and are easy to read. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
+
+### AI Disclosure
+
+Did you use an LLM / Generative AI tool to complete the project? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
+
+-   I didn’t use an LLM / Generative AI tool.
+-   I asked it to clarify criteria.
+-   I asked it clarifying questions to better understand a concept.
+-   I asked it to help write code to complete a part of the project.
+-   I gave it my code and asked it to help me fix it.
+-   I asked it about an error or why code would do something I didn’t want.
+-   Other:\_\_\_\_\_\_
 
 <!--# add reproducibility here-->
 
